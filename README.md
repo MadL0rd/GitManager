@@ -1,0 +1,2 @@
+# GitManager
+Swift mobile gitHubClient
