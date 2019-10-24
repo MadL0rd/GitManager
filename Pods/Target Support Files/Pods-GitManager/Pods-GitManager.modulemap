@@ -1,0 +1,6 @@
+module Pods_GitManager {
+  umbrella header "Pods-GitManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
