@@ -17,7 +17,7 @@ class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Мои репозитории"
+        navigationItem.title = NSLocalizedString("My repositories", comment: "Title on repositories screen")
         setupTableView()
 
         presenter?.viewDidLoad()

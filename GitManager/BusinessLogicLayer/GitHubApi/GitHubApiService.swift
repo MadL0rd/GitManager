@@ -57,6 +57,16 @@ class GitHubApiService: GitHubApiServiceProtocol {
                 }
         }
     }
+    
+    func editUserProfile() {
+        Alamofire.request("https://api.github.com/user",
+                          method: .patch,
+                          parameters: ["company" : "inostudio"],
+                          encoding: Alamofire.JSONEncoding.default,
+                          headers: GitHubApiService.headers)
+                          .responseJSON{ response in
+                          }
+    }
 }
 
 
