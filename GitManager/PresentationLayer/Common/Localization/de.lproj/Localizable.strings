@@ -1,0 +1,12 @@
+/* Title on authentication form */
+"Authentication" = "Authentifizierung";
+
+/* Text field on authentication form */
+"Login" = "Einloggen";
+
+/* Text field on authentication form */
+"Password" = "Einloggen";
+
+/* Button on authentication form */
+"Sign in" = "Einloggen";
+

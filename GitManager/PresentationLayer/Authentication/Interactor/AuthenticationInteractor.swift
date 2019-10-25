@@ -36,6 +36,7 @@ class AuthenticationInteractor: AuthenticationInteractorProtocol {
     }
     
     func tryAuthenticationWithSavedUserData() {
+        //keychain?.clearPrivateUserData()
         if let data = keychain?.getPrivateUserData(){
             if data.login != "" && data.password != "" {
                 sendAuthenticationRequest(login: data.login, password: data.password)

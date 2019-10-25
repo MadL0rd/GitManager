@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="GitManager/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.1" build-num="11A1027"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>GitManager</source>
+        <target>GitManager</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="GitManager/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.1" build-num="11A1027"/>
+    </header>
+    <body>
+      <trans-unit id="Authentication" xml:space="preserve">
+        <source>Authentication</source>
+        <target>Authentication</target>
+        <note>Title on authentication form</note>
+      </trans-unit>
+      <trans-unit id="Login" xml:space="preserve">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Text field on authentication form</note>
+      </trans-unit>
+      <trans-unit id="Password" xml:space="preserve">
+        <source>Password</source>
+        <target>Password</target>
+        <note>Text field on authentication form</note>
+      </trans-unit>
+      <trans-unit id="Sign in" xml:space="preserve">
+        <source>Sign in</source>
+        <target>Sign in</target>
+        <note>Button on authentication form</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

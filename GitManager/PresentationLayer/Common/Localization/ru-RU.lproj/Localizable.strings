@@ -1,0 +1,12 @@
+/* Title on authentication form */
+"Authentication" = "Авторизация";
+
+/* Text field on authentication form */
+"Login" = "Логин";
+
+/* Text field on authentication form */
+"Password" = "Пароль";
+
+/* Button on authentication form */
+"Sign in" = "Войти";
+

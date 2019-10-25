@@ -9,28 +9,28 @@
 import UIKit
 
 class AuthenticationStackView: UIStackView {
-
+    
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Авторизация"
+        label.text = NSLocalizedString("Authentication", comment: "Title on authentication form")
         label.textAlignment = .center
         return label
     }()
     let loginTextField : UITextField = {
         let textField = CustomTextField()
-        textField.placeholder = "Логин"
+        textField.placeholder = NSLocalizedString("Login", comment: "Text field on authentication form")
         return textField
     }()
     let passwordTextField : UITextField = {
         let textField = CustomTextField()
-        textField.placeholder = "Пароль"
+        textField.placeholder = NSLocalizedString("Password", comment: "Text field on authentication form")
         textField.isSecureTextEntry = true
         return textField
     }()
     let loginButton: CustomButton = {
         let btn = CustomButton()
         btn.setBlocked()
-        btn.setTitle("Login", for: .normal)
+        btn.setTitle(NSLocalizedString("Sign in", comment: "Button on authentication form"), for: .normal)
         return btn
     }()
     
