@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         let screenRouter = ScreensRouter(mainWindow: window)
-        screenRouter.showNewScreen(creator: AuthenticationRouter.createModule(screensRouter:), true)
+        screenRouter.showNewScreen(AuthenticationRouter.self)
         
         return true
     }

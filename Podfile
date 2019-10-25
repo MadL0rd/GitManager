@@ -3,4 +3,5 @@
 
 target 'GitManager' do
 	pod 'Alamofire'
+  pod 'KeychainSwift'
 end

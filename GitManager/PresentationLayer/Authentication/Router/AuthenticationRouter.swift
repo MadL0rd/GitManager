@@ -35,6 +35,6 @@ class AuthenticationRouter: AuthenticationRouterProtocol, DependentRouterProtoco
     
     
     func pushMainScreen() {
-        mainRouter.showNewScreen(creator: ReposListRouter.createModule(screensRouter: ), false)
+        mainRouter.pushNewScreenToNavigationController(ReposListRouter.self)
     }
 }

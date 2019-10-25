@@ -343,22 +343,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E200B560-375D-450D-B599-4A9691AAA1B3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GitManager/BusinessLogicLayer/ScreensRouter/ScreensRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "showNewScreen(creator:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "47059198-672C-409D-B12C-05D73EA470B8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -369,6 +353,22 @@
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "_parseJsonResponse(data:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D079528B-8E58-40CB-A3D2-7C8F512892D5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitManager/BusinessLogicLayer/GitHubApi/GitHubApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getRepositories(callBack:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

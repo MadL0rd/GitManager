@@ -13,6 +13,7 @@ protocol ScreensRouterProtocol: class {
     var window: UIWindow { get }
     
     init(mainWindow: UIWindow)
-    func showNewScreen(creator: @escaping(_ screensRouter: ScreensRouterProtocol) -> UIViewController, _ withoutNavigationController : Bool)
-}
+    func showNewScreen<T: DependentRouterProtocol>(_ creator: T.Type)
+    func pushNewScreenToNavigationController<T: DependentRouterProtocol>(_ creator: T.Type)
 
+}

@@ -9,7 +9,7 @@
 import UIKit
 
 class ScreensRouter: ScreensRouterProtocol {
-    
+     
     let window: UIWindow
     var navigationController : UINavigationController?
     
@@ -18,17 +18,18 @@ class ScreensRouter: ScreensRouterProtocol {
         window.makeKeyAndVisible()
     }
     
-    func showNewScreen(creator: ((ScreensRouterProtocol) -> UIViewController), _ withoutNavigationController: Bool = false) {
-        let view = creator(self)
-        if withoutNavigationController {
-            window.rootViewController = view
+    func showNewScreen<T>(_ creator: T.Type) where T : DependentRouterProtocol {
+        let view = creator.createModule(screensRouter: self)
+        window.rootViewController = view
+    }
+
+    func pushNewScreenToNavigationController<T>(_ creator: T.Type) where T : DependentRouterProtocol {
+        let view = creator.createModule(screensRouter: self)
+        if navigationController == nil {
+            navigationController = UINavigationController(rootViewController: view)
         }else{
-            if navigationController == nil {
-                navigationController = UINavigationController(rootViewController: view)
-                window.rootViewController = navigationController
-            }else{
-                navigationController?.pushViewController(view, animated: true)
-            }
+            navigationController?.pushViewController(view, animated: true)
         }
+        window.rootViewController = navigationController
     }
 }
