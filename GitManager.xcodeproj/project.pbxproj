@@ -15,6 +15,8 @@
 		8419EAC32356163E0033B5B2 /* GitManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419EAC22356163E0033B5B2 /* GitManagerUITests.swift */; };
 		8419EAD1235617330033B5B2 /* libAlamofire.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8419EAD0235617330033B5B2 /* libAlamofire.a */; };
 		8419EAD8235620050033B5B2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419EAD7235620050033B5B2 /* Repository.swift */; };
+		843C82672363026B00469428 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82662363026B00469428 /* KeychainServiceProtocol.swift */; };
+		843C82692363037200469428 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82682363037200469428 /* KeychainService.swift */; };
 		843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D05DA235F43BB00E88B58 /* RepositoryTableViewCell.swift */; };
 		843D05E0235F531800E88B58 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D05DF235F531800E88B58 /* AuthenticationViewController.swift */; };
 		843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D05E2235F53A000E88B58 /* AuthenticationPresenter.swift */; };
@@ -71,6 +73,8 @@
 		8419EAC42356163E0033B5B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8419EAD0235617330033B5B2 /* libAlamofire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAlamofire.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8419EAD7235620050033B5B2 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		843C82662363026B00469428 /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
+		843C82682363037200469428 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		843D05DA235F43BB00E88B58 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		843D05DF235F531800E88B58 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		843D05E2235F53A000E88B58 /* AuthenticationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPresenter.swift; sourceTree = "<group>"; };
@@ -220,6 +224,15 @@
 			path = ModelsLayer;
 			sourceTree = "<group>";
 		};
+		843C82652363012C00469428 /* KeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				843C82662363026B00469428 /* KeychainServiceProtocol.swift */,
+				843C82682363037200469428 /* KeychainService.swift */,
+			);
+			path = KeychainService;
+			sourceTree = "<group>";
+		};
 		843D05DC235F449000E88B58 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +285,7 @@
 		843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				843C82652363012C00469428 /* KeychainService */,
 				84457ED62361E864005C2549 /* ScreensRouter */,
 				84457ED52361E856005C2549 /* GitHubApi */,
 			);
@@ -521,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843C82692363037200469428 /* KeychainService.swift in Sources */,
 				84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */,
 				845D2058235B5AAA003B3F10 /* CustomTextField.swift in Sources */,
 				843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */,
@@ -536,6 +551,7 @@
 				843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
 				843D9BF0235DB6D100AA5AC9 /* ReposListView.swift in Sources */,
+				843C82672363026B00469428 /* KeychainServiceProtocol.swift in Sources */,
 				843D16E92359FF7200AEB3F9 /* GitUser.swift in Sources */,
 				843EA14D23575040008A3E0E /* ReposListInteractor.swift in Sources */,
 				845D2051235B4AC4003B3F10 /* Extentions.swift in Sources */,

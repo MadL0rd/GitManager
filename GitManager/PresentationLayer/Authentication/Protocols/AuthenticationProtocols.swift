@@ -8,16 +8,16 @@
 
 protocol AuthenticationViewProtocol: class {
     
-    var presenter: AuthenticationPresenterProtocol? { get set }
+    var presenter:  AuthenticationPresenterProtocol?    { get set }
     
     func showErrorMessage()
 }
 
 protocol AuthenticationPresenterProtocol: class {
     
-    var view: AuthenticationViewProtocol? { get set }
-    var interactor: AuthenticationInteractorProtocol? { get set }
-    var router: AuthenticationRouterProtocol? { get set }
+    var view:       AuthenticationViewProtocol?         { get set }
+    var interactor: AuthenticationInteractorProtocol?   { get set }
+    var router:     AuthenticationRouterProtocol?       { get set }
     
     func tryToAuthenticate(login: String, password: String)
     func showNextScreen()
@@ -26,12 +26,13 @@ protocol AuthenticationPresenterProtocol: class {
 
 protocol AuthenticationInteractorProtocol: class {
     
-    var presenter: AuthenticationPresenterProtocol? { get set }
-    var apiService: GitHubApiServiceProtocol? { get set }
+    var presenter:  AuthenticationPresenterProtocol?    { get set }
+    var keychain:   KeychainServiceProtocol?            { get set }
+    var apiService: GitHubApiServiceProtocol?           { get set }
     
     func sendAuthenticationRequest(login: String, password: String)
     func getAuthenticationRequestResult(success: Bool)
-    func getUserPrivateData() -> (login: String, password: String)
+    func tryAuthenticationWithSavedUserData()
 }
 
 protocol AuthenticationRouterProtocol: class {

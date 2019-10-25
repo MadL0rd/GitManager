@@ -48,8 +48,8 @@ class GitHubApiService: GitHubApiServiceProtocol {
         Alamofire.request("https://api.github.com/user", headers: GitHubApiService.headers)
             .responseJSON{ response in
                 if let dataJson = self._parseJsonResponse(data: response.data!) as? NSDictionary{
-                    let message = dataJson["message"] as? String
-                    if message == "Bad credentials"{
+                    let login = dataJson["login"] as? String
+                    if login == nil{
                         callBack(false)
                     }else{
                         callBack(true)

@@ -29,6 +29,9 @@ class AuthenticationRouter: AuthenticationRouterProtocol, DependentRouterProtoco
         
         interactor.presenter = presenter
         interactor.apiService = GitHubApiService()
+        interactor.keychain = KeychainService()
+        
+        interactor.tryAuthenticationWithSavedUserData()
         
         return view
     }

@@ -9,15 +9,15 @@
 import UIKit
 
 protocol ReposListViewProtocol: class {
-    var presenter: ReposListPresenterProtocol? { get set }
+    var presenter:  ReposListPresenterProtocol?     { get set }
     
     func showReposList()
 }
 
 protocol ReposListPresenterProtocol: class {
-    var interactor: ReposListInteractorProtocol? {get set}
-    var view: ReposListViewProtocol? {get set}
-    var router: ReposListRouterProtocol? {get set}
+    var interactor: ReposListInteractorProtocol?    { get set }
+    var view:       ReposListViewProtocol?          { get set }
+    var router:     ReposListRouterProtocol?        { get set }
     
     func viewDidLoad()
     func getItemsCount() -> Int
@@ -26,8 +26,8 @@ protocol ReposListPresenterProtocol: class {
 }
 
 protocol ReposListInteractorProtocol: class {
-    var presenter: ReposListPresenterProtocol? { get set }
-    var apiService: GitHubApiServiceProtocol? { get set }
+    var presenter:  ReposListPresenterProtocol?     { get set }
+    var apiService: GitHubApiServiceProtocol?       { get set }
     
     func getReposList()
 }
