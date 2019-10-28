@@ -9,7 +9,7 @@
 import Foundation
 
 class ReposListPresenter: ReposListPresenterProtocol {
-    
+
     var router: ReposListRouterProtocol?
     weak var view: ReposListViewProtocol?
     var interactor: ReposListInteractorProtocol?
@@ -39,5 +39,9 @@ class ReposListPresenter: ReposListPresenterProtocol {
     func reposListDidFetch(repositories: [Repository]) {
         repositoryList = repositories
         view?.showReposList()
+    }
+    
+    func showProfileEditor() {
+        router?.pushProfileEditor()
     }
 }

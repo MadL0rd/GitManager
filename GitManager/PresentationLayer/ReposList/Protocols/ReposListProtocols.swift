@@ -23,6 +23,7 @@ protocol ReposListPresenterProtocol: class {
     func getItemsCount() -> Int
     func getItemWithIndex(index: Int) -> Repository?
     func reposListDidFetch(repositories: [Repository])
+    func showProfileEditor()
 }
 
 protocol ReposListInteractorProtocol: class {
@@ -30,9 +31,10 @@ protocol ReposListInteractorProtocol: class {
     var apiService: GitHubApiServiceProtocol?       { get set }
     
     func getReposList()
+    func sendReposList(repositories : [Repository])
 }
 
 protocol ReposListRouterProtocol: class {
-
+    func pushProfileEditor()
 }
 

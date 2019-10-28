@@ -12,4 +12,7 @@ protocol GitHubApiServiceProtocol {
     
     func authentication(login: String, password: String, callBack : @escaping(_ sucess : Bool)-> Void)
     func getRepositories(callBack : @escaping(_ repositories : [Repository])-> Void)
+    func getAuthenticatedUser(callBack : @escaping(_ user : GitUser)-> Void)
+    func getPublicUserInfo(login: String, callBack : @escaping(_ user : GitUser)-> Void)
+    func editUserProfile(newUserData: GitUser, callBack : @escaping(_ user : GitUser)-> Void)
 }

@@ -19,6 +19,7 @@ class ScreensRouter: ScreensRouterProtocol {
     }
     
     func showNewScreen<T>(_ creator: T.Type) where T : DependentRouterProtocol {
+        navigationController = nil
         let view = creator.createModule(screensRouter: self)
         window.rootViewController = view
     }

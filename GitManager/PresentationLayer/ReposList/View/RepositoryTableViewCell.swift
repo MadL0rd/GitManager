@@ -21,7 +21,6 @@ class RepositoryTabelViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(nameLabel)
-        
         nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: self.contentView.bounds.width / 8).isActive = true
     }

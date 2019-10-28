@@ -15,5 +15,4 @@ protocol ScreensRouterProtocol: class {
     init(mainWindow: UIWindow)
     func showNewScreen<T: DependentRouterProtocol>(_ creator: T.Type)
     func pushNewScreenToNavigationController<T: DependentRouterProtocol>(_ creator: T.Type)
-
 }

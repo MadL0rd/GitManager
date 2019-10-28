@@ -19,7 +19,7 @@ class ReposListInteractor: ReposListInteractorProtocol {
         apiService?.getRepositories(callBack: self.sendReposList)
     }
     
-    func sendReposList( repositories : [Repository]) {
+    func sendReposList(repositories : [Repository]) {
         presenter?.reposListDidFetch(repositories: repositories)
     }
     

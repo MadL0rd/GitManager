@@ -1,14 +1,14 @@
 //
-//  ReposListRouter.swift
+//  ProvileEditorRouter.swift
 //  GitManager
 //
-//  Created by Антон Текутов on 16.10.2019.
+//  Created by Антон Текутов on 28.10.2019.
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
 import UIKit
 
-class ReposListRouter: ReposListRouterProtocol , DependentRouterProtocol {
+class ProfileEditorRouter: ProfileEditorRouterProtocol , DependentRouterProtocol {
 
     var mainRouter: ScreensRouterProtocol
 
@@ -17,10 +17,10 @@ class ReposListRouter: ReposListRouterProtocol , DependentRouterProtocol {
     }
     
     static func createModule(screensRouter: ScreensRouterProtocol) -> UIViewController {
-        let view = ReposListView()
-        let presenter = ReposListPresenter()
-        let interactor = ReposListInteractor()
-        let router = ReposListRouter(screensRouter)
+        let view = ProfileEditorView()
+        let presenter = ProfileEditorPresenter()
+        let interactor = ProfileEditorInteractor()
+        let router = ProfileEditorRouter(screensRouter)
         
         view.presenter = presenter
         
@@ -30,11 +30,13 @@ class ReposListRouter: ReposListRouterProtocol , DependentRouterProtocol {
 
         interactor.presenter = presenter
         interactor.apiService = GitHubApiService()
-        
+        interactor.keychain = KeychainService()
+
         return view
     }
     
-    func pushProfileEditor() {
-        mainRouter.pushNewScreenToNavigationController(ProfileEditorRouter.self)
+    func showAuthenticationScreen(){
+        mainRouter.showNewScreen(AuthenticationRouter.self)
     }
 }
+

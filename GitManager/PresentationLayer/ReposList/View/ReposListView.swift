@@ -18,6 +18,8 @@ class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSou
         super.viewDidLoad()
         
         navigationItem.title = NSLocalizedString("My repositories", comment: "Title on repositories screen")
+        let editString = NSLocalizedString("Edit Profile", comment: "Button on repositories screen")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: editString, style: .plain, target: self, action: #selector(editProfile))
         setupTableView()
 
         presenter?.viewDidLoad()
@@ -54,6 +56,9 @@ class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSou
         tableViewRepositories.reloadData()
     }
     
+    @objc func editProfile(){
+        presenter?.showProfileEditor()
+    }
 }
 
 

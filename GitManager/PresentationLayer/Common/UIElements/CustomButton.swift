@@ -21,8 +21,11 @@ class CustomButton: UIButton {
         setupButton()
     }
     
-    private let active  = UIColor("#00D455FF")
-    private let blocked = UIColor("#C0C0C0FF")
+    private let activeColor  = UIColor("#00D455FF")
+    private let blockedColor = UIColor("#C0C0C0FF")
+    private var activeText = ""
+    private var blockedText = ""
+    private var textChanging = false
     
     private func setupButton() {
         layer.cornerRadius      = 9
@@ -32,12 +35,28 @@ class CustomButton: UIButton {
     }
     
     func setActive() {
+        if textChanging {
+            setTitle(activeText, for: .normal)
+        }
         isUserInteractionEnabled = true
-        backgroundColor          = active
+        backgroundColor          = activeColor
     }
     
     func setBlocked(){
+        if textChanging {
+            setTitle(blockedText, for: .normal)
+        }
         isUserInteractionEnabled = false
-        backgroundColor          = blocked
+        backgroundColor          = blockedColor
+    }
+    
+    func setChangingText(active: String, blocked: String){
+        activeText = active
+        blockedText = blocked
+        textChanging = true
+    }
+    
+    func disableTextChanging(){
+        textChanging = false
     }
 }
