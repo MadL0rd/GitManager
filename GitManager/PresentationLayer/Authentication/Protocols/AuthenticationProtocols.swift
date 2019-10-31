@@ -19,6 +19,7 @@ protocol AuthenticationPresenterProtocol: class {
     var interactor: AuthenticationInteractorProtocol?   { get set }
     var router:     AuthenticationRouterProtocol?       { get set }
     
+    func viewDidLoad()
     func tryToAuthenticate(login: String, password: String)
     func showNextScreen()
     func showErrorMessage()
@@ -31,7 +32,7 @@ protocol AuthenticationInteractorProtocol: class {
     var apiService: GitHubApiServiceProtocol?           { get set }
     
     func sendAuthenticationRequest(login: String, password: String)
-    func getAuthenticationRequestResult(success: Bool)
+    func authenticationRequestResult(success: Bool)
     func tryAuthenticationWithSavedUserData()
 }
 

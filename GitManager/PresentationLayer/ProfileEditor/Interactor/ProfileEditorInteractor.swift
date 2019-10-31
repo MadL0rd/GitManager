@@ -16,7 +16,7 @@ class ProfileEditorInteractor: ProfileEditorInteractorProtocol {
     func getUserProfile() {
         if multiRequestBlocker {
             multiRequestBlocker = false
-            apiService?.getAuthenticatedUser(callBack: sendUserProfile(user:))
+            apiService?.getAuthenticatedUser(callback: sendUserProfile(user:))
         }
     }
     
@@ -28,7 +28,7 @@ class ProfileEditorInteractor: ProfileEditorInteractorProtocol {
     func patchUserProfile(newUserData: GitUser) {
         if multiRequestBlocker {
             multiRequestBlocker = false
-            apiService?.editUserProfile(newUserData: newUserData, callBack: sendUserProfile(user:))
+            apiService?.editUserProfile(newUserData: newUserData, callback: sendUserProfile(user:))
         }
     }
     

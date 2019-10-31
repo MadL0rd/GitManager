@@ -21,11 +21,11 @@ class AuthenticationInteractor: AuthenticationInteractorProtocol {
             multiRequestBlocker = false
             loginBuff = login
             passwordBuff = password
-            apiService?.authentication(login: login, password: password, callBack: self.getAuthenticationRequestResult)
+            apiService?.authenticate(login: login, password: password, callback: self.authenticationRequestResult)
         }
     }
     
-    func getAuthenticationRequestResult(success: Bool) {
+    func authenticationRequestResult(success: Bool) {
         multiRequestBlocker = true
         if success {
             keychain?.setPrivateUserData(login: loginBuff, password: passwordBuff)
@@ -36,7 +36,6 @@ class AuthenticationInteractor: AuthenticationInteractorProtocol {
     }
     
     func tryAuthenticationWithSavedUserData() {
-        //keychain?.clearPrivateUserData()
         if let data = keychain?.getPrivateUserData(){
             if data.login != "" && data.password != "" {
                 sendAuthenticationRequest(login: data.login, password: data.password)

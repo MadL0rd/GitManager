@@ -9,7 +9,7 @@
 import UIKit
 
 class ScreensRouter: ScreensRouterProtocol {
-     
+
     let window: UIWindow
     var navigationController : UINavigationController?
     
@@ -24,8 +24,8 @@ class ScreensRouter: ScreensRouterProtocol {
         window.rootViewController = view
     }
 
-    func pushNewScreenToNavigationController<T>(_ creator: T.Type) where T : DependentRouterProtocol {
-        let view = creator.createModule(screensRouter: self)
+    func pushNewScreenToNavigationController<T>(_ creator: T.Type, content: AnyObject?) where T : DependentRouterProtocol {
+        let view = creator.createModule(screensRouter: self, content: content)
         if navigationController == nil {
             navigationController = UINavigationController(rootViewController: view)
         }else{

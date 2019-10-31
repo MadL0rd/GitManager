@@ -11,7 +11,6 @@ import UIKit
 class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSource, UITableViewDelegate {
     
     var tableViewRepositories = UITableView()
-    
     var presenter: ReposListPresenterProtocol?
     
     override func viewDidLoad() {
@@ -37,15 +36,29 @@ class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSou
         tableViewRepositories.dataSource = self
         tableViewRepositories.delegate = self
         tableViewRepositories.register(RepositoryTabelViewCell.self, forCellReuseIdentifier: "repositoryCell")
+        //tableViewRepositories.rowHeight = 100
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.getItemsCount() == nil ? 0 : presenter?.getItemsCount() ?? 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoryTabelViewCell
+        cell.starButton.addTarget(self, action: #selector(starRepository), for: .touchUpInside)
         cell.showRepository(repos: presenter?.getItemWithIndex(index: indexPath.row))
         return cell
+    }
+    
+    @objc func starRepository(sender: UIButton!){
+        guard let cell = sender.superview?.superview as? RepositoryTabelViewCell else {return}
+        guard let index = tableViewRepositories.indexPath(for: cell)?.row else {return}
+        presenter?.starRepository(index: index)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.showReposPageByItemIndex(index: indexPath.row)
     }
     
     override func didReceiveMemoryWarning() {

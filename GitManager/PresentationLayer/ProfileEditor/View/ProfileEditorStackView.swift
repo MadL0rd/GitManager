@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileEditorStackView: UIStackView {
+    
     var user : GitUser = GitUser()
 
     let nameLabel: UILabel = {
@@ -38,8 +39,8 @@ class ProfileEditorStackView: UIStackView {
         let textField = CustomTextField()
         return textField
     }()
-    let saveButton: CustomButton = {
-        let btn = CustomButton()
+    let saveButton: twoStateButton = {
+        let btn = twoStateButton()
         btn.setChangingText(active:     NSLocalizedString("Save", comment: "profile editor screen"),
                             blocked:    NSLocalizedString("There is no changes", comment: "profile editor screen"))
         btn.setBlocked()

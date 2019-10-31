@@ -11,16 +11,30 @@ import UIKit
 
 
 class ReposListInteractor: ReposListInteractorProtocol {
-    
+   
     var presenter: ReposListPresenterProtocol?
     var apiService: GitHubApiServiceProtocol?
         
-    func getReposList(){
-        apiService?.getRepositories(callBack: self.sendReposList)
+    func getReposLists(){
+        apiService?.getStarredRepositories(callback: self.sendStarredReposList)
+        apiService?.getRepositories(callback: self.sendReposList)
     }
     
     func sendReposList(repositories : [Repository]) {
         presenter?.reposListDidFetch(repositories: repositories)
     }
     
+    func sendStarredReposList(repositories : [Repository]) {
+        presenter?.starredReposListDidFetch(repositories: repositories)
+    }
+    
+    func starRepository(repository: Repository) {
+        apiService?.starRepository(repository: repository, callback: starredCallback(starredReposId:))
+    }
+    
+    private func starredCallback(starredReposId: Int64?){
+        if let id = starredReposId{
+            presenter?.refreshRepositoryStar(id: id)
+        }
+    }
 }

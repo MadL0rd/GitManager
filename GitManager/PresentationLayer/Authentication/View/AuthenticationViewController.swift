@@ -10,8 +10,8 @@ import UIKit
 class AuthenticationViewController: UIViewController, AuthenticationViewProtocol {
     
     var presenter: AuthenticationPresenterProtocol?
-    let form: AuthenticationStackView = {
-        let view = AuthenticationStackView()
+    let form: AuthenticationForm = {
+        let view = AuthenticationForm()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -25,6 +25,8 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
         view.backgroundColor = .white
         
         setupView()
+        
+        presenter?.viewDidLoad()
     }
     
     func setupView(){
@@ -40,7 +42,7 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
     }
     
     @objc func textConteinsCheck(){
-        if form.textFieldsCheck(){
+        if form.textFieldsIsNotEmpty(){
             form.loginButton.setActive()
         }else{
             form.loginButton.setBlocked()

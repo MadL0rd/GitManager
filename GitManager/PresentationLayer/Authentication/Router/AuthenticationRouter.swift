@@ -15,7 +15,7 @@ class AuthenticationRouter: AuthenticationRouterProtocol, DependentRouterProtoco
         mainRouter = screensRouter
     }
     
-    static func createModule(screensRouter: ScreensRouterProtocol) -> UIViewController {
+    static func createModule(screensRouter: ScreensRouterProtocol, content: AnyObject?) -> UIViewController {
         let view = AuthenticationViewController()
         let presenter = AuthenticationPresenter()
         let interactor = AuthenticationInteractor()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthenticationStackView: UIStackView {
+class AuthenticationForm: UIStackView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -27,8 +27,8 @@ class AuthenticationStackView: UIStackView {
         textField.isSecureTextEntry = true
         return textField
     }()
-    let loginButton: CustomButton = {
-        let btn = CustomButton()
+    let loginButton: twoStateButton = {
+        let btn = twoStateButton()
         btn.setBlocked()
         btn.setTitle(NSLocalizedString("Sign in", comment: "Button on authentication form"), for: .normal)
         return btn
@@ -56,12 +56,9 @@ class AuthenticationStackView: UIStackView {
         addArrangedSubview(loginButton)
     }
     
-    func textFieldsCheck()-> Bool{
-        if  loginTextField.text?.count ?? 0 > 0 &&
-            passwordTextField.text?.count ?? 0 > 0 {
-            return true
-        }
-        return false
+    func textFieldsIsNotEmpty()-> Bool{
+        guard let login = loginTextField.text, let pass = passwordTextField.text else { return false }
+        return !(login.isEmpty || pass.isEmpty)
     }
 }
  

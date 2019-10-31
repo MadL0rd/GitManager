@@ -16,7 +16,7 @@ class ReposListRouter: ReposListRouterProtocol , DependentRouterProtocol {
         mainRouter = screensRouter
     }
     
-    static func createModule(screensRouter: ScreensRouterProtocol) -> UIViewController {
+    static func createModule(screensRouter: ScreensRouterProtocol, content: AnyObject?) -> UIViewController {
         let view = ReposListView()
         let presenter = ReposListPresenter()
         let interactor = ReposListInteractor()
@@ -36,5 +36,9 @@ class ReposListRouter: ReposListRouterProtocol , DependentRouterProtocol {
     
     func pushProfileEditor() {
         mainRouter.pushNewScreenToNavigationController(ProfileEditorRouter.self)
+    }
+    
+    func pushReposPage(repository: Repository) {
+        mainRouter.pushNewScreenToNavigationController(ReposPageRouter.self, content: repository as AnyObject)
     }
 }

@@ -6,13 +6,13 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-import UIKit
-
 protocol GitHubApiServiceProtocol {
     
-    func authentication(login: String, password: String, callBack : @escaping(_ sucess : Bool)-> Void)
-    func getRepositories(callBack : @escaping(_ repositories : [Repository])-> Void)
-    func getAuthenticatedUser(callBack : @escaping(_ user : GitUser)-> Void)
-    func getPublicUserInfo(login: String, callBack : @escaping(_ user : GitUser)-> Void)
-    func editUserProfile(newUserData: GitUser, callBack : @escaping(_ user : GitUser)-> Void)
+    func authenticate(login: String, password: String, callback : @escaping(_ success : Bool)-> Void)
+    func getRepositories(callback : @escaping(_ repositories : [Repository])-> Void)
+    func getStarredRepositories(callback : @escaping(_ repositories : [Repository])-> Void)
+    func getAuthenticatedUser(callback : @escaping(_ user : GitUser)-> Void)
+    func getPublicUserInfo(login: String, callback : @escaping(_ user : GitUser)-> Void)
+    func editUserProfile(newUserData: GitUser, callback : @escaping(_ user : GitUser)-> Void)
+    func starRepository(repository: Repository, callback : @escaping(_ starredReposId: Int64?)-> Void)
 }

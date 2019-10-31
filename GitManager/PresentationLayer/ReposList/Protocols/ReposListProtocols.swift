@@ -23,18 +23,25 @@ protocol ReposListPresenterProtocol: class {
     func getItemsCount() -> Int
     func getItemWithIndex(index: Int) -> Repository?
     func reposListDidFetch(repositories: [Repository])
+    func starredReposListDidFetch(repositories: [Repository])
     func showProfileEditor()
+    func showReposPageByItemIndex(index: Int)
+    func starRepository(index: Int)
+    func refreshRepositoryStar(id: Int64)
 }
 
 protocol ReposListInteractorProtocol: class {
     var presenter:  ReposListPresenterProtocol?     { get set }
     var apiService: GitHubApiServiceProtocol?       { get set }
     
-    func getReposList()
+    func getReposLists()
     func sendReposList(repositories : [Repository])
+    func sendStarredReposList(repositories : [Repository])
+    func starRepository(repository: Repository)
 }
 
 protocol ReposListRouterProtocol: class {
     func pushProfileEditor()
+    func pushReposPage(repository: Repository)
 }
 

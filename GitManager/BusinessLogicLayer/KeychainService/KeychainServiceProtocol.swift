@@ -10,8 +10,6 @@ import KeychainSwift
 
 protocol KeychainServiceProtocol: class {
     
-    var keychain: KeychainSwift { get }
-    
     func getPrivateUserData() -> (login: String, password: String)
     func setPrivateUserData(login: String, password: String)
     func clearPrivateUserData()

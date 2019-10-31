@@ -10,28 +10,39 @@ import Foundation
 
 struct Repository {
     let id: Int64?
-    let name : String?
+    let name : String
+    let fullName : String
     let url: String?
     let owner: GitUser?
-    var privateAccess: Bool?
-    var favorites: Bool
+    var privateAccess: Bool
+    var description: String
+    var language: String?
+    var starred: Bool
+    var openIssuesCount: Int
     
     init(_ data: NSDictionary?) {
         
-        favorites = false
-        
+        starred = false
         if let dictionary = data{
             id = dictionary["id"] as? Int64
-            name = dictionary["name"] as? String
+            name = dictionary["name"] as? String ?? ""
+            fullName = dictionary["full_name"] as? String ?? ""
             url = dictionary["url"] as? String
             owner = GitUser(dictionary["owner"] as? NSDictionary)
-            privateAccess = dictionary["private"] as? Bool
+            privateAccess = dictionary["private"] as? Bool ?? false
+            description = dictionary["description"] as? String ?? ""
+            language = dictionary["language"] as? String
+            openIssuesCount = dictionary["open_issues"] as? Int ?? 0
         }else {
             id = nil
-            name = nil
+            name = ""
+            fullName = ""
             url = nil
             owner = nil
-            privateAccess = nil
+            privateAccess = false
+            description = ""
+            language = nil
+            openIssuesCount = 0
         }
     }
     

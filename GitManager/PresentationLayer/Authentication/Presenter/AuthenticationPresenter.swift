@@ -12,6 +12,10 @@ class AuthenticationPresenter: AuthenticationPresenterProtocol{
     var interactor: AuthenticationInteractorProtocol?
     var router: AuthenticationRouterProtocol?
     
+    func viewDidLoad() {
+        
+    }
+    
     func tryToAuthenticate(login: String, password: String) {
         interactor?.sendAuthenticationRequest(login: login, password: password)
     }

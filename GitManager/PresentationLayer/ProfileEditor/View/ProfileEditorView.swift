@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
+    
     var presenter: ProfileEditorPresenterProtocol?
     let form: ProfileEditorStackView = {
         let view = ProfileEditorStackView()

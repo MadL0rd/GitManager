@@ -16,7 +16,7 @@ class ProfileEditorRouter: ProfileEditorRouterProtocol , DependentRouterProtocol
         mainRouter = screensRouter
     }
     
-    static func createModule(screensRouter: ScreensRouterProtocol) -> UIViewController {
+    static func createModule(screensRouter: ScreensRouterProtocol, content: AnyObject?) -> UIViewController {
         let view = ProfileEditorView()
         let presenter = ProfileEditorPresenter()
         let interactor = ProfileEditorInteractor()
