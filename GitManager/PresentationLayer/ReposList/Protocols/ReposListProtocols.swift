@@ -27,7 +27,7 @@ protocol ReposListPresenterProtocol: class {
     func showProfileEditor()
     func showReposPageByItemIndex(index: Int)
     func starRepository(index: Int)
-    func refreshRepositoryStar(id: Int64)
+    func refreshRepositoryStar(repository: Repository)
 }
 
 protocol ReposListInteractorProtocol: class {

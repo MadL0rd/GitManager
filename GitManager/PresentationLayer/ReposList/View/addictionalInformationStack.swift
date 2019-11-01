@@ -41,13 +41,13 @@ class addictionalInformationStack: UIStackView {
     }
     func setContent(repos : Repository){
         if repos.privateAccess{
-            addArrangedSubview(createItem(color: .red, text: "Private"))
+            addArrangedSubview(createItem(color: .red, text: "  Private  "))
         }else{
-            addArrangedSubview(createItem(color: .green, text: "Public"))
+            addArrangedSubview(createItem(color: .green, text: "  Public  "))
         }
         if let lang = repos.language {
-            addArrangedSubview(createItem(color: .blue, text: lang))
+            addArrangedSubview(createItem(color: .blue, text: "  \(lang)  "))
         }
-        addArrangedSubview(createItem(color: .gray, text: "Issues: \(repos.openIssuesCount)"))
+        addArrangedSubview(createItem(color: .gray, text: "  Issues: \(repos.openIssuesCount)  "))
     }
 }

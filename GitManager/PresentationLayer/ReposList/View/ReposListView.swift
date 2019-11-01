@@ -54,7 +54,6 @@ class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSou
         guard let cell = sender.superview?.superview as? RepositoryTabelViewCell else {return}
         guard let index = tableViewRepositories.indexPath(for: cell)?.row else {return}
         presenter?.starRepository(index: index)
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -75,9 +75,9 @@ class ReposListPresenter: ReposListPresenterProtocol {
         }
     }
     
-    func refreshRepositoryStar(id: Int64){
-        if let index = repositoryList.firstIndex(where: {$0.id == id}){
-            repositoryList[index].starred = repositoryList[index].starred == true ? false : true
+    func refreshRepositoryStar(repository: Repository){
+        if let index = repositoryList.firstIndex(where: {$0.id == repository.id}){
+            repositoryList[index].starred.toggle()
             view?.showReposList()
         }
     }

@@ -49,6 +49,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
         .responseJSON{ response in
             if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
                 for jsonItem in dataJson{
+                    
                     repositories.append(Repository(jsonItem as? NSDictionary))
                 }
             }
@@ -107,14 +108,14 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
-    func starRepository(repository: Repository, callback : @escaping(_ starredReposId: Int64?)-> Void) {
+    func starRepository(repository: Repository, callback : @escaping(_ starredRepository: Repository?)-> Void) {
         let method = repository.starred == true ? HTTPMethod.delete : HTTPMethod.put
         Alamofire.request(apiUrl + "user/starred/" + repository.fullName,
                           method: method,
                           headers: GitHubApiService.headers)
         .responseJSON{ response in
             if response.result.isSuccess {
-                callback(repository.id)
+                callback(repository)
             }else{
                 callback(nil)
             }

@@ -47,7 +47,7 @@ class RepositoryTabelViewCell: UITableViewCell {
     private func configureNameLabel() {
         nameLabel.textColor = .black
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -cellHeight/4).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -cellHeight/6).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: cellHeight).isActive = true
         nameLabel.numberOfLines = 0
         nameLabel.adjustsFontSizeToFitWidth = true
@@ -56,8 +56,8 @@ class RepositoryTabelViewCell: UITableViewCell {
     private func configureAddictionalInfo(){
         addictionalInfo.layer.backgroundColor = UIColor.red.cgColor
         addictionalInfo.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: cellHeight/4).isActive = true
-        addictionalInfo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellHeight).isActive = true
-        addictionalInfo.heightAnchor.constraint(equalToConstant: cellHeight/6).isActive = true
+        addictionalInfo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellHeight * 0.9).isActive = true
+        addictionalInfo.heightAnchor.constraint(equalToConstant: cellHeight/4).isActive = true
         addictionalInfo.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -80,9 +80,9 @@ class RepositoryTabelViewCell: UITableViewCell {
 
         if addictionalInfo.arrangedSubviews.count == 0{
             addictionalInfo.setContent(repos: reposItem)
-            for item in addictionalInfo.arrangedSubviews{
+            /*for item in addictionalInfo.arrangedSubviews{
                 item.heightAnchor.constraint(equalToConstant: cellHeight/4).isActive = true
-            }
+            }*/
         }
         if reposItem.starred{
             starButton.setActive()

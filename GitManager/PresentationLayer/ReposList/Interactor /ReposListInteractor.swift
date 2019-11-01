@@ -29,12 +29,12 @@ class ReposListInteractor: ReposListInteractorProtocol {
     }
     
     func starRepository(repository: Repository) {
-        apiService?.starRepository(repository: repository, callback: starredCallback(starredReposId:))
+        apiService?.starRepository(repository: repository, callback: starredCallback(starredRepos:))
     }
     
-    private func starredCallback(starredReposId: Int64?){
-        if let id = starredReposId{
-            presenter?.refreshRepositoryStar(id: id)
+    private func starredCallback(starredRepos: Repository?){
+        if let repos = starredRepos{
+            presenter?.refreshRepositoryStar(repository: repos)
         }
     }
 }
