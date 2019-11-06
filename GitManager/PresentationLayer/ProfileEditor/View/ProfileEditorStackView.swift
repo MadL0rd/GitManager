@@ -39,8 +39,8 @@ class ProfileEditorStackView: UIStackView {
         let textField = CustomTextField()
         return textField
     }()
-    let saveButton: twoStateButton = {
-        let btn = twoStateButton()
+    let saveButton: TwoStateButton = {
+        let btn = TwoStateButton()
         btn.setChangingText(active:     NSLocalizedString("Save", comment: "profile editor screen"),
                             blocked:    NSLocalizedString("There is no changes", comment: "profile editor screen"))
         btn.setBlocked()

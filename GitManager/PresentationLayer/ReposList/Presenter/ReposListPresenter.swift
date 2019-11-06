@@ -14,10 +14,8 @@ class ReposListPresenter: ReposListPresenterProtocol {
     weak var view: ReposListViewProtocol?
     var interactor: ReposListInteractorProtocol?
     
-    private var repositoryList = [Repository]()
-    private var repositoriesDownloaded = false
-    private var starredRepositoryList = [Repository]()
-    private var starredRepositoriesDownloaded = false
+    var repositoryList = [Repository]()
+    var starredRepositoryList = [Repository]()
     
     func viewDidLoad() {
         interactor?.getReposLists()
@@ -36,28 +34,7 @@ class ReposListPresenter: ReposListPresenterProtocol {
         }
     }
     
-    func reposListDidFetch(repositories: [Repository]) {
-        repositoryList = repositories
-        repositoriesDownloaded = true
-        if starredRepositoriesDownloaded{
-            setStarredAndShowRepositories()
-        }
-    }
-    
-    func starredReposListDidFetch(repositories: [Repository]) {
-        starredRepositoryList = repositories
-        starredRepositoriesDownloaded = true
-        if repositoriesDownloaded{
-            setStarredAndShowRepositories()
-        }
-    }
-    
-    private func setStarredAndShowRepositories(){
-        for item in starredRepositoryList{
-            if let index = repositoryList.firstIndex(where: {$0.id == item.id}){
-                repositoryList[index].starred = true
-            }
-        }
+    func showRepositories(){
         view?.showReposList()
     }
     
@@ -78,7 +55,7 @@ class ReposListPresenter: ReposListPresenterProtocol {
     func refreshRepositoryStar(repository: Repository){
         if let index = repositoryList.firstIndex(where: {$0.id == repository.id}){
             repositoryList[index].starred.toggle()
-            view?.showReposList()
+            view?.repoladCellWithIndex(index: index)
         }
     }
 }

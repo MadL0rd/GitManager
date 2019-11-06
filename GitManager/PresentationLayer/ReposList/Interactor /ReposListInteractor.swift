@@ -14,6 +14,10 @@ class ReposListInteractor: ReposListInteractorProtocol {
    
     var presenter: ReposListPresenterProtocol?
     var apiService: GitHubApiServiceProtocol?
+    
+    private var repositoriesDownloaded = false
+    private var starredRepositoriesDownloaded = false
+    private let reposDownloadCheckSerialQueue = DispatchQueue(label: "reposDownloadCheckSerialQueue", qos: .userInitiated)
         
     func getReposLists(){
         apiService?.getStarredRepositories(callback: self.sendStarredReposList)
@@ -21,11 +25,23 @@ class ReposListInteractor: ReposListInteractorProtocol {
     }
     
     func sendReposList(repositories : [Repository]) {
-        presenter?.reposListDidFetch(repositories: repositories)
+        presenter?.repositoryList = repositories
+        reposDownloadCheckSerialQueue.sync {
+            repositoriesDownloaded = true
+            if repositoriesDownloaded && starredRepositoriesDownloaded{
+                setStarredAndShowRepositories()
+            }
+        }
     }
-    
+
     func sendStarredReposList(repositories : [Repository]) {
-        presenter?.starredReposListDidFetch(repositories: repositories)
+        presenter?.starredRepositoryList = repositories
+        reposDownloadCheckSerialQueue.sync {
+            starredRepositoriesDownloaded = true
+            if repositoriesDownloaded && starredRepositoriesDownloaded{
+                setStarredAndShowRepositories()
+            }
+        }
     }
     
     func starRepository(repository: Repository) {
@@ -36,5 +52,15 @@ class ReposListInteractor: ReposListInteractorProtocol {
         if let repos = starredRepos{
             presenter?.refreshRepositoryStar(repository: repos)
         }
+    }
+    
+    private func setStarredAndShowRepositories(){
+        guard let starred = presenter?.starredRepositoryList else { return }
+        for item in starred {
+            if let index = presenter?.repositoryList.firstIndex(where: {$0.id == item.id}){
+                presenter?.repositoryList[index].starred = true
+            }
+        }
+        presenter?.showRepositories()
     }
 }

@@ -46,7 +46,8 @@ class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoryTabelViewCell
         cell.starButton.addTarget(self, action: #selector(starRepository), for: .touchUpInside)
-        cell.showRepository(repos: presenter?.getItemWithIndex(index: indexPath.row))
+        let repos = presenter?.getItemWithIndex(index: indexPath.row)
+        cell.showRepository(repos: repos)
         return cell
     }
     
@@ -66,6 +67,10 @@ class ReposListView: UIViewController, ReposListViewProtocol, UITableViewDataSou
     
     func showReposList() {
         tableViewRepositories.reloadData()
+    }
+    
+    func repoladCellWithIndex(index: Int){
+        tableViewRepositories.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
     @objc func editProfile(){

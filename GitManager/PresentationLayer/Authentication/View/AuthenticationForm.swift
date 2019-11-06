@@ -27,8 +27,8 @@ class AuthenticationForm: UIStackView {
         textField.isSecureTextEntry = true
         return textField
     }()
-    let loginButton: twoStateButton = {
-        let btn = twoStateButton()
+    let loginButton: TwoStateButton = {
+        let btn = TwoStateButton()
         btn.setBlocked()
         btn.setTitle(NSLocalizedString("Sign in", comment: "Button on authentication form"), for: .normal)
         return btn

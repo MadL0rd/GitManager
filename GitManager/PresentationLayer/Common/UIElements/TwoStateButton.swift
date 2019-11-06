@@ -8,7 +8,7 @@
 
 import UIKit
 
-class twoStateButton: UIButton {
+class TwoStateButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -12,8 +12,8 @@ class RepositoryTabelViewCell: UITableViewCell {
     
     let nameLabel = UILabel()
     let profileImageView = UIImageView()
-    let addictionalInfo = addictionalInformationStack()
-    let starButton = twoStateButton()
+    let addictionalInfo = AddictionalInformationStack()
+    let starButton = TwoStateButton()
     var cellHeight : CGFloat = 100
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -77,13 +77,7 @@ class RepositoryTabelViewCell: UITableViewCell {
         guard let reposItem : Repository = repos else {return}
         nameLabel.text = reposItem.name
         profileImageView.downloadFromUrl(url: reposItem.owner?.avatarUrl ?? "")
-
-        if addictionalInfo.arrangedSubviews.count == 0{
-            addictionalInfo.setContent(repos: reposItem)
-            /*for item in addictionalInfo.arrangedSubviews{
-                item.heightAnchor.constraint(equalToConstant: cellHeight/4).isActive = true
-            }*/
-        }
+        addictionalInfo.setContent(repos: reposItem)
         if reposItem.starred{
             starButton.setActive()
         }else{

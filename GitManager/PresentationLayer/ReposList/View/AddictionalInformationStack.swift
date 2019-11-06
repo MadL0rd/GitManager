@@ -8,7 +8,7 @@
 
 import UIKit
 
-class addictionalInformationStack: UIStackView {
+class AddictionalInformationStack: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +40,7 @@ class addictionalInformationStack: UIStackView {
         return ul
     }
     func setContent(repos : Repository){
+        self.removeAllArrangedSubviews()
         if repos.privateAccess{
             addArrangedSubview(createItem(color: .red, text: "  Private  "))
         }else{
