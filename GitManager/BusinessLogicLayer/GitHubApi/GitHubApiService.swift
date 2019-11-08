@@ -49,8 +49,9 @@ class GitHubApiService: GitHubApiServiceProtocol {
         .responseJSON{ response in
             if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
                 for jsonItem in dataJson{
-                    
-                    repositories.append(Repository(jsonItem as? NSDictionary))
+                    var repos = Repository(jsonItem as? NSDictionary)
+                    repos.starred = true
+                    repositories.append(repos)
                 }
             }
             callback(repositories)

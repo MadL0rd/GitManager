@@ -20,8 +20,8 @@ class TwoStateButton: UIButton {
         setupButton()
     }
     
-    private let activeColor  = UIColor("#00D455FF")
-    private let blockedColor = UIColor("#C0C0C0FF")
+    private let activeColor  = Colors.active
+    private let blockedColor = Colors.disable
     private var activeText = ""
     private var blockedText = ""
     private var viewState = true //active - true, blocker - false
@@ -30,7 +30,7 @@ class TwoStateButton: UIButton {
     
     private func setupButton() {
         layer.cornerRadius      = 9
-        setTitleColor(.white, for: .normal)
+        setTitleColor(Colors.lightText, for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
         setActive()
     }

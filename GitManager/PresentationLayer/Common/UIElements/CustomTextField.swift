@@ -21,11 +21,11 @@ class CustomTextField: UITextField {
     }
     
     private func setUpField() {
-        tintColor               = .white
-        textColor               = .darkGray
-        backgroundColor         = .white
-        autocorrectionType      = .no
-        borderStyle             = .roundedRect
+        tintColor = Colors.mainBackground
+        textColor = Colors.darkTextColor
+        backgroundColor = Colors.mainBackground
+        autocorrectionType = .no
+        borderStyle = .roundedRect
 
         translatesAutoresizingMaskIntoConstraints = false
     }

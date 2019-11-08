@@ -14,11 +14,16 @@ protocol ScreensRouterProtocol: class {
     
     init(mainWindow: UIWindow)
     func showNewScreen<T: DependentRouterProtocol>(_ creator: T.Type)
-    func pushNewScreenToNavigationController<T: DependentRouterProtocol>(_ creator: T.Type, content : AnyObject?)
+    func pushNewScreenToCurrentNavigationController<T: DependentRouterProtocol>(_ creator: T.Type, content : AnyObject?)
+    func pushNewScreenToNewNavigationController<T: DependentRouterProtocol>(_ creator: T.Type, content : AnyObject?)
+    func showTabBar(createTabBar : @escaping(_ mainRouter: ScreensRouterProtocol)-> UITabBarController)
 }
 
 extension ScreensRouterProtocol{
-    func pushNewScreenToNavigationController<T: DependentRouterProtocol>(_ creator: T.Type){
-        pushNewScreenToNavigationController(creator.self, content: nil)
+    func pushNewScreenToCurrentNavigationController<T: DependentRouterProtocol>(_ creator: T.Type){
+        pushNewScreenToCurrentNavigationController(creator.self, content: nil)
+    }
+    func pushNewScreenToNewNavigationController<T: DependentRouterProtocol>(_ creator: T.Type){
+        pushNewScreenToNewNavigationController(creator.self, content: nil)
     }
 }

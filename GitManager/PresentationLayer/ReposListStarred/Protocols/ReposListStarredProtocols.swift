@@ -1,26 +1,25 @@
 //
-//  ReposListProtocols.swift
+//  ReposListStarredProtocols.swift
 //  GitManager
 //
-//  Created by Антон Текутов on 16.10.2019.
+//  Created by Антон Текутов on 08.11.2019.
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
 import UIKit
 
-protocol ReposListViewProtocol: class {
-    var presenter:  ReposListPresenterProtocol?     { get set }
+protocol ReposListStarredViewProtocol: class {
+    var presenter:  ReposListStarredPresenterProtocol?     { get set }
     
     func showReposList()
     func repoladCellWithIndex(index: Int)
 }
 
-protocol ReposListPresenterProtocol: class {
-    var interactor: ReposListInteractorProtocol?    { get set }
-    var view:       ReposListViewProtocol?          { get set }
-    var router:     ReposListRouterProtocol?        { get set }
+protocol ReposListStarredPresenterProtocol: class {
+    var interactor: ReposListStarredInteractorProtocol?    { get set }
+    var view:       ReposListStarredViewProtocol?          { get set }
+    var router:     ReposListStarredRouterProtocol?        { get set }
     var repositoryList: [Repository]                { get set }
-    var starredRepositoryList: [Repository]         { get set }
     
     func viewDidLoad()
     func getItemsCount() -> Int
@@ -32,17 +31,16 @@ protocol ReposListPresenterProtocol: class {
     func showRepositories()
 }
 
-protocol ReposListInteractorProtocol: class {
-    var presenter:  ReposListPresenterProtocol?     { get set }
+protocol ReposListStarredInteractorProtocol: class {
+    var presenter:  ReposListStarredPresenterProtocol?     { get set }
     var apiService: GitHubApiServiceProtocol?       { get set }
     
     func getReposLists()
-    func sendReposList(repositories : [Repository])
     func sendStarredReposList(repositories : [Repository])
     func starRepository(repository: Repository)
 }
 
-protocol ReposListRouterProtocol: class {
+protocol ReposListStarredRouterProtocol: class {
     func pushProfileEditor()
     func pushReposPage(repository: Repository)
 }

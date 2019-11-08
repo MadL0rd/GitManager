@@ -1,0 +1,30 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "star_favourite_fav_icon_124192-1.pdf"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "star_favourite_fav_icon_124192.pdf",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "star_favourite_fav_icon_124192-2.pdf",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "star_favourite_fav_icon_124192-3.pdf",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "auto-scaling" : "auto"
+  }
+}

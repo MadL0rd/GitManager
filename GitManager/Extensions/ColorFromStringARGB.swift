@@ -10,7 +10,7 @@ import UIKit
 
 
 extension UIColor {
-    public convenience init?(_ hexInput: String) {
+    public convenience init(_ hexInput: String) {
         let hex = hexInput.count == 7 ? "\(hexInput)FF" : hexInput
         let r, g, b, a: CGFloat
 
@@ -33,7 +33,7 @@ extension UIColor {
                 }
             }
         }
-
-        return nil
+        self.init(red: 1, green: 1, blue: 1, alpha: 1)
+        return
     }
 }

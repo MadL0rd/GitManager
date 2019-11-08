@@ -12,17 +12,20 @@ class AuthenticationForm: UIStackView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        Designer.defaultLabelStyle(label)
         label.text = NSLocalizedString("Authentication", comment: "Title on authentication form")
         label.textAlignment = .center
         return label
     }()
     let loginTextField : UITextField = {
-        let textField = CustomTextField()
+        let textField = UITextField()
+        Designer.defaultTextFieldStyle(textField)
         textField.placeholder = NSLocalizedString("Login", comment: "Text field on authentication form")
         return textField
     }()
     let passwordTextField : UITextField = {
-        let textField = CustomTextField()
+        let textField = UITextField()
+        Designer.defaultTextFieldStyle(textField)
         textField.placeholder = NSLocalizedString("Password", comment: "Text field on authentication form")
         textField.isSecureTextEntry = true
         return textField

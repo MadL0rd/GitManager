@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DependentRouterProtocol: class {
-
+    
     var mainRouter: ScreensRouterProtocol { get set }
     
     static func createModule(screensRouter: ScreensRouterProtocol, content: AnyObject?) -> UIViewController

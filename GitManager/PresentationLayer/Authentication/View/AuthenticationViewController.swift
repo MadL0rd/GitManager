@@ -22,10 +22,8 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
+        view.backgroundColor = Colors.mainBackground
         setupView()
-        
         presenter?.viewDidLoad()
     }
     
@@ -54,6 +52,10 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
     }
 }

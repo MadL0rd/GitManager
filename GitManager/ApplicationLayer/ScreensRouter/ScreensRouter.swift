@@ -9,9 +9,10 @@
 import UIKit
 
 class ScreensRouter: ScreensRouterProtocol {
-
+    
     let window: UIWindow
     var navigationController : UINavigationController?
+    var tabBarController : UITabBarController?
     
     required init(mainWindow: UIWindow) {
         window = mainWindow
@@ -23,14 +24,30 @@ class ScreensRouter: ScreensRouterProtocol {
         let view = creator.createModule(screensRouter: self)
         window.rootViewController = view
     }
-
-    func pushNewScreenToNavigationController<T>(_ creator: T.Type, content: AnyObject?) where T : DependentRouterProtocol {
+    
+    func pushNewScreenToCurrentNavigationController<T>(_ creator: T.Type, content: AnyObject?) where T : DependentRouterProtocol {
         let view = creator.createModule(screensRouter: self, content: content)
-        if navigationController == nil {
-            navigationController = UINavigationController(rootViewController: view)
+        if let navigation = tabBarController?.selectedViewController as? UINavigationController{
+            navigation.pushViewController(view, animated: true)
         }else{
-            navigationController?.pushViewController(view, animated: true)
+            if navigationController == nil {
+                navigationController = UINavigationController(rootViewController: view)
+            }else{
+                navigationController?.pushViewController(view, animated: true)
+            }
+            window.rootViewController = navigationController
         }
+    }
+    
+    func pushNewScreenToNewNavigationController<T>(_ creator: T.Type, content: AnyObject?) where T : DependentRouterProtocol {
+        let view = creator.createModule(screensRouter: self, content: content)
+        navigationController = UINavigationController(rootViewController: view)
         window.rootViewController = navigationController
     }
+    
+    func showTabBar(createTabBar: @escaping (ScreensRouterProtocol) -> UITabBarController) {
+        tabBarController = createTabBar(self)
+        window.rootViewController = tabBarController
+    }
+    
 }

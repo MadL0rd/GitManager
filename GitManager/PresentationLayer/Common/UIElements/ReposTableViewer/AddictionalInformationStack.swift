@@ -29,10 +29,8 @@ class AddictionalInformationStack: UIStackView {
     
     private func createItem(color: UIColor, text: String) -> UILabel{
         let ul = UILabel()
-        ul.layer.cornerRadius = 10
-        ul.layer.backgroundColor = color.cgColor
         ul.text = text
-        ul.textColor = .white
+        ul.textColor = Colors.lightText
         ul.layer.cornerRadius = 10
         ul.layer.backgroundColor = color.cgColor
         ul.layer.masksToBounds = true
@@ -44,7 +42,7 @@ class AddictionalInformationStack: UIStackView {
         if repos.privateAccess{
             addArrangedSubview(createItem(color: .red, text: "  Private  "))
         }else{
-            addArrangedSubview(createItem(color: .green, text: "  Public  "))
+            addArrangedSubview(createItem(color: Colors.active, text: "  Public  "))
         }
         if let lang = repos.language {
             addArrangedSubview(createItem(color: .blue, text: "  \(lang)  "))

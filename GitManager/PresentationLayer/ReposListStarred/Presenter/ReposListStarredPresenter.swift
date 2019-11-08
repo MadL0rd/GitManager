@@ -1,21 +1,18 @@
 //
-//  ReposListPresenter.swift
+//  ReposListStarredPresenter.swift
 //  GitManager
 //
-//  Created by Антон Текутов on 16.10.2019.
+//  Created by Антон Текутов on 08.11.2019.
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-import Foundation
+class ReposListStarredPresenter: ReposListStarredPresenterProtocol, ReposTableViewerOwnerProtocol {
 
-class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol {    
-
-    var router: ReposListRouterProtocol?
-    weak var view: ReposListViewProtocol?
-    var interactor: ReposListInteractorProtocol?
+    var router: ReposListStarredRouterProtocol?
+    weak var view: ReposListStarredViewProtocol?
+    var interactor: ReposListStarredInteractorProtocol?
     
     var repositoryList = [Repository]()
-    var starredRepositoryList = [Repository]()
     
     func viewDidLoad() {
         interactor?.getReposLists()

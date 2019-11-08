@@ -10,7 +10,12 @@ import UIKit
 
 class RepositoryTabelViewCell: UITableViewCell {
     
-    let nameLabel = UILabel()
+    let nameLabel : UILabel = {
+        let label = UILabel()
+        Designer.defaultLabelStyle(label)
+        label.textAlignment = .center
+        return label
+    }()
     let profileImageView = UIImageView()
     let addictionalInfo = AddictionalInformationStack()
     let starButton = TwoStateButton()
@@ -18,6 +23,7 @@ class RepositoryTabelViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = Colors.mainBackground
         cellHeight = self.contentView.bounds.width / 3
         self.contentView.heightAnchor.constraint(equalToConstant: CGFloat(cellHeight)).isActive = true
         
@@ -37,7 +43,7 @@ class RepositoryTabelViewCell: UITableViewCell {
         profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5).isActive = true
         profileImageView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.8).isActive = true
         profileImageView.widthAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.8).isActive = true
-        profileImageView.backgroundColor = .gray
+        profileImageView.backgroundColor = Colors.backgroundDark
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = cellHeight * 0.8 / 2
         profileImageView.layer.masksToBounds = true
@@ -54,7 +60,6 @@ class RepositoryTabelViewCell: UITableViewCell {
     }
     
     private func configureAddictionalInfo(){
-        addictionalInfo.layer.backgroundColor = UIColor.red.cgColor
         addictionalInfo.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: cellHeight/4).isActive = true
         addictionalInfo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellHeight * 0.9).isActive = true
         addictionalInfo.heightAnchor.constraint(equalToConstant: cellHeight/4).isActive = true

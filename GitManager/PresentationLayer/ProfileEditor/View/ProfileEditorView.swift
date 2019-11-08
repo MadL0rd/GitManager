@@ -30,7 +30,7 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
     }
     
     func setupView(){
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.mainBackground
         
         view.addSubview(form)
         form.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.65).isActive = true

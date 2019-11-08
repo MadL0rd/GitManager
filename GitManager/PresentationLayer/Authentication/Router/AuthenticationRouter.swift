@@ -36,8 +36,7 @@ class AuthenticationRouter: AuthenticationRouterProtocol, DependentRouterProtoco
         return view
     }
     
-    
     func pushMainScreen() {
-        mainRouter.pushNewScreenToNavigationController(ReposListRouter.self)
+        mainRouter.showTabBar(createTabBar: TabBarCreator.CreateMainTabBar(mainRouter:))
     }
 }

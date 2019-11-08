@@ -31,7 +31,15 @@
 		843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66AF23618C6300AC8694 /* GitHubApiServiceProtocol.swift */; };
 		843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66B1236196BE00AC8694 /* AuthenticationProtocols.swift */; };
 		843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66B32361ADC400AC8694 /* AuthenticationRouter.swift */; };
-		843D9BF0235DB6D100AA5AC9 /* ReposListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D9BEF235DB6D100AA5AC9 /* ReposListView.swift */; };
+		843D9BF0235DB6D100AA5AC9 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D9BEF235DB6D100AA5AC9 /* ReposListViewController.swift */; };
+		843E2A1F2375B19D00379F0A /* ReposTableViewerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A1E2375B19D00379F0A /* ReposTableViewerProtocols.swift */; };
+		843E2A212375B4D100379F0A /* ReposTableViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A202375B4D100379F0A /* ReposTableViewer.swift */; };
+		843E2A2A2375CA0700379F0A /* TabBarCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A292375CA0700379F0A /* TabBarCreator.swift */; };
+		843E2A352375D14B00379F0A /* ReposListStarredProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A342375D14B00379F0A /* ReposListStarredProtocols.swift */; };
+		843E2A372375D1DE00379F0A /* ReposListStarredRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A362375D1DE00379F0A /* ReposListStarredRouter.swift */; };
+		843E2A392375D24B00379F0A /* ReposListStarredInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A382375D24B00379F0A /* ReposListStarredInteractor.swift */; };
+		843E2A3B2375D29C00379F0A /* ReposListStarredPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A3A2375D29C00379F0A /* ReposListStarredPresenter.swift */; };
+		843E2A3D2375D2EF00379F0A /* ReposListStarredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E2A3C2375D2EF00379F0A /* ReposListStarredViewController.swift */; };
 		843EA14D23575040008A3E0E /* ReposListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA14C23575040008A3E0E /* ReposListInteractor.swift */; };
 		843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA14E235750D1008A3E0E /* ReposListProtocols.swift */; };
 		843EA151235756FA008A3E0E /* ReposListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA150235756FA008A3E0E /* ReposListPresenter.swift */; };
@@ -46,12 +54,13 @@
 		843F329C2367423300AFB40F /* UrlImageGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F329B2367423300AFB40F /* UrlImageGetter.swift */; };
 		843F32A2236747A500AFB40F /* ReposPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F32A1236747A500AFB40F /* ReposPageRouter.swift */; };
 		843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */; };
+		843F3B682373286600F74B8D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B672373286600F74B8D /* Colors.swift */; };
+		843F3B6A23732DC200F74B8D /* Designer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B6923732DC200F74B8D /* Designer.swift */; };
 		84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457ED72361E8B2005C2549 /* ScreensRouter.swift */; };
 		84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */; };
 		84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */; };
 		845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */; };
 		845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2055235B56B6003B3F10 /* TwoStateButton.swift */; };
-		845D2058235B5AAA003B3F10 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2057235B5AA9003B3F10 /* CustomTextField.swift */; };
 		845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2059235B654E003B3F10 /* AuthenticationForm.swift */; };
 		8489DB392363423500C089B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8489DB372363423500C089B4 /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -105,7 +114,15 @@
 		843D66AF23618C6300AC8694 /* GitHubApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiServiceProtocol.swift; sourceTree = "<group>"; };
 		843D66B1236196BE00AC8694 /* AuthenticationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProtocols.swift; sourceTree = "<group>"; };
 		843D66B32361ADC400AC8694 /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
-		843D9BEF235DB6D100AA5AC9 /* ReposListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListView.swift; sourceTree = "<group>"; };
+		843D9BEF235DB6D100AA5AC9 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
+		843E2A1E2375B19D00379F0A /* ReposTableViewerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposTableViewerProtocols.swift; sourceTree = "<group>"; };
+		843E2A202375B4D100379F0A /* ReposTableViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposTableViewer.swift; sourceTree = "<group>"; };
+		843E2A292375CA0700379F0A /* TabBarCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCreator.swift; sourceTree = "<group>"; };
+		843E2A342375D14B00379F0A /* ReposListStarredProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListStarredProtocols.swift; sourceTree = "<group>"; };
+		843E2A362375D1DE00379F0A /* ReposListStarredRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListStarredRouter.swift; sourceTree = "<group>"; };
+		843E2A382375D24B00379F0A /* ReposListStarredInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListStarredInteractor.swift; sourceTree = "<group>"; };
+		843E2A3A2375D29C00379F0A /* ReposListStarredPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListStarredPresenter.swift; sourceTree = "<group>"; };
+		843E2A3C2375D2EF00379F0A /* ReposListStarredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListStarredViewController.swift; sourceTree = "<group>"; };
 		843EA14C23575040008A3E0E /* ReposListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListInteractor.swift; sourceTree = "<group>"; };
 		843EA14E235750D1008A3E0E /* ReposListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListProtocols.swift; sourceTree = "<group>"; };
 		843EA150235756FA008A3E0E /* ReposListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListPresenter.swift; sourceTree = "<group>"; };
@@ -120,12 +137,13 @@
 		843F329B2367423300AFB40F /* UrlImageGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageGetter.swift; sourceTree = "<group>"; };
 		843F32A1236747A500AFB40F /* ReposPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposPageRouter.swift; sourceTree = "<group>"; };
 		843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearUIStackViewArrangedSubviews.swift; sourceTree = "<group>"; };
+		843F3B672373286600F74B8D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		843F3B6923732DC200F74B8D /* Designer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designer.swift; sourceTree = "<group>"; };
 		84457ED72361E8B2005C2549 /* ScreensRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouter.swift; sourceTree = "<group>"; };
 		84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependentRouterProtocol.swift; sourceTree = "<group>"; };
 		84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouterProtocol.swift; sourceTree = "<group>"; };
 		845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromStringARGB.swift; sourceTree = "<group>"; };
 		845D2055235B56B6003B3F10 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
-		845D2057235B5AA9003B3F10 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		845D2059235B654E003B3F10 /* AuthenticationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationForm.swift; sourceTree = "<group>"; };
 		8489DB382363423500C089B4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8489DB3A2363424700C089B4 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -194,9 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				843C1AA7236B0F7C00F2D4DD /* ApplicationLayer */,
-				843C1AA4236AFF7100F2D4DD /* Extensions */,
-				843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */,
 				843D16E62359E0E200AEB3F9 /* PresentationLayer */,
+				843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */,
+				843F3B662373282400F74B8D /* Constants */,
+				843C1AA4236AFF7100F2D4DD /* Extensions */,
 				843D16E52359E0C000AEB3F9 /* CoreLayer */,
 				8419EAD423561BF50033B5B2 /* ModelsLayer */,
 				8419EAA92356163D0033B5B2 /* Assets.xcassets */,
@@ -297,8 +316,10 @@
 		843C8271236325E000469428 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				843E2A1D2375AF1700379F0A /* ReposTableViewer */,
 				845D2055235B56B6003B3F10 /* TwoStateButton.swift */,
-				845D2057235B5AA9003B3F10 /* CustomTextField.swift */,
+				843F3B6923732DC200F74B8D /* Designer.swift */,
+				843E2A292375CA0700379F0A /* TabBarCreator.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -348,6 +369,7 @@
 				845D2054235B55E0003B3F10 /* Common */,
 				8419EAD223561BA00033B5B2 /* Authentication */,
 				8419EAD323561BBA0033B5B2 /* ReposList */,
+				843E2A2E2375D0C800379F0A /* ReposListStarred */,
 				843F329723672A6A00AFB40F /* ReposPage */,
 				843F32852366F21100AFB40F /* ProfileEditor */,
 			);
@@ -363,12 +385,73 @@
 			path = BusinessLogicLayer;
 			sourceTree = "<group>";
 		};
+		843E2A1D2375AF1700379F0A /* ReposTableViewer */ = {
+			isa = PBXGroup;
+			children = (
+				843E2A1E2375B19D00379F0A /* ReposTableViewerProtocols.swift */,
+				843E2A202375B4D100379F0A /* ReposTableViewer.swift */,
+				843D05DA235F43BB00E88B58 /* RepositoryTableViewCell.swift */,
+				843C0A3123689DA600774F91 /* AddictionalInformationStack.swift */,
+			);
+			path = ReposTableViewer;
+			sourceTree = "<group>";
+		};
+		843E2A2E2375D0C800379F0A /* ReposListStarred */ = {
+			isa = PBXGroup;
+			children = (
+				843E2A332375D12000379F0A /* Protocols */,
+				843E2A322375D11500379F0A /* Router */,
+				843E2A312375D10C00379F0A /* Interactor */,
+				843E2A302375D10400379F0A /* Presenter */,
+				843E2A2F2375D0F800379F0A /* View */,
+			);
+			path = ReposListStarred;
+			sourceTree = "<group>";
+		};
+		843E2A2F2375D0F800379F0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				843E2A3C2375D2EF00379F0A /* ReposListStarredViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		843E2A302375D10400379F0A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				843E2A3A2375D29C00379F0A /* ReposListStarredPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		843E2A312375D10C00379F0A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				843E2A382375D24B00379F0A /* ReposListStarredInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		843E2A322375D11500379F0A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				843E2A362375D1DE00379F0A /* ReposListStarredRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		843E2A332375D12000379F0A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				843E2A342375D14B00379F0A /* ReposListStarredProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		843EA14723574EA9008A3E0E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				843D9BEF235DB6D100AA5AC9 /* ReposListView.swift */,
-				843D05DA235F43BB00E88B58 /* RepositoryTableViewCell.swift */,
-				843C0A3123689DA600774F91 /* AddictionalInformationStack.swift */,
+				843D9BEF235DB6D100AA5AC9 /* ReposListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -508,6 +591,14 @@
 				843F32A1236747A500AFB40F /* ReposPageRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		843F3B662373282400F74B8D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				843F3B672373286600F74B8D /* Colors.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		84457ED52361E856005C2549 /* GitHubApi */ = {
@@ -719,13 +810,14 @@
 				843C0A2C2368771900774F91 /* ReposPageInteractor.swift in Sources */,
 				84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */,
 				843F32882366F28800AFB40F /* ProfileEditorProtocols.swift in Sources */,
-				845D2058235B5AAA003B3F10 /* CustomTextField.swift in Sources */,
 				843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */,
 				843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */,
 				843C1AA9236B566C00F2D4DD /* GitHubApiService.swift in Sources */,
 				84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */,
+				843E2A372375D1DE00379F0A /* ReposListStarredRouter.swift in Sources */,
 				843F3296236703D100AFB40F /* ProfileEditorStackView.swift in Sources */,
 				843F32922366FC0F00AFB40F /* ProfileEditorPresenter.swift in Sources */,
+				843E2A2A2375CA0700379F0A /* TabBarCreator.swift in Sources */,
 				843C0A302368780D00774F91 /* ReposPageViewController.swift in Sources */,
 				845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */,
 				843EA151235756FA008A3E0E /* ReposListPresenter.swift in Sources */,
@@ -739,22 +831,30 @@
 				843D05E6235F54D600E88B58 /* AuthenticationInteractor.swift in Sources */,
 				843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
+				843F3B682373286600F74B8D /* Colors.swift in Sources */,
 				843F329C2367423300AFB40F /* UrlImageGetter.swift in Sources */,
-				843D9BF0235DB6D100AA5AC9 /* ReposListView.swift in Sources */,
+				843E2A352375D14B00379F0A /* ReposListStarredProtocols.swift in Sources */,
+				843E2A3B2375D29C00379F0A /* ReposListStarredPresenter.swift in Sources */,
+				843D9BF0235DB6D100AA5AC9 /* ReposListViewController.swift in Sources */,
 				843C0A3223689DA600774F91 /* AddictionalInformationStack.swift in Sources */,
 				843C82672363026B00469428 /* KeychainServiceProtocol.swift in Sources */,
+				843E2A1F2375B19D00379F0A /* ReposTableViewerProtocols.swift in Sources */,
 				843C1AA6236AFFCF00F2D4DD /* StringToBase64.swift in Sources */,
 				843D16E92359FF7200AEB3F9 /* GitUser.swift in Sources */,
 				843EA14D23575040008A3E0E /* ReposListInteractor.swift in Sources */,
+				843E2A212375B4D100379F0A /* ReposTableViewer.swift in Sources */,
 				845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */,
 				843D05E0235F531800E88B58 /* AuthenticationViewController.swift in Sources */,
+				843E2A3D2375D2EF00379F0A /* ReposListStarredViewController.swift in Sources */,
 				845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */,
 				8419EAA12356163B0033B5B2 /* AppDelegate.swift in Sources */,
 				843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */,
 				843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */,
 				843F32A2236747A500AFB40F /* ReposPageRouter.swift in Sources */,
 				843F329A23672ADF00AFB40F /* ReposPageProtocols.swift in Sources */,
+				843E2A392375D24B00379F0A /* ReposListStarredInteractor.swift in Sources */,
 				84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */,
+				843F3B6A23732DC200F74B8D /* Designer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

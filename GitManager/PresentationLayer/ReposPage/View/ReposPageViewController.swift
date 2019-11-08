@@ -13,10 +13,8 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
+        view.backgroundColor = Colors.mainBackground
         setupView()
-        
         presenter?.viewDidLoad()
     }
     
@@ -25,6 +23,6 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
     }
     
     func showRepository(_ repository: Repository?) {
-        
+        navigationItem.title = repository?.name
     }
 }

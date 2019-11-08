@@ -14,29 +14,35 @@ class ProfileEditorStackView: UIStackView {
 
     let nameLabel: UILabel = {
         let label = UILabel()
+        Designer.defaultLabelStyle(label)
         label.text = NSLocalizedString("Name", comment: "Title on profile editor screen")
         return label
     }()
     let nameTextField : UITextField = {
-        let textField = CustomTextField()
+        let textField = UITextField()
+        Designer.defaultTextFieldStyle(textField)
         return textField
     }()
     let companyLabel: UILabel = {
         let label = UILabel()
+        Designer.defaultLabelStyle(label)
         label.text = NSLocalizedString("Company", comment: "Title on profile editor screen")
         return label
     }()
     let companyTextField : UITextField = {
-        let textField = CustomTextField()
+        let textField = UITextField()
+        Designer.defaultTextFieldStyle(textField)
         return textField
     }()
     let bioLabel: UILabel = {
         let label = UILabel()
+        Designer.defaultLabelStyle(label)
         label.text = NSLocalizedString("Biography", comment: "Title on profile editor screen")
         return label
     }()
     let bioTextField : UITextField = {
-        let textField = CustomTextField()
+        let textField = UITextField()
+        Designer.defaultTextFieldStyle(textField)
         return textField
     }()
     let saveButton: TwoStateButton = {
