@@ -19,8 +19,7 @@ protocol ReposListPresenterProtocol: class {
     var interactor: ReposListInteractorProtocol?    { get set }
     var view:       ReposListViewProtocol?          { get set }
     var router:     ReposListRouterProtocol?        { get set }
-    var repositoryList: [Repository]                { get set }
-    var starredRepositoryList: [Repository]         { get set }
+    var repositoriesCache: [Repository]             { get set }
     
     func viewDidLoad()
     func getItemsCount() -> Int
@@ -33,12 +32,13 @@ protocol ReposListPresenterProtocol: class {
 }
 
 protocol ReposListInteractorProtocol: class {
-    var presenter:  ReposListPresenterProtocol?     { get set }
-    var apiService: GitHubApiServiceProtocol?       { get set }
+    var presenter:  ReposListPresenterProtocol?           { get set }
+    var apiService: GitHubApiServiceProtocol?             { get set }
+    var starredService: StarredRepositoryServiceProtocol? { get set }
+    var repositoryList: [Repository]?                     { get set }
     
     func getReposLists()
     func sendReposList(repositories : [Repository])
-    func sendStarredReposList(repositories : [Repository])
     func starRepository(repository: Repository)
 }
 

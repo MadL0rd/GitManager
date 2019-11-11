@@ -56,6 +56,8 @@
 		843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */; };
 		843F3B682373286600F74B8D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B672373286600F74B8D /* Colors.swift */; };
 		843F3B6A23732DC200F74B8D /* Designer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B6923732DC200F74B8D /* Designer.swift */; };
+		8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */; };
+		8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */; };
 		84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457ED72361E8B2005C2549 /* ScreensRouter.swift */; };
 		84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */; };
 		84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */; };
@@ -139,6 +141,8 @@
 		843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearUIStackViewArrangedSubviews.swift; sourceTree = "<group>"; };
 		843F3B672373286600F74B8D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		843F3B6923732DC200F74B8D /* Designer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designer.swift; sourceTree = "<group>"; };
+		8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryServiceProtocol.swift; sourceTree = "<group>"; };
+		8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryService.swift; sourceTree = "<group>"; };
 		84457ED72361E8B2005C2549 /* ScreensRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouter.swift; sourceTree = "<group>"; };
 		84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependentRouterProtocol.swift; sourceTree = "<group>"; };
 		84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouterProtocol.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 		843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8440BC432379392B00EACA51 /* StarredRepositoryService */,
 				843C82652363012C00469428 /* KeychainService */,
 				84457ED52361E856005C2549 /* GitHubApi */,
 			);
@@ -599,6 +604,15 @@
 				843F3B672373286600F74B8D /* Colors.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		8440BC432379392B00EACA51 /* StarredRepositoryService */ = {
+			isa = PBXGroup;
+			children = (
+				8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */,
+				8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */,
+			);
+			path = StarredRepositoryService;
 			sourceTree = "<group>";
 		};
 		84457ED52361E856005C2549 /* GitHubApi */ = {
@@ -824,8 +838,10 @@
 				843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */,
 				843C0A2E236877CB00774F91 /* ReposPagePresenter.swift in Sources */,
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
+				8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */,
 				843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */,
 				843F3294236701A900AFB40F /* ProfileEditorView.swift in Sources */,
+				8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */,
 				843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */,
 				843EA15323575D5B008A3E0E /* ReposListRouter.swift in Sources */,
 				843D05E6235F54D600E88B58 /* AuthenticationInteractor.swift in Sources */,

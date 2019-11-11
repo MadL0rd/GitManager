@@ -9,7 +9,9 @@
 import UIKit
 
 class ReposListStarredInteractor: ReposListStarredInteractorProtocol {
-   
+    
+    var repositoryList: [Repository]?
+    var starredService: StarredRepositoryServiceProtocol?
     var presenter: ReposListStarredPresenterProtocol?
     var apiService: GitHubApiServiceProtocol?
         
@@ -18,16 +20,23 @@ class ReposListStarredInteractor: ReposListStarredInteractorProtocol {
     }
 
     func sendStarredReposList(repositories : [Repository]) {
-        presenter?.repositoryList = repositories
+        repositoryList = repositories
+        presenter?.repositoriesCache = repositories
         presenter?.showRepositories()
+        starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
     }
     
     func starRepository(repository: Repository) {
-        apiService?.starRepository(repository: repository, callback: starredCallback(starredRepos:))
+        starredService?.starRepository(repository)
     }
     
     private func starredCallback(starredRepos: Repository?){
         if let repos = starredRepos{
+            if repos.starred == false && repositoryList?.first(where: {$0.id == repos.id}) == nil{
+                repositoryList?.append(repos)
+                presenter?.repositoriesCache.append(repos)
+                presenter?.showRepositories()
+            }
             presenter?.refreshRepositoryStar(repository: repos)
         }
     }

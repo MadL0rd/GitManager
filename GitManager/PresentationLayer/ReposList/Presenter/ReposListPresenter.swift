@@ -14,7 +14,7 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     weak var view: ReposListViewProtocol?
     var interactor: ReposListInteractorProtocol?
     
-    var repositoryList = [Repository]()
+    var repositoriesCache = [Repository]()
     var starredRepositoryList = [Repository]()
     
     func viewDidLoad() {
@@ -22,12 +22,12 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     }
     
     func getItemsCount() -> Int {
-        return repositoryList.count
+        return repositoriesCache.count
     }
     
     func getItemWithIndex(index: Int) -> Repository? {
-        if index >= 0 && index <= repositoryList.count {
-            return repositoryList[index]
+        if index >= 0 && index <= repositoriesCache.count {
+            return repositoriesCache[index]
         }else {
             print("try to get access by incorrect index")
             return nil
@@ -43,7 +43,7 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     }
 
     func showRepositoryPage(index: Int){
-        router?.pushReposPage(repository: repositoryList[index])
+        router?.pushReposPage(repository: repositoriesCache[index])
     }
     
     func starRepository(index: Int) {
@@ -53,8 +53,8 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     }
     
     func refreshRepositoryStar(repository: Repository){
-        if let index = repositoryList.firstIndex(where: {$0.id == repository.id}){
-            repositoryList[index].starred.toggle()
+        if let index = repositoriesCache.firstIndex(where: {$0.id == repository.id}){
+            repositoriesCache[index].starred.toggle()
             view?.repoladCellWithIndex(index: index)
         }
     }

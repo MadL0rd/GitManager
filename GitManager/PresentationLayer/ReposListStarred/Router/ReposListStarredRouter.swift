@@ -30,6 +30,7 @@ class ReposListStarredRouter: ReposListStarredRouterProtocol , DependentRouterPr
 
         interactor.presenter = presenter
         interactor.apiService = GitHubApiService()
+        interactor.starredService = StarredRepositoryService()
         
         return view
     }

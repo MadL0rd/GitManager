@@ -45,6 +45,10 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         return owner?.getItemsCount() ?? 0
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 107
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoryTabelViewCell
         cell.starButton.addTarget(self, action: #selector(starRepository), for: .touchUpInside)
