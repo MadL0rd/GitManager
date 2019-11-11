@@ -12,6 +12,7 @@ protocol ReposListStarredViewProtocol: class {
     var presenter:  ReposListStarredPresenterProtocol?     { get set }
     
     func showReposList()
+    func setFiltersText(filters: [String])
     func repoladCellWithIndex(index: Int)
 }
 
@@ -19,7 +20,7 @@ protocol ReposListStarredPresenterProtocol: class {
     var interactor: ReposListStarredInteractorProtocol?    { get set }
     var view:       ReposListStarredViewProtocol?          { get set }
     var router:     ReposListStarredRouterProtocol?        { get set }
-    var repositoriesCache: [Repository]                { get set }
+    var repositoriesCache: [Repository]                    { get set }
     
     func viewDidLoad()
     func getItemsCount() -> Int
@@ -29,6 +30,8 @@ protocol ReposListStarredPresenterProtocol: class {
     func starRepository(index: Int)
     func refreshRepositoryStar(repository: Repository)
     func showRepositories()
+    func setFuletrsText(filters: [String])
+    func applyFilters(text : String?, language : String)
 }
 
 protocol ReposListStarredInteractorProtocol: class {
@@ -40,6 +43,7 @@ protocol ReposListStarredInteractorProtocol: class {
     func getReposList()
     func viewDidLoad()
     func starRepository(repository: Repository)
+    func applyFilters(text : String?, language : String)
 }
 
 protocol ReposListStarredRouterProtocol: class {

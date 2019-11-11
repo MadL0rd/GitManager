@@ -55,4 +55,12 @@ class ReposListStarredPresenter: ReposListStarredPresenterProtocol, ReposTableVi
             view?.repoladCellWithIndex(index: index)
         }
     }
+    
+    func setFuletrsText(filters: [String]){
+        view?.setFiltersText(filters: filters)
+    }
+    
+    func applyFilters(text: String?, language: String) {
+        interactor?.applyFilters(text: text == "" ? nil : text, language: language)
+     }
 }
