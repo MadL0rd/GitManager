@@ -8,20 +8,22 @@
 
 class StarredRepositoryService: StarredRepositoryServiceProtocol {
     
-    private static var starredRepositories : [Repository]? = {
-        StarredRepositoryService.gitHubApi.getStarredRepositories(callback: setStarredRepositories(repositories:))
-        return nil
-    }()
-    private static var subscribers = [(Repository) -> Void]()
-    private static let gitHubApi : GitHubApiServiceProtocol = GitHubApiService()
+    private let gitHubApi : GitHubApiServiceProtocol
+    private var starredRepositories : [Repository]? = nil
+    private var subscribers = [(Repository) -> Void]()
+    
+    required init(gitService: GitHubApiServiceProtocol) {
+        gitHubApi = gitService
+        gitHubApi.getStarredRepositories(callback: setStarredRepositories(repositories:))
+    }
     
     func getAllStarredRepositories() -> [Repository]? {
-        return StarredRepositoryService.starredRepositories
+        return starredRepositories
     }
     
     func subscribeOnUpdate(refreshReposFunc: @escaping (Repository) -> Void) {
-        StarredRepositoryService.subscribers.append(refreshReposFunc)
-        if let starred = StarredRepositoryService.starredRepositories {
+        subscribers.append(refreshReposFunc)
+        if let starred = starredRepositories {
             for repos in starred{
                 refreshReposFunc(repos)
             }
@@ -30,24 +32,24 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
     }
     
     func starRepository(_ repository: Repository) {
-        StarredRepositoryService.gitHubApi.starRepository(repository: repository, callback: calbackApiStarRequest(repos:))
+        gitHubApi.starRepository(repository: repository, callback: calbackApiStarRequest(repos:))
         let starred = !repository.starred
         if starred{
-            StarredRepositoryService.starredRepositories?.append(repository)
+            starredRepositories?.append(repository)
         }else {
-            if let index = StarredRepositoryService.starredRepositories?.firstIndex(where: {$0.id == repository.id}){
-                StarredRepositoryService.starredRepositories?.remove(at: index)
+            if let index = starredRepositories?.firstIndex(where: {$0.id == repository.id}){
+                starredRepositories?.remove(at: index)
             }
         }
-        for update in StarredRepositoryService.subscribers {
+        for update in subscribers {
             update(repository)
         }
     }
     
-    private static func setStarredRepositories(repositories : [Repository]){
-        StarredRepositoryService.starredRepositories = repositories
+    private func setStarredRepositories(repositories : [Repository]){
+        starredRepositories = repositories
         for repos in repositories{
-            for update in StarredRepositoryService.subscribers{
+            for update in subscribers{
                 update(repos)
             }
         }

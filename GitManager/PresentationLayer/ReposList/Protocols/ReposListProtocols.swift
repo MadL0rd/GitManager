@@ -37,8 +37,8 @@ protocol ReposListInteractorProtocol: class {
     var starredService: StarredRepositoryServiceProtocol? { get set }
     var repositoryList: [Repository]?                     { get set }
     
-    func getReposLists()
-    func sendReposList(repositories : [Repository])
+    func getReposList()
+    func viewDidLoad()
     func starRepository(repository: Repository)
 }
 

@@ -31,7 +31,7 @@ class ReposPageRouter: ReposPageRouterProtocol, DependentRouterProtocol {
         presenter.repos = content as? Repository
 
         interactor.presenter = presenter
-        interactor.apiService = GitHubApiService()
+        interactor.apiService = AppConfig.GitService
         return view
     }
     

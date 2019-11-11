@@ -534,8 +534,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Presenter/ReposListPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62">
+            startingLineNumber = "61"
+            endingLineNumber = "61">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -731,22 +731,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B35AA86E-A4B0-4EF4-9D9E-164671127AED"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GitManager/PresentationLayer/ReposListStarred/Interactor/ReposListStarredInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "starredCallback(starredRepos:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7379306F-00FE-4F90-A7DB-D0745A82EF58"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -754,25 +738,9 @@
             filePath = "GitManager/PresentationLayer/ReposListStarred/Interactor/ReposListStarredInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "sendStarredReposList(repositories:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8C2E6D2B-1909-4363-95FF-0E1AE8B61284"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GitManager/PresentationLayer/ReposListStarred/Interactor/ReposListStarredInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "sendStarredReposList(repositories:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -786,8 +754,8 @@
             filePath = "GitManager/BusinessLogicLayer/StarredRepositoryService/StarredRepositoryService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "setStarredRepositories(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -818,25 +786,9 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/ReposTableViewer/RepositoryTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "init(style:reuseIdentifier:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "61415963-AD0A-47D1-8ED8-372DB93CA78E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GitManager/PresentationLayer/ReposListStarred/Interactor/ReposListStarredInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "sendStarredReposList(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

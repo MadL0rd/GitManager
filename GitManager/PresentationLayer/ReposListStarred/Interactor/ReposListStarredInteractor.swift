@@ -14,20 +14,43 @@ class ReposListStarredInteractor: ReposListStarredInteractorProtocol {
     var starredService: StarredRepositoryServiceProtocol?
     var presenter: ReposListStarredPresenterProtocol?
     var apiService: GitHubApiServiceProtocol?
+    
+    private var repositoriesDownloaded = false
+    private var viewLoaded = false
+    private let reposDownloadCheckSerialQueue = DispatchQueue(label: "reposDownloadCheckSerialQueue", qos: .userInitiated)
+       
         
-    func getReposLists(){
-        apiService?.getStarredRepositories(callback: self.sendStarredReposList)
+    func getReposList(){
+        apiService?.getStarredRepositories(callback: self.setReposList(repositories:))
     }
-
-    func sendStarredReposList(repositories : [Repository]) {
-        repositoryList = repositories
-        presenter?.repositoriesCache = repositories
-        presenter?.showRepositories()
-        starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
+    
+    func setReposList(repositories : [Repository]){
+        reposDownloadCheckSerialQueue.sync {
+            repositoryList = repositories
+            presenter?.repositoriesCache = repositories
+            repositoriesDownloaded = true
+            if repositoriesDownloaded && viewLoaded{
+                sendReposList()
+            }
+        }
+    }
+    
+    func viewDidLoad() {
+        reposDownloadCheckSerialQueue.sync {
+            viewLoaded = true
+            if repositoriesDownloaded && viewLoaded{
+                sendReposList()
+            }
+        }
     }
     
     func starRepository(repository: Repository) {
         starredService?.starRepository(repository)
+    }
+    
+    private func sendReposList() {
+        presenter?.showRepositories()
+        starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
     }
     
     private func starredCallback(starredRepos: Repository?){

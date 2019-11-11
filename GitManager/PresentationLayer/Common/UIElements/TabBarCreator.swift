@@ -37,6 +37,14 @@ class TabBarCreator {
         navController.tabBarItem = iconSearch
         tabBarBuff.append(navController)
         
+        let iconSettings = UITabBarItem()
+        iconSettings.selectedImage = UIImage(named: "settings")
+        iconSettings.image = UIImage(named: "settings")
+        view = ProfileEditorRouter.createModule(screensRouter: mainRouter, content: nil) as UIViewController
+        navController = UINavigationController(rootViewController: view)
+        navController.tabBarItem = iconSettings
+        tabBarBuff.append(navController)
+        
         let tabBar = UITabBarController()
         tabBar.setViewControllers(tabBarBuff, animated: true)
         return tabBar

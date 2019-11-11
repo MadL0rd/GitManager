@@ -22,23 +22,12 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     required convenience init(owner: ReposTableViewerOwnerProtocol) {
         self.init()
         self.owner = owner
+        
+        setupSearchController()
         setupTableView()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupTableView() {
-        addSubview(tableViewRepositories)
-        tableViewRepositories.translatesAutoresizingMaskIntoConstraints = false
-        tableViewRepositories.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        tableViewRepositories.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        tableViewRepositories.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        tableViewRepositories.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        tableViewRepositories.dataSource = self
-        tableViewRepositories.delegate = self
-        tableViewRepositories.register(RepositoryTabelViewCell.self, forCellReuseIdentifier: "repositoryCell")
-        tableViewRepositories.backgroundColor = Colors.mainBackground
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +35,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 107
+        return tableView.bounds.width/4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,11 +57,28 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func refreshCell(index: Int) {
-        tableViewRepositories.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        tableViewRepositories.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
     }
     
     func showReposList() {
         tableViewRepositories.reloadData()
+    }
+    
+    private func setupTableView() {
+        addSubview(tableViewRepositories)
+        tableViewRepositories.translatesAutoresizingMaskIntoConstraints = false
+        tableViewRepositories.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        tableViewRepositories.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        tableViewRepositories.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        tableViewRepositories.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        tableViewRepositories.dataSource = self
+        tableViewRepositories.delegate = self
+        tableViewRepositories.register(RepositoryTabelViewCell.self, forCellReuseIdentifier: "repositoryCell")
+        tableViewRepositories.backgroundColor = Colors.mainBackground
+    }
+    
+    private func setupSearchController(){
+        
     }
 }
 

@@ -29,7 +29,7 @@ class ProfileEditorRouter: ProfileEditorRouterProtocol , DependentRouterProtocol
         presenter.router = router
 
         interactor.presenter = presenter
-        interactor.apiService = GitHubApiService()
+        interactor.apiService = AppConfig.GitService
         interactor.keychain = KeychainService()
 
         return view

@@ -15,10 +15,9 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     var interactor: ReposListInteractorProtocol?
     
     var repositoriesCache = [Repository]()
-    var starredRepositoryList = [Repository]()
     
     func viewDidLoad() {
-        interactor?.getReposLists()
+        interactor?.viewDidLoad()
     }
     
     func getItemsCount() -> Int {

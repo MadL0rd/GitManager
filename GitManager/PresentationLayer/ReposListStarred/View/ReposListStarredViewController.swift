@@ -17,8 +17,6 @@ class ReposListStarredViewController: UIViewController, ReposListStarredViewProt
         super.viewDidLoad()
         
         navigationItem.title = NSLocalizedString("Starred repositories", comment: "Title on repositories screen")
-        let editString = NSLocalizedString("Edit Profile", comment: "Button on repositories screen")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: editString, style: .plain, target: self, action: #selector(editProfile))
         setupTableView()
 
         presenter?.viewDidLoad()

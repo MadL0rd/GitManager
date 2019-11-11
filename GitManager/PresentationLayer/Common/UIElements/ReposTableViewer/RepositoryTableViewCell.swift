@@ -24,9 +24,7 @@ class RepositoryTabelViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = Colors.mainBackground
-        cellHeight = 108
-        
-        //self.contentView.heightAnchor.constraint(equalToConstant: cellHeight).isActive = true
+        cellHeight = self.bounds.width/3
         
         self.contentView.addSubview(profileImageView)
         self.contentView.addSubview(nameLabel)
@@ -37,7 +35,6 @@ class RepositoryTabelViewCell: UITableViewCell {
         configureNameLabel()
         configureAddictionalInfo()
         configureStarButton()
- 
     }
     
     private func configureProfileImage(){
@@ -81,7 +78,6 @@ class RepositoryTabelViewCell: UITableViewCell {
     }
     
     func showRepository(repos : Repository?) {
-        
         guard let reposItem : Repository = repos else {return}
         nameLabel.text = reposItem.name
         profileImageView.downloadFromUrl(url: reposItem.owner?.avatarUrl ?? "")
@@ -91,6 +87,5 @@ class RepositoryTabelViewCell: UITableViewCell {
         }else{
             starButton.setBlocked()
         }
- 
     }
 }

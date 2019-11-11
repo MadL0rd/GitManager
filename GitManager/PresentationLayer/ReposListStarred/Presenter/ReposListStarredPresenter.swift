@@ -15,7 +15,7 @@ class ReposListStarredPresenter: ReposListStarredPresenterProtocol, ReposTableVi
     var repositoriesCache = [Repository]()
     
     func viewDidLoad() {
-        interactor?.getReposLists()
+        interactor?.viewDidLoad()
     }
     
     func getItemsCount() -> Int {
