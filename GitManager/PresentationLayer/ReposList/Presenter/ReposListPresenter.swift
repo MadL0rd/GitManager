@@ -6,15 +6,13 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-import Foundation
-
-class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol {    
+class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol, ReposSearchControllerOwnerProtocol {
 
     var router: ReposListRouterProtocol?
     weak var view: ReposListViewProtocol?
     var interactor: ReposListInteractorProtocol?
     
-    var repositoriesCache = [Repository]()
+    private var repositoriesCache = [Repository]()
     
     func viewDidLoad() {
         interactor?.viewDidLoad()
@@ -54,7 +52,19 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func refreshRepositoryStar(repository: Repository){
         if let index = repositoriesCache.firstIndex(where: {$0.id == repository.id}){
             repositoriesCache[index].starred.toggle()
-            view?.repoladCellWithIndex(index: index)
+            view?.reloadCellWithIndex(index: index)
         }
+    }
+    
+    func setFuletrsText(filters: [String]){
+        view?.setFiltersText(filters: filters)
+    }
+    
+    func applyFilters(text: String?, language: String) {
+        interactor?.applyFilters(text: text == "" ? nil : text, language: language)
+     }
+    
+    func setReposCache(repositories: [Repository]) {
+        repositoriesCache = repositories
     }
 }

@@ -50,7 +50,7 @@ class RepositoryTabelViewCell: UITableViewCell {
     }
     
     private func configureNameLabel() {
-        nameLabel.textColor = .black
+        nameLabel.textColor = Colors.darkText
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -cellHeight/6).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: cellHeight).isActive = true

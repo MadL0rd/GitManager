@@ -20,4 +20,10 @@ struct Colors{
     static let lightText : UIColor = .white
     static let darkText : UIColor = .black
     static let disableText = UIColor("#4F4F4F")
+    
+    static let addictionalInfoText : UIColor = .white
+    static let addictionalInfoPublic : UIColor = UIColor("#00D455")
+    static let addictionalInfoPrivate : UIColor = .red
+    static let addictionalInfoLanguage : UIColor = .blue
+    static let addictionalInfoIssue : UIColor = .gray
 }

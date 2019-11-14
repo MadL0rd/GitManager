@@ -12,14 +12,14 @@ protocol ReposListViewProtocol: class {
     var presenter:  ReposListPresenterProtocol?     { get set }
     
     func showReposList()
-    func repoladCellWithIndex(index: Int)
+    func setFiltersText(filters: [String])
+    func reloadCellWithIndex(index: Int)
 }
 
 protocol ReposListPresenterProtocol: class {
     var interactor: ReposListInteractorProtocol?    { get set }
     var view:       ReposListViewProtocol?          { get set }
     var router:     ReposListRouterProtocol?        { get set }
-    var repositoriesCache: [Repository]             { get set }
     
     func viewDidLoad()
     func getItemsCount() -> Int
@@ -29,17 +29,21 @@ protocol ReposListPresenterProtocol: class {
     func starRepository(index: Int)
     func refreshRepositoryStar(repository: Repository)
     func showRepositories()
+    func setFuletrsText(filters: [String])
+    func applyFilters(text : String?, language : String)
+    func setReposCache(repositories : [Repository])
 }
 
 protocol ReposListInteractorProtocol: class {
-    var presenter:  ReposListPresenterProtocol?           { get set }
-    var apiService: GitHubApiServiceProtocol?             { get set }
-    var starredService: StarredRepositoryServiceProtocol? { get set }
-    var repositoryList: [Repository]?                     { get set }
+    var presenter:  ReposListPresenterProtocol?      { get set }
+    var apiService: GitHubApiServiceProtocol?               { get set }
+    var starredService: StarredRepositoryServiceProtocol?   { get set }
+    var repositoryList: [Repository]?                       { get set }
     
     func getReposList()
     func viewDidLoad()
     func starRepository(repository: Repository)
+    func applyFilters(text : String?, language : String)
 }
 
 protocol ReposListRouterProtocol: class {

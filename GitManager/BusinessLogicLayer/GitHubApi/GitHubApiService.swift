@@ -58,6 +58,22 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
+    func searchRepositories(name: String, language: String, callback: @escaping ([Repository]) -> Void) {
+        var repositories = [Repository]()
+        Alamofire.request(apiUrl + "search/repositories?q=\(name)+language:\(language)&sort=stars&order=desc",
+                          headers: GitHubApiService.headers)
+        .responseJSON{ response in
+            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                let items = dataJson["items"] as? NSArray{
+                for jsonItem in items{
+                    let repos = Repository(jsonItem as? NSDictionary)
+                    repositories.append(repos)
+                }
+            }
+            callback(repositories)
+        }
+    }
+    
     func authenticate(login: String, password: String, callback: @escaping(_ success : Bool) -> Void) {
         let base64 = (login + ":" + password).toBase64()
         GitHubApiService.headers = ["Authorization": "Basic \(base64)"]

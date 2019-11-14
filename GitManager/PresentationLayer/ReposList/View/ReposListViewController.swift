@@ -9,20 +9,27 @@
 import UIKit
 
 class ReposListViewController: UIViewController, ReposListViewProtocol{
-    
     var reposViewer: ReposTableViewer?
     var presenter: ReposListPresenterProtocol?
+    var searchController: UISearchController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = NSLocalizedString("My repositories", comment: "Title on repositories screen")
-        setupTableView()
-
+        setupView()
         presenter?.viewDidLoad()
     }
     
-    func setupTableView() {
+    internal func setupView(){
+        setupNavigationTitle()
+        setupTableView()
+        setupSearchController()
+    }
+    
+    internal func setupNavigationTitle(){
+        navigationItem.title = NSLocalizedString("My repositories", comment: "Title on repositories screen")
+    }
+    
+    internal func setupTableView() {
         guard let owner = presenter as? ReposTableViewerOwnerProtocol else { return }
         reposViewer = ReposTableViewer(owner: owner)
         guard let reposView = reposViewer else { return }
@@ -35,16 +42,23 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         reposView.backgroundColor = Colors.mainBackground
     }
     
-    @objc func editProfile(){
-        presenter?.showProfileEditor()
+    internal func setupSearchController(){
+        guard let owner = presenter as? ReposSearchControllerOwnerProtocol else { return }
+        searchController = ReposSearchController(owner: owner)
+        searchController?.searchBar.placeholder = NSLocalizedString("Filter repositories", comment: "search controller")
+        navigationItem.searchController = searchController
     }
     
     func showReposList() {
         reposViewer?.showReposList()
     }
     
-    func repoladCellWithIndex(index: Int) {
+    func reloadCellWithIndex(index: Int) {
         reposViewer?.refreshCell(index: index)
+    }
+    
+    func setFiltersText(filters: [String]){
+        searchController?.searchBar.scopeButtonTitles = filters
     }
 }
 

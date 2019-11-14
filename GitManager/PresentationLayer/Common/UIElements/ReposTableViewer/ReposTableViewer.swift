@@ -22,8 +22,6 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     required convenience init(owner: ReposTableViewerOwnerProtocol) {
         self.init()
         self.owner = owner
-        
-        setupSearchController()
         setupTableView()
     }
     required init?(coder: NSCoder) {
@@ -75,10 +73,6 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         tableViewRepositories.delegate = self
         tableViewRepositories.register(RepositoryTabelViewCell.self, forCellReuseIdentifier: "repositoryCell")
         tableViewRepositories.backgroundColor = Colors.mainBackground
-    }
-    
-    private func setupSearchController(){
-        
     }
 }
 

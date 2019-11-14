@@ -1,14 +1,14 @@
 //
-//  ReposListStarredRouter.swift
+//  ReposSearchRouter.swift
 //  GitManager
 //
-//  Created by Антон Текутов on 08.11.2019.
+//  Created by Антон Текутов on 14.11.2019.
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
 import UIKit
 
-class ReposListStarredRouter: ReposListStarredRouterProtocol , DependentRouterProtocol {
+class ReposSearchRouter: ReposSearchRouterProtocol , DependentRouterProtocol {
 
     var mainRouter: ScreensRouterProtocol
 
@@ -17,10 +17,10 @@ class ReposListStarredRouter: ReposListStarredRouterProtocol , DependentRouterPr
     }
     
     static func createModule(screensRouter: ScreensRouterProtocol, content: AnyObject?) -> UIViewController {
-        let view = ReposListStarredViewController()
-        let presenter = ReposListStarredPresenter()
-        let interactor = ReposListStarredInteractor()
-        let router = ReposListStarredRouter(screensRouter)
+        let view = ReposSearchViewController()
+        let presenter = ReposSearchPresenter()
+        let interactor = ReposSearchInteractor()
+        let router = ReposSearchRouter(screensRouter)
         
         view.presenter = presenter
         view.presenterStarred = presenter

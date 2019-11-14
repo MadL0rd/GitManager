@@ -28,7 +28,6 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
                 refreshReposFunc(repos)
             }
         }
-        
     }
     
     func starRepository(_ repository: Repository) {
