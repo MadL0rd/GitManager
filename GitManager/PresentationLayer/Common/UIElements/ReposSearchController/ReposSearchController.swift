@@ -41,12 +41,12 @@ class ReposSearchController: UISearchController, ReposSearchControllerProtocol {
 extension ReposSearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        owner?.applyFilters(text: searchBar.text?.lowercased(), language: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+        owner?.applySearchFilter(text: searchBar.text?.lowercased() ?? "")
     }
 }
 
 extension ReposSearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        owner?.applyFilters(text: searchBar.text?.lowercased(), language: searchBar.scopeButtonTitles![selectedScope])
+        
     }
 }

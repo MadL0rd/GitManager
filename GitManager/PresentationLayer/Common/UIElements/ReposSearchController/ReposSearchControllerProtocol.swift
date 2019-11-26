@@ -12,6 +12,6 @@ protocol ReposSearchControllerProtocol {
 }
 
 protocol ReposSearchControllerOwnerProtocol {
-    func applyFilters(text : String?, language : String)
+    func applySearchFilter(text : String)
 }
 

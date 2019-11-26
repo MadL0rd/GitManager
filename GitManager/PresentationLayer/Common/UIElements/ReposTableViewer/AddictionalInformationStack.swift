@@ -37,7 +37,39 @@ class AddictionalInformationStack: UIStackView {
         ul.translatesAutoresizingMaskIntoConstraints = false
         return ul
     }
-    func setContent(repos : Repository){
+    
+    func setContent(repos : Repository, mode : AddictionalInfoContentMode = .Default){
+        switch mode {
+        case .Search:
+            setContentSearch(repos: repos)
+        case .Default:
+            setContentDefault(repos: repos)
+        case .Full:
+            setContentFull(repos: repos)
+        }
+    }
+    
+    func setContentFull(repos : Repository){
+        self.removeAllArrangedSubviews()
+        var item : UILabel
+        if repos.privateAccess{
+            item = createItem(color: Colors.addictionalInfoPrivate, text: "  Private  ")
+            addArrangedSubview(item)
+        }else{
+            item = createItem(color: Colors.addictionalInfoPublic, text: "  Public  ")
+            addArrangedSubview(item)
+        }
+        if let lang = repos.language {
+            item = createItem(color: Colors.addictionalInfoLanguage, text: "  \(lang)  ")
+            addArrangedSubview(item)
+        }
+        item = createItem(color: Colors.addictionalInfoIssue, text: "  Issues: \(repos.openIssuesCount)  ")
+        addArrangedSubview(item)
+        item = createItem(color: Colors.addictionalInfoStargazers, text: "  ★\(repos.stargazersCount)  ")
+        addArrangedSubview(item)
+    }
+    
+    func setContentDefault(repos : Repository){
         self.removeAllArrangedSubviews()
         if repos.privateAccess{
             addArrangedSubview(createItem(color: Colors.addictionalInfoPrivate, text: "  Private  "))
@@ -49,4 +81,18 @@ class AddictionalInformationStack: UIStackView {
         }
         addArrangedSubview(createItem(color: Colors.addictionalInfoIssue, text: "  Issues: \(repos.openIssuesCount)  "))
     }
+    
+    func setContentSearch(repos : Repository){
+        self.removeAllArrangedSubviews()
+        if let lang = repos.language {
+            addArrangedSubview(createItem(color: Colors.addictionalInfoLanguage, text: "  \(lang)  "))
+        }
+        addArrangedSubview(createItem(color: Colors.addictionalInfoStargazers, text: "  ★\(repos.stargazersCount)  "))
+    }
+}
+
+enum AddictionalInfoContentMode {
+    case Default
+    case Search
+    case Full
 }

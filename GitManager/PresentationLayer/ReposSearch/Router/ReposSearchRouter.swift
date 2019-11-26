@@ -28,12 +28,12 @@ class ReposSearchRouter: ReposSearchRouterProtocol , DependentRouterProtocol {
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
-        presenter.viewStarred = view
-        presenter.interactorStarred = interactor
-        presenter.routerStarred = router
+        presenter.viewSearch = view
+        presenter.interactorSearch = interactor
+        presenter.routerSearch = router
 
         interactor.presenter = presenter
-        interactor.presenterStarred = presenter
+        interactor.presenterSearch = presenter
         interactor.apiService = AppConfig.GitService
         interactor.starredService = AppConfig.StarredService
         interactor.getReposList()

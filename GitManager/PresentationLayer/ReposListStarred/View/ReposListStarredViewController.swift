@@ -15,6 +15,10 @@ class ReposListStarredViewController: ReposListViewController, ReposListStarredV
     override func setupNavigationTitle() {
         navigationItem.title = NSLocalizedString("Starred repositories", comment: "Title on repositories screen")
     }
+    
+    override func setupAddictionalContentMode() {
+        reposViewer?.setAddictionalContentMode(mode: .Search)
+    }
 }
 
 

@@ -13,6 +13,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
    
     private let apiUrl = "https://api.github.com/"
     static private var headers : HTTPHeaders = [:]
+    private var searchRequest : Request?
     
     private func _parseJsonResponse(data: Data) -> Any?
     {
@@ -28,9 +29,9 @@ class GitHubApiService: GitHubApiServiceProtocol {
         return jsonResponse
     }
     
-    func getRepositories(callback : @escaping(_ repositories : [Repository])-> Void){
+    func getRepositories(itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ repositories : [Repository])-> Void){
         var repositories = [Repository]()
-        Alamofire.request(apiUrl + "user/repos",
+        Alamofire.request(apiUrl + "user/repos?page=\(pageNumber)&per_page=\(itemsPerPage)&sort=name",
                           headers: GitHubApiService.headers)
         .responseJSON{ response in
             if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
@@ -42,9 +43,9 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
-    func getStarredRepositories(callback : @escaping(_ repositories : [Repository])-> Void){
+    func getStarredRepositories(itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ repositories : [Repository])-> Void){
         var repositories = [Repository]()
-        Alamofire.request(apiUrl + "user/starred",
+        Alamofire.request(apiUrl + "user/starred?page=\(pageNumber)&per_page=\(itemsPerPage)&sort=name",
                           headers: GitHubApiService.headers)
         .responseJSON{ response in
             if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
@@ -58,9 +59,11 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
-    func searchRepositories(name: String, language: String, callback: @escaping ([Repository]) -> Void) {
+    func searchRepositories(name: String, language: String, itemsPerPage: Int, pageNumber : Int,  callback: @escaping ([Repository]) -> Void) {
+        searchRequest?.cancel()
+        searchRequest = nil
         var repositories = [Repository]()
-        Alamofire.request(apiUrl + "search/repositories?q=\(name)+language:\(language)&sort=stars&order=desc",
+        searchRequest = Alamofire.request(apiUrl + "search/repositories?q=\(name)+language:\(language)&page=\(pageNumber)&per_page=\(itemsPerPage)&sort=stars&order=desc",
                           headers: GitHubApiService.headers)
         .responseJSON{ response in
             if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
@@ -71,6 +74,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
                 }
             }
             callback(repositories)
+            self.searchRequest = nil
         }
     }
     

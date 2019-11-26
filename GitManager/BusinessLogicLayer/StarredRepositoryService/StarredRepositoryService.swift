@@ -12,9 +12,12 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
     private var starredRepositories : [Repository]? = nil
     private var subscribers = [(Repository) -> Void]()
     
+    private var lastDownloadedPage = 1
+    private let itemsPerPage = 100
+    
     required init(gitService: GitHubApiServiceProtocol) {
         gitHubApi = gitService
-        gitHubApi.getStarredRepositories(callback: setStarredRepositories(repositories:))
+        gitHubApi.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: setStarredRepositories(repositories:))
     }
     
     func getAllStarredRepositories() -> [Repository]? {
@@ -28,6 +31,17 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
                 refreshReposFunc(repos)
             }
         }
+    }
+    
+    func oneTimeUpdate(repositoriesToRefresh: [Repository]) -> [Repository] {
+        var repositories = [Repository]()
+        for var repos in repositoriesToRefresh {
+            if ((starredRepositories?.first(where: {$0.id == repos.id})) != nil) {
+                repos.starred = true
+            }
+            repositories.append(repos)
+        }
+        return repositories
     }
     
     func starRepository(_ repository: Repository) {
@@ -46,7 +60,18 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
     }
     
     private func setStarredRepositories(repositories : [Repository]){
-        starredRepositories = repositories
+        
+        if lastDownloadedPage == 1 {
+            starredRepositories = repositories
+        }else{
+            for repos in repositories {
+                starredRepositories?.append(repos)
+            }
+        }
+        if repositories.count == itemsPerPage {
+            lastDownloadedPage += 1
+            gitHubApi.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: setStarredRepositories(repositories:))
+        }
         for repos in repositories{
             for update in subscribers{
                 update(repos)

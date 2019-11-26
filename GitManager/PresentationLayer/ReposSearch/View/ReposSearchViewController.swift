@@ -15,4 +15,22 @@ class ReposSearchViewController: ReposListViewController, ReposSearchViewProtoco
     override func setupNavigationTitle() {
         navigationItem.title = NSLocalizedString("Search", comment: "Title on repositories screen")
     }
+    
+    override func setupAddictionalContentMode() {
+        reposViewer?.setAddictionalContentMode(mode: .Search)
+    }
+    
+    override func setupInheritor(){
+
+    }
+    
+    override func setFiltersText(filters: [String]){
+        filtrationView.filters.deleteGroup(groupTitle: "Languages", type: .tag)
+        filtrationView.filters.addParameter(name: NSLocalizedString("Language", comment: "addictional parametr 2 query")
+            , type: .string, groupTitle: NSLocalizedString("Additional query parameters", comment: "filter group title"))
+        for filter in filters{
+            filtrationView.filters.addParameter(name: filter, type: .tag, groupTitle: NSLocalizedString("Languages", comment: "filters title"))
+        }
+        filtrationView.drawUI()
+    }
 }

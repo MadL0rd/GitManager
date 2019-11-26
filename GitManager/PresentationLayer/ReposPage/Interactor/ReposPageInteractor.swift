@@ -14,4 +14,12 @@ class ReposPageInteractor: ReposPageInteractorProtocol {
     func addToStarred(_ repository: Repository) {
         
     }
+    
+    func getUser(login: String) {
+        apiService?.getPublicUserInfo(login: login, callback: setUser(user:))
+    }
+    
+    private func setUser(user: GitUser){
+        presenter?.setUser(user: user)
+    }
 }

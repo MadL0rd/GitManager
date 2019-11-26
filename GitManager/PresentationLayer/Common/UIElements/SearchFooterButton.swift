@@ -8,8 +8,7 @@
 
 import UIKit
 
-class SearchFooterButton: UIView {
-    let label = UILabel()
+class SearchFooterButton: UIButton {
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -20,13 +19,8 @@ class SearchFooterButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setNotFiltering() {
-        label.text = "test text"
-        hideFooter()
-    }
-    
     func setTextAndShow(text: String) {
-        label.text = text
+        setTitle(text, for: .normal)
         showFooter()
     }
     
@@ -44,13 +38,9 @@ class SearchFooterButton: UIView {
     
     func configureView() {
         backgroundColor = Colors.mainColor
-        self.alpha = 1.0
-        
-        addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        label.textAlignment = .center
-        label.textColor = Colors.lightText
+        layer.cornerRadius = 10
+        layer.borderWidth = 2
+        layer.borderColor = Colors.lightText.cgColor
+        self.alpha = 0.0
     }
 }

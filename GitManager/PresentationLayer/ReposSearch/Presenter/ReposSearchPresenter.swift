@@ -8,7 +8,7 @@
 
 class ReposSearchPresenter: ReposListPresenter, ReposSearchPresenterProtocol {
     
-    var interactorStarred: ReposSearchInteractorProtocol?
-    var viewStarred: ReposSearchViewProtocol?
-    var routerStarred: ReposSearchRouterProtocol?
+    var interactorSearch: ReposSearchInteractorProtocol?
+    var viewSearch: ReposSearchViewProtocol?
+    var routerSearch: ReposSearchRouterProtocol?
 }

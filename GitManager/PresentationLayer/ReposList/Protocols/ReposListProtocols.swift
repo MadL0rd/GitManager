@@ -14,6 +14,8 @@ protocol ReposListViewProtocol: class {
     func showReposList()
     func setFiltersText(filters: [String])
     func reloadCellWithIndex(index: Int)
+    func showFooterButton()
+    func hideFooterButton()
 }
 
 protocol ReposListPresenterProtocol: class {
@@ -29,9 +31,10 @@ protocol ReposListPresenterProtocol: class {
     func starRepository(index: Int)
     func refreshRepositoryStar(repository: Repository)
     func showRepositories()
-    func setFuletrsText(filters: [String])
-    func applyFilters(text : String?, language : String)
+    func setFiltersText(filters: [String])
+    func applyFilters(filtrationManager: FiltrationManagerProtocol)
     func setReposCache(repositories : [Repository])
+    func loadNextPage()
 }
 
 protocol ReposListInteractorProtocol: class {
@@ -41,9 +44,12 @@ protocol ReposListInteractorProtocol: class {
     var repositoryList: [Repository]?                       { get set }
     
     func getReposList()
+    func getMoreContentDawnloadPossibility() -> Bool
     func viewDidLoad()
+    func loadNextPage()
     func starRepository(repository: Repository)
-    func applyFilters(text : String?, language : String)
+    func applyFilters(filtrationManager: FiltrationManagerProtocol?)
+    func applySearchFilter(text : String)
 }
 
 protocol ReposListRouterProtocol: class {

@@ -11,15 +11,19 @@ class ReposPagePresenter: ReposPagePresenterProtocol {
     var view: ReposPageViewProtocol?
     var interactor: ReposPageInteractorProtocol?
     var router: ReposPageRouterProtocol?
-    var repos: Repository?
+    var repository: Repository?
     
     func viewDidLoad() {
-        view?.showRepository(repos)
+        interactor?.getUser(login: repository?.owner?.login ?? "")
     }
     
     func watchIssues() {
         
     }
     
-    
+    func setUser(user: GitUser) {
+        repository?.owner = user
+        guard let repos = repository else { return }
+        view?.showRepository(repos)
+    }
 }

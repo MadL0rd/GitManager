@@ -23,6 +23,7 @@
 		843C1AA9236B566C00F2D4DD /* GitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C1AA8236B566C00F2D4DD /* GitHubApiService.swift */; };
 		843C82672363026B00469428 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82662363026B00469428 /* KeychainServiceProtocol.swift */; };
 		843C82692363037200469428 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82682363037200469428 /* KeychainService.swift */; };
+		843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */; };
 		843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D05DA235F43BB00E88B58 /* RepositoryTableViewCell.swift */; };
 		843D05E0235F531800E88B58 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D05DF235F531800E88B58 /* AuthenticationViewController.swift */; };
 		843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D05E2235F53A000E88B58 /* AuthenticationPresenter.swift */; };
@@ -63,6 +64,10 @@
 		843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */; };
 		843F3B682373286600F74B8D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B672373286600F74B8D /* Colors.swift */; };
 		843F3B6A23732DC200F74B8D /* Designer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3B6923732DC200F74B8D /* Designer.swift */; };
+		843FFC4D238BFD2900AE04B1 /* FiltrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFC4C238BFD2900AE04B1 /* FiltrationManager.swift */; };
+		843FFC4F238BFDD100AE04B1 /* FiltrationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFC4E238BFDD100AE04B1 /* FiltrationManagerProtocol.swift */; };
+		843FFC51238BFEAB00AE04B1 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFC50238BFEAB00AE04B1 /* FiltersView.swift */; };
+		843FFC53238BFED000AE04B1 /* FiltersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFC52238BFED000AE04B1 /* FiltersViewProtocol.swift */; };
 		8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */; };
 		8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */; };
 		8440BC4B2379872000EACA51 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4A2379872000EACA51 /* AppConfig.swift */; };
@@ -116,6 +121,7 @@
 		843C1AA8236B566C00F2D4DD /* GitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiService.swift; sourceTree = "<group>"; };
 		843C82662363026B00469428 /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
 		843C82682363037200469428 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooterButton.swift; sourceTree = "<group>"; };
 		843D05DA235F43BB00E88B58 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		843D05DF235F531800E88B58 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		843D05E2235F53A000E88B58 /* AuthenticationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPresenter.swift; sourceTree = "<group>"; };
@@ -156,6 +162,10 @@
 		843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearUIStackViewArrangedSubviews.swift; sourceTree = "<group>"; };
 		843F3B672373286600F74B8D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		843F3B6923732DC200F74B8D /* Designer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designer.swift; sourceTree = "<group>"; };
+		843FFC4C238BFD2900AE04B1 /* FiltrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrationManager.swift; sourceTree = "<group>"; };
+		843FFC4E238BFDD100AE04B1 /* FiltrationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrationManagerProtocol.swift; sourceTree = "<group>"; };
+		843FFC50238BFEAB00AE04B1 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		843FFC52238BFED000AE04B1 /* FiltersViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewProtocol.swift; sourceTree = "<group>"; };
 		8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryServiceProtocol.swift; sourceTree = "<group>"; };
 		8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryService.swift; sourceTree = "<group>"; };
 		8440BC4A2379872000EACA51 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -295,6 +305,15 @@
 			path = ModelsLayer;
 			sourceTree = "<group>";
 		};
+		843BC299238D1D420018D002 /* FiltrationManager */ = {
+			isa = PBXGroup;
+			children = (
+				843FFC4E238BFDD100AE04B1 /* FiltrationManagerProtocol.swift */,
+				843FFC4C238BFD2900AE04B1 /* FiltrationManager.swift */,
+			);
+			path = FiltrationManager;
+			sourceTree = "<group>";
+		};
 		843C1AA4236AFF7100F2D4DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,11 +356,13 @@
 		843C8271236325E000469428 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				843E1EEA2386E840000BFFC0 /* FiltersView */,
 				843EE000237AF9F6003E0C5B /* ReposSearchController */,
 				843E2A1D2375AF1700379F0A /* ReposTableViewer */,
 				845D2055235B56B6003B3F10 /* TwoStateButton.swift */,
 				843F3B6923732DC200F74B8D /* Designer.swift */,
 				843E2A292375CA0700379F0A /* TabBarCreator.swift */,
+				843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -402,6 +423,7 @@
 		843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				843BC299238D1D420018D002 /* FiltrationManager */,
 				8440BC432379392B00EACA51 /* StarredRepositoryService */,
 				843C82652363012C00469428 /* KeychainService */,
 				84457ED52361E856005C2549 /* GitHubApi */,
@@ -459,6 +481,15 @@
 				843DE613237DA90500CC75A5 /* ReposSearchProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		843E1EEA2386E840000BFFC0 /* FiltersView */ = {
+			isa = PBXGroup;
+			children = (
+				843FFC52238BFED000AE04B1 /* FiltersViewProtocol.swift */,
+				843FFC50238BFEAB00AE04B1 /* FiltersView.swift */,
+			);
+			path = FiltersView;
 			sourceTree = "<group>";
 		};
 		843E2A1D2375AF1700379F0A /* ReposTableViewer */ = {
@@ -910,6 +941,7 @@
 				843C1AA9236B566C00F2D4DD /* GitHubApiService.swift in Sources */,
 				84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */,
 				843E2A372375D1DE00379F0A /* ReposListStarredRouter.swift in Sources */,
+				843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */,
 				843F3296236703D100AFB40F /* ProfileEditorStackView.swift in Sources */,
 				843F32922366FC0F00AFB40F /* ProfileEditorPresenter.swift in Sources */,
 				843E2A2A2375CA0700379F0A /* TabBarCreator.swift in Sources */,
@@ -919,6 +951,7 @@
 				843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */,
 				843C0A2E236877CB00774F91 /* ReposPagePresenter.swift in Sources */,
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
+				843FFC4D238BFD2900AE04B1 /* FiltrationManager.swift in Sources */,
 				8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */,
 				843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */,
 				843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */,
@@ -929,6 +962,7 @@
 				843EA15323575D5B008A3E0E /* ReposListRouter.swift in Sources */,
 				843D05E6235F54D600E88B58 /* AuthenticationInteractor.swift in Sources */,
 				843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */,
+				843FFC51238BFEAB00AE04B1 /* FiltersView.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
 				843EE002237AFA78003E0C5B /* ReposSearchController.swift in Sources */,
 				843F3B682373286600F74B8D /* Colors.swift in Sources */,
@@ -949,11 +983,13 @@
 				843D05E0235F531800E88B58 /* AuthenticationViewController.swift in Sources */,
 				843E2A3D2375D2EF00379F0A /* ReposListStarredViewController.swift in Sources */,
 				845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */,
+				843FFC4F238BFDD100AE04B1 /* FiltrationManagerProtocol.swift in Sources */,
 				8419EAA12356163B0033B5B2 /* AppDelegate.swift in Sources */,
 				843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */,
 				843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */,
 				843F32A2236747A500AFB40F /* ReposPageRouter.swift in Sources */,
 				843DE61A237DAA2700CC75A5 /* ReposSearchViewController.swift in Sources */,
+				843FFC53238BFED000AE04B1 /* FiltersViewProtocol.swift in Sources */,
 				843F329A23672ADF00AFB40F /* ReposPageProtocols.swift in Sources */,
 				843E2A392375D24B00379F0A /* ReposListStarredInteractor.swift in Sources */,
 				8440BC4B2379872000EACA51 /* AppConfig.swift in Sources */,

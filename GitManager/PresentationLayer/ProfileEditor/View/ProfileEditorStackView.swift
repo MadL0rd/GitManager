@@ -14,7 +14,7 @@ class ProfileEditorStackView: UIStackView {
 
     let nameLabel: UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.text = NSLocalizedString("Name", comment: "Title on profile editor screen")
         return label
     }()
@@ -25,7 +25,7 @@ class ProfileEditorStackView: UIStackView {
     }()
     let companyLabel: UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.text = NSLocalizedString("Company", comment: "Title on profile editor screen")
         return label
     }()
@@ -36,7 +36,7 @@ class ProfileEditorStackView: UIStackView {
     }()
     let bioLabel: UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.text = NSLocalizedString("Biography", comment: "Title on profile editor screen")
         return label
     }()

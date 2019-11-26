@@ -7,9 +7,9 @@
 //
 
 class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol, ReposSearchControllerOwnerProtocol {
-
+    
     var router: ReposListRouterProtocol?
-    weak var view: ReposListViewProtocol?
+    var view: ReposListViewProtocol?
     var interactor: ReposListInteractorProtocol?
     
     private var repositoriesCache = [Repository]()
@@ -22,8 +22,14 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
         return repositoriesCache.count
     }
     
+    func reliadCells(indexBegin : Int, indexEnd : Int){
+        for index in indexBegin...indexEnd {
+            view?.reloadCellWithIndex(index: index)
+        }
+    }
+    
     func getItemWithIndex(index: Int) -> Repository? {
-        if index >= 0 && index <= repositoriesCache.count {
+        if index >= 0 && index < repositoriesCache.count {
             return repositoriesCache[index]
         }else {
             print("try to get access by incorrect index")
@@ -38,7 +44,7 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func showProfileEditor() {
         router?.pushProfileEditor()
     }
-
+    
     func showRepositoryPage(index: Int){
         router?.pushReposPage(repository: repositoriesCache[index])
     }
@@ -56,15 +62,34 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
         }
     }
     
-    func setFuletrsText(filters: [String]){
+    func setFiltersText(filters: [String]){
         view?.setFiltersText(filters: filters)
     }
     
-    func applyFilters(text: String?, language: String) {
-        interactor?.applyFilters(text: text == "" ? nil : text, language: language)
-     }
+    func applyFilters(filtrationManager: FiltrationManagerProtocol){
+        interactor?.applyFilters(filtrationManager: filtrationManager)
+    }
     
     func setReposCache(repositories: [Repository]) {
         repositoriesCache = repositories
+    }
+    func scrollContentEnds() {
+        if interactor?.getMoreContentDawnloadPossibility() ?? false{
+            view?.showFooterButton()
+        }
+    }
+    func scrollContentNotEnds() {
+        if interactor?.getMoreContentDawnloadPossibility() ?? false{
+            view?.hideFooterButton()
+        }
+    }
+    
+    func loadNextPage() {
+        interactor?.loadNextPage()
+        view?.hideFooterButton()
+    }
+    
+    func applySearchFilter(text: String) {
+        interactor?.applySearchFilter(text: text)
     }
 }

@@ -12,13 +12,14 @@ class RepositoryTabelViewCell: UITableViewCell {
     
     let nameLabel : UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.textAlignment = .center
         return label
     }()
     let profileImageView = UIImageView()
     let addictionalInfo = AddictionalInformationStack()
     let starButton = TwoStateButton()
+    var addictionalContentMode = AddictionalInfoContentMode.Default
     var cellHeight : CGFloat = 100
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -81,7 +82,7 @@ class RepositoryTabelViewCell: UITableViewCell {
         guard let reposItem : Repository = repos else {return}
         nameLabel.text = reposItem.name
         profileImageView.downloadFromUrl(url: reposItem.owner?.avatarUrl ?? "")
-        addictionalInfo.setContent(repos: reposItem)
+        addictionalInfo.setContent(repos: reposItem, mode: addictionalContentMode)
         if reposItem.starred{
             starButton.setActive()
         }else{

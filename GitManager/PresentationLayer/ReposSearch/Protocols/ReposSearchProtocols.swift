@@ -11,13 +11,13 @@ protocol ReposSearchViewProtocol: ReposListViewProtocol {
 }
 
 protocol ReposSearchPresenterProtocol: ReposListPresenterProtocol {
-    var interactorStarred: ReposSearchInteractorProtocol?    { get set }
-    var viewStarred:       ReposSearchViewProtocol?          { get set }
-    var routerStarred:     ReposSearchRouterProtocol?        { get set }
+    var interactorSearch: ReposSearchInteractorProtocol?    { get set }
+    var viewSearch:       ReposSearchViewProtocol?          { get set }
+    var routerSearch:     ReposSearchRouterProtocol?        { get set }
 }
 
 protocol ReposSearchInteractorProtocol: ReposListInteractorProtocol {
-    var presenterStarred:  ReposSearchPresenterProtocol?     { get set }
+    var presenterSearch:  ReposSearchPresenterProtocol?     { get set }
 }
 
 protocol ReposSearchRouterProtocol: ReposListRouterProtocol {

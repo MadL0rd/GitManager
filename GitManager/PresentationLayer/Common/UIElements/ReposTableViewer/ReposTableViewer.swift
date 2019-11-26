@@ -10,7 +10,8 @@ import UIKit
 
 class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, ReposTableViewerProtocol {
    
-    var tableViewRepositories = UITableView()
+    private var tableViewRepositories = UITableView()
+    private var addictionalContentMode = AddictionalInfoContentMode.Default
     private var owner: ReposTableViewerOwnerProtocol?
     
     override init (frame : CGRect) {
@@ -38,10 +39,22 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoryTabelViewCell
+        cell.addictionalContentMode = addictionalContentMode
         cell.starButton.addTarget(self, action: #selector(starRepository), for: .touchUpInside)
         let repos = owner?.getItemWithIndex(index: indexPath.row)
         cell.showRepository(repos: repos)
         return cell
+    }
+    
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if distanceFromBottom < height {
+            owner?.scrollContentEnds()
+        }else{
+            owner?.scrollContentNotEnds()
+        }
     }
     
     @objc func starRepository(sender: UIButton!){
@@ -59,6 +72,11 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func showReposList() {
+        tableViewRepositories.reloadData()
+    }
+    
+    func setAddictionalContentMode(mode: AddictionalInfoContentMode) {
+        addictionalContentMode = mode
         tableViewRepositories.reloadData()
     }
     

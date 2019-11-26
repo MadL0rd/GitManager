@@ -13,10 +13,16 @@ class ReposListStarredInteractor: ReposListInteractor, ReposListStarredInteracto
     var presenterStarred: ReposListStarredPresenterProtocol?
     
     override func getReposList(){
-        apiService?.getStarredRepositories(callback: self.setReposList(repositories:))
+        apiService?.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: self.setReposList(repositories:))
     }
     
-    internal override func starredCallback(starredRepos: Repository?){
+    override func loadNextPage() {
+        canDownloadMoreContent = false
+        lastDownloadedPage += 1
+        apiService?.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: self.setNextPageRepositories(repositories:))
+    }
+    
+    /*internal override func starredCallback(starredRepos: Repository?){
         if let repos = starredRepos{
             if repos.starred == false && repositoryList?.first(where: {$0.id == repos.id}) == nil{
                 repositoryList?.append(repos)
@@ -28,5 +34,5 @@ class ReposListStarredInteractor: ReposListInteractor, ReposListStarredInteracto
             }
             presenter?.refreshRepositoryStar(repository: repos)
         }
-    }
+    }*/
 }
