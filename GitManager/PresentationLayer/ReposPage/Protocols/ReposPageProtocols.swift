@@ -9,24 +9,30 @@
 protocol ReposPageViewProtocol {
     var presenter:  ReposPagePresenterProtocol?     { get set }
     
-    func showRepository(_ repository: Repository?)
+    func showRepository(_ repository: Repository)
+    func changeStarredStatus()
 }
 
 protocol ReposPagePresenterProtocol {
     var view:       ReposPageViewProtocol?          { get set }
     var interactor: ReposPageInteractorProtocol?    { get set }
     var router:     ReposPageRouterProtocol?        { get set }
-    var repos:      Repository?                     { get set }
+    var repository: Repository?                     { get set }
     
     func viewDidLoad()
+    func setUser(user : GitUser)
     func watchIssues()
+    func changeViewStarredStatus()
+    func starRepository()
 }
 
 protocol ReposPageInteractorProtocol {
-    var presenter:  ReposPagePresenterProtocol?     { get set }
-    var apiService: GitHubApiServiceProtocol?       { get set }
+    var presenter:      ReposPagePresenterProtocol?         { get set }
+    var apiService:     GitHubApiServiceProtocol?           { get set }
+    var starredService: StarredRepositoryServiceProtocol?   { get set }
     
-    func addToStarred(_ repository: Repository)
+    func getUser(login: String)
+    func starRepository(_ repository: Repository)
 }
 
 protocol ReposPageRouterProtocol {

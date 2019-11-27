@@ -8,59 +8,31 @@
 
 import UIKit
 
-class ReposListStarredInteractor: ReposListStarredInteractorProtocol {
+class ReposListStarredInteractor: ReposListInteractor, ReposListStarredInteractorProtocol {
     
-    var repositoryList: [Repository]?
-    var starredService: StarredRepositoryServiceProtocol?
-    var presenter: ReposListStarredPresenterProtocol?
-    var apiService: GitHubApiServiceProtocol?
+    var presenterStarred: ReposListStarredPresenterProtocol?
     
-    private var repositoriesDownloaded = false
-    private var viewLoaded = false
-    private let reposDownloadCheckSerialQueue = DispatchQueue(label: "reposDownloadCheckSerialQueue", qos: .userInitiated)
-       
-        
-    func getReposList(){
-        apiService?.getStarredRepositories(callback: self.setReposList(repositories:))
+    override func getReposList(){
+        apiService?.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: self.setReposList(repositories:))
     }
     
-    func setReposList(repositories : [Repository]){
-        reposDownloadCheckSerialQueue.sync {
-            repositoryList = repositories
-            presenter?.repositoriesCache = repositories
-            repositoriesDownloaded = true
-            if repositoriesDownloaded && viewLoaded{
-                sendReposList()
-            }
-        }
+    override func loadNextPage() {
+        canDownloadMoreContent = false
+        lastDownloadedPage += 1
+        apiService?.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: self.setNextPageRepositories(repositories:))
     }
     
-    func viewDidLoad() {
-        reposDownloadCheckSerialQueue.sync {
-            viewLoaded = true
-            if repositoriesDownloaded && viewLoaded{
-                sendReposList()
-            }
-        }
-    }
-    
-    func starRepository(repository: Repository) {
-        starredService?.starRepository(repository)
-    }
-    
-    private func sendReposList() {
-        presenter?.showRepositories()
-        starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
-    }
-    
-    private func starredCallback(starredRepos: Repository?){
+    /*internal override func starredCallback(starredRepos: Repository?){
         if let repos = starredRepos{
             if repos.starred == false && repositoryList?.first(where: {$0.id == repos.id}) == nil{
                 repositoryList?.append(repos)
-                presenter?.repositoriesCache.append(repos)
+                presenter?.setReposCache(repositories: repositoryList ?? [])
                 presenter?.showRepositories()
+            }
+            if let index = repositoryList?.firstIndex(where: {$0.id == repos.id}){
+                repositoryList?[index].starred.toggle()
             }
             presenter?.refreshRepositoryStar(repository: repos)
         }
-    }
+    }*/
 }

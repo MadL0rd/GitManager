@@ -37,16 +37,62 @@ class AddictionalInformationStack: UIStackView {
         ul.translatesAutoresizingMaskIntoConstraints = false
         return ul
     }
-    func setContent(repos : Repository){
+    
+    func setContent(repos : Repository, mode : AddictionalInfoContentMode = .Default){
+        switch mode {
+        case .Search:
+            setContentSearch(repos: repos)
+        case .Default:
+            setContentDefault(repos: repos)
+        case .Full:
+            setContentFull(repos: repos)
+        }
+    }
+    
+    func setContentFull(repos : Repository){
         self.removeAllArrangedSubviews()
+        var item : UILabel
         if repos.privateAccess{
-            addArrangedSubview(createItem(color: .red, text: "  Private  "))
+            item = createItem(color: Colors.addictionalInfoPrivate, text: "  Private  ")
+            addArrangedSubview(item)
         }else{
-            addArrangedSubview(createItem(color: Colors.active, text: "  Public  "))
+            item = createItem(color: Colors.addictionalInfoPublic, text: "  Public  ")
+            addArrangedSubview(item)
         }
         if let lang = repos.language {
-            addArrangedSubview(createItem(color: .blue, text: "  \(lang)  "))
+            item = createItem(color: Colors.addictionalInfoLanguage, text: "  \(lang)  ")
+            addArrangedSubview(item)
         }
-        addArrangedSubview(createItem(color: .gray, text: "  Issues: \(repos.openIssuesCount)  "))
+        item = createItem(color: Colors.addictionalInfoIssue, text: "  Issues: \(repos.openIssuesCount)  ")
+        addArrangedSubview(item)
+        item = createItem(color: Colors.addictionalInfoStargazers, text: "  ★\(repos.stargazersCount)  ")
+        addArrangedSubview(item)
     }
+    
+    func setContentDefault(repos : Repository){
+        self.removeAllArrangedSubviews()
+        if repos.privateAccess{
+            addArrangedSubview(createItem(color: Colors.addictionalInfoPrivate, text: "  Private  "))
+        }else{
+            addArrangedSubview(createItem(color: Colors.addictionalInfoPublic, text: "  Public  "))
+        }
+        if let lang = repos.language {
+            addArrangedSubview(createItem(color: Colors.addictionalInfoLanguage, text: "  \(lang)  "))
+        }
+        addArrangedSubview(createItem(color: Colors.addictionalInfoIssue, text: "  Issues: \(repos.openIssuesCount)  "))
+    }
+    
+    func setContentSearch(repos : Repository){
+        self.removeAllArrangedSubviews()
+        if let lang = repos.language {
+            addArrangedSubview(createItem(color: Colors.addictionalInfoLanguage, text: "  \(lang)  "))
+        }
+        addArrangedSubview(createItem(color: Colors.addictionalInfoStargazers, text: "  ★\(repos.stargazersCount)  "))
+    }
+}
+
+enum AddictionalInfoContentMode {
+    case Default
+    case Search
+    case Full
 }

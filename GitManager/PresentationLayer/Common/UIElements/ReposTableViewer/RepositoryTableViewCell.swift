@@ -8,17 +8,18 @@
 
 import UIKit
 
-class RepositoryTabelViewCell: UITableViewCell {
+class RepositoryTableViewCell: UITableViewCell {
     
     let nameLabel : UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.textAlignment = .center
         return label
     }()
     let profileImageView = UIImageView()
     let addictionalInfo = AddictionalInformationStack()
     let starButton = TwoStateButton()
+    var addictionalContentMode = AddictionalInfoContentMode.Default
     var cellHeight : CGFloat = 100
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -50,7 +51,7 @@ class RepositoryTabelViewCell: UITableViewCell {
     }
     
     private func configureNameLabel() {
-        nameLabel.textColor = .black
+        nameLabel.textColor = Colors.darkText
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -cellHeight/6).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: cellHeight).isActive = true
@@ -81,7 +82,7 @@ class RepositoryTabelViewCell: UITableViewCell {
         guard let reposItem : Repository = repos else {return}
         nameLabel.text = reposItem.name
         profileImageView.downloadFromUrl(url: reposItem.owner?.avatarUrl ?? "")
-        addictionalInfo.setContent(repos: reposItem)
+        addictionalInfo.setContent(repos: reposItem, mode: addictionalContentMode)
         if reposItem.starred{
             starButton.setActive()
         }else{

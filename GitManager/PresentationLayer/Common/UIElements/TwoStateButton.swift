@@ -29,7 +29,7 @@ class TwoStateButton: UIButton {
     private var interactionAbilityChanging = true
     
     private func setupButton() {
-        layer.cornerRadius      = 9
+        layer.cornerRadius = 9
         setTitleColor(Colors.lightText, for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
         setActive()
@@ -45,13 +45,23 @@ class TwoStateButton: UIButton {
         }
     }
     
+    func toggle(){
+        if viewState {
+            setBlocked()
+        }else{
+            setActive()
+        }
+    }
+    
     func setActive() {
         viewState = true
         if textChanging {
             setTitle(activeText, for: .normal)
         }
         isUserInteractionEnabled = true
-        backgroundColor = activeColor
+        UIView.animate(withDuration: 0.3) {
+            self.backgroundColor = self.activeColor
+        }
     }
     
     func setBlocked(){
@@ -62,7 +72,9 @@ class TwoStateButton: UIButton {
         if interactionAbilityChanging{
             isUserInteractionEnabled = false
         }
-        backgroundColor = blockedColor
+        UIView.animate(withDuration: 0.3) {
+            self.backgroundColor = self.blockedColor
+        }
     }
     
     func setChangingText(active: String, blocked: String){
@@ -78,5 +90,9 @@ class TwoStateButton: UIButton {
     
     func disableTextChanging(){
         textChanging = false
+    }
+    
+    func getViewState() -> Bool{
+        return viewState
     }
 }

@@ -13,11 +13,12 @@ struct Repository {
     let name : String
     let fullName : String
     let url: String?
-    let owner: GitUser?
+    var owner: GitUser?
     var privateAccess: Bool
     var description: String
     var language: String?
     var starred: Bool
+    var stargazersCount: Int
     var openIssuesCount: Int
     
     init(_ data: NSDictionary?) {
@@ -32,6 +33,7 @@ struct Repository {
             privateAccess = dictionary["private"] as? Bool ?? false
             description = dictionary["description"] as? String ?? ""
             language = dictionary["language"] as? String
+            stargazersCount = dictionary["stargazers_count"] as? Int ?? 0
             openIssuesCount = dictionary["open_issues"] as? Int ?? 0
         }else {
             id = nil
@@ -43,6 +45,7 @@ struct Repository {
             description = ""
             language = nil
             openIssuesCount = 0
+            stargazersCount = 0
         }
     }
     

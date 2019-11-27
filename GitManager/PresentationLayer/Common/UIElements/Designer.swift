@@ -11,15 +11,36 @@ import UIKit
 public class Designer{
     
     public static func defaultTextFieldStyle(_ tf : UITextField){
-        tf.tintColor = Colors.mainBackground
         tf.textColor = Colors.darkText
         tf.backgroundColor = Colors.mainBackground
+        //tf.layer.cornerRadius = 10
+        //tf.layer.borderWidth = 2
+        tf.layer.borderColor = Colors.darkText.cgColor
         tf.autocorrectionType = .no
         tf.borderStyle = .roundedRect
         tf.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    public static func defaultLabelStyle(_ label : UILabel){
+    public static func mainTitleLabel(_ label : UILabel){
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.darkText
+        label.font = label.font.withSize(18)
+    }
+    public static func subTitleLabel(_ label : UILabel){
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.darkText
+        label.font = label.font.withSize(14)
+    }
+    public static func bigTitleLabel(_ label : UILabel){
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.darkText
+        label.font = label.font.withSize(28)
+    }
+    
+    public static func smallButton(_ button : UIButton){
+        button.layer.cornerRadius = 9
+        button.setTitleColor(Colors.lightText, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = Colors.mainColor
     }
 }

@@ -12,14 +12,16 @@ protocol ReposListViewProtocol: class {
     var presenter:  ReposListPresenterProtocol?     { get set }
     
     func showReposList()
-    func repoladCellWithIndex(index: Int)
+    func setFiltersText(filters: [String])
+    func reloadCellWithIndex(index: Int)
+    func showFooterButton()
+    func hideFooterButton()
 }
 
 protocol ReposListPresenterProtocol: class {
     var interactor: ReposListInteractorProtocol?    { get set }
     var view:       ReposListViewProtocol?          { get set }
     var router:     ReposListRouterProtocol?        { get set }
-    var repositoriesCache: [Repository]             { get set }
     
     func viewDidLoad()
     func getItemsCount() -> Int
@@ -29,17 +31,25 @@ protocol ReposListPresenterProtocol: class {
     func starRepository(index: Int)
     func refreshRepositoryStar(repository: Repository)
     func showRepositories()
+    func setFiltersText(filters: [String])
+    func applyFilters(filtrationManager: FiltrationManagerProtocol)
+    func setReposCache(repositories : [Repository])
+    func loadNextPage()
 }
 
 protocol ReposListInteractorProtocol: class {
-    var presenter:  ReposListPresenterProtocol?           { get set }
-    var apiService: GitHubApiServiceProtocol?             { get set }
-    var starredService: StarredRepositoryServiceProtocol? { get set }
-    var repositoryList: [Repository]?                     { get set }
+    var presenter:  ReposListPresenterProtocol?      { get set }
+    var apiService: GitHubApiServiceProtocol?               { get set }
+    var starredService: StarredRepositoryServiceProtocol?   { get set }
+    var repositoryList: [Repository]?                       { get set }
     
     func getReposList()
+    func getMoreContentDawnloadPossibility() -> Bool
     func viewDidLoad()
+    func loadNextPage()
     func starRepository(repository: Repository)
+    func applyFilters(filtrationManager: FiltrationManagerProtocol?)
+    func applySearchFilter(text : String)
 }
 
 protocol ReposListRouterProtocol: class {

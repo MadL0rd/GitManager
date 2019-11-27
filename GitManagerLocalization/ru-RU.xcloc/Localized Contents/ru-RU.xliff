@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="GitManager/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="ru-RU">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.1" build-num="11A1027"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>GitManager</source>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="GitManager/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="ru-RU">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.1" build-num="11A1027"/>
+    </header>
+    <body>
+      <trans-unit id="*not stated*" xml:space="preserve">
+        <source>*not stated*</source>
+        <note>Repos page</note>
+      </trans-unit>
+      <trans-unit id="Additional query parameters" xml:space="preserve">
+        <source>Additional query parameters</source>
+        <note>filter group title</note>
+      </trans-unit>
+      <trans-unit id="Apply filters" xml:space="preserve">
+        <source>Apply filters</source>
+        <note>Filtration</note>
+      </trans-unit>
+      <trans-unit id="Authentication" xml:space="preserve">
+        <source>Authentication</source>
+        <note>Title on authentication form</note>
+      </trans-unit>
+      <trans-unit id="Biography" xml:space="preserve">
+        <source>Biography</source>
+        <note>Title on profile editor screen</note>
+      </trans-unit>
+      <trans-unit id="Company" xml:space="preserve">
+        <source>Company</source>
+        <note>Title on profile editor screen</note>
+      </trans-unit>
+      <trans-unit id="Description:" xml:space="preserve">
+        <source>Description:</source>
+        <note>Repos page</note>
+      </trans-unit>
+      <trans-unit id="Drop" xml:space="preserve">
+        <source>Drop</source>
+        <note>Filtration</note>
+      </trans-unit>
+      <trans-unit id="Filter repositories" xml:space="preserve">
+        <source>Filter repositories</source>
+        <note>search controller</note>
+      </trans-unit>
+      <trans-unit id="Language" xml:space="preserve">
+        <source>Language</source>
+        <note>addictional parameter 2 query</note>
+      </trans-unit>
+      <trans-unit id="Languages" xml:space="preserve">
+        <source>Languages</source>
+        <note>filters title</note>
+      </trans-unit>
+      <trans-unit id="LogOut" xml:space="preserve">
+        <source>LogOut</source>
+        <note>on profile editor screen</note>
+      </trans-unit>
+      <trans-unit id="Login" xml:space="preserve">
+        <source>Login</source>
+        <note>Text field on authentication form</note>
+      </trans-unit>
+      <trans-unit id="My repositories" xml:space="preserve">
+        <source>My repositories</source>
+        <note>Title on repositories screen</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <note>Title on profile editor screen</note>
+      </trans-unit>
+      <trans-unit id="Owner:" xml:space="preserve">
+        <source>Owner:</source>
+        <note>Repos page</note>
+      </trans-unit>
+      <trans-unit id="Pair login-password is wrong!" xml:space="preserve">
+        <source>Pair login-password is wrong!</source>
+        <note>Title on authentication form</note>
+      </trans-unit>
+      <trans-unit id="Password" xml:space="preserve">
+        <source>Password</source>
+        <note>Text field on authentication form</note>
+      </trans-unit>
+      <trans-unit id="Profile editing" xml:space="preserve">
+        <source>Profile editing</source>
+        <note>Title on profile editor screen</note>
+      </trans-unit>
+      <trans-unit id="Readme:" xml:space="preserve">
+        <source>Readme:</source>
+        <note>Repos page</note>
+      </trans-unit>
+      <trans-unit id="Save" xml:space="preserve">
+        <source>Save</source>
+        <note>profile editor screen</note>
+      </trans-unit>
+      <trans-unit id="Search" xml:space="preserve">
+        <source>Search</source>
+        <note>Title on repositories screen</note>
+      </trans-unit>
+      <trans-unit id="Set" xml:space="preserve">
+        <source>Set</source>
+        <note>Filtration</note>
+      </trans-unit>
+      <trans-unit id="Sign in" xml:space="preserve">
+        <source>Sign in</source>
+        <note>Button on authentication form</note>
+      </trans-unit>
+      <trans-unit id="Starred repositories" xml:space="preserve">
+        <source>Starred repositories</source>
+        <note>Title on repositories screen</note>
+      </trans-unit>
+      <trans-unit id="There is no changes" xml:space="preserve">
+        <source>There is no changes</source>
+        <note>profile editor screen</note>
+      </trans-unit>
+      <trans-unit id="from company:" xml:space="preserve">
+        <source>from company:</source>
+        <note>Repos page (from *company name*)</note>
+      </trans-unit>
+      <trans-unit id="with login:" xml:space="preserve">
+        <source>with login:</source>
+        <note>Repos page</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

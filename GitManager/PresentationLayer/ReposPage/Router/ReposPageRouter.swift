@@ -28,10 +28,12 @@ class ReposPageRouter: ReposPageRouterProtocol, DependentRouterProtocol {
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
-        presenter.repos = content as? Repository
+        presenter.repository = content as? Repository
 
         interactor.presenter = presenter
         interactor.apiService = AppConfig.GitService
+        interactor.starredService = AppConfig.StarredService
+
         return view
     }
     

@@ -23,12 +23,17 @@ class ReposListStarredRouter: ReposListStarredRouterProtocol , DependentRouterPr
         let router = ReposListStarredRouter(screensRouter)
         
         view.presenter = presenter
+        view.presenterStarred = presenter
         
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
+        presenter.viewStarred = view
+        presenter.interactorStarred = interactor
+        presenter.routerStarred = router
 
         interactor.presenter = presenter
+        interactor.presenterStarred = presenter
         interactor.apiService = AppConfig.GitService
         interactor.starredService = AppConfig.StarredService
         interactor.getReposList()
