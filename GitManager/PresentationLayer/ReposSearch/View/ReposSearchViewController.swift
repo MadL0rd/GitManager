@@ -26,7 +26,7 @@ class ReposSearchViewController: ReposListViewController, ReposSearchViewProtoco
     
     override func setFiltersText(filters: [String]){
         filtrationView.filters.deleteGroup(groupTitle: "Languages", type: .tag)
-        filtrationView.filters.addParameter(name: NSLocalizedString("Language", comment: "addictional parametr 2 query")
+        filtrationView.filters.addParameter(name: NSLocalizedString("Language", comment: "addictional parameter 2 query")
             , type: .string, groupTitle: NSLocalizedString("Additional query parameters", comment: "filter group title"))
         for filter in filters{
             filtrationView.filters.addParameter(name: filter, type: .tag, groupTitle: NSLocalizedString("Languages", comment: "filters title"))

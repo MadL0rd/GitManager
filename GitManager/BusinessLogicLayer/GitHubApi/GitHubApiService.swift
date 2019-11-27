@@ -14,6 +14,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
     private let apiUrl = "https://api.github.com/"
     static private var headers : HTTPHeaders = [:]
     private var searchRequest : Request?
+    private var searchRequestCount = 0
     
     private func _parseJsonResponse(data: Data) -> Any?
     {
@@ -59,22 +60,26 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
-    func searchRepositories(name: String, language: String, itemsPerPage: Int, pageNumber : Int,  callback: @escaping ([Repository]) -> Void) {
+    func searchRepositories(name: String, language: String, itemsPerPage: Int, pageNumber : Int,  callback: @escaping ([Repository]) -> Void){
         searchRequest?.cancel()
         searchRequest = nil
+        searchRequestCount += 1
+        let requestId = searchRequestCount
         var repositories = [Repository]()
         searchRequest = Alamofire.request(apiUrl + "search/repositories?q=\(name)+language:\(language)&page=\(pageNumber)&per_page=\(itemsPerPage)&sort=stars&order=desc",
                           headers: GitHubApiService.headers)
         .responseJSON{ response in
-            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
-                let items = dataJson["items"] as? NSArray{
-                for jsonItem in items{
-                    let repos = Repository(jsonItem as? NSDictionary)
-                    repositories.append(repos)
+            if self.searchRequestCount == requestId{
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                    let items = dataJson["items"] as? NSArray{
+                    for jsonItem in items{
+                        let repos = Repository(jsonItem as? NSDictionary)
+                        repositories.append(repos)
+                    }
                 }
+                callback(repositories)
+                self.searchRequest = nil
             }
-            callback(repositories)
-            self.searchRequest = nil
         }
     }
     
@@ -93,12 +98,12 @@ class GitHubApiService: GitHubApiServiceProtocol {
     }
     
     func editUserProfile(newUserData: GitUser, callback: @escaping (_ user : GitUser) -> Void) {
-        let parametrs = [   "name" :    newUserData.name,
+        let parameters = [  "name" :    newUserData.name,
                             "company" : newUserData.company,
                             "bio":      newUserData.bio     ]
         Alamofire.request(apiUrl + "user",
                           method: .patch,
-                          parameters: parametrs,
+                          parameters: parameters,
                           encoding: Alamofire.JSONEncoding.default,
                           headers: GitHubApiService.headers)
         .responseJSON{ [unowned self] response in

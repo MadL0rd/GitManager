@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryTabelViewCell: UITableViewCell {
+class RepositoryTableViewCell: UITableViewCell {
     
     let nameLabel : UILabel = {
         let label = UILabel()

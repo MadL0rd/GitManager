@@ -45,6 +45,14 @@ class TwoStateButton: UIButton {
         }
     }
     
+    func toggle(){
+        if viewState {
+            setBlocked()
+        }else{
+            setActive()
+        }
+    }
+    
     func setActive() {
         viewState = true
         if textChanging {

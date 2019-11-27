@@ -26,4 +26,14 @@ class ReposPagePresenter: ReposPagePresenterProtocol {
         guard let repos = repository else { return }
         view?.showRepository(repos)
     }
+    
+    func starRepository() {
+        if let repo = repository{
+            interactor?.starRepository(repo)
+        }
+    }
+    
+    func changeViewStarredStatus() {
+        view?.changeStarredStatus()
+    }
 }

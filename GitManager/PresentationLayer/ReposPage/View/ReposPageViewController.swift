@@ -66,9 +66,14 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         addictionalInfo.setContent(repos: repository, mode: .Full)
         descriptionText.text = repository.description
         
+        //will change in next version
         if let url = URL(string: "https://github.com/\(repository.fullName)/blob/master/README.md"){
             webView.load(URLRequest(url: url))
         }
+    }
+    
+    func changeStarredStatus() {
+        starredButton.toggle()
     }
     
     @objc private func shareRepository(){
@@ -99,6 +104,7 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         stack.axis = .vertical
         stack.spacing = spacing
     }
+    
     private func setupOwnerInfo(){
         let ownerStack = UIStackView()
         ownerStack.axis = .horizontal
@@ -140,6 +146,7 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         ownerStack.addArrangedSubview(ownerSubstack)
         stack.addArrangedSubview(ownerStack)
     }
+    
     private func setupReposInfo(){
         let titleStack = UIStackView()
         titleStack.axis = .horizontal
@@ -149,10 +156,12 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         titleStack.addArrangedSubview(reposNameLabel)
         starredButton.setInteractionAbilityChanging(changeByStates: false)
         starredButton.setChangingText(active: "★", blocked: "✩")
+        starredButton.addTarget(self, action: #selector(starRepository), for: .touchUpInside)
         titleStack.addArrangedSubview(starredButton)
 
         stack.addArrangedSubview(titleStack)
         
+        addictionalInfo.heightAnchor.constraint(equalToConstant: width/10).isActive = true
         addictionalInfo.distribution = .fillProportionally
         stack.addArrangedSubview(addictionalInfo)
         
@@ -161,7 +170,8 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         Designer.mainTitleLabel(label)
         stack.addArrangedSubview(label)
         Designer.mainTitleLabel(descriptionText)
-        descriptionText.lineBreakMode = .byWordWrapping
+        descriptionText.lineBreakMode = .byClipping
+        descriptionText.widthAnchor.constraint(equalToConstant: width*0.8).isActive = true
         stack.addArrangedSubview(descriptionText)
         
         label = UILabel()
@@ -170,5 +180,9 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         stack.addArrangedSubview(label)
         webView.heightAnchor.constraint(equalToConstant: width).isActive = true
         stack.addArrangedSubview(webView)
+    }
+    
+    @objc private func starRepository(){
+        presenter?.starRepository()
     }
 }

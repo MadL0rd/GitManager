@@ -34,11 +34,11 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.width/4
+        return safeAreaLayoutGuide.layoutFrame.size.width/4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoryTabelViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryCell", for: indexPath) as! RepositoryTableViewCell
         cell.addictionalContentMode = addictionalContentMode
         cell.starButton.addTarget(self, action: #selector(starRepository), for: .touchUpInside)
         let repos = owner?.getItemWithIndex(index: indexPath.row)
@@ -58,7 +58,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     @objc func starRepository(sender: UIButton!){
-        guard let cell = sender.superview?.superview as? RepositoryTabelViewCell else {return}
+        guard let cell = sender.superview?.superview as? RepositoryTableViewCell else {return}
         guard let index = tableViewRepositories.indexPath(for: cell)?.row else {return}
         owner?.starRepository(index: index)
     }
@@ -89,7 +89,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         tableViewRepositories.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         tableViewRepositories.dataSource = self
         tableViewRepositories.delegate = self
-        tableViewRepositories.register(RepositoryTabelViewCell.self, forCellReuseIdentifier: "repositoryCell")
+        tableViewRepositories.register(RepositoryTableViewCell.self, forCellReuseIdentifier: "repositoryCell")
         tableViewRepositories.backgroundColor = Colors.mainBackground
     }
 }
