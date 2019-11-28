@@ -11,4 +11,8 @@ class ReposSearchPresenter: ReposListPresenter, ReposSearchPresenterProtocol {
     var interactorSearch: ReposSearchInteractorProtocol?
     var viewSearch: ReposSearchViewProtocol?
     var routerSearch: ReposSearchRouterProtocol?
+    
+    func refreshFiltersText(filters: [String]){
+        viewSearch?.refreshFiltersText(filters: filters)
+    }
 }

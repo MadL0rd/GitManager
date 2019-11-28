@@ -54,12 +54,35 @@ class ReposSearchInteractor: ReposListInteractor, ReposSearchInteractorProtocol 
                 }
             }
         }
-        if searchText != ""{
-            reposCache = reposCache.filter({
-                return $0.name.lowercased().contains(searchText.lowercased())
-            })
-        }
         presenter?.setReposCache(repositories: reposCache)
         presenter?.showRepositories()
+    }
+    
+    override func sendReposList() {
+        if !haveSubscribtion {
+            starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
+            haveSubscribtion = true
+        }else{
+            if let reposList = repositoryList{
+                repositoryList = starredService?.oneTimeUpdate(repositoriesToRefresh: reposList) ?? reposList
+            }
+        }
+        if repositoryList?.count ?? 0 > itemsPerPage{
+            refreshFilters()
+        }else{
+            setFilters()
+        }
+        applyFilters(filtrationManager: nil)
+    }
+    
+    private func refreshFilters(){
+        guard let repositories = repositoryList else { return }
+        var filters = Set<String>()
+        for repos in repositories{
+            if let language = repos.language{
+                filters.insert(language)
+            }
+        }
+        presenterSearch?.refreshFiltersText(filters: Array(filters).sorted())
     }
 }

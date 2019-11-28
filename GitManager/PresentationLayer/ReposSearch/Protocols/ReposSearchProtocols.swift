@@ -8,12 +8,16 @@
 
 protocol ReposSearchViewProtocol: ReposListViewProtocol {
     var presenterStarred:  ReposSearchPresenterProtocol?     { get set }
+    
+    func refreshFiltersText(filters: [String])
 }
 
 protocol ReposSearchPresenterProtocol: ReposListPresenterProtocol {
     var interactorSearch: ReposSearchInteractorProtocol?    { get set }
     var viewSearch:       ReposSearchViewProtocol?          { get set }
     var routerSearch:     ReposSearchRouterProtocol?        { get set }
+    
+    func refreshFiltersText(filters: [String])
 }
 
 protocol ReposSearchInteractorProtocol: ReposListInteractorProtocol {
