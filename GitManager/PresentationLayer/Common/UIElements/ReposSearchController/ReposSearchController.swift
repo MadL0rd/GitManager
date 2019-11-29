@@ -25,8 +25,8 @@ class ReposSearchController: UISearchController, ReposSearchControllerProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setFiltersText(filters: [String]) {
-        searchBar.scopeButtonTitles = filters
+    func setScopeBottonsText(buttonsText : [String]) {
+        searchBar.scopeButtonTitles = buttonsText
     }
     
     override func viewDidLoad() {
@@ -35,13 +35,17 @@ class ReposSearchController: UISearchController, ReposSearchControllerProtocol {
         searchResultsUpdater = self
         obscuresBackgroundDuringPresentation = false
         searchBar.delegate = self
+        
+        searchBar.delegate = self
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(UIImage(named: "filter"), for: .bookmark, state: .normal)
     }
 }
 
 extension ReposSearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        owner?.applySearchFilter(text: searchBar.text?.lowercased() ?? "")
+        owner?.searchTextChanged(text: searchBar.text?.lowercased() ?? "")
     }
 }
 
@@ -49,4 +53,9 @@ extension ReposSearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
     }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        owner?.filterButtonPressed()
+    }
+    
 }

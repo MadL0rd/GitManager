@@ -12,7 +12,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     
     var reposViewer: ReposTableViewer?
     var presenter: ReposListPresenterProtocol?
-    var searchController: UISearchController?
+    var searchController: (UISearchController & ReposSearchControllerProtocol)?
     let footer = SearchFooterButton()
     var footerHidenBottomConstraint : NSLayoutConstraint?
     var footerVisibleBottomConstraint : NSLayoutConstraint?
@@ -94,11 +94,11 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         filtersHidenConstraint = filtrationView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: view.frame.width * 0.8)
         filtersHidenConstraint?.isActive = true
         
-        let image = UIImage(named: "filter")
+        /*let image = UIImage(named: "filter")
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterationManagerDisplaingChange))
-        navigationItem.rightBarButtonItem = button        
+        navigationItem.rightBarButtonItem = button*/
     }
-    @objc internal func filterationManagerDisplaingChange(){
+    @objc func filterationManagerDisplaingChange(){
         filtersVisibleConstraint?.isActive = filtersHiden
         filtersHiden.toggle()
         filtersHidenConstraint?.isActive = filtersHiden
@@ -123,6 +123,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
             })
         }
     }
+    
     func hideFooterButton() {
         if !footerHiden{
             footerHiden.toggle()
@@ -163,6 +164,10 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
             filtrationView.filters.addParameter(name: filter, type: .tag, groupTitle: NSLocalizedString("Languages", comment: "filters title"))
         }
         filtrationView.drawUI()
+    }
+    
+    func setScopeBottonsText(buttonsText: [String]) {
+        searchController?.setScopeBottonsText(buttonsText: buttonsText)
     }
 }
 

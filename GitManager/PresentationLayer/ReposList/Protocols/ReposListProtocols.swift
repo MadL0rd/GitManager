@@ -16,6 +16,8 @@ protocol ReposListViewProtocol: class {
     func reloadCellWithIndex(index: Int)
     func showFooterButton()
     func hideFooterButton()
+    func setScopeBottonsText(buttonsText: [String])
+    func filterationManagerDisplaingChange()
 }
 
 protocol ReposListPresenterProtocol: class {

@@ -11,6 +11,9 @@ import Foundation
 struct GitUser {
     let id: Int64?
     let login: String?
+    var email: String
+    var blog: String
+    var location: String
     let avatarUrl: String?
     var name: String
     var company: String
@@ -21,6 +24,9 @@ struct GitUser {
         if let dictionary = data{
             id = dictionary["id"] as? Int64
             login = dictionary["login"] as? String
+            email = dictionary["email"] as? String ?? ""
+            blog = dictionary["blog"] as? String ?? ""
+            location = dictionary["location"] as? String ?? ""
             avatarUrl = dictionary["avatar_url"] as? String
             name = dictionary["name"] as? String ?? ""
             company = dictionary["company"] as? String ?? ""
@@ -28,6 +34,9 @@ struct GitUser {
         }else {
             id = nil
             login = nil
+            email = ""
+            blog = ""
+            location = ""
             avatarUrl = nil
             name = ""
             company = ""
@@ -38,6 +47,9 @@ struct GitUser {
     init() {
         id = nil
         login = nil
+        email = ""
+        blog = ""
+        location = ""
         avatarUrl = nil
         name = ""
         company = ""

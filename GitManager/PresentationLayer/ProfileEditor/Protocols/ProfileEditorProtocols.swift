@@ -11,6 +11,7 @@
 protocol ProfileEditorViewProtocol: class {
     var presenter:  ProfileEditorPresenterProtocol?     { get set }
     
+    func validationEmailError()
     func showUserProfile(user : GitUser)
 }
 
@@ -22,6 +23,7 @@ protocol ProfileEditorPresenterProtocol: class {
     func viewDidLoad()
     func userProfileDidFetch(user : GitUser)
     func updateUserProfile(newUserData : GitUser)
+    func validationEmailError()
     func logOut()
 }
 

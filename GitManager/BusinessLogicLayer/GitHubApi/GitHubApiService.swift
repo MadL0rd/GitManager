@@ -98,12 +98,14 @@ class GitHubApiService: GitHubApiServiceProtocol {
     }
     
     func editUserProfile(newUserData: GitUser, callback: @escaping (_ user : GitUser) -> Void) {
-        let parameters = [  "name" :    newUserData.name,
+        let parameters = [  "name"    : newUserData.name,
+                            "blog"    : newUserData.blog,
                             "company" : newUserData.company,
-                            "bio":      newUserData.bio     ]
+                            "location": newUserData.location,
+                            "bio"     : newUserData.bio     ]
         Alamofire.request(apiUrl + "user",
                           method: .patch,
-                          parameters: parameters,
+                          parameters: parameters as Parameters,
                           encoding: Alamofire.JSONEncoding.default,
                           headers: GitHubApiService.headers)
         .responseJSON{ [unowned self] response in
@@ -144,6 +146,17 @@ class GitHubApiService: GitHubApiServiceProtocol {
                 callback(repository)
             }else{
                 callback(nil)
+            }
+        }
+    }
+    
+    func getReadme(repository: Repository, callback : @escaping(_ base64Readme : String?)-> Void){
+        guard let url = repository.url else { return }
+        Alamofire.request(url + "/readme")
+        .responseJSON{ response in
+            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
+                var readme = dataJson["html_url"] as? String
+                callback(readme)
             }
         }
     }

@@ -11,6 +11,7 @@ protocol ReposPageViewProtocol {
     
     func showRepository(_ repository: Repository)
     func changeStarredStatus()
+    func setReadme(base: String)
 }
 
 protocol ReposPagePresenterProtocol {
@@ -24,6 +25,7 @@ protocol ReposPagePresenterProtocol {
     func watchIssues()
     func changeViewStarredStatus()
     func starRepository()
+    func setReadme(base: String)
 }
 
 protocol ReposPageInteractorProtocol {

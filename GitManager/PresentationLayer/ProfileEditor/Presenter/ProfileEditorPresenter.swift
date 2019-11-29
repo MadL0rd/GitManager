@@ -30,4 +30,8 @@ class ProfileEditorPresenter: ProfileEditorPresenterProtocol {
         interactor?.clearUserData()
         router?.showAuthenticationScreen()
     }
+    
+    func validationEmailError() {
+        view?.validationEmailError()
+    }
 }

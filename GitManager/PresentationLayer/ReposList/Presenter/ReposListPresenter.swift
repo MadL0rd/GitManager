@@ -89,7 +89,15 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
         view?.hideFooterButton()
     }
     
-    func applySearchFilter(text: String) {
+    func scopeButtonPressed(text: String) {
+
+    }
+    
+    func filterButtonPressed(){
+        view?.filterationManagerDisplaingChange()
+    }
+    
+    func searchTextChanged(text : String){
         interactor?.applySearchFilter(text: text)
     }
 }

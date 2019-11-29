@@ -36,4 +36,8 @@ class ReposPagePresenter: ReposPagePresenterProtocol {
     func changeViewStarredStatus() {
         view?.changeStarredStatus()
     }
+    
+    func setReadme(base: String) {
+        view?.setReadme(base: base)
+    }
 }

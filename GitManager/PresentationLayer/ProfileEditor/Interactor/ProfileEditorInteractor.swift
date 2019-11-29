@@ -6,6 +6,8 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
+import Foundation
+
 class ProfileEditorInteractor: ProfileEditorInteractorProtocol {
     
     var presenter: ProfileEditorPresenterProtocol?
@@ -34,5 +36,13 @@ class ProfileEditorInteractor: ProfileEditorInteractorProtocol {
     
     func clearUserData(){
         keychain?.clearPrivateUserData()
+    }
+    
+    private func isValidEmail(emailStr:String) -> Bool {
+
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: emailStr)
     }
 }

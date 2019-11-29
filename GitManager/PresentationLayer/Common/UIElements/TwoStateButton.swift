@@ -20,8 +20,8 @@ class TwoStateButton: UIButton {
         setupButton()
     }
     
-    private let activeColor  = Colors.active
-    private let blockedColor = Colors.disable
+    var activeColor  = Colors.active
+    var blockedColor = Colors.disable
     private var activeText = ""
     private var blockedText = ""
     private var viewState = true //active - true, blocker - false

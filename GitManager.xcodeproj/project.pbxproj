@@ -20,7 +20,6 @@
 		843C0A302368780D00774F91 /* ReposPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C0A2F2368780D00774F91 /* ReposPageViewController.swift */; };
 		843C0A3223689DA600774F91 /* AddictionalInformationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C0A3123689DA600774F91 /* AddictionalInformationStack.swift */; };
 		843C1AA6236AFFCF00F2D4DD /* StringToBase64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C1AA5236AFFCF00F2D4DD /* StringToBase64.swift */; };
-		843C1AA9236B566C00F2D4DD /* GitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C1AA8236B566C00F2D4DD /* GitHubApiService.swift */; };
 		843C82672363026B00469428 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82662363026B00469428 /* KeychainServiceProtocol.swift */; };
 		843C82692363037200469428 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82682363037200469428 /* KeychainService.swift */; };
 		843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */; };
@@ -32,7 +31,6 @@
 		843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66AF23618C6300AC8694 /* GitHubApiServiceProtocol.swift */; };
 		843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66B1236196BE00AC8694 /* AuthenticationProtocols.swift */; };
 		843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66B32361ADC400AC8694 /* AuthenticationRouter.swift */; };
-		843D9BF0235DB6D100AA5AC9 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D9BEF235DB6D100AA5AC9 /* ReposListViewController.swift */; };
 		843DE614237DA90500CC75A5 /* ReposSearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE613237DA90500CC75A5 /* ReposSearchProtocols.swift */; };
 		843DE616237DA98500CC75A5 /* ReposSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE615237DA98500CC75A5 /* ReposSearchInteractor.swift */; };
 		843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE617237DA9E400CC75A5 /* ReposSearchPresenter.swift */; };
@@ -56,7 +54,7 @@
 		843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F328D2366F52A00AFB40F /* ProfileEditorRouter.swift */; };
 		843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F328F2366FB3C00AFB40F /* ProfileEditorInteractor.swift */; };
 		843F32922366FC0F00AFB40F /* ProfileEditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F32912366FC0F00AFB40F /* ProfileEditorPresenter.swift */; };
-		843F3294236701A900AFB40F /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3293236701A900AFB40F /* ProfileEditorView.swift */; };
+		843F3294236701A900AFB40F /* ProfileEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3293236701A900AFB40F /* ProfileEditorViewController.swift */; };
 		843F3296236703D100AFB40F /* ProfileEditorStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3295236703D100AFB40F /* ProfileEditorStackView.swift */; };
 		843F329A23672ADF00AFB40F /* ReposPageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F329923672ADF00AFB40F /* ReposPageProtocols.swift */; };
 		843F329C2367423300AFB40F /* UrlImageGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F329B2367423300AFB40F /* UrlImageGetter.swift */; };
@@ -71,10 +69,12 @@
 		8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */; };
 		8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */; };
 		8440BC4B2379872000EACA51 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4A2379872000EACA51 /* AppConfig.swift */; };
+		8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A1D62390258400D5037B /* GitHubApiService.swift */; };
 		84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457ED72361E8B2005C2549 /* ScreensRouter.swift */; };
 		84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */; };
 		84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */; };
-		84481AFE238EB42A00DFE6AD /* UIsatckViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481AFD238EB42A00DFE6AD /* UIsatckViewBackground.swift */; };
+		84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */; };
+		844A9CFE2390FE56004CAD28 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A9CFD2390FE56004CAD28 /* ReposListViewController.swift */; };
 		845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */; };
 		845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2055235B56B6003B3F10 /* TwoStateButton.swift */; };
 		845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2059235B654E003B3F10 /* AuthenticationForm.swift */; };
@@ -119,7 +119,6 @@
 		843C0A2F2368780D00774F91 /* ReposPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposPageViewController.swift; sourceTree = "<group>"; };
 		843C0A3123689DA600774F91 /* AddictionalInformationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddictionalInformationStack.swift; sourceTree = "<group>"; };
 		843C1AA5236AFFCF00F2D4DD /* StringToBase64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringToBase64.swift; sourceTree = "<group>"; };
-		843C1AA8236B566C00F2D4DD /* GitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiService.swift; sourceTree = "<group>"; };
 		843C82662363026B00469428 /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
 		843C82682363037200469428 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooterButton.swift; sourceTree = "<group>"; };
@@ -131,7 +130,6 @@
 		843D66AF23618C6300AC8694 /* GitHubApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiServiceProtocol.swift; sourceTree = "<group>"; };
 		843D66B1236196BE00AC8694 /* AuthenticationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProtocols.swift; sourceTree = "<group>"; };
 		843D66B32361ADC400AC8694 /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
-		843D9BEF235DB6D100AA5AC9 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		843DE613237DA90500CC75A5 /* ReposSearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchProtocols.swift; sourceTree = "<group>"; };
 		843DE615237DA98500CC75A5 /* ReposSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchInteractor.swift; sourceTree = "<group>"; };
 		843DE617237DA9E400CC75A5 /* ReposSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchPresenter.swift; sourceTree = "<group>"; };
@@ -155,7 +153,7 @@
 		843F328D2366F52A00AFB40F /* ProfileEditorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorRouter.swift; sourceTree = "<group>"; };
 		843F328F2366FB3C00AFB40F /* ProfileEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorInteractor.swift; sourceTree = "<group>"; };
 		843F32912366FC0F00AFB40F /* ProfileEditorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorPresenter.swift; sourceTree = "<group>"; };
-		843F3293236701A900AFB40F /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorView.swift; sourceTree = "<group>"; };
+		843F3293236701A900AFB40F /* ProfileEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorViewController.swift; sourceTree = "<group>"; };
 		843F3295236703D100AFB40F /* ProfileEditorStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorStackView.swift; sourceTree = "<group>"; };
 		843F329923672ADF00AFB40F /* ReposPageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposPageProtocols.swift; sourceTree = "<group>"; };
 		843F329B2367423300AFB40F /* UrlImageGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageGetter.swift; sourceTree = "<group>"; };
@@ -170,10 +168,12 @@
 		8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryServiceProtocol.swift; sourceTree = "<group>"; };
 		8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryService.swift; sourceTree = "<group>"; };
 		8440BC4A2379872000EACA51 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		8444A1D62390258400D5037B /* GitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiService.swift; sourceTree = "<group>"; };
 		84457ED72361E8B2005C2549 /* ScreensRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouter.swift; sourceTree = "<group>"; };
 		84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependentRouterProtocol.swift; sourceTree = "<group>"; };
 		84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouterProtocol.swift; sourceTree = "<group>"; };
-		84481AFD238EB42A00DFE6AD /* UIsatckViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIsatckViewBackground.swift; sourceTree = "<group>"; };
+		84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewBackground.swift; sourceTree = "<group>"; };
+		844A9CFD2390FE56004CAD28 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromStringARGB.swift; sourceTree = "<group>"; };
 		845D2055235B56B6003B3F10 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
 		845D2059235B654E003B3F10 /* AuthenticationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationForm.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 				843F329B2367423300AFB40F /* UrlImageGetter.swift */,
 				843C1AA5236AFFCF00F2D4DD /* StringToBase64.swift */,
 				843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */,
-				84481AFD238EB42A00DFE6AD /* UIsatckViewBackground.swift */,
+				84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -560,7 +560,7 @@
 		843EA14723574EA9008A3E0E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				843D9BEF235DB6D100AA5AC9 /* ReposListViewController.swift */,
+				844A9CFD2390FE56004CAD28 /* ReposListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -653,7 +653,7 @@
 		843F328C2366F4EB00AFB40F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				843F3293236701A900AFB40F /* ProfileEditorView.swift */,
+				843F3293236701A900AFB40F /* ProfileEditorViewController.swift */,
 				843F3295236703D100AFB40F /* ProfileEditorStackView.swift */,
 			);
 			path = View;
@@ -732,7 +732,7 @@
 			isa = PBXGroup;
 			children = (
 				843D66AF23618C6300AC8694 /* GitHubApiServiceProtocol.swift */,
-				843C1AA8236B566C00F2D4DD /* GitHubApiService.swift */,
+				8444A1D62390258400D5037B /* GitHubApiService.swift */,
 			);
 			path = GitHubApi;
 			sourceTree = "<group>";
@@ -939,12 +939,11 @@
 				843F32882366F28800AFB40F /* ProfileEditorProtocols.swift in Sources */,
 				843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */,
 				843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */,
-				843C1AA9236B566C00F2D4DD /* GitHubApiService.swift in Sources */,
 				84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */,
 				843E2A372375D1DE00379F0A /* ReposListStarredRouter.swift in Sources */,
 				843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */,
 				843F3296236703D100AFB40F /* ProfileEditorStackView.swift in Sources */,
-				84481AFE238EB42A00DFE6AD /* UIsatckViewBackground.swift in Sources */,
+				84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */,
 				843F32922366FC0F00AFB40F /* ProfileEditorPresenter.swift in Sources */,
 				843E2A2A2375CA0700379F0A /* TabBarCreator.swift in Sources */,
 				843C0A302368780D00774F91 /* ReposPageViewController.swift in Sources */,
@@ -953,11 +952,13 @@
 				843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */,
 				843C0A2E236877CB00774F91 /* ReposPagePresenter.swift in Sources */,
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
+				8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */,
 				843FFC4D238BFD2900AE04B1 /* FiltrationManager.swift in Sources */,
 				8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */,
 				843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */,
 				843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */,
-				843F3294236701A900AFB40F /* ProfileEditorView.swift in Sources */,
+				844A9CFE2390FE56004CAD28 /* ReposListViewController.swift in Sources */,
+				843F3294236701A900AFB40F /* ProfileEditorViewController.swift in Sources */,
 				8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */,
 				843DE61C237DAA5D00CC75A5 /* ReposSearchRouter.swift in Sources */,
 				843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */,
@@ -971,7 +972,6 @@
 				843F329C2367423300AFB40F /* UrlImageGetter.swift in Sources */,
 				843E2A352375D14B00379F0A /* ReposListStarredProtocols.swift in Sources */,
 				843E2A3B2375D29C00379F0A /* ReposListStarredPresenter.swift in Sources */,
-				843D9BF0235DB6D100AA5AC9 /* ReposListViewController.swift in Sources */,
 				843DE614237DA90500CC75A5 /* ReposSearchProtocols.swift in Sources */,
 				843C0A3223689DA600774F91 /* AddictionalInformationStack.swift in Sources */,
 				843C82672363026B00469428 /* KeychainServiceProtocol.swift in Sources */,

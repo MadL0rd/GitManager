@@ -19,6 +19,9 @@ class ReposPageInteractor: ReposPageInteractorProtocol {
     func getUser(login: String) {
         starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(repository:))
         apiService?.getPublicUserInfo(login: login, callback: setUser(user:))
+        if let repos = presenter?.repository{
+            apiService?.getReadme(repository: repos, callback: setReadme(base:))
+        }
     }
     
     private func setUser(user: GitUser){
@@ -29,5 +32,10 @@ class ReposPageInteractor: ReposPageInteractorProtocol {
         if repository.id == presenter?.repository?.id {
             presenter?.changeViewStarredStatus()
         }
+    }
+    
+    private func setReadme(base: String?){
+        guard let readme = base else { return }
+        presenter?.setReadme(base: readme)
     }
 }

@@ -8,10 +8,12 @@
 
 protocol ReposSearchControllerProtocol {
     init(owner: ReposSearchControllerOwnerProtocol)
-    func setFiltersText(filters: [String])
+    func setScopeBottonsText(buttonsText: [String])
 }
 
 protocol ReposSearchControllerOwnerProtocol {
-    func applySearchFilter(text : String)
+    func searchTextChanged(text : String)
+    func scopeButtonPressed(text : String)
+    func filterButtonPressed()
 }
 

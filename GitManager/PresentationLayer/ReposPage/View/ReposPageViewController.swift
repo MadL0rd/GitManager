@@ -65,11 +65,6 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
         }
         addictionalInfo.setContent(repos: repository, mode: .Full)
         descriptionText.text = repository.description
-        
-        //will change in next version
-        if let url = URL(string: "https://github.com/\(repository.fullName)/blob/master/README.md"){
-            webView.load(URLRequest(url: url))
-        }
     }
     
     func changeStarredStatus() {
@@ -184,5 +179,15 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
     
     @objc private func starRepository(){
         presenter?.starRepository()
+    }
+    
+    func setReadme(base: String) {
+        /*if let decodeData = Data(base64Encoded: base, options: .ignoreUnknownCharacters) {
+            webView.load(decodeData, mimeType: "application/pdf", characterEncodingName: "base64", baseURL: URL(fileURLWithPath: ""))
+        }*/
+        
+        if let url = URL(string: base){
+            webView.load(URLRequest(url: url))
+        }
     }
 }
