@@ -8,25 +8,23 @@
 
 import UIKit
 
-class RepositoryTabelViewCell: UITableViewCell {
+class RepositoryTableViewCell: UITableViewCell {
     
     let nameLabel : UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.textAlignment = .center
         return label
     }()
     let profileImageView = UIImageView()
     let addictionalInfo = AddictionalInformationStack()
     let starButton = TwoStateButton()
-    var cellHeight : CGFloat = 100
+    var addictionalContentMode = AddictionalInfoContentMode.Default
+    var cellHeight : CGFloat = Constants.cellHeight
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = Colors.mainBackground
-        cellHeight = 108
-        
-        //self.contentView.heightAnchor.constraint(equalToConstant: cellHeight).isActive = true
         
         self.contentView.addSubview(profileImageView)
         self.contentView.addSubview(nameLabel)
@@ -37,7 +35,6 @@ class RepositoryTabelViewCell: UITableViewCell {
         configureNameLabel()
         configureAddictionalInfo()
         configureStarButton()
- 
     }
     
     private func configureProfileImage(){
@@ -53,7 +50,7 @@ class RepositoryTabelViewCell: UITableViewCell {
     }
     
     private func configureNameLabel() {
-        nameLabel.textColor = .black
+        nameLabel.textColor = Colors.darkText
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -cellHeight/6).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: cellHeight).isActive = true
@@ -81,16 +78,14 @@ class RepositoryTabelViewCell: UITableViewCell {
     }
     
     func showRepository(repos : Repository?) {
-        
         guard let reposItem : Repository = repos else {return}
         nameLabel.text = reposItem.name
         profileImageView.downloadFromUrl(url: reposItem.owner?.avatarUrl ?? "")
-        addictionalInfo.setContent(repos: reposItem)
+        addictionalInfo.setContent(repos: reposItem, mode: addictionalContentMode)
         if reposItem.starred{
             starButton.setActive()
         }else{
             starButton.setBlocked()
         }
- 
     }
 }

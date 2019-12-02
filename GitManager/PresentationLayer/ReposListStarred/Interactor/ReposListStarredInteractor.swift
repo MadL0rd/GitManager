@@ -8,36 +8,19 @@
 
 import UIKit
 
-class ReposListStarredInteractor: ReposListStarredInteractorProtocol {
+class ReposListStarredInteractor: ReposListInteractor, ReposListStarredInteractorProtocol {
     
-    var repositoryList: [Repository]?
-    var starredService: StarredRepositoryServiceProtocol?
-    var presenter: ReposListStarredPresenterProtocol?
-    var apiService: GitHubApiServiceProtocol?
-        
-    func getReposLists(){
-        apiService?.getStarredRepositories(callback: self.sendStarredReposList)
-    }
-
-    func sendStarredReposList(repositories : [Repository]) {
-        repositoryList = repositories
-        presenter?.repositoriesCache = repositories
-        presenter?.showRepositories()
-        starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
+    var presenterStarred: ReposListStarredPresenterProtocol?
+    
+    override func getReposList(){
+        lastDownloadedPage = 1
+        canDownloadMoreContent = false
+        apiService?.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: self.setReposList(repositories:))
     }
     
-    func starRepository(repository: Repository) {
-        starredService?.starRepository(repository)
-    }
-    
-    private func starredCallback(starredRepos: Repository?){
-        if let repos = starredRepos{
-            if repos.starred == false && repositoryList?.first(where: {$0.id == repos.id}) == nil{
-                repositoryList?.append(repos)
-                presenter?.repositoriesCache.append(repos)
-                presenter?.showRepositories()
-            }
-            presenter?.refreshRepositoryStar(repository: repos)
-        }
+    override func loadNextPage() {
+        canDownloadMoreContent = false
+        lastDownloadedPage += 1
+        apiService?.getStarredRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: self.setNextPageRepositories(repositories:))
     }
 }

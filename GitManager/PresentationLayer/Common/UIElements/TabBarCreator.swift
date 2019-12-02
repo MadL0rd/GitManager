@@ -32,9 +32,17 @@ class TabBarCreator {
         let iconSearch = UITabBarItem()
         iconSearch.selectedImage = UIImage(named: "search")
         iconSearch.image = UIImage(named: "search")
-        view = ReposListRouter.createModule(screensRouter: mainRouter, content: nil) as UIViewController
+        view = ReposSearchRouter.createModule(screensRouter: mainRouter, content: nil) as UIViewController
         navController = UINavigationController(rootViewController: view)
         navController.tabBarItem = iconSearch
+        tabBarBuff.append(navController)
+        
+        let iconSettings = UITabBarItem()
+        iconSettings.selectedImage = UIImage(named: "settings")
+        iconSettings.image = UIImage(named: "settings")
+        view = ProfileEditorRouter.createModule(screensRouter: mainRouter, content: nil) as UIViewController
+        navController = UINavigationController(rootViewController: view)
+        navController.tabBarItem = iconSettings
         tabBarBuff.append(navController)
         
         let tabBar = UITabBarController()

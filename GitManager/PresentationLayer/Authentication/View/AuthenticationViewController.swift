@@ -18,6 +18,9 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
     
     func showErrorMessage() {
         form.loginButton.setBlocked()
+        UIView.animate(withDuration: 0.5) {
+            self.form.errorLabel.alpha = 1
+        }
     }
     
     override func viewDidLoad() {
@@ -42,6 +45,11 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
     @objc func textConteinsCheck(){
         if form.textFieldsIsNotEmpty(){
             form.loginButton.setActive()
+            if form.errorLabel.alpha != 0{
+                UIView.animate(withDuration: 0.5) {
+                    self.form.errorLabel.alpha = 0
+                }
+            }
         }else{
             form.loginButton.setBlocked()
         }

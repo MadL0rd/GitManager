@@ -12,7 +12,7 @@ class AuthenticationForm: UIStackView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.text = NSLocalizedString("Authentication", comment: "Title on authentication form")
         label.textAlignment = .center
         return label
@@ -36,6 +36,15 @@ class AuthenticationForm: UIStackView {
         btn.setTitle(NSLocalizedString("Sign in", comment: "Button on authentication form"), for: .normal)
         return btn
     }()
+    let errorLabel: UILabel = {
+        let label = UILabel()
+        Designer.mainTitleLabel(label)
+        label.textColor = Colors.error
+        label.alpha = 0
+        label.text = NSLocalizedString("Pair login-password is wrong!", comment: "Title on authentication form")
+        label.textAlignment = .center
+        return label
+    }()
     
     override init(frame: CGRect) {
        super.init(frame: frame)
@@ -57,6 +66,7 @@ class AuthenticationForm: UIStackView {
         addArrangedSubview(loginTextField)
         addArrangedSubview(passwordTextField)
         addArrangedSubview(loginButton)
+        addArrangedSubview(errorLabel)
     }
     
     func textFieldsIsNotEmpty()-> Bool{

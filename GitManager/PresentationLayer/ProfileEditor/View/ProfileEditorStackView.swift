@@ -14,7 +14,7 @@ class ProfileEditorStackView: UIStackView {
 
     let nameLabel: UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.text = NSLocalizedString("Name", comment: "Title on profile editor screen")
         return label
     }()
@@ -25,7 +25,7 @@ class ProfileEditorStackView: UIStackView {
     }()
     let companyLabel: UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.text = NSLocalizedString("Company", comment: "Title on profile editor screen")
         return label
     }()
@@ -36,11 +36,33 @@ class ProfileEditorStackView: UIStackView {
     }()
     let bioLabel: UILabel = {
         let label = UILabel()
-        Designer.defaultLabelStyle(label)
+        Designer.mainTitleLabel(label)
         label.text = NSLocalizedString("Biography", comment: "Title on profile editor screen")
         return label
     }()
     let bioTextField : UITextField = {
+        let textField = UITextField()
+        Designer.defaultTextFieldStyle(textField)
+        return textField
+    }()
+    let blogLabel: UILabel = {
+        let label = UILabel()
+        Designer.mainTitleLabel(label)
+        label.text = NSLocalizedString("Blog", comment: "Title on profile editor screen")
+        return label
+    }()
+    let blogTextField : UITextField = {
+        let textField = UITextField()
+        Designer.defaultTextFieldStyle(textField)
+        return textField
+    }()
+    let locationLabel: UILabel = {
+        let label = UILabel()
+        Designer.mainTitleLabel(label)
+        label.text = NSLocalizedString("Location", comment: "Title on profile editor screen")
+        return label
+    }()
+    let locationTextField : UITextField = {
         let textField = UITextField()
         Designer.defaultTextFieldStyle(textField)
         return textField
@@ -51,6 +73,15 @@ class ProfileEditorStackView: UIStackView {
                             blocked:    NSLocalizedString("There is no changes", comment: "profile editor screen"))
         btn.setBlocked()
         return btn
+    }()
+    let errorLabel: UILabel = {
+        let label = UILabel()
+        Designer.mainTitleLabel(label)
+        label.textColor = Colors.error
+        label.alpha = 0
+        label.text = NSLocalizedString("Email is not valid!", comment: "Title on authentication form")
+        label.textAlignment = .center
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -75,12 +106,19 @@ class ProfileEditorStackView: UIStackView {
         addArrangedSubview(companyTextField)
         addArrangedSubview(bioLabel)
         addArrangedSubview(bioTextField)
+        addArrangedSubview(blogLabel)
+        addArrangedSubview(blogTextField)
+        addArrangedSubview(locationLabel)
+        addArrangedSubview(locationTextField)
         addArrangedSubview(saveButton)
+        addArrangedSubview(errorLabel)
     }
     
     func textFieldsNeedsToSave()-> Bool{
-        return  user.name != nameTextField.text &&
-                user.company != companyTextField.text &&
-                user.bio != bioTextField.text
+        return  user.name != nameTextField.text ||
+                user.company != companyTextField.text ||
+                user.bio != bioTextField.text ||
+                user.blog != blogTextField.text ||
+                user.location != locationTextField.text
     }
 }

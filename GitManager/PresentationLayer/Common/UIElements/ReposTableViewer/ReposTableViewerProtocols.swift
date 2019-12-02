@@ -11,6 +11,7 @@ protocol ReposTableViewerProtocol: UIView {
     init(owner: ReposTableViewerOwnerProtocol)
     func showReposList()
     func refreshCell(index: Int)
+    func setAddictionalContentMode(mode : AddictionalInfoContentMode)
 }
 
 protocol ReposTableViewerOwnerProtocol: class {
@@ -18,4 +19,7 @@ protocol ReposTableViewerOwnerProtocol: class {
     func getItemWithIndex(index: Int) -> Repository?
     func starRepository(index: Int)
     func showRepositoryPage(index: Int)
+    func scrollContentEnds()
+    func scrollContentNotEnds()
+    func refreshData()
 }

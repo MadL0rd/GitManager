@@ -6,27 +6,30 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-import Foundation
-
-class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol {    
-
+class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol, ReposSearchControllerOwnerProtocol {
+    
     var router: ReposListRouterProtocol?
-    weak var view: ReposListViewProtocol?
+    var view: ReposListViewProtocol?
     var interactor: ReposListInteractorProtocol?
     
-    var repositoriesCache = [Repository]()
-    var starredRepositoryList = [Repository]()
+    private var repositoriesCache = [Repository]()
     
     func viewDidLoad() {
-        interactor?.getReposLists()
+        interactor?.viewDidLoad()
     }
     
     func getItemsCount() -> Int {
         return repositoriesCache.count
     }
     
+    func reliadCells(indexBegin : Int, indexEnd : Int){
+        for index in indexBegin...indexEnd {
+            view?.reloadCellWithIndex(index: index)
+        }
+    }
+    
     func getItemWithIndex(index: Int) -> Repository? {
-        if index >= 0 && index <= repositoriesCache.count {
+        if index >= 0 && index < repositoriesCache.count {
             return repositoriesCache[index]
         }else {
             print("try to get access by incorrect index")
@@ -41,7 +44,7 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func showProfileEditor() {
         router?.pushProfileEditor()
     }
-
+    
     func showRepositoryPage(index: Int){
         router?.pushReposPage(repository: repositoriesCache[index])
     }
@@ -55,7 +58,50 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func refreshRepositoryStar(repository: Repository){
         if let index = repositoriesCache.firstIndex(where: {$0.id == repository.id}){
             repositoriesCache[index].starred.toggle()
-            view?.repoladCellWithIndex(index: index)
+            view?.reloadCellWithIndex(index: index)
         }
+    }
+    
+    func setFiltersText(filters: [String]){
+        view?.setFiltersText(filters: filters)
+    }
+    
+    func applyFilters(filtrationManager: FiltrationManagerProtocol){
+        interactor?.applyFilters(filtrationManager: filtrationManager)
+    }
+    
+    func setReposCache(repositories: [Repository]) {
+        repositoriesCache = repositories
+    }
+    func scrollContentEnds() {
+        if interactor?.getMoreContentDawnloadPossibility() ?? false{
+            view?.showFooterButton()
+        }
+    }
+    func scrollContentNotEnds() {
+        if interactor?.getMoreContentDawnloadPossibility() ?? false{
+            view?.hideFooterButton()
+        }
+    }
+    
+    func loadNextPage() {
+        interactor?.loadNextPage()
+        view?.hideFooterButton()
+    }
+    
+    func scopeButtonPressed(text: String) {
+
+    }
+    
+    func filterButtonPressed(){
+        view?.filterationManagerDisplaingChange()
+    }
+    
+    func searchTextChanged(text : String){
+        interactor?.applySearchFilter(text: text)
+    }
+    
+    func refreshData() {
+        interactor?.getReposList()
     }
 }
