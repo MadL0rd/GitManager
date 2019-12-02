@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class GitHubApiService: GitHubApiServiceProtocol {
-   
+    
     private let apiUrl = "https://api.github.com/"
     static private var headers : HTTPHeaders = [:]
     private var searchRequest : Request?
@@ -33,30 +33,30 @@ class GitHubApiService: GitHubApiServiceProtocol {
     func getRepositories(itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ repositories : [Repository])-> Void){
         var repositories = [Repository]()
         Alamofire.request(apiUrl + "user/repos?page=\(pageNumber)&per_page=\(itemsPerPage)&sort=name",
-                          headers: GitHubApiService.headers)
-        .responseJSON{ response in
-            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
-                for jsonItem in dataJson{
-                    repositories.append(Repository(jsonItem as? NSDictionary))
+            headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
+                    for jsonItem in dataJson{
+                        repositories.append(Repository(jsonItem as? NSDictionary))
+                    }
                 }
-            }
-            callback(repositories)
+                callback(repositories)
         }
     }
     
     func getStarredRepositories(itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ repositories : [Repository])-> Void){
         var repositories = [Repository]()
         Alamofire.request(apiUrl + "user/starred?page=\(pageNumber)&per_page=\(itemsPerPage)&sort=name",
-                          headers: GitHubApiService.headers)
-        .responseJSON{ response in
-            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
-                for jsonItem in dataJson{
-                    let repos = Repository(jsonItem as? NSDictionary)
-                    //repos.starred = true
-                    repositories.append(repos)
+            headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
+                    for jsonItem in dataJson{
+                        let repos = Repository(jsonItem as? NSDictionary)
+                        //repos.starred = true
+                        repositories.append(repos)
+                    }
                 }
-            }
-            callback(repositories)
+                callback(repositories)
         }
     }
     
@@ -67,19 +67,19 @@ class GitHubApiService: GitHubApiServiceProtocol {
         let requestId = searchRequestCount
         var repositories = [Repository]()
         searchRequest = Alamofire.request(apiUrl + "search/repositories?q=\(name)+language:\(language)&page=\(pageNumber)&per_page=\(itemsPerPage)&sort=stars&order=desc",
-                          headers: GitHubApiService.headers)
-        .responseJSON{ response in
-            if self.searchRequestCount == requestId{
-                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
-                    let items = dataJson["items"] as? NSArray{
-                    for jsonItem in items{
-                        let repos = Repository(jsonItem as? NSDictionary)
-                        repositories.append(repos)
+            headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if self.searchRequestCount == requestId{
+                    if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                        let items = dataJson["items"] as? NSArray{
+                        for jsonItem in items{
+                            let repos = Repository(jsonItem as? NSDictionary)
+                            repositories.append(repos)
+                        }
                     }
+                    callback(repositories)
+                    self.searchRequest = nil
                 }
-                callback(repositories)
-                self.searchRequest = nil
-            }
         }
     }
     
@@ -88,12 +88,12 @@ class GitHubApiService: GitHubApiServiceProtocol {
         GitHubApiService.headers = ["Authorization": "Basic \(base64)"]
         Alamofire.request(apiUrl + "user",
                           headers: GitHubApiService.headers)
-        .responseJSON{ response in
-            guard let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary
-                else {callback(false); return}
-            guard dataJson["login"] as? String != nil
-                else {callback(false); return}
-            callback(true)
+            .responseJSON{ response in
+                guard let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary
+                    else {callback(false); return}
+                guard dataJson["login"] as? String != nil
+                    else {callback(false); return}
+                callback(true)
         }
     }
     
@@ -108,31 +108,31 @@ class GitHubApiService: GitHubApiServiceProtocol {
                           parameters: parameters as Parameters,
                           encoding: Alamofire.JSONEncoding.default,
                           headers: GitHubApiService.headers)
-        .responseJSON{ [unowned self] response in
-            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
-                let user = GitUser(dataJson)
-                callback(user)
-            }
+            .responseJSON{ [unowned self] response in
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
+                    let user = GitUser(dataJson)
+                    callback(user)
+                }
         }
     }
     
     func getAuthenticatedUser(callback: @escaping (GitUser) -> Void) {
         Alamofire.request(apiUrl + "user", headers: GitHubApiService.headers)
-        .responseJSON{ response in
-            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
-                let user = GitUser(dataJson)
-                callback(user)
-            }
+            .responseJSON{ response in
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
+                    let user = GitUser(dataJson)
+                    callback(user)
+                }
         }
     }
     
     func getPublicUserInfo(login: String, callback: @escaping (GitUser) -> Void) {
         Alamofire.request(apiUrl + "users/\(login)")
-        .responseJSON{ response in
-            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
-                let user = GitUser(dataJson)
-                callback(user)
-            }
+            .responseJSON{ response in
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
+                    let user = GitUser(dataJson)
+                    callback(user)
+                }
         }
     }
     
@@ -141,23 +141,44 @@ class GitHubApiService: GitHubApiServiceProtocol {
         Alamofire.request(apiUrl + "user/starred/" + repository.fullName,
                           method: method,
                           headers: GitHubApiService.headers)
-        .responseJSON{ response in
-            if response.result.isSuccess {
-                callback(repository)
-            }else{
-                callback(nil)
-            }
+            .responseJSON{ response in
+                if response.result.isSuccess {
+                    callback(repository)
+                }else{
+                    callback(nil)
+                }
         }
     }
     
-    func getReadme(repository: Repository, callback : @escaping(_ base64Readme : String?)-> Void){
-        guard let url = repository.url else { return }
-        Alamofire.request(url + "/readme")
-        .responseJSON{ response in
-            if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary{
-                var readme = dataJson["html_url"] as? String
-                callback(readme)
-            }
+    func getReadme(repository: Repository, callback : @escaping(_ htmlSource : String?)-> Void){
+        //guard let url = repository.url else { return }
+        Alamofire.request("https://github.com/MadL0rd/GitManager/blob/dev/GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift")
+            .responseJSON{ response in
+                if let data = response.data{
+                    guard var html = String(data: data, encoding: String.Encoding.utf8) else { return }
+                    let body = "<body"
+                    let table = "<table class=\"highlight tab-size js-file-line-container\" data-tab-size=\"8\">"
+                    let tableEnd = "</table>"
+                    if  var indexCutBegin = html.index(of: body),
+                        var indexCutEnd = html.index(of: table),
+                        html.endIndex(of: tableEnd) != nil{
+                        while html[indexCutBegin] != ">" {
+                            indexCutBegin = html.index(indexCutBegin, offsetBy : 1)
+                        }
+                        indexCutBegin = html.index(indexCutBegin, offsetBy : 1)
+                        indexCutEnd = html.index(indexCutEnd, offsetBy : -1)
+                        html.removeSubrange(indexCutBegin ... indexCutEnd)
+                        if var indexTabeEnd = html.endIndex(of: tableEnd) {
+                            indexTabeEnd = html.index(indexTabeEnd, offsetBy : 1)
+                            let htmlEnd =  html.index(html.endIndex, offsetBy : -1)
+                            html.removeSubrange(indexTabeEnd ... htmlEnd)
+                        }
+                        html += "</body> </html>"
+                    }
+                    
+                    
+                    callback(html)
+                }
         }
     }
 }

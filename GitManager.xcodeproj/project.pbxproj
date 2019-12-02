@@ -69,6 +69,7 @@
 		8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */; };
 		8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */; };
 		8440BC4B2379872000EACA51 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4A2379872000EACA51 /* AppConfig.swift */; };
+		84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2223950F78007217D6 /* SubstringSearching.swift */; };
 		8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A1D62390258400D5037B /* GitHubApiService.swift */; };
 		84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457ED72361E8B2005C2549 /* ScreensRouter.swift */; };
 		84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */; };
@@ -168,6 +169,7 @@
 		8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryServiceProtocol.swift; sourceTree = "<group>"; };
 		8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryService.swift; sourceTree = "<group>"; };
 		8440BC4A2379872000EACA51 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		84430A2223950F78007217D6 /* SubstringSearching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringSearching.swift; sourceTree = "<group>"; };
 		8444A1D62390258400D5037B /* GitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiService.swift; sourceTree = "<group>"; };
 		84457ED72361E8B2005C2549 /* ScreensRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouter.swift; sourceTree = "<group>"; };
 		84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependentRouterProtocol.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				843C1AA5236AFFCF00F2D4DD /* StringToBase64.swift */,
 				843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */,
 				84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */,
+				84430A2223950F78007217D6 /* SubstringSearching.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -966,6 +969,7 @@
 				843D05E6235F54D600E88B58 /* AuthenticationInteractor.swift in Sources */,
 				843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */,
 				843FFC51238BFEAB00AE04B1 /* FiltersView.swift in Sources */,
+				84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
 				843EE002237AFA78003E0C5B /* ReposSearchController.swift in Sources */,
 				843F3B682373286600F74B8D /* Colors.swift in Sources */,
