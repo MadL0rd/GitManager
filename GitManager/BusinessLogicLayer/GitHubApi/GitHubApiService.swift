@@ -11,6 +11,7 @@ import Alamofire
 
 class GitHubApiService: GitHubApiServiceProtocol {
     
+    private let parser : FileParserProtocol = GitHubFileParser()
     private let apiUrl = "https://api.github.com/"
     static private var headers : HTTPHeaders = [:]
     private var searchRequest : Request?
@@ -151,35 +152,22 @@ class GitHubApiService: GitHubApiServiceProtocol {
     }
     
     func getReadme(repository: Repository, callback : @escaping(_ htmlSource : String?)-> Void){
-        //guard let url = repository.url else { return }
-        Alamofire.request("https://github.com/MadL0rd/GitManager/blob/dev/GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift")
+        guard let url = repository.url else { return }
+        Alamofire.request(url + "/readme")
             .responseJSON{ response in
-                if let data = response.data{
-                    guard var html = String(data: data, encoding: String.Encoding.utf8) else { return }
-                    let body = "<body"
-                    let table = "<table class=\"highlight tab-size js-file-line-container\" data-tab-size=\"8\">"
-                    let tableEnd = "</table>"
-                    if  var indexCutBegin = html.index(of: body),
-                        var indexCutEnd = html.index(of: table),
-                        html.endIndex(of: tableEnd) != nil{
-                        while html[indexCutBegin] != ">" {
-                            indexCutBegin = html.index(indexCutBegin, offsetBy : 1)
-                        }
-                        indexCutBegin = html.index(indexCutBegin, offsetBy : 1)
-                        indexCutEnd = html.index(indexCutEnd, offsetBy : -1)
-                        html.removeSubrange(indexCutBegin ... indexCutEnd)
-                        if var indexTabeEnd = html.endIndex(of: tableEnd) {
-                            indexTabeEnd = html.index(indexTabeEnd, offsetBy : 1)
-                            let htmlEnd =  html.index(html.endIndex, offsetBy : -1)
-                            html.removeSubrange(indexTabeEnd ... htmlEnd)
-                        }
-                        html += "</body> </html>"
+                if  let data = response.data,
+                    let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                    let readmeUrl = dataJson["html_url"] as? String{
+                    Alamofire.request(readmeUrl)
+                        .responseJSON{ response in
+                            if let data = response.data{
+                                guard let html = String(data: data, encoding: String.Encoding.utf8) else { return }
+                                callback(self.parser.parsePageAsReadMe(htmlSource: html))
+                            }
                     }
-                    
-                    
-                    callback(html)
                 }
         }
     }
+    
 }
 

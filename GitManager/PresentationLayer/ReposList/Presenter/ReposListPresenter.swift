@@ -100,4 +100,8 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func searchTextChanged(text : String){
         interactor?.applySearchFilter(text: text)
     }
+    
+    func refreshData() {
+        interactor?.getReposList()
+    }
 }

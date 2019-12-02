@@ -10,18 +10,20 @@ import UIKit
 
 class ReposListViewController: UIViewController, ReposListViewProtocol{
     
-    var reposViewer: ReposTableViewer?
     var presenter: ReposListPresenterProtocol?
-    var searchController: (UISearchController & ReposSearchControllerProtocol)?
-    let footer = SearchFooterButton()
-    var footerHidenBottomConstraint : NSLayoutConstraint?
-    var footerVisibleBottomConstraint : NSLayoutConstraint?
-    var footerHiden = true
-    let filtrationView: FiltersViewProtocol = FiltersView()
-    let filtrationBackground = UIButton()
-    var filtersHidenConstraint : NSLayoutConstraint?
-    var filtersVisibleConstraint : NSLayoutConstraint?
-    var filtersHiden = true
+    var reposViewer: ReposTableViewer?
+    
+    internal var searchController: (UISearchController & ReposSearchControllerProtocol)?
+    internal let footer = SearchFooterButton()
+    internal var footerHidenBottomConstraint : NSLayoutConstraint?
+    internal var footerVisibleBottomConstraint : NSLayoutConstraint?
+    internal var footerHiden = true
+    internal let filtrationView: FiltersViewProtocol = FiltersView()
+    internal let filtrationBackground = UIButton()
+    internal var filtersHidenConstraint : NSLayoutConstraint?
+    internal var filtersVisibleConstraint : NSLayoutConstraint?
+    internal var filtersHiden = true
+    internal let filtersControlButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +31,14 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         presenter?.viewDidLoad()
     }
     
-    internal func setupView(){
+    internal func setupView(){        
         setupNavigationTitle()
         setupTableView()
         setupSearchController()
         setupFooter()
+        setupSwipes()
         setupFilterationManagerView()
+        setupRefreshControl()
         
         setupInheritor()
     }
@@ -45,6 +49,10 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     
     internal func setupNavigationTitle(){
         navigationItem.title = NSLocalizedString("My repositories", comment: "Title on repositories screen")
+    }
+    
+    internal func setupRefreshControl() {
+
     }
     
     internal func setupTableView() {
@@ -72,8 +80,10 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         footer.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -view.frame.width/16).isActive = true
         footer.addTarget(self, action: #selector(loadNextPage), for: .touchUpInside)
     }
+    
     internal func setupFilterationManagerView(){
         view.addSubview(filtrationBackground)
+        view.addSubview(filtersControlButton)
         filtrationBackground.translatesAutoresizingMaskIntoConstraints = false
         filtrationBackground.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         filtrationBackground.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
@@ -84,6 +94,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         filtrationBackground.addTarget(self, action: #selector(filterationManagerDisplaingChange), for: .touchUpInside)
         
         filtrationView.setApplyAction {
+            self.filterationManagerDisplaingChange()
             self.presenter?.applyFilters(filtrationManager: self.filtrationView.filters)
         }
         view.addSubview(filtrationView)
@@ -94,10 +105,14 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         filtersHidenConstraint = filtrationView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: view.frame.width * 0.8)
         filtersHidenConstraint?.isActive = true
         
-        /*let image = UIImage(named: "filter")
-        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterationManagerDisplaingChange))
-        navigationItem.rightBarButtonItem = button*/
+        filtersControlButton.setTitle("<", for: .normal)
+        filtersControlButton.addTarget(self, action: #selector(filterationManagerDisplaingChange), for: .touchUpInside)
+        Designer.smallButton(filtersControlButton)
+        filtersControlButton.alpha = 0.8
+        filtersControlButton.rightAnchor.constraint(equalTo: filtrationView.leftAnchor, constant: 7).isActive = true
+        filtersControlButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+    
     @objc func filterationManagerDisplaingChange(){
         filtersVisibleConstraint?.isActive = filtersHiden
         filtersHiden.toggle()
@@ -105,8 +120,10 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         UIView.animate(withDuration: 0.5, animations: {
             if self.filtersHiden{
                 self.filtrationBackground.alpha = 0.0
+                self.filtersControlButton.setTitle("<", for: .normal)
             }else{
                 self.filtrationBackground.alpha = 0.6
+                self.filtersControlButton.setTitle(">", for: .normal)
             }
             self.view.layoutIfNeeded()
         })
@@ -149,6 +166,28 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         searchController = ReposSearchController(owner: owner)
         searchController?.searchBar.placeholder = NSLocalizedString("Filter repositories", comment: "search controller")
         navigationItem.searchController = searchController
+    }
+    
+    internal func setupSwipes(){
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+            if !filtersHiden{
+                filterationManagerDisplaingChange()
+            }
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+            if filtersHiden{
+                filterationManagerDisplaingChange()
+            }
+        }
     }
     
     func showReposList() {

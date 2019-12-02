@@ -20,12 +20,11 @@ class RepositoryTableViewCell: UITableViewCell {
     let addictionalInfo = AddictionalInformationStack()
     let starButton = TwoStateButton()
     var addictionalContentMode = AddictionalInfoContentMode.Default
-    var cellHeight : CGFloat = 100
+    var cellHeight : CGFloat = Constants.cellHeight
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = Colors.mainBackground
-        cellHeight = self.bounds.width/3
         
         self.contentView.addSubview(profileImageView)
         self.contentView.addSubview(nameLabel)

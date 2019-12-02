@@ -13,6 +13,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     private var tableViewRepositories = UITableView()
     private var addictionalContentMode = AddictionalInfoContentMode.Default
     private var owner: ReposTableViewerOwnerProtocol?
+    private let refreshControl = UIRefreshControl()
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -34,7 +35,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return safeAreaLayoutGuide.layoutFrame.size.width/4
+        return Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,6 +73,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func showReposList() {
+        self.refreshControl.endRefreshing()
         tableViewRepositories.reloadData()
     }
     
@@ -81,6 +83,14 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     private func setupTableView() {
+        if #available(iOS 10.0, *) {
+            tableViewRepositories.refreshControl = refreshControl
+        } else {
+            tableViewRepositories.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl.tintColor = Colors.mainColor
+        
         addSubview(tableViewRepositories)
         tableViewRepositories.translatesAutoresizingMaskIntoConstraints = false
         tableViewRepositories.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -91,6 +101,10 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         tableViewRepositories.delegate = self
         tableViewRepositories.register(RepositoryTableViewCell.self, forCellReuseIdentifier: "repositoryCell")
         tableViewRepositories.backgroundColor = Colors.mainBackground
+    }
+    
+    @objc private func refresh(){
+        owner?.refreshData()
     }
 }
 

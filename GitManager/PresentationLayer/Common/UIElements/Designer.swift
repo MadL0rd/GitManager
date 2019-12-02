@@ -26,11 +26,13 @@ public class Designer{
         label.textColor = Colors.darkText
         label.font = label.font.withSize(18)
     }
+    
     public static func subTitleLabel(_ label : UILabel){
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.darkText
         label.font = label.font.withSize(14)
     }
+    
     public static func bigTitleLabel(_ label : UILabel){
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.darkText

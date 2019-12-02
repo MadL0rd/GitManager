@@ -37,8 +37,6 @@ class ReposSearchController: UISearchController, ReposSearchControllerProtocol {
         searchBar.delegate = self
         
         searchBar.delegate = self
-        searchBar.showsBookmarkButton = true
-        searchBar.setImage(UIImage(named: "filter"), for: .bookmark, state: .normal)
     }
 }
 

@@ -31,17 +31,19 @@ class FiltersView: UIView, FiltersViewProtocol {
         setupScrollView()
         setupStackView()
     }
+    
     func setApplyAction(action: @escaping () -> Void){
         applyAction = action
     }
-
+    
     func drawUI() {
         relationsUIFilters.removeAll()
         stack.removeAllArrangedSubviews()
         
         let apply = UIButton()
-        apply.setTitle(NSLocalizedString("Apply filters", comment: "Filtration"), for: .normal)
+        apply.setTitle(NSLocalizedString("Apply", comment: "Filtration"), for: .normal)
         Designer.smallButton(apply)
+        apply.backgroundColor = Colors.greenButton
         apply.addTarget(self, action: #selector(applyButtonAction), for: .touchUpInside)
         stack.addArrangedSubview(apply)
         
@@ -83,6 +85,7 @@ class FiltersView: UIView, FiltersViewProtocol {
             
             let dropButton = UIButton()
             Designer.smallButton(dropButton)
+            dropButton.backgroundColor = Colors.redButton
             dropButton.setTitle(NSLocalizedString("Drop", comment: "Filtration"), for: .normal)
             dropButton.addTarget(self, action: #selector(dropAllTagGroupFilters), for: .touchUpInside)
             addRelation(elementUI: dropButton, group: group.key, parameter: "")
@@ -90,6 +93,7 @@ class FiltersView: UIView, FiltersViewProtocol {
             
             let setButton = UIButton()
             Designer.smallButton(setButton)
+            setButton.backgroundColor = Colors.greenButton
             setButton.setTitle(NSLocalizedString("Set", comment: "Filtration"), for: .normal)
             setButton.addTarget(self, action: #selector(setAllTagGroupFilters), for: .touchUpInside)
             addRelation(elementUI: setButton, group: group.key, parameter: "")
@@ -125,7 +129,7 @@ class FiltersView: UIView, FiltersViewProtocol {
         scroll.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.leadingAnchor.constraint(equalTo: scroll.leadingAnchor).isActive = true;
-        stack.topAnchor.constraint(equalTo: scroll.topAnchor).isActive = true;
+        stack.topAnchor.constraint(equalTo: scroll.topAnchor, constant: 20).isActive = true;
         stack.trailingAnchor.constraint(equalTo: scroll.trailingAnchor).isActive = true;
         stack.bottomAnchor.constraint(equalTo: scroll.bottomAnchor).isActive = true;
         stack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true

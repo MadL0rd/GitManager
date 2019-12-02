@@ -27,6 +27,8 @@ class ReposListInteractor: ReposListInteractorProtocol {
     internal var canDownloadMoreContent = false
     
     func getReposList(){
+        lastDownloadedPage = 1
+        canDownloadMoreContent = false
         apiService?.getRepositories(itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: self.setReposList(repositories:))
     }
     

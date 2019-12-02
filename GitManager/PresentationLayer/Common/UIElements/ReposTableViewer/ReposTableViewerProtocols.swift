@@ -21,4 +21,5 @@ protocol ReposTableViewerOwnerProtocol: class {
     func showRepositoryPage(index: Int)
     func scrollContentEnds()
     func scrollContentNotEnds()
+    func refreshData()
 }
