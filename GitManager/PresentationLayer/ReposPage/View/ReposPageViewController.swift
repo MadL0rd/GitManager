@@ -186,8 +186,9 @@ class ReposPageView: UIViewController, ReposPageViewProtocol{
             webView.load(decodeData, mimeType: "application/pdf", characterEncodingName: "base64", baseURL: URL(fileURLWithPath: ""))
         }*/
         
-        if let url = URL(string: base){
+        /*if let url = URL(string: base){
             webView.load(URLRequest(url: url))
-        }
+        }*/
+         webView.loadHTMLString(base, baseURL: nil)
     }
 }
