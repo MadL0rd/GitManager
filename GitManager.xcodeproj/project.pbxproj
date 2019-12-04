@@ -31,6 +31,10 @@
 		843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66AF23618C6300AC8694 /* GitHubApiServiceProtocol.swift */; };
 		843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66B1236196BE00AC8694 /* AuthenticationProtocols.swift */; };
 		843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D66B32361ADC400AC8694 /* AuthenticationRouter.swift */; };
+		843DDF422397F23C00603AF8 /* LoadingCheckManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DDF412397F23C00603AF8 /* LoadingCheckManagerProtocol.swift */; };
+		843DDF442397F4F200603AF8 /* LoadingCheckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DDF432397F4F200603AF8 /* LoadingCheckManager.swift */; };
+		843DDF472397FAE900603AF8 /* LoadingViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DDF462397FAE900603AF8 /* LoadingViewProtocol.swift */; };
+		843DDF492397FD8900603AF8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DDF482397FD8900603AF8 /* LoadingView.swift */; };
 		843DE614237DA90500CC75A5 /* ReposSearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE613237DA90500CC75A5 /* ReposSearchProtocols.swift */; };
 		843DE616237DA98500CC75A5 /* ReposSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE615237DA98500CC75A5 /* ReposSearchInteractor.swift */; };
 		843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DE617237DA9E400CC75A5 /* ReposSearchPresenter.swift */; };
@@ -134,6 +138,10 @@
 		843D66AF23618C6300AC8694 /* GitHubApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiServiceProtocol.swift; sourceTree = "<group>"; };
 		843D66B1236196BE00AC8694 /* AuthenticationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProtocols.swift; sourceTree = "<group>"; };
 		843D66B32361ADC400AC8694 /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
+		843DDF412397F23C00603AF8 /* LoadingCheckManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCheckManagerProtocol.swift; sourceTree = "<group>"; };
+		843DDF432397F4F200603AF8 /* LoadingCheckManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCheckManager.swift; sourceTree = "<group>"; };
+		843DDF462397FAE900603AF8 /* LoadingViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewProtocol.swift; sourceTree = "<group>"; };
+		843DDF482397FD8900603AF8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		843DE613237DA90500CC75A5 /* ReposSearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchProtocols.swift; sourceTree = "<group>"; };
 		843DE615237DA98500CC75A5 /* ReposSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchInteractor.swift; sourceTree = "<group>"; };
 		843DE617237DA9E400CC75A5 /* ReposSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchPresenter.swift; sourceTree = "<group>"; };
@@ -367,6 +375,7 @@
 		843C8271236325E000469428 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				843DDF452397FA8800603AF8 /* LoadingView */,
 				843E1EEA2386E840000BFFC0 /* FiltersView */,
 				843EE000237AF9F6003E0C5B /* ReposSearchController */,
 				843E2A1D2375AF1700379F0A /* ReposTableViewer */,
@@ -434,6 +443,7 @@
 		843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				843DDF402397F18000603AF8 /* LoadingCheckManager */,
 				84430A2423952AB8007217D6 /* FileParser */,
 				843BC299238D1D420018D002 /* FiltrationManager */,
 				8440BC432379392B00EACA51 /* StarredRepositoryService */,
@@ -441,6 +451,24 @@
 				84457ED52361E856005C2549 /* GitHubApi */,
 			);
 			path = BusinessLogicLayer;
+			sourceTree = "<group>";
+		};
+		843DDF402397F18000603AF8 /* LoadingCheckManager */ = {
+			isa = PBXGroup;
+			children = (
+				843DDF412397F23C00603AF8 /* LoadingCheckManagerProtocol.swift */,
+				843DDF432397F4F200603AF8 /* LoadingCheckManager.swift */,
+			);
+			path = LoadingCheckManager;
+			sourceTree = "<group>";
+		};
+		843DDF452397FA8800603AF8 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				843DDF462397FAE900603AF8 /* LoadingViewProtocol.swift */,
+				843DDF482397FD8900603AF8 /* LoadingView.swift */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		843DE60D237DA89200CC75A5 /* ReposSearch */ = {
@@ -975,6 +1003,7 @@
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
 				8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */,
 				843FFC4D238BFD2900AE04B1 /* FiltrationManager.swift in Sources */,
+				843DDF422397F23C00603AF8 /* LoadingCheckManagerProtocol.swift in Sources */,
 				8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */,
 				84430A2823952B99007217D6 /* GitHubFileParser.swift in Sources */,
 				843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */,
@@ -992,6 +1021,7 @@
 				84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
 				843EE002237AFA78003E0C5B /* ReposSearchController.swift in Sources */,
+				843DDF442397F4F200603AF8 /* LoadingCheckManager.swift in Sources */,
 				843F3B682373286600F74B8D /* Colors.swift in Sources */,
 				843F329C2367423300AFB40F /* UrlImageGetter.swift in Sources */,
 				843E2A352375D14B00379F0A /* ReposListStarredProtocols.swift in Sources */,
@@ -1013,6 +1043,8 @@
 				8419EAA12356163B0033B5B2 /* AppDelegate.swift in Sources */,
 				843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */,
 				843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */,
+				843DDF472397FAE900603AF8 /* LoadingViewProtocol.swift in Sources */,
+				843DDF492397FD8900603AF8 /* LoadingView.swift in Sources */,
 				843F32A2236747A500AFB40F /* ReposPageRouter.swift in Sources */,
 				843DE61A237DAA2700CC75A5 /* ReposSearchViewController.swift in Sources */,
 				843FFC53238BFED000AE04B1 /* FiltersViewProtocol.swift in Sources */,

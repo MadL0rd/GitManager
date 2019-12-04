@@ -125,6 +125,7 @@ class FiltersView: UIView, FiltersViewProtocol {
         scroll.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true;
         scroll.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true;
     }
+    
     private func setupStackView(){
         scroll.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -137,6 +138,7 @@ class FiltersView: UIView, FiltersViewProtocol {
         stack.axis = .vertical
         stack.spacing = 20
     }
+    
     private func addRelation(elementUI: UIView, group: String, parameter: String){
         elementUI.tag = relationsUIFilters.count
         relationsUIFilters[elementUI.tag] = (group: group, parameter: parameter)

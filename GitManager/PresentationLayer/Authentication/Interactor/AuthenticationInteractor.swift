@@ -39,6 +39,8 @@ class AuthenticationInteractor: AuthenticationInteractorProtocol {
         if let data = keychain?.getPrivateUserData(){
             if data.login != "" && data.password != "" {
                 sendAuthenticationRequest(login: data.login, password: data.password)
+            }else{
+                presenter?.hideLoading()
             }
         }
     }

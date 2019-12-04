@@ -60,7 +60,6 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
     }
     
     private func setStarredRepositories(repositories : [Repository]){
-        
         if lastDownloadedPage == 1 {
             starredRepositories = repositories
         }else{
@@ -76,6 +75,9 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
             for update in subscribers{
                 update(repos)
             }
+        }
+        if repositories.count != itemsPerPage {
+            print("Starred service complete download")
         }
     }
     
