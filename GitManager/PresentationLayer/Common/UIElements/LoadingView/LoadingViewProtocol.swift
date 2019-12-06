@@ -11,6 +11,10 @@ import UIKit
 protocol LoadingViewProtocol: UIView{
     func show(animation: Bool)
     func hide(animation: Bool)
+    func setDuration(duration: Double)
+    func setCircleRadius(radius: Double)
+    func setItemRadius(radius: Double)
+    func setItemsQuantity(quantity: Int)
 }
 
 extension LoadingViewProtocol{

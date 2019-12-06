@@ -11,6 +11,8 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
     private let gitHubApi : GitHubApiServiceProtocol
     private var starredRepositories : [Repository]? = nil
     private var subscribers = [(Repository) -> Void]()
+    private var subscribersLoadingComplete = [() -> Void]()
+    private var loadingComplete = false
     
     private var lastDownloadedPage = 1
     private let itemsPerPage = 100
@@ -24,8 +26,13 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
         return starredRepositories
     }
     
-    func subscribeOnUpdate(refreshReposFunc: @escaping (Repository) -> Void) {
+    func subscribeOnUpdate(refreshReposFunc: @escaping (Repository) -> Void, loadingCompleted: @escaping () -> Void) {
         subscribers.append(refreshReposFunc)
+        if self.loadingComplete{
+            loadingCompleted()
+        } else {
+            subscribersLoadingComplete.append(loadingCompleted)
+        }
         if let starred = starredRepositories {
             for repos in starred{
                 refreshReposFunc(repos)
@@ -77,7 +84,11 @@ class StarredRepositoryService: StarredRepositoryServiceProtocol {
             }
         }
         if repositories.count != itemsPerPage {
-            print("Starred service complete download")
+            for complete in subscribersLoadingComplete {
+                complete()
+            }
+            subscribersLoadingComplete.removeAll()
+            loadingComplete = true
         }
     }
     

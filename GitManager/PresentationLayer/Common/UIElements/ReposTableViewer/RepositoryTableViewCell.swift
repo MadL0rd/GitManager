@@ -20,7 +20,7 @@ class RepositoryTableViewCell: UITableViewCell {
     let addictionalInfo = AddictionalInformationStack()
     let starButton = TwoStateButton()
     var addictionalContentMode = AddictionalInfoContentMode.Default
-    var cellHeight : CGFloat = Constants.cellHeight
+    static let cellHeight : CGFloat = 100
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,7 +44,7 @@ class RepositoryTableViewCell: UITableViewCell {
         profileImageView.widthAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.8).isActive = true
         profileImageView.backgroundColor = Colors.backgroundDark
         profileImageView.contentMode = .scaleAspectFill
-        profileImageView.layer.cornerRadius = cellHeight * 0.8 / 2
+        profileImageView.layer.cornerRadius = RepositoryTableViewCell.cellHeight * 0.8 / 2
         profileImageView.layer.masksToBounds = true
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -52,21 +52,21 @@ class RepositoryTableViewCell: UITableViewCell {
     private func configureNameLabel() {
         nameLabel.textColor = Colors.darkText
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -cellHeight/6).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: cellHeight).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -RepositoryTableViewCell.cellHeight/6).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: RepositoryTableViewCell.cellHeight).isActive = true
         nameLabel.numberOfLines = 0
         nameLabel.adjustsFontSizeToFitWidth = true
     }
     
     private func configureAddictionalInfo(){
-        addictionalInfo.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: cellHeight/4).isActive = true
-        addictionalInfo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: cellHeight * 0.9).isActive = true
-        addictionalInfo.heightAnchor.constraint(equalToConstant: cellHeight/4).isActive = true
+        addictionalInfo.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: RepositoryTableViewCell.cellHeight/4).isActive = true
+        addictionalInfo.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: RepositoryTableViewCell.cellHeight * 0.9).isActive = true
+        addictionalInfo.heightAnchor.constraint(equalToConstant: RepositoryTableViewCell.cellHeight/4).isActive = true
         addictionalInfo.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureStarButton(){
-        starButton.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -cellHeight/8).isActive = true
+        starButton.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -RepositoryTableViewCell.cellHeight/8).isActive = true
         starButton.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         starButton.setInteractionAbilityChanging(changeByStates: false)
         starButton.setChangingText(active: "★", blocked: "✩")

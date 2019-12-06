@@ -165,6 +165,8 @@ class GitHubApiService: GitHubApiServiceProtocol {
                                 callback(self.parser.parsePageAsReadMe(htmlSource: html))
                             }
                     }
+                } else {
+                    callback("")
                 }
         }
     }

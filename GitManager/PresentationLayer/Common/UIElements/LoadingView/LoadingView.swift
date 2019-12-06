@@ -13,7 +13,7 @@ class LoadingView: UIView, LoadingViewProtocol {
     var duration: Double = 0.5
     var delayTime: Double = 1.1
     var animationActive = false
-    let ellipsesQuantity = 6
+    var ellipsesQuantity = 7
     private var ellipses = [UIView]()
     private var colors = [UIColor]()
     private var positions = [(xPosition: Double, yPosition: Double)]()
@@ -54,6 +54,25 @@ class LoadingView: UIView, LoadingViewProtocol {
             alpha = 0
         }
         animationActive = false
+    }
+    
+    func setDuration(duration: Double) {
+        self.duration = duration
+    }
+    
+    func setCircleRadius(radius: Double) {
+        circleRadius = radius
+        setup()
+    }
+    
+    func setItemRadius(radius: Double) {
+        ellipseRadius = CGFloat(radius)
+        setup()
+    }
+    
+    func setItemsQuantity(quantity: Int) {
+        ellipsesQuantity = quantity
+        setup()
     }
     
     private func setup() {

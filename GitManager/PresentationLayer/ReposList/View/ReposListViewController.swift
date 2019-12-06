@@ -32,7 +32,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         presenter?.viewDidLoad()
     }
     
-    internal func setupView(){        
+    internal func setupView(){
         setupNavigationTitle()
         setupTableView()
         setupSearchController()
@@ -152,6 +152,10 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
                 self.view.layoutIfNeeded()
             })
         }
+    }
+    
+    func hideLoadingView() {
+        loading.hide()
     }
     
     func hideFooterButton() {

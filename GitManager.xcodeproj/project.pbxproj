@@ -76,13 +76,13 @@
 		84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2223950F78007217D6 /* SubstringSearching.swift */; };
 		84430A2623952AF6007217D6 /* FileParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2523952AF6007217D6 /* FileParserProtocol.swift */; };
 		84430A2823952B99007217D6 /* GitHubFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2723952B99007217D6 /* GitHubFileParser.swift */; };
-		84430A2A23956AAF007217D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2923956AAF007217D6 /* Constants.swift */; };
 		8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A1D62390258400D5037B /* GitHubApiService.swift */; };
 		84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457ED72361E8B2005C2549 /* ScreensRouter.swift */; };
 		84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */; };
 		84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */; };
+		84476759239A6B6500EE93B1 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476758239A6B6500EE93B1 /* ReposListViewController.swift */; };
+		8447675B239A747F00EE93B1 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447675A239A747F00EE93B1 /* Issue.swift */; };
 		84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */; };
-		844A9CFE2390FE56004CAD28 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A9CFD2390FE56004CAD28 /* ReposListViewController.swift */; };
 		845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */; };
 		845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2055235B56B6003B3F10 /* TwoStateButton.swift */; };
 		845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2059235B654E003B3F10 /* AuthenticationForm.swift */; };
@@ -183,13 +183,13 @@
 		84430A2223950F78007217D6 /* SubstringSearching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringSearching.swift; sourceTree = "<group>"; };
 		84430A2523952AF6007217D6 /* FileParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileParserProtocol.swift; sourceTree = "<group>"; };
 		84430A2723952B99007217D6 /* GitHubFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFileParser.swift; sourceTree = "<group>"; };
-		84430A2923956AAF007217D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8444A1D62390258400D5037B /* GitHubApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApiService.swift; sourceTree = "<group>"; };
 		84457ED72361E8B2005C2549 /* ScreensRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouter.swift; sourceTree = "<group>"; };
 		84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependentRouterProtocol.swift; sourceTree = "<group>"; };
 		84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouterProtocol.swift; sourceTree = "<group>"; };
+		84476758239A6B6500EE93B1 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
+		8447675A239A747F00EE93B1 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewBackground.swift; sourceTree = "<group>"; };
-		844A9CFD2390FE56004CAD28 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromStringARGB.swift; sourceTree = "<group>"; };
 		845D2055235B56B6003B3F10 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
 		845D2059235B654E003B3F10 /* AuthenticationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationForm.swift; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 				843C1AA7236B0F7C00F2D4DD /* ApplicationLayer */,
 				843D16E62359E0E200AEB3F9 /* PresentationLayer */,
 				843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */,
-				843F3B662373282400F74B8D /* Constants */,
+				84476757239A687000EE93B1 /* Constants */,
 				843C1AA4236AFF7100F2D4DD /* Extensions */,
 				843D16E52359E0C000AEB3F9 /* CoreLayer */,
 				8419EAD423561BF50033B5B2 /* ModelsLayer */,
@@ -318,6 +318,7 @@
 			children = (
 				8419EAD7235620050033B5B2 /* Repository.swift */,
 				843D16E82359FF7200AEB3F9 /* GitUser.swift */,
+				8447675A239A747F00EE93B1 /* Issue.swift */,
 			);
 			path = ModelsLayer;
 			sourceTree = "<group>";
@@ -598,7 +599,7 @@
 		843EA14723574EA9008A3E0E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				844A9CFD2390FE56004CAD28 /* ReposListViewController.swift */,
+				84476758239A6B6500EE93B1 /* ReposListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -753,7 +754,6 @@
 			isa = PBXGroup;
 			children = (
 				843F3B672373286600F74B8D /* Colors.swift */,
-				84430A2923956AAF007217D6 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -795,6 +795,13 @@
 			path = ScreensRouter;
 			sourceTree = "<group>";
 		};
+		84476757239A687000EE93B1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		845D204B235B3FD4003B3F10 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,6 +814,7 @@
 		845D2054235B55E0003B3F10 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				843F3B662373282400F74B8D /* Constants */,
 				843C826D23631D0A00469428 /* Localization */,
 				843C8271236325E000469428 /* UIElements */,
 			);
@@ -983,6 +991,7 @@
 				843DE616237DA98500CC75A5 /* ReposSearchInteractor.swift in Sources */,
 				843C82692363037200469428 /* KeychainService.swift in Sources */,
 				843C0A2C2368771900774F91 /* ReposPageInteractor.swift in Sources */,
+				8447675B239A747F00EE93B1 /* Issue.swift in Sources */,
 				84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */,
 				843F32882366F28800AFB40F /* ProfileEditorProtocols.swift in Sources */,
 				843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */,
@@ -1000,6 +1009,7 @@
 				843EA151235756FA008A3E0E /* ReposListPresenter.swift in Sources */,
 				843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */,
 				843C0A2E236877CB00774F91 /* ReposPagePresenter.swift in Sources */,
+				84476759239A6B6500EE93B1 /* ReposListViewController.swift in Sources */,
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
 				8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */,
 				843FFC4D238BFD2900AE04B1 /* FiltrationManager.swift in Sources */,
@@ -1008,9 +1018,7 @@
 				84430A2823952B99007217D6 /* GitHubFileParser.swift in Sources */,
 				843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */,
 				843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */,
-				844A9CFE2390FE56004CAD28 /* ReposListViewController.swift in Sources */,
 				843F3294236701A900AFB40F /* ProfileEditorViewController.swift in Sources */,
-				84430A2A23956AAF007217D6 /* Constants.swift in Sources */,
 				8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */,
 				843DE61C237DAA5D00CC75A5 /* ReposSearchRouter.swift in Sources */,
 				843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */,

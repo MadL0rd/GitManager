@@ -27,6 +27,7 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
     private let descriptionText = UILabel()
     private var webView = WKWebView()
     private var webViewFirstLoadingComplete = false
+    private var loading: LoadingViewProtocol = LoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
         setupStackView()
         setupOwnerInfo()
         setupReposInfo()
+        setupLoading()
     }
     
     func showRepository(_ repository: Repository) {
@@ -190,9 +192,21 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
     
     func setReadme(base: String) {
         webView.loadHTMLString(base, baseURL: nil)
+        loading.hide()
     }
     
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    private func setupLoading(){
+        view.addSubview(loading)
+        
+        loading.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        loading.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        loading.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        loading.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        loading.show(animation: false)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if webViewFirstLoadingComplete {
             if let url = navigationAction.request.url{
                 UIApplication.shared.open(url)
@@ -204,7 +218,7 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
         }
     }
     
- func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("document.documentElement.scrollHeight", completionHandler: { (height, error) in
             if  let h = height as? CGFloat{
                 self.webView.heightAnchor.constraint(equalToConstant: h).isActive = true

@@ -7,13 +7,13 @@
 //
 
 protocol LoadingCheckManagerProtocol : class {
-    func BeginTask(taskName : String) -> Int //return taskId
-    func EndTask(taskId : Int)
+    func beginTask(taskName : String) -> Int //return taskId
+    func endTask(taskId : Int)
     func subscribe(showLoading : @escaping()->Void, endLoading: @escaping()->Void)
 }
 
 extension LoadingCheckManagerProtocol{
-    func BeginTask() -> Int {
-        return BeginTask(taskName: "* noNameTask *")
+    func beginTask() -> Int {
+        return beginTask(taskName: "* noNameTask *")
     }
 }

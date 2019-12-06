@@ -12,7 +12,7 @@ class LoadingCheckManager: LoadingCheckManagerProtocol {
     private var tasks = Dictionary<Int, String>()
     private var subscribers = [(showLoading: () -> Void, endLoading: () -> Void)]()
     
-    func BeginTask(taskName: String) -> Int {
+    func beginTask(taskName: String) -> Int {
         if tasks.count == 0 {
             for subscriber in subscribers {
                 subscriber.showLoading()
@@ -24,7 +24,7 @@ class LoadingCheckManager: LoadingCheckManagerProtocol {
         return taskCount
     }
     
-    func EndTask(taskId: Int) {
+    func endTask(taskId: Int) {
         if let taskName = tasks[taskId] {
             print("Task \(taskName) ends")
             tasks[taskId] = nil

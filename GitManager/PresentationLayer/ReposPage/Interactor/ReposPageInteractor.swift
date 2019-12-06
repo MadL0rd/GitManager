@@ -17,7 +17,7 @@ class ReposPageInteractor: ReposPageInteractorProtocol {
     }
     
     func getUser(login: String) {
-        starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(repository:))
+        starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(repository:), loadingCompleted: {})
         apiService?.getPublicUserInfo(login: login, callback: setUser(user:))
         if let repos = presenter?.repository{
             apiService?.getReadme(repository: repos, callback: setReadme(base:))
