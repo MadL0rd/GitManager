@@ -35,7 +35,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.cellHeight
+        return RepositoryTableViewCell.cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -12,8 +12,14 @@ class AuthenticationPresenter: AuthenticationPresenterProtocol{
     var interactor: AuthenticationInteractorProtocol?
     var router: AuthenticationRouterProtocol?
     
+    var viewLoaded = false
+    var needToHideLoading = false
+    
     func viewDidLoad() {
-        
+        viewLoaded = true
+        if needToHideLoading {
+            hideLoading()  
+        }
     }
     
     func tryToAuthenticate(login: String, password: String) {
@@ -28,4 +34,12 @@ class AuthenticationPresenter: AuthenticationPresenterProtocol{
         view?.showErrorMessage()
     }
     
+    func hideLoading() {
+        if viewLoaded{
+            view?.hideLoading()
+            needToHideLoading = false
+        } else {
+            needToHideLoading = true
+        }
+    }
 }

@@ -24,6 +24,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     internal var filtersVisibleConstraint : NSLayoutConstraint?
     internal var filtersHiden = true
     internal let filtersControlButton = UIButton()
+    internal var loading: LoadingViewProtocol = LoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         presenter?.viewDidLoad()
     }
     
-    internal func setupView(){        
+    internal func setupView(){
         setupNavigationTitle()
         setupTableView()
         setupSearchController()
@@ -39,6 +40,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         setupSwipes()
         setupFilterationManagerView()
         setupRefreshControl()
+        setupLoading()
         
         setupInheritor()
     }
@@ -113,6 +115,17 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         filtersControlButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
+    private func setupLoading(){
+        view.addSubview(loading)
+        
+        loading.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        loading.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        loading.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        loading.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        loading.show(animation: false)
+    }
+    
     @objc func filterationManagerDisplaingChange(){
         filtersVisibleConstraint?.isActive = filtersHiden
         filtersHiden.toggle()
@@ -139,6 +152,10 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
                 self.view.layoutIfNeeded()
             })
         }
+    }
+    
+    func hideLoadingView() {
+        loading.hide()
     }
     
     func hideFooterButton() {

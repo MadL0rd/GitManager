@@ -104,4 +104,8 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func refreshData() {
         interactor?.getReposList()
     }
+    
+    func hideLoadingView() {
+        view?.hideLoadingView()
+    }
 }
