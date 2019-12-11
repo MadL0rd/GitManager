@@ -13,7 +13,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     var presenter: ReposListPresenterProtocol?
     var reposViewer: ReposTableViewer?
     
-    internal var searchController: (UISearchController & ReposSearchControllerProtocol)?
+    internal var searchController: (UISearchController & SearchControllerProtocol)?
     internal let footer = SearchFooterButton()
     internal var footerHidenBottomConstraint : NSLayoutConstraint?
     internal var footerVisibleBottomConstraint : NSLayoutConstraint?
@@ -39,7 +39,6 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         setupFooter()
         setupSwipes()
         setupFilterationManagerView()
-        setupRefreshControl()
         setupLoading()
         
         setupInheritor()
@@ -53,20 +52,13 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         navigationItem.title = NSLocalizedString("My repositories", comment: "Title on repositories screen")
     }
     
-    internal func setupRefreshControl() {
-
-    }
-    
     internal func setupTableView() {
         guard let owner = presenter as? ReposTableViewerOwnerProtocol else { return }
         reposViewer = ReposTableViewer(owner: owner)
         guard let reposView = reposViewer else { return }
         view.addSubview(reposView)
         reposView.translatesAutoresizingMaskIntoConstraints = false
-        reposView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        reposView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        reposView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        reposView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        reposView.setMargin(0)
         reposView.backgroundColor = Colors.mainBackground
         setupAddictionalContentMode()
     }
@@ -87,10 +79,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         view.addSubview(filtrationBackground)
         view.addSubview(filtersControlButton)
         filtrationBackground.translatesAutoresizingMaskIntoConstraints = false
-        filtrationBackground.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        filtrationBackground.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        filtrationBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        filtrationBackground.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        filtrationBackground.setMargin(0)
         filtrationBackground.backgroundColor = Colors.disable
         filtrationBackground.alpha = 0
         filtrationBackground.addTarget(self, action: #selector(filterationManagerDisplaingChange), for: .touchUpInside)
@@ -117,19 +106,19 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     
     private func setupLoading(){
         view.addSubview(loading)
-        
-        loading.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        loading.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        loading.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        loading.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
+        loading.setMargin(0)
         loading.show(animation: false)
     }
     
     @objc func filterationManagerDisplaingChange(){
-        filtersVisibleConstraint?.isActive = filtersHiden
+        if filtersHiden {
+            filtersHidenConstraint?.isActive = false
+            filtersVisibleConstraint?.isActive = true
+        } else {
+            filtersVisibleConstraint?.isActive = false
+            filtersHidenConstraint?.isActive = true
+        }
         filtersHiden.toggle()
-        filtersHidenConstraint?.isActive = filtersHiden
         UIView.animate(withDuration: 0.5, animations: {
             if self.filtersHiden{
                 self.filtrationBackground.alpha = 0.0
@@ -179,8 +168,8 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     }
     
     internal func setupSearchController(){
-        guard let owner = presenter as? ReposSearchControllerOwnerProtocol else { return }
-        searchController = ReposSearchController(owner: owner)
+        guard let owner = presenter as? SearchControllerOwnerProtocol else { return }
+        searchController = SearchController(owner: owner)
         searchController?.searchBar.placeholder = NSLocalizedString("Filter repositories", comment: "search controller")
         navigationItem.searchController = searchController
     }

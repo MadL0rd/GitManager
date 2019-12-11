@@ -20,6 +20,7 @@
 		843C0A302368780D00774F91 /* ReposPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C0A2F2368780D00774F91 /* ReposPageViewController.swift */; };
 		843C0A3223689DA600774F91 /* AddictionalInformationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C0A3123689DA600774F91 /* AddictionalInformationStack.swift */; };
 		843C1AA6236AFFCF00F2D4DD /* StringToBase64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C1AA5236AFFCF00F2D4DD /* StringToBase64.swift */; };
+		843C688723A10F6F001EE3EF /* UIViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C688623A10F6F001EE3EF /* UIViewConstraints.swift */; };
 		843C82672363026B00469428 /* KeychainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82662363026B00469428 /* KeychainServiceProtocol.swift */; };
 		843C82692363037200469428 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C82682363037200469428 /* KeychainService.swift */; };
 		843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */; };
@@ -52,8 +53,8 @@
 		843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA14E235750D1008A3E0E /* ReposListProtocols.swift */; };
 		843EA151235756FA008A3E0E /* ReposListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA150235756FA008A3E0E /* ReposListPresenter.swift */; };
 		843EA15323575D5B008A3E0E /* ReposListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA15223575D5B008A3E0E /* ReposListRouter.swift */; };
-		843EE002237AFA78003E0C5B /* ReposSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EE001237AFA78003E0C5B /* ReposSearchController.swift */; };
-		843EE004237AFB49003E0C5B /* ReposSearchControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EE003237AFB49003E0C5B /* ReposSearchControllerProtocol.swift */; };
+		843EE002237AFA78003E0C5B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EE001237AFA78003E0C5B /* SearchController.swift */; };
+		843EE004237AFB49003E0C5B /* SearchControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EE003237AFB49003E0C5B /* SearchControllerProtocol.swift */; };
 		843F32882366F28800AFB40F /* ProfileEditorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F32872366F28800AFB40F /* ProfileEditorProtocols.swift */; };
 		843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F328D2366F52A00AFB40F /* ProfileEditorRouter.swift */; };
 		843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F328F2366FB3C00AFB40F /* ProfileEditorInteractor.swift */; };
@@ -82,7 +83,13 @@
 		84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */; };
 		84476759239A6B6500EE93B1 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476758239A6B6500EE93B1 /* ReposListViewController.swift */; };
 		8447675B239A747F00EE93B1 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447675A239A747F00EE93B1 /* Issue.swift */; };
+		84476765239A95AC00EE93B1 /* IssuesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */; };
+		84476767239AA13600EE93B1 /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476766239AA13600EE93B1 /* IssuesListViewController.swift */; };
+		84476769239AA15000EE93B1 /* IssuesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476768239AA15000EE93B1 /* IssuesListPresenter.swift */; };
+		8447676B239AA16200EE93B1 /* IssuesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447676A239AA16200EE93B1 /* IssuesListInteractor.swift */; };
+		8447676D239AA17100EE93B1 /* IssuesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447676C239AA17100EE93B1 /* IssuesListRouter.swift */; };
 		84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */; };
+		8451E09923A12B4700DF8F51 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451E09823A12B4700DF8F51 /* IssueTableViewCell.swift */; };
 		845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */; };
 		845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2055235B56B6003B3F10 /* TwoStateButton.swift */; };
 		845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2059235B654E003B3F10 /* AuthenticationForm.swift */; };
@@ -127,6 +134,7 @@
 		843C0A2F2368780D00774F91 /* ReposPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposPageViewController.swift; sourceTree = "<group>"; };
 		843C0A3123689DA600774F91 /* AddictionalInformationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddictionalInformationStack.swift; sourceTree = "<group>"; };
 		843C1AA5236AFFCF00F2D4DD /* StringToBase64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringToBase64.swift; sourceTree = "<group>"; };
+		843C688623A10F6F001EE3EF /* UIViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewConstraints.swift; sourceTree = "<group>"; };
 		843C82662363026B00469428 /* KeychainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProtocol.swift; sourceTree = "<group>"; };
 		843C82682363037200469428 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooterButton.swift; sourceTree = "<group>"; };
@@ -159,8 +167,8 @@
 		843EA14E235750D1008A3E0E /* ReposListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListProtocols.swift; sourceTree = "<group>"; };
 		843EA150235756FA008A3E0E /* ReposListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListPresenter.swift; sourceTree = "<group>"; };
 		843EA15223575D5B008A3E0E /* ReposListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListRouter.swift; sourceTree = "<group>"; };
-		843EE001237AFA78003E0C5B /* ReposSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchController.swift; sourceTree = "<group>"; };
-		843EE003237AFB49003E0C5B /* ReposSearchControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposSearchControllerProtocol.swift; sourceTree = "<group>"; };
+		843EE001237AFA78003E0C5B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		843EE003237AFB49003E0C5B /* SearchControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerProtocol.swift; sourceTree = "<group>"; };
 		843F32872366F28800AFB40F /* ProfileEditorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorProtocols.swift; sourceTree = "<group>"; };
 		843F328D2366F52A00AFB40F /* ProfileEditorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorRouter.swift; sourceTree = "<group>"; };
 		843F328F2366FB3C00AFB40F /* ProfileEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorInteractor.swift; sourceTree = "<group>"; };
@@ -189,7 +197,13 @@
 		84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouterProtocol.swift; sourceTree = "<group>"; };
 		84476758239A6B6500EE93B1 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		8447675A239A747F00EE93B1 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListProtocols.swift; sourceTree = "<group>"; };
+		84476766239AA13600EE93B1 /* IssuesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
+		84476768239AA15000EE93B1 /* IssuesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListPresenter.swift; sourceTree = "<group>"; };
+		8447676A239AA16200EE93B1 /* IssuesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListInteractor.swift; sourceTree = "<group>"; };
+		8447676C239AA17100EE93B1 /* IssuesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListRouter.swift; sourceTree = "<group>"; };
 		84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewBackground.swift; sourceTree = "<group>"; };
+		8451E09823A12B4700DF8F51 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromStringARGB.swift; sourceTree = "<group>"; };
 		845D2055235B56B6003B3F10 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
 		845D2059235B654E003B3F10 /* AuthenticationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationForm.swift; sourceTree = "<group>"; };
@@ -341,6 +355,7 @@
 				843F3B64237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift */,
 				84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */,
 				84430A2223950F78007217D6 /* SubstringSearching.swift */,
+				843C688623A10F6F001EE3EF /* UIViewConstraints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,6 +451,7 @@
 				843E2A2E2375D0C800379F0A /* ReposListStarred */,
 				843DE60D237DA89200CC75A5 /* ReposSearch */,
 				843F329723672A6A00AFB40F /* ReposPage */,
+				8447675C239A94BD00EE93B1 /* IssuesList */,
 				843F32852366F21100AFB40F /* ProfileEditor */,
 			);
 			path = PresentationLayer;
@@ -639,8 +655,8 @@
 		843EE000237AF9F6003E0C5B /* ReposSearchController */ = {
 			isa = PBXGroup;
 			children = (
-				843EE001237AFA78003E0C5B /* ReposSearchController.swift */,
-				843EE003237AFB49003E0C5B /* ReposSearchControllerProtocol.swift */,
+				843EE001237AFA78003E0C5B /* SearchController.swift */,
+				843EE003237AFB49003E0C5B /* SearchControllerProtocol.swift */,
 			);
 			path = ReposSearchController;
 			sourceTree = "<group>";
@@ -800,6 +816,59 @@
 			children = (
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		8447675C239A94BD00EE93B1 /* IssuesList */ = {
+			isa = PBXGroup;
+			children = (
+				84476763239A956300EE93B1 /* Protocols */,
+				84476762239A955900EE93B1 /* Router */,
+				84476761239A954800EE93B1 /* Interactor */,
+				8447675F239A953500EE93B1 /* Presenter */,
+				8447675E239A94ED00EE93B1 /* View */,
+			);
+			path = IssuesList;
+			sourceTree = "<group>";
+		};
+		8447675E239A94ED00EE93B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84476766239AA13600EE93B1 /* IssuesListViewController.swift */,
+				8451E09823A12B4700DF8F51 /* IssueTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8447675F239A953500EE93B1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				84476768239AA15000EE93B1 /* IssuesListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		84476761239A954800EE93B1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8447676A239AA16200EE93B1 /* IssuesListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		84476762239A955900EE93B1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8447676C239AA17100EE93B1 /* IssuesListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		84476763239A956300EE93B1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		845D204B235B3FD4003B3F10 /* View */ = {
@@ -999,8 +1068,11 @@
 				84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */,
 				843E2A372375D1DE00379F0A /* ReposListStarredRouter.swift in Sources */,
 				843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */,
+				8447676B239AA16200EE93B1 /* IssuesListInteractor.swift in Sources */,
 				843F3296236703D100AFB40F /* ProfileEditorStackView.swift in Sources */,
+				84476769239AA15000EE93B1 /* IssuesListPresenter.swift in Sources */,
 				84430A2623952AF6007217D6 /* FileParserProtocol.swift in Sources */,
+				8451E09923A12B4700DF8F51 /* IssueTableViewCell.swift in Sources */,
 				84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */,
 				843F32922366FC0F00AFB40F /* ProfileEditorPresenter.swift in Sources */,
 				843E2A2A2375CA0700379F0A /* TabBarCreator.swift in Sources */,
@@ -1009,6 +1081,7 @@
 				843EA151235756FA008A3E0E /* ReposListPresenter.swift in Sources */,
 				843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */,
 				843C0A2E236877CB00774F91 /* ReposPagePresenter.swift in Sources */,
+				84476767239AA13600EE93B1 /* IssuesListViewController.swift in Sources */,
 				84476759239A6B6500EE93B1 /* ReposListViewController.swift in Sources */,
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
 				8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */,
@@ -1028,7 +1101,7 @@
 				843FFC51238BFEAB00AE04B1 /* FiltersView.swift in Sources */,
 				84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
-				843EE002237AFA78003E0C5B /* ReposSearchController.swift in Sources */,
+				843EE002237AFA78003E0C5B /* SearchController.swift in Sources */,
 				843DDF442397F4F200603AF8 /* LoadingCheckManager.swift in Sources */,
 				843F3B682373286600F74B8D /* Colors.swift in Sources */,
 				843F329C2367423300AFB40F /* UrlImageGetter.swift in Sources */,
@@ -1041,7 +1114,8 @@
 				843C1AA6236AFFCF00F2D4DD /* StringToBase64.swift in Sources */,
 				843D16E92359FF7200AEB3F9 /* GitUser.swift in Sources */,
 				843EA14D23575040008A3E0E /* ReposListInteractor.swift in Sources */,
-				843EE004237AFB49003E0C5B /* ReposSearchControllerProtocol.swift in Sources */,
+				8447676D239AA17100EE93B1 /* IssuesListRouter.swift in Sources */,
+				843EE004237AFB49003E0C5B /* SearchControllerProtocol.swift in Sources */,
 				843E2A212375B4D100379F0A /* ReposTableViewer.swift in Sources */,
 				845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */,
 				843D05E0235F531800E88B58 /* AuthenticationViewController.swift in Sources */,
@@ -1053,8 +1127,10 @@
 				843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */,
 				843DDF472397FAE900603AF8 /* LoadingViewProtocol.swift in Sources */,
 				843DDF492397FD8900603AF8 /* LoadingView.swift in Sources */,
+				84476765239A95AC00EE93B1 /* IssuesListProtocols.swift in Sources */,
 				843F32A2236747A500AFB40F /* ReposPageRouter.swift in Sources */,
 				843DE61A237DAA2700CC75A5 /* ReposSearchViewController.swift in Sources */,
+				843C688723A10F6F001EE3EF /* UIViewConstraints.swift in Sources */,
 				843FFC53238BFED000AE04B1 /* FiltersViewProtocol.swift in Sources */,
 				843F329A23672ADF00AFB40F /* ReposPageProtocols.swift in Sources */,
 				843E2A392375D24B00379F0A /* ReposListStarredInteractor.swift in Sources */,

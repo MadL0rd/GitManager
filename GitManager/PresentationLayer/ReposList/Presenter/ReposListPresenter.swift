@@ -6,7 +6,7 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol, ReposSearchControllerOwnerProtocol {
+class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol, SearchControllerOwnerProtocol {
     
     var router: ReposListRouterProtocol?
     var view: ReposListViewProtocol?

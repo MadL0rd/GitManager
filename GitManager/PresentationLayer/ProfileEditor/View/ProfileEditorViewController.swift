@@ -37,10 +37,7 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
     private func setupScrollView(){
         view.addSubview(scroll)
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true;
-        scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true;
-        scroll.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true;
-        scroll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true;
+        scroll.setMargin(baseView: view.safeAreaLayoutGuide, 0)
     }
     
     private func setupForm(){

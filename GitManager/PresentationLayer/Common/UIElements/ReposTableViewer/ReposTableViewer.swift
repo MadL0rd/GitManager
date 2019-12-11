@@ -93,10 +93,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         
         addSubview(tableViewRepositories)
         tableViewRepositories.translatesAutoresizingMaskIntoConstraints = false
-        tableViewRepositories.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        tableViewRepositories.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        tableViewRepositories.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        tableViewRepositories.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        tableViewRepositories.setMargin(0)
         tableViewRepositories.dataSource = self
         tableViewRepositories.delegate = self
         tableViewRepositories.register(RepositoryTableViewCell.self, forCellReuseIdentifier: "repositoryCell")

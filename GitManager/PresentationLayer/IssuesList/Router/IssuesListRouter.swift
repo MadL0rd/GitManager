@@ -1,49 +1,45 @@
 //
-//  ReposPageRouter.swift
+//  IssuesListRouter.swift
 //  GitManager
 //
-//  Created by Антон Текутов on 28.10.2019.
+//  Created by Антон Текутов on 06.12.2019.
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
 import UIKit
 
-class ReposPageRouter: ReposPageRouterProtocol, DependentRouterProtocol {
-    var presenter: ReposPagePresenterProtocol?
+class IssuesListRouter: IssuesListRouterProtocol , DependentRouterProtocol {
     
+    var presenter: IssuesListPresenterProtocol?
+    var mainRouter: ScreensRouterProtocol
+
     init(_ screensRouter: ScreensRouterProtocol) {
         mainRouter = screensRouter
     }
     
-    var mainRouter: ScreensRouterProtocol
-    
     static func createModule(screensRouter: ScreensRouterProtocol, content: AnyObject?) -> UIViewController {
-        let view = ReposPageViewController()
-        let presenter = ReposPagePresenter()
-        let interactor = ReposPageInteractor()
-        let router = ReposPageRouter(screensRouter)
+        let view = IssuesListViewController()
+        let presenter = IssuesListPresenter()
+        let interactor = IssuesListInteractor()
+        let router = IssuesListRouter(screensRouter)
         
         view.presenter = presenter
         
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
-        presenter.repository = content as? Repository
 
         interactor.presenter = presenter
         interactor.apiService = AppConfig.GitService
         interactor.starredService = AppConfig.StarredService
+        interactor.repository = content as? Repository
         
         router.presenter = presenter
 
         return view
     }
     
-    func showIssues(_ repository: Repository) {
-        mainRouter.pushNewScreenToCurrentNavigationController(IssuesListRouter.self, content: repository as AnyObject)
-    }
-    
-    func showBranches(_ repository: Repository) {
-
+    func openIssuePage(issue: Issue) {
+        
     }
 }

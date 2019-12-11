@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ReposSearchController: UISearchController, ReposSearchControllerProtocol {
+class SearchController: UISearchController, SearchControllerProtocol {
     
-    private var owner : ReposSearchControllerOwnerProtocol?
+    private var owner : SearchControllerOwnerProtocol?
     
     override init(searchResultsController: UIViewController?) {
         super.init(searchResultsController: searchResultsController)
     }
     
-    required convenience init(owner: ReposSearchControllerOwnerProtocol) {
+    required convenience init(owner: SearchControllerOwnerProtocol) {
         self.init(searchResultsController: nil)
         self.owner = owner
     }
@@ -40,14 +40,14 @@ class ReposSearchController: UISearchController, ReposSearchControllerProtocol {
     }
 }
 
-extension ReposSearchController: UISearchResultsUpdating {
+extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         owner?.searchTextChanged(text: searchBar.text?.lowercased() ?? "")
     }
 }
 
-extension ReposSearchController: UISearchBarDelegate {
+extension SearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         
     }

@@ -391,22 +391,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8F9B0816-7403-40CC-BEA1-BE3F375A086D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GitManager/ModelsLayer/Repository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "init(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F66603A0-C1F4-4FB4-8F2E-A3BBD4465CF4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -433,22 +417,6 @@
             startingLineNumber = "16"
             endingLineNumber = "16"
             landmarkName = "downloadFromUrl(url:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "993B770F-649E-4584-A992-90790A958C72"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GitManager/ModelsLayer/Repository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "init(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -780,8 +748,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "setNextPageRepositories(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -796,8 +764,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "setReposList(repositories:)"
             landmarkType = "7">
             <Locations>
@@ -860,8 +828,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "setReposList(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -876,8 +844,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "setReposList(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -892,8 +860,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "sendReposList()"
             landmarkType = "7">
          </BreakpointContent>
@@ -956,8 +924,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "setNextPageRepositories(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -972,8 +940,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "setNextPageRepositories(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1022,8 +990,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "loadNextPage()"
-            landmarkType = "7">
+            landmarkName = "ReposListStarredInteractor"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1036,8 +1004,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "loadNextPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1070,7 +1038,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
             endingLineNumber = "210"
-            landmarkName = "showReposList()"
+            landmarkName = "setFiltersText(filters:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1100,8 +1068,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/FiltersView/FiltersView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "setupStackView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1116,8 +1084,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/FiltersView/FiltersView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "addRelation(elementUI:group:parameter:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1132,10 +1100,10 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/FiltersView/FiltersView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "addRelation(elementUI:group:parameter:)"
-            landmarkType = "7">
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "FiltersView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1148,8 +1116,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/FiltersView/FiltersView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "setupStackView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1164,8 +1132,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "applyFilters(filtrationManager:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1180,8 +1148,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/FiltersView/FiltersView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "dropAllTagGroupFilters(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1212,8 +1180,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "setNextPageRepositories(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1260,8 +1228,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "ReposListInteractor"
             landmarkType = "3">
          </BreakpointContent>
@@ -1292,8 +1260,8 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "setNextPageRepositories(repositories:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1468,9 +1436,9 @@
             filePath = "GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "ReposPageView"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "ReposPageViewController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1516,8 +1484,8 @@
             filePath = "GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "setReadme(base:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1532,8 +1500,8 @@
             filePath = "GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "setupLoading()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1564,8 +1532,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/LoadingView/LoadingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1580,8 +1548,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/LoadingView/LoadingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "startAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1596,8 +1564,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/LoadingView/LoadingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "startAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1612,8 +1580,8 @@
             filePath = "GitManager/PresentationLayer/Common/UIElements/LoadingView/LoadingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "startAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1708,9 +1676,73 @@
             filePath = "GitManager/PresentationLayer/ReposList/Interactor /ReposListInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getReposList()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6BFD41D5-E382-40B0-8F03-635E63F980CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitManager/PresentationLayer/IssuesList/Interactor/IssuesListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getIssuesList()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E5ADA78-EB33-4D77-B86C-CDC656DD3AA2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitManager/PresentationLayer/IssuesList/Interactor/IssuesListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "getReposList()"
+            landmarkName = "setIssues(issues:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6AF10CA8-CD54-40CD-B2B3-830E8C692AA5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitManager/BusinessLogicLayer/GitHubApi/GitHubApiService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "getIssues(repository:itemsPerPage:pageNumber:callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF56F517-5CC6-4CBE-BC51-0D5D17069E50"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitManager/ModelsLayer/Issue.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

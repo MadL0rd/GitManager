@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelegate{
+class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNavigationDelegate{
     var presenter: ReposPagePresenterProtocol?
     private var repositoryBuff : Repository?
     private let scroll = UIScrollView()
@@ -85,18 +85,12 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
     private func setupScrollView(){
         view.addSubview(scroll)
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true;
-        scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true;
-        scroll.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true;
-        scroll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true;
+        scroll.setMargin(baseView: view.safeAreaLayoutGuide, 0)
     }
     private func setupStackView(){
         scroll.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.leadingAnchor.constraint(equalTo: scroll.leadingAnchor).isActive = true;
-        stack.topAnchor.constraint(equalTo: scroll.topAnchor, constant: width/20).isActive = true;
-        stack.trailingAnchor.constraint(equalTo: scroll.trailingAnchor).isActive = true;
-        stack.bottomAnchor.constraint(equalTo: scroll.bottomAnchor).isActive = true;
+        stack.setMargin(left: 0, top: width/20, right: 0, bottom: 0)
         stack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
         stack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stack.axis = .vertical
@@ -163,6 +157,22 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
         addictionalInfo.distribution = .fillProportionally
         stack.addArrangedSubview(addictionalInfo)
         
+        let buttonsStack = UIStackView()
+        var button = UIButton()
+        button.setTitle(NSLocalizedString("Issues", comment: "Repos page button"), for: .normal)
+        Designer.smallButton(button)
+        button.addTarget(self, action: #selector(showIssues), for: .touchUpInside)
+        buttonsStack.addArrangedSubview(button)
+        button = UIButton()
+        button.setTitle(NSLocalizedString("Branches", comment: "Repos page button"), for: .normal)
+        Designer.smallButton(button)
+        button.addTarget(self, action: #selector(showBranches), for: .touchUpInside)
+        buttonsStack.addArrangedSubview(button)
+        buttonsStack.axis = .horizontal
+        buttonsStack.spacing = spacing
+        buttonsStack.distribution = .fillEqually
+        stack.addArrangedSubview(buttonsStack)
+        
         var label = UILabel()
         label.text = NSLocalizedString("Description:", comment: "Repos page")
         Designer.mainTitleLabel(label)
@@ -190,6 +200,14 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
         presenter?.starRepository()
     }
     
+    @objc private func showIssues(){
+        presenter?.showIssues()
+    }
+    
+    @objc private func showBranches(){
+        presenter?.showBranches()
+    }
+    
     func setReadme(base: String) {
         webView.loadHTMLString(base, baseURL: nil)
         loading.hide()
@@ -197,12 +215,7 @@ class ReposPageView: UIViewController, ReposPageViewProtocol, WKNavigationDelega
     
     private func setupLoading(){
         view.addSubview(loading)
-        
-        loading.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        loading.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        loading.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        loading.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
+        loading.setMargin(0)
         loading.show(animation: false)
     }
     

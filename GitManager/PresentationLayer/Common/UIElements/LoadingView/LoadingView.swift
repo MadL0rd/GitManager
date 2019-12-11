@@ -47,13 +47,10 @@ class LoadingView: UIView, LoadingViewProtocol {
     
     func hide(animation: Bool) {
         if animation{
-            UIView.animate(withDuration: duration, animations: {
-                self.alpha = 0
-            })
+            animationActive = false
         } else {
             alpha = 0
         }
-        animationActive = false
     }
     
     func setDuration(duration: Double) {
@@ -193,6 +190,7 @@ class LoadingView: UIView, LoadingViewProtocol {
                     self.currentPositionIndex = (self.currentPositionIndex + 1) % self.ellipsesQuantity
                 }
                 self.layoutIfNeeded()
+                self.alpha = 0
             })
         }
     }

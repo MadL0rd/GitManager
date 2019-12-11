@@ -53,7 +53,6 @@ class GitHubApiService: GitHubApiServiceProtocol {
                 if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
                     for jsonItem in dataJson{
                         let repos = Repository(jsonItem as? NSDictionary)
-                        //repos.starred = true
                         repositories.append(repos)
                     }
                 }
@@ -171,5 +170,19 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
+    func getIssues(repository: Repository, itemsPerPage: Int, pageNumber: Int, callback: @escaping (_ issues: [Issue]) -> Void) {
+        var issues = [Issue]()
+        Alamofire.request(apiUrl + "repos/\(repository.fullName)/issues?page=\(pageNumber)&per_page=\(itemsPerPage)&state=all",
+            headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
+                    for jsonItem in dataJson{
+                        let issue = Issue(jsonItem as? NSDictionary)
+                        issues.append(issue)
+                    }
+                }
+                callback(issues)
+        }
+    }
 }
 

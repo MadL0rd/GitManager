@@ -6,12 +6,12 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-protocol ReposSearchControllerProtocol {
-    init(owner: ReposSearchControllerOwnerProtocol)
+protocol SearchControllerProtocol {
+    init(owner: SearchControllerOwnerProtocol)
     func setScopeBottonsText(buttonsText: [String])
 }
 
-protocol ReposSearchControllerOwnerProtocol {
+protocol SearchControllerOwnerProtocol {
     func searchTextChanged(text : String)
     func scopeButtonPressed(text : String)
     func filterButtonPressed()

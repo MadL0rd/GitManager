@@ -12,7 +12,11 @@ class ReposListInteractor: ReposListInteractorProtocol {
     
     var starredService: StarredRepositoryServiceProtocol?
     var presenter: ReposListPresenterProtocol?
-    var apiService: GitHubApiServiceProtocol?
+    var apiService: GitHubApiServiceProtocol? {
+        didSet{
+            getReposList()
+        }
+    }
     var repositoryList: [Repository]?
     
     internal var repositoriesDownloaded = false

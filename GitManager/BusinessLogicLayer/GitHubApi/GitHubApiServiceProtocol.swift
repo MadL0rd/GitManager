@@ -17,4 +17,5 @@ protocol GitHubApiServiceProtocol {
     func editUserProfile(newUserData: GitUser, callback : @escaping(_ user : GitUser)-> Void)
     func starRepository(repository: Repository, callback : @escaping(_ starredRepository: Repository?)-> Void)
     func getReadme(repository: Repository, callback : @escaping(_ htmlSource : String?)-> Void)
+    func getIssues(repository: Repository, itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ issues: [Issue])-> Void)
 }
