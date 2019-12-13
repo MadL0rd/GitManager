@@ -16,9 +16,13 @@ class SearchController: UISearchController, SearchControllerProtocol {
         super.init(searchResultsController: searchResultsController)
     }
     
-    required convenience init(owner: SearchControllerOwnerProtocol) {
+    required convenience init(owner: SearchControllerOwnerProtocol, searchResultsController: UIViewController?) {
         self.init(searchResultsController: nil)
         self.owner = owner
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init?(coder: NSCoder) {

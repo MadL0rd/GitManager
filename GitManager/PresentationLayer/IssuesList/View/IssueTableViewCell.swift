@@ -70,7 +70,7 @@ class IssueTableViewCell: UITableViewCell {
             stateLabel.text = "✓"
         }
         
-        if let number = issue.number, var login = issue.user?.login{
+        if let number = issue.number, let login = issue.user?.login{
             
             let opend = NSLocalizedString("opend on", comment: "issues info")
             let closed = NSLocalizedString("was closed on", comment: "issues info")

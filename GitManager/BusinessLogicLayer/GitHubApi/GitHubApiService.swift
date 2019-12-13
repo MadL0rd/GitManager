@@ -171,10 +171,10 @@ class GitHubApiService: GitHubApiServiceProtocol {
     }
     
     func getIssues(repository: Repository, itemsPerPage: Int, pageNumber: Int, callback: @escaping (_ issues: [Issue]) -> Void) {
-        var issues = [Issue]()
         Alamofire.request(apiUrl + "repos/\(repository.fullName)/issues?page=\(pageNumber)&per_page=\(itemsPerPage)&state=all",
             headers: GitHubApiService.headers)
             .responseJSON{ response in
+                var issues = [Issue]()
                 if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
                     for jsonItem in dataJson{
                         let issue = Issue(jsonItem as? NSDictionary)
@@ -182,6 +182,41 @@ class GitHubApiService: GitHubApiServiceProtocol {
                     }
                 }
                 callback(issues)
+        }
+    }
+    
+    func createIssue(repository: Repository, title: String, callback : @escaping(_ issue : Issue)-> Void) {
+        let parameters = [  "title": title,
+                            "body": ""]
+        Alamofire.request(apiUrl + "repos/\(repository.fullName)/issues",
+            method: .post,
+            parameters: parameters as Parameters,
+            encoding: Alamofire.JSONEncoding.default,
+            headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                    if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary {
+                        let issue = Issue(dataJson)
+                        callback(issue)
+                    }
+            }
+    }
+    
+    func getIssuesComments(issue: Issue, itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ issues: [IssueComment])-> Void){
+        guard let url = issue.url else {
+            print("!!! WARNING !!! Incorrect issue url!?page=\(pageNumber)&per_page=\(itemsPerPage)&state=all")
+            return
+        }
+        Alamofire.request(url + "/comments",
+            headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                var comments = [IssueComment]()
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSArray{
+                    for jsonItem in dataJson{
+                        let comment = IssueComment(jsonItem as? NSDictionary)
+                        comments.append(comment)
+                    }
+                    callback(comments)
+                }
         }
     }
 }

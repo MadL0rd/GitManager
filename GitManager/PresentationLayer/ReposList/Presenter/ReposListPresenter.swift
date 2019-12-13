@@ -73,11 +73,13 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func setReposCache(repositories: [Repository]) {
         repositoriesCache = repositories
     }
+    
     func scrollContentEnds() {
         if interactor?.getMoreContentDawnloadPossibility() ?? false{
             view?.showFooterButton()
         }
     }
+    
     func scrollContentNotEnds() {
         if interactor?.getMoreContentDawnloadPossibility() ?? false{
             view?.hideFooterButton()

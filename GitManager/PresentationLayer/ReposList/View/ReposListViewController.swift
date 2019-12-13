@@ -79,7 +79,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         view.addSubview(filtrationBackground)
         view.addSubview(filtersControlButton)
         filtrationBackground.translatesAutoresizingMaskIntoConstraints = false
-        filtrationBackground.setMargin(0)
+        filtrationBackground.setMargin(baseView: view.safeAreaLayoutGuide, 0)
         filtrationBackground.backgroundColor = Colors.disable
         filtrationBackground.alpha = 0
         filtrationBackground.addTarget(self, action: #selector(filterationManagerDisplaingChange), for: .touchUpInside)
@@ -169,7 +169,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     
     internal func setupSearchController(){
         guard let owner = presenter as? SearchControllerOwnerProtocol else { return }
-        searchController = SearchController(owner: owner)
+        searchController = SearchController(owner: owner, searchResultsController: self)
         searchController?.searchBar.placeholder = NSLocalizedString("Filter repositories", comment: "search controller")
         navigationItem.searchController = searchController
     }

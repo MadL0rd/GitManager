@@ -86,7 +86,6 @@
 		84476765239A95AC00EE93B1 /* IssuesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */; };
 		84476767239AA13600EE93B1 /* IssuesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476766239AA13600EE93B1 /* IssuesListViewController.swift */; };
 		84476769239AA15000EE93B1 /* IssuesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476768239AA15000EE93B1 /* IssuesListPresenter.swift */; };
-		8447676B239AA16200EE93B1 /* IssuesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447676A239AA16200EE93B1 /* IssuesListInteractor.swift */; };
 		8447676D239AA17100EE93B1 /* IssuesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447676C239AA17100EE93B1 /* IssuesListRouter.swift */; };
 		84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */; };
 		8451E09923A12B4700DF8F51 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451E09823A12B4700DF8F51 /* IssueTableViewCell.swift */; };
@@ -94,6 +93,15 @@
 		845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2055235B56B6003B3F10 /* TwoStateButton.swift */; };
 		845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2059235B654E003B3F10 /* AuthenticationForm.swift */; };
 		8489DB392363423500C089B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8489DB372363423500C089B4 /* Localizable.strings */; };
+		84D8D33823A3A52000B5DC13 /* NoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D33723A3A52000B5DC13 /* NoContentView.swift */; };
+		84D8D33C23A3B49E00B5DC13 /* InputDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D33B23A3B49E00B5DC13 /* InputDialog.swift */; };
+		84D8D34423A3E2ED00B5DC13 /* IssuePageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34323A3E2ED00B5DC13 /* IssuePageProtocols.swift */; };
+		84D8D34623A3E69900B5DC13 /* IssueComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34523A3E69900B5DC13 /* IssueComment.swift */; };
+		84D8D34823A3EA9600B5DC13 /* IssuePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34723A3EA9600B5DC13 /* IssuePageViewController.swift */; };
+		84D8D34A23A3ECF000B5DC13 /* IssuePagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34923A3ECF000B5DC13 /* IssuePagePresenter.swift */; };
+		84D8D34C23A3EE1900B5DC13 /* IssuePageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34B23A3EE1800B5DC13 /* IssuePageInteractor.swift */; };
+		84D8D34E23A3EE7100B5DC13 /* IssuePageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34D23A3EE7100B5DC13 /* IssuePageRouter.swift */; };
+		84D9ABBF23A3934A0055AC1B /* IssuesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9ABBE23A3934A0055AC1B /* IssuesListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,7 +208,6 @@
 		84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListProtocols.swift; sourceTree = "<group>"; };
 		84476766239AA13600EE93B1 /* IssuesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListViewController.swift; sourceTree = "<group>"; };
 		84476768239AA15000EE93B1 /* IssuesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListPresenter.swift; sourceTree = "<group>"; };
-		8447676A239AA16200EE93B1 /* IssuesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListInteractor.swift; sourceTree = "<group>"; };
 		8447676C239AA17100EE93B1 /* IssuesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListRouter.swift; sourceTree = "<group>"; };
 		84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewBackground.swift; sourceTree = "<group>"; };
 		8451E09823A12B4700DF8F51 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
@@ -208,6 +215,15 @@
 		845D2055235B56B6003B3F10 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
 		845D2059235B654E003B3F10 /* AuthenticationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationForm.swift; sourceTree = "<group>"; };
 		8489DB3A2363424700C089B4 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		84D8D33723A3A52000B5DC13 /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
+		84D8D33B23A3B49E00B5DC13 /* InputDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDialog.swift; sourceTree = "<group>"; };
+		84D8D34323A3E2ED00B5DC13 /* IssuePageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePageProtocols.swift; sourceTree = "<group>"; };
+		84D8D34523A3E69900B5DC13 /* IssueComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueComment.swift; sourceTree = "<group>"; };
+		84D8D34723A3EA9600B5DC13 /* IssuePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePageViewController.swift; sourceTree = "<group>"; };
+		84D8D34923A3ECF000B5DC13 /* IssuePagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePagePresenter.swift; sourceTree = "<group>"; };
+		84D8D34B23A3EE1800B5DC13 /* IssuePageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePageInteractor.swift; sourceTree = "<group>"; };
+		84D8D34D23A3EE7100B5DC13 /* IssuePageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePageRouter.swift; sourceTree = "<group>"; };
+		84D9ABBE23A3934A0055AC1B /* IssuesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListInteractor.swift; sourceTree = "<group>"; };
 		ABBBC25C49142E37B754330D /* libPods-GitManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -333,6 +349,7 @@
 				8419EAD7235620050033B5B2 /* Repository.swift */,
 				843D16E82359FF7200AEB3F9 /* GitUser.swift */,
 				8447675A239A747F00EE93B1 /* Issue.swift */,
+				84D8D34523A3E69900B5DC13 /* IssueComment.swift */,
 			);
 			path = ModelsLayer;
 			sourceTree = "<group>";
@@ -356,6 +373,7 @@
 				84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */,
 				84430A2223950F78007217D6 /* SubstringSearching.swift */,
 				843C688623A10F6F001EE3EF /* UIViewConstraints.swift */,
+				84D8D33B23A3B49E00B5DC13 /* InputDialog.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,6 +417,7 @@
 				843F3B6923732DC200F74B8D /* Designer.swift */,
 				843E2A292375CA0700379F0A /* TabBarCreator.swift */,
 				843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */,
+				84D8D33723A3A52000B5DC13 /* NoContentView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -452,6 +471,7 @@
 				843DE60D237DA89200CC75A5 /* ReposSearch */,
 				843F329723672A6A00AFB40F /* ReposPage */,
 				8447675C239A94BD00EE93B1 /* IssuesList */,
+				84D8D33D23A3E16A00B5DC13 /* IssuePage */,
 				843F32852366F21100AFB40F /* ProfileEditor */,
 			);
 			path = PresentationLayer;
@@ -850,7 +870,7 @@
 		84476761239A954800EE93B1 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				8447676A239AA16200EE93B1 /* IssuesListInteractor.swift */,
+				84D9ABBE23A3934A0055AC1B /* IssuesListInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -888,6 +908,58 @@
 				843C8271236325E000469428 /* UIElements */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		84D8D33D23A3E16A00B5DC13 /* IssuePage */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D33E23A3E26D00B5DC13 /* IssuePageProtocols */,
+				84D8D34223A3E2C300B5DC13 /* IssuePageRouter */,
+				84D8D34123A3E2BA00B5DC13 /* IssuePageInteractor */,
+				84D8D34023A3E2AD00B5DC13 /* IssuePagePresenter */,
+				84D8D33F23A3E28100B5DC13 /* IssuePageView */,
+			);
+			path = IssuePage;
+			sourceTree = "<group>";
+		};
+		84D8D33E23A3E26D00B5DC13 /* IssuePageProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D34323A3E2ED00B5DC13 /* IssuePageProtocols.swift */,
+			);
+			path = IssuePageProtocols;
+			sourceTree = "<group>";
+		};
+		84D8D33F23A3E28100B5DC13 /* IssuePageView */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D34723A3EA9600B5DC13 /* IssuePageViewController.swift */,
+			);
+			path = IssuePageView;
+			sourceTree = "<group>";
+		};
+		84D8D34023A3E2AD00B5DC13 /* IssuePagePresenter */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D34923A3ECF000B5DC13 /* IssuePagePresenter.swift */,
+			);
+			path = IssuePagePresenter;
+			sourceTree = "<group>";
+		};
+		84D8D34123A3E2BA00B5DC13 /* IssuePageInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D34B23A3EE1800B5DC13 /* IssuePageInteractor.swift */,
+			);
+			path = IssuePageInteractor;
+			sourceTree = "<group>";
+		};
+		84D8D34223A3E2C300B5DC13 /* IssuePageRouter */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D34D23A3EE7100B5DC13 /* IssuePageRouter.swift */,
+			);
+			path = IssuePageRouter;
 			sourceTree = "<group>";
 		};
 		BF29FEFE1A2A966C6EEE4C87 /* Pods */ = {
@@ -1065,10 +1137,10 @@
 				843F32882366F28800AFB40F /* ProfileEditorProtocols.swift in Sources */,
 				843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */,
 				843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */,
+				84D9ABBF23A3934A0055AC1B /* IssuesListInteractor.swift in Sources */,
 				84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */,
 				843E2A372375D1DE00379F0A /* ReposListStarredRouter.swift in Sources */,
 				843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */,
-				8447676B239AA16200EE93B1 /* IssuesListInteractor.swift in Sources */,
 				843F3296236703D100AFB40F /* ProfileEditorStackView.swift in Sources */,
 				84476769239AA15000EE93B1 /* IssuesListPresenter.swift in Sources */,
 				84430A2623952AF6007217D6 /* FileParserProtocol.swift in Sources */,
@@ -1078,9 +1150,12 @@
 				843E2A2A2375CA0700379F0A /* TabBarCreator.swift in Sources */,
 				843C0A302368780D00774F91 /* ReposPageViewController.swift in Sources */,
 				845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */,
+				84D8D34C23A3EE1900B5DC13 /* IssuePageInteractor.swift in Sources */,
 				843EA151235756FA008A3E0E /* ReposListPresenter.swift in Sources */,
+				84D8D34E23A3EE7100B5DC13 /* IssuePageRouter.swift in Sources */,
 				843F328E2366F52A00AFB40F /* ProfileEditorRouter.swift in Sources */,
 				843C0A2E236877CB00774F91 /* ReposPagePresenter.swift in Sources */,
+				84D8D34823A3EA9600B5DC13 /* IssuePageViewController.swift in Sources */,
 				84476767239AA13600EE93B1 /* IssuesListViewController.swift in Sources */,
 				84476759239A6B6500EE93B1 /* ReposListViewController.swift in Sources */,
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
@@ -1091,7 +1166,9 @@
 				84430A2823952B99007217D6 /* GitHubFileParser.swift in Sources */,
 				843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */,
 				843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */,
+				84D8D33C23A3B49E00B5DC13 /* InputDialog.swift in Sources */,
 				843F3294236701A900AFB40F /* ProfileEditorViewController.swift in Sources */,
+				84D8D34A23A3ECF000B5DC13 /* IssuePagePresenter.swift in Sources */,
 				8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */,
 				843DE61C237DAA5D00CC75A5 /* ReposSearchRouter.swift in Sources */,
 				843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */,
@@ -1118,15 +1195,18 @@
 				843EE004237AFB49003E0C5B /* SearchControllerProtocol.swift in Sources */,
 				843E2A212375B4D100379F0A /* ReposTableViewer.swift in Sources */,
 				845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */,
+				84D8D34423A3E2ED00B5DC13 /* IssuePageProtocols.swift in Sources */,
 				843D05E0235F531800E88B58 /* AuthenticationViewController.swift in Sources */,
 				843E2A3D2375D2EF00379F0A /* ReposListStarredViewController.swift in Sources */,
 				845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */,
+				84D8D33823A3A52000B5DC13 /* NoContentView.swift in Sources */,
 				843FFC4F238BFDD100AE04B1 /* FiltrationManagerProtocol.swift in Sources */,
 				8419EAA12356163B0033B5B2 /* AppDelegate.swift in Sources */,
 				843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */,
 				843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */,
 				843DDF472397FAE900603AF8 /* LoadingViewProtocol.swift in Sources */,
 				843DDF492397FD8900603AF8 /* LoadingView.swift in Sources */,
+				84D8D34623A3E69900B5DC13 /* IssueComment.swift in Sources */,
 				84476765239A95AC00EE93B1 /* IssuesListProtocols.swift in Sources */,
 				843F32A2236747A500AFB40F /* ReposPageRouter.swift in Sources */,
 				843DE61A237DAA2700CC75A5 /* ReposSearchViewController.swift in Sources */,
@@ -1313,6 +1393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = GitManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1331,6 +1412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = GitManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

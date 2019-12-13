@@ -36,7 +36,11 @@ class IssuesListPresenter: IssuesListPresenterProtocol, SearchControllerOwnerPro
     }
     
     func showIssuePage(index: Int) {
-        
+        if index >= 0 && index < issuesCache.count {
+            router?.openIssuePage(issue: issuesCache[index])
+        }else {
+            print("try to get access by incorrect index")
+        }
     }
     
     func showIssues() {
@@ -48,7 +52,7 @@ class IssuesListPresenter: IssuesListPresenterProtocol, SearchControllerOwnerPro
     }
     
     func applyFilters(filtrationManager: FiltrationManagerProtocol) {
-        
+        interactor?.applyFilters(filtrationManager: filtrationManager)
     }
     
     func setIssuesCache(issues: [Issue]) {
@@ -56,7 +60,8 @@ class IssuesListPresenter: IssuesListPresenterProtocol, SearchControllerOwnerPro
     }
     
     func loadNextPage() {
-        
+        interactor?.loadNextPage()
+        view?.hideFooterButton()
     }
     
     func hideLoadingView() {
@@ -64,7 +69,7 @@ class IssuesListPresenter: IssuesListPresenterProtocol, SearchControllerOwnerPro
     }
     
     func searchTextChanged(text: String) {
-
+        interactor?.applySearchFilter(text: text)
     }
     
     func scopeButtonPressed(text: String) {
@@ -77,6 +82,22 @@ class IssuesListPresenter: IssuesListPresenterProtocol, SearchControllerOwnerPro
     
     func reloadData(){
         interactor?.getIssuesList()
+    }
+    
+    func scrollContentEnds() {
+        if interactor?.getMoreContentDawnloadPossibility() ?? false{
+            view?.showFooterButton()
+        }
+    }
+    
+    func scrollContentNotEnds() {
+        if interactor?.getMoreContentDawnloadPossibility() ?? false{
+            view?.hideFooterButton()
+        }
+    }
+    
+    func createIssue(title: String) {
+        interactor?.createIssue(title: title)
     }
 }
 

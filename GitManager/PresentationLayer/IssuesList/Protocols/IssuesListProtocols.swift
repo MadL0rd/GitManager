@@ -22,6 +22,7 @@ protocol IssuesListPresenterProtocol {
     var interactor: IssuesListInteractorProtocol?    { get set }
     var router:     IssuesListRouterProtocol?        { get set }
     
+    func createIssue(title: String)
     func viewDidLoad()
     func openIssuePage(index: Int)
     func getItemsCount() -> Int
@@ -34,6 +35,8 @@ protocol IssuesListPresenterProtocol {
     func loadNextPage()
     func hideLoadingView()
     func reloadData()
+    func scrollContentEnds()
+    func scrollContentNotEnds()
 }
 
 protocol IssuesListInteractorProtocol {
@@ -42,6 +45,7 @@ protocol IssuesListInteractorProtocol {
     var starredService: StarredRepositoryServiceProtocol?   { get set }
     var repository:     Repository?                         { get set }
     
+    func createIssue(title: String)
     func getIssuesList()
     func getMoreContentDawnloadPossibility() -> Bool
     func loadNextPage()

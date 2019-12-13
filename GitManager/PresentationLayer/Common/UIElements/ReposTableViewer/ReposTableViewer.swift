@@ -14,6 +14,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     private var addictionalContentMode = AddictionalInfoContentMode.Default
     private var owner: ReposTableViewerOwnerProtocol?
     private let refreshControl = UIRefreshControl()
+    private let noContentView = NoContentView()
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -31,6 +32,12 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count = owner?.getItemsCount() ?? 0
+        if count == 0 {
+            noContentView.show()
+        } else {
+            noContentView.hide()
+        }
         return owner?.getItemsCount() ?? 0
     }
     
@@ -98,6 +105,9 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         tableViewRepositories.delegate = self
         tableViewRepositories.register(RepositoryTableViewCell.self, forCellReuseIdentifier: "repositoryCell")
         tableViewRepositories.backgroundColor = Colors.mainBackground
+        
+        addSubview(noContentView)
+        noContentView.setMargin(baseView: safeAreaLayoutGuide, 0)
     }
     
     @objc private func refresh(){

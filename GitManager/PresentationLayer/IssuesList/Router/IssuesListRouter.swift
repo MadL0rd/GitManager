@@ -40,6 +40,6 @@ class IssuesListRouter: IssuesListRouterProtocol , DependentRouterProtocol {
     }
     
     func openIssuePage(issue: Issue) {
-        
+        mainRouter.pushNewScreenToCurrentNavigationController(IssuePageRouter.self, content: issue as AnyObject)
     }
 }
