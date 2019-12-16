@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchController: UISearchController, SearchControllerProtocol {
+class SearchController: UISearchController, SearchControllerProtocol {    
     
     private var owner : SearchControllerOwnerProtocol?
     
@@ -60,4 +60,7 @@ extension SearchController: UISearchBarDelegate {
         owner?.filterButtonPressed()
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        owner?.searchBarStartMoving()
+    }
 }

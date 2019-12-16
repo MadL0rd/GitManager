@@ -30,4 +30,9 @@ struct Colors{
     static let addictionalInfoLanguage : UIColor = .blue
     static let addictionalInfoIssue : UIColor = .gray
     static let addictionalInfoStargazers : UIColor = UIColor("#00D455")
+    
+    static let selfComment = UIColor("#ACCEE5")
+    static let otherComment = UIColor("#E0E0E0")
+    
+    static let ownerInfoBackground = UIColor("#ACCEE5")
 }

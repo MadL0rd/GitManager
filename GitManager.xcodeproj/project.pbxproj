@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -74,6 +74,7 @@
 		8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */; };
 		8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */; };
 		8440BC4B2379872000EACA51 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440BC4A2379872000EACA51 /* AppConfig.swift */; };
+		8441F72B23A77EBA00177F16 /* libMarkdownView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8441F72A23A77EBA00177F16 /* libMarkdownView.a */; };
 		84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2223950F78007217D6 /* SubstringSearching.swift */; };
 		84430A2623952AF6007217D6 /* FileParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2523952AF6007217D6 /* FileParserProtocol.swift */; };
 		84430A2823952B99007217D6 /* GitHubFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84430A2723952B99007217D6 /* GitHubFileParser.swift */; };
@@ -196,6 +197,8 @@
 		8440BC442379398900EACA51 /* StarredRepositoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryServiceProtocol.swift; sourceTree = "<group>"; };
 		8440BC4823793E1200EACA51 /* StarredRepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryService.swift; sourceTree = "<group>"; };
 		8440BC4A2379872000EACA51 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		8441F72723A77DC000177F16 /* MarkdownView.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MarkdownView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8441F72A23A77EBA00177F16 /* libMarkdownView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMarkdownView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84430A2223950F78007217D6 /* SubstringSearching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubstringSearching.swift; sourceTree = "<group>"; };
 		84430A2523952AF6007217D6 /* FileParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileParserProtocol.swift; sourceTree = "<group>"; };
 		84430A2723952B99007217D6 /* GitHubFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFileParser.swift; sourceTree = "<group>"; };
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8419EAD1235617330033B5B2 /* libAlamofire.a in Frameworks */,
+				8441F72B23A77EBA00177F16 /* libMarkdownView.a in Frameworks */,
 				71B2620C4A9A5D7003AB5653 /* libPods-GitManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +261,8 @@
 		0AC4CA8BC9510B59BBE5C937 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8441F72A23A77EBA00177F16 /* libMarkdownView.a */,
+				8441F72723A77DC000177F16 /* MarkdownView.bundle */,
 				8419EAD0235617330033B5B2 /* libAlamofire.a */,
 				ABBBC25C49142E37B754330D /* libPods-GitManager.a */,
 			);
@@ -982,6 +988,7 @@
 				8419EA992356163B0033B5B2 /* Sources */,
 				8419EA9A2356163B0033B5B2 /* Frameworks */,
 				8419EA9B2356163B0033B5B2 /* Resources */,
+				0CE00D283D8705E102DC9AB8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1100,6 +1107,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CE00D283D8705E102DC9AB8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitManager/Pods-GitManager-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitManager/Pods-GitManager-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GitManager/Pods-GitManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1DAB097ECB1BA32BA4A818DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

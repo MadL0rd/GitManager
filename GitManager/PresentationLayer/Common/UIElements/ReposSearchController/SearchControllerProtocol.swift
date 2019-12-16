@@ -16,5 +16,6 @@ protocol SearchControllerOwnerProtocol {
     func searchTextChanged(text : String)
     func scopeButtonPressed(text : String)
     func filterButtonPressed()
+    func searchBarStartMoving()
 }
 

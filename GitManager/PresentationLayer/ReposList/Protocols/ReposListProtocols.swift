@@ -19,6 +19,7 @@ protocol ReposListViewProtocol: class {
     func hideLoadingView()
     func setScopeBottonsText(buttonsText: [String])
     func filterationManagerDisplaingChange()
+    func layoutRefresh()
 }
 
 protocol ReposListPresenterProtocol: class {

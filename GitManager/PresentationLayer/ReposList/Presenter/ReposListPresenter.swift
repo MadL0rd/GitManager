@@ -110,4 +110,8 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func hideLoadingView() {
         view?.hideLoadingView()
     }
+    
+    func searchBarStartMoving() {
+        view?.layoutRefresh()
+    }
 }

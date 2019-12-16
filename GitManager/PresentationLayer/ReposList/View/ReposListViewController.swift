@@ -48,6 +48,13 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         
     }
     
+    func layoutRefresh(){
+        UIView.animate(withDuration: 0, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+
+    
     internal func setupNavigationTitle(){
         navigationItem.title = NSLocalizedString("My repositories", comment: "Title on repositories screen")
     }
@@ -89,6 +96,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
             self.presenter?.applyFilters(filtrationManager: self.filtrationView.filters)
         }
         view.addSubview(filtrationView)
+
         filtrationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         filtrationView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         filtrationView.widthAnchor.constraint(equalToConstant: view.frame.width * 0.8).isActive = true

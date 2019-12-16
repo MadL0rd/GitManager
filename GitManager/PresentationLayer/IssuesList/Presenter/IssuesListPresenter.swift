@@ -99,5 +99,9 @@ class IssuesListPresenter: IssuesListPresenterProtocol, SearchControllerOwnerPro
     func createIssue(title: String) {
         interactor?.createIssue(title: title)
     }
+    
+    func searchBarStartMoving() {
+        
+    }
 }
 

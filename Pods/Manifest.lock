@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.9.0)
   - KeychainSwift (17.0.0)
+  - MarkdownView (1.6.0)
 
 DEPENDENCIES:
   - Alamofire
   - KeychainSwift
+  - MarkdownView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - KeychainSwift
+    - MarkdownView
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   KeychainSwift: 9f43f562dffc88af6efadb57d74b14c598eb337f
+  MarkdownView: 25c1c2d7ff9706624a575556296e188be3dd3f6b
 
-PODFILE CHECKSUM: d2faa975dfebb65fe34c849e9ae141e228c06193
+PODFILE CHECKSUM: 592537b96436ef2fa5b5341bb7c949ab7462d4d7
 
 COCOAPODS: 1.8.3

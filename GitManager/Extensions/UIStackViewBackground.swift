@@ -15,4 +15,12 @@ extension UIStackView {
         subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         insertSubview(subView, at: 0)
     }
+    
+    func setBackground(color: UIColor, cornerRadius: CGFloat) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        subView.layer.cornerRadius = cornerRadius
+        insertSubview(subView, at: 0)
+    }
 }

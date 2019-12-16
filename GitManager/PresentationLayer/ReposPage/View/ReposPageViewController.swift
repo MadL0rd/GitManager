@@ -91,7 +91,7 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         scroll.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.setMargin(left: 0, top: width/20, right: 0, bottom: 0)
-        stack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
+        stack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
         stack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stack.axis = .vertical
         stack.spacing = spacing
@@ -102,6 +102,9 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         ownerStack.axis = .horizontal
         ownerStack.distribution = .fill
         ownerStack.spacing = spacing
+        ownerStack.setBackground(color: Colors.ownerInfoBackground, cornerRadius: 20)
+        ownerStack.isLayoutMarginsRelativeArrangement = true
+        ownerStack.layoutMargins = UIEdgeInsets(top: spacing/2, left: spacing, bottom: spacing/2, right: spacing)
         
         profileImageView.heightAnchor.constraint(equalToConstant: width/3).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: width/3).isActive = true

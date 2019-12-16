@@ -16,6 +16,8 @@ class IssuePageInteractor: IssuePageInteractorProtocol {
     }
     var issueBuff: Issue? {
         didSet {
+            guard let issue = self.issueBuff else { return }
+            presenter?.showIssue(issue)
             getComments()
         }
     }
