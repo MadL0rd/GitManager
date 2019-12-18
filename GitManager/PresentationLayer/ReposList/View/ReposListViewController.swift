@@ -33,6 +33,8 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
     }
     
     internal func setupView(){
+        self.hideKeyboardWhenTappedAround()
+        
         setupNavigationTitle()
         setupTableView()
         setupSearchController()
@@ -107,6 +109,7 @@ class ReposListViewController: UIViewController, ReposListViewProtocol{
         filtersControlButton.setTitle("<", for: .normal)
         filtersControlButton.addTarget(self, action: #selector(filterationManagerDisplaingChange), for: .touchUpInside)
         Designer.smallButton(filtersControlButton)
+        filtersControlButton.backgroundColor = Colors.greenButton
         filtersControlButton.alpha = 0.8
         filtersControlButton.rightAnchor.constraint(equalTo: filtrationView.leftAnchor, constant: 7).isActive = true
         filtersControlButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

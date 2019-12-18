@@ -103,6 +103,8 @@
 		84D8D34C23A3EE1900B5DC13 /* IssuePageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34B23A3EE1800B5DC13 /* IssuePageInteractor.swift */; };
 		84D8D34E23A3EE7100B5DC13 /* IssuePageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D34D23A3EE7100B5DC13 /* IssuePageRouter.swift */; };
 		84D9ABBF23A3934A0055AC1B /* IssuesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9ABBE23A3934A0055AC1B /* IssuesListInteractor.swift */; };
+		84FC0ABE23AA8F70002783F5 /* KeyboardHiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC0ABD23AA8F70002783F5 /* KeyboardHiding.swift */; };
+		84FC0AC023AA9EA7002783F5 /* ScrollToEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC0ABF23AA9EA7002783F5 /* ScrollToEnd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +229,8 @@
 		84D8D34B23A3EE1800B5DC13 /* IssuePageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePageInteractor.swift; sourceTree = "<group>"; };
 		84D8D34D23A3EE7100B5DC13 /* IssuePageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuePageRouter.swift; sourceTree = "<group>"; };
 		84D9ABBE23A3934A0055AC1B /* IssuesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListInteractor.swift; sourceTree = "<group>"; };
+		84FC0ABD23AA8F70002783F5 /* KeyboardHiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHiding.swift; sourceTree = "<group>"; };
+		84FC0ABF23AA9EA7002783F5 /* ScrollToEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollToEnd.swift; sourceTree = "<group>"; };
 		ABBBC25C49142E37B754330D /* libPods-GitManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -380,6 +384,8 @@
 				84430A2223950F78007217D6 /* SubstringSearching.swift */,
 				843C688623A10F6F001EE3EF /* UIViewConstraints.swift */,
 				84D8D33B23A3B49E00B5DC13 /* InputDialog.swift */,
+				84FC0ABD23AA8F70002783F5 /* KeyboardHiding.swift */,
+				84FC0ABF23AA9EA7002783F5 /* ScrollToEnd.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1195,6 +1201,7 @@
 				84D8D34A23A3ECF000B5DC13 /* IssuePagePresenter.swift in Sources */,
 				8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */,
 				843DE61C237DAA5D00CC75A5 /* ReposSearchRouter.swift in Sources */,
+				84FC0ABE23AA8F70002783F5 /* KeyboardHiding.swift in Sources */,
 				843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */,
 				843EA15323575D5B008A3E0E /* ReposListRouter.swift in Sources */,
 				843D05E6235F54D600E88B58 /* AuthenticationInteractor.swift in Sources */,
@@ -1231,6 +1238,7 @@
 				843DDF472397FAE900603AF8 /* LoadingViewProtocol.swift in Sources */,
 				843DDF492397FD8900603AF8 /* LoadingView.swift in Sources */,
 				84D8D34623A3E69900B5DC13 /* IssueComment.swift in Sources */,
+				84FC0AC023AA9EA7002783F5 /* ScrollToEnd.swift in Sources */,
 				84476765239A95AC00EE93B1 /* IssuesListProtocols.swift in Sources */,
 				843F32A2236747A500AFB40F /* ReposPageRouter.swift in Sources */,
 				843DE61A237DAA2700CC75A5 /* ReposSearchViewController.swift in Sources */,
@@ -1426,7 +1434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ino.GitManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1445,7 +1453,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ino.GitManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

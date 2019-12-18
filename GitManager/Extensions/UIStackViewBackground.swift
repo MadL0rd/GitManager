@@ -23,4 +23,13 @@ extension UIStackView {
         subView.layer.cornerRadius = cornerRadius
         insertSubview(subView, at: 0)
     }
+    
+    func setBorderLine(color: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat) {
+        let subView = UIView(frame: bounds)
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        subView.layer.borderWidth = borderWidth
+        subView.layer.cornerRadius = cornerRadius
+        subView.layer.borderColor = color.cgColor
+        insertSubview(subView, at: 0)
+    }
 }

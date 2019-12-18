@@ -1020,10 +1020,10 @@
             filePath = "GitManager/PresentationLayer/ReposList/View/ReposListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "setFiltersText(filters:)"
-            landmarkType = "7">
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "ReposListViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1388,10 +1388,10 @@
             filePath = "GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "ReposPageViewController"
-            landmarkType = "3">
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "showIssues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1436,9 +1436,9 @@
             filePath = "GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "setReadme(base:)"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "showBranches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1452,9 +1452,9 @@
             filePath = "GitManager/PresentationLayer/ReposPage/View/ReposPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "setupLoading()"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "setReadme(base:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1804,8 +1804,8 @@
             filePath = "GitManager/PresentationLayer/IssuePage/IssuePageView/IssuePageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "showIssue(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1820,8 +1820,8 @@
             filePath = "GitManager/PresentationLayer/IssuePage/IssuePageView/IssuePageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "showComments(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1836,9 +1836,41 @@
             filePath = "GitManager/PresentationLayer/IssuePage/IssuePageView/IssuePageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "showComments(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4610E526-B550-4153-A706-C0340A8855CA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitManager/PresentationLayer/IssuePage/IssuePageView/IssuePageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "showComments(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD73B299-DCFB-4D39-89E8-DA37D0440791"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitManager/PresentationLayer/IssuePage/IssuePageView/IssuePageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

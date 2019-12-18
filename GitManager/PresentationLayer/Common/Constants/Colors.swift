@@ -10,29 +10,28 @@ import UIKit
 
 struct Colors{
     static let mainBackground : UIColor = .white
-    static let backgroundLight : UIColor = .lightGray
     static let backgroundDark : UIColor = .darkGray
-    static let mainColor = UIColor("#7D1DD1")
+    static let mainColor = UIColor("#4C16C0")
     
-    static let error : UIColor = .red
-    static let disable = UIColor("#C0C0C0")
+    static let error : UIColor = UIColor("#BE1E27")
+    static let disable = UIColor("#9D9B9C")
     static let active = mainColor
-    static let greenButton = UIColor("#00D455")
-    static let redButton : UIColor = .red
+    static let greenButton = UIColor("#51C627")
+    static let redButton = error
     
     static let lightText : UIColor = .white
     static let darkText : UIColor = .black
-    static let disableText = UIColor("#4F4F4F")
+    static let disableText = disable
     
     static let addictionalInfoText : UIColor = .white
-    static let addictionalInfoPublic : UIColor = UIColor("#00D455")
-    static let addictionalInfoPrivate : UIColor = .red
-    static let addictionalInfoLanguage : UIColor = .blue
-    static let addictionalInfoIssue : UIColor = .gray
+    static let addictionalInfoPublic : UIColor = greenButton
+    static let addictionalInfoPrivate : UIColor = error
+    static let addictionalInfoLanguage : UIColor = UIColor("#2975C0")
+    static let addictionalInfoIssue : UIColor = UIColor("#43C577")
     static let addictionalInfoStargazers : UIColor = UIColor("#00D455")
     
-    static let selfComment = UIColor("#ACCEE5")
-    static let otherComment = UIColor("#E0E0E0")
+    static let selfComment = UIColor("#CEC0EE")
+    static let otherComment = UIColor("#B2EDD2")
     
-    static let ownerInfoBackground = UIColor("#ACCEE5")
+    static let ownerInfoBackground = mainColor
 }

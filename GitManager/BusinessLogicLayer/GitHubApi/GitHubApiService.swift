@@ -203,7 +203,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
     
     func getIssuesComments(issue: Issue, itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ issues: [IssueComment])-> Void){
         guard let url = issue.url else {
-            print("!!! WARNING !!! Incorrect issue url!?page=\(pageNumber)&per_page=\(itemsPerPage)&state=all")
+            print("!!! WARNING !!! Incorrect issue url!")
             return
         }
         Alamofire.request(url + "/comments",
@@ -219,5 +219,26 @@ class GitHubApiService: GitHubApiServiceProtocol {
                 }
         }
     }
+    
+    func addCommentToIssue(issue: Issue, comment: String, callback : @escaping(_ comment: IssueComment)-> Void){
+        guard let url = issue.url else {
+            print("!!! WARNING !!! Incorrect issue url!")
+            return
+        }
+        
+        let parameters = [  "body": comment ]
+        Alamofire.request(url + "/comments",
+            method: .post,
+            parameters: parameters as Parameters,
+            encoding: Alamofire.JSONEncoding.default,
+            headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary {
+                    let comment = IssueComment(dataJson)
+                    callback(comment)
+                }
+        }
+    }
+
 }
 

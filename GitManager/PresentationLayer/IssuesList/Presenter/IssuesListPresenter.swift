@@ -15,7 +15,7 @@ class IssuesListPresenter: IssuesListPresenterProtocol, SearchControllerOwnerPro
     private var issuesCache = [Issue]()
     
     func viewDidLoad() {
-
+        
     }
     
     func openIssuePage(index: Int) {

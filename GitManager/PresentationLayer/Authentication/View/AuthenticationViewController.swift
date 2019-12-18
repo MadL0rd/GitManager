@@ -34,9 +34,12 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
         view.backgroundColor = Colors.mainBackground
         setupView()
         presenter?.viewDidLoad()
+        
     }
     
     func setupView(){
+        self.hideKeyboardWhenTappedAround()
+
         setupForm()
         setupLoading()
     }

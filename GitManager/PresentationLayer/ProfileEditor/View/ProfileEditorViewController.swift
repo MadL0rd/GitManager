@@ -17,6 +17,7 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
         navigationItem.title = NSLocalizedString("Profile editing", comment: "Title on profile editor screen")
         let logOutString = NSLocalizedString("LogOut", comment: "on profile editor screen")

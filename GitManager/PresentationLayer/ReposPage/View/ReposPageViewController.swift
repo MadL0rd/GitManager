@@ -102,7 +102,7 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         ownerStack.axis = .horizontal
         ownerStack.distribution = .fill
         ownerStack.spacing = spacing
-        ownerStack.setBackground(color: Colors.ownerInfoBackground, cornerRadius: 20)
+        ownerStack.setBorderLine(color: Colors.ownerInfoBackground, borderWidth: 3, cornerRadius: 20)
         ownerStack.isLayoutMarginsRelativeArrangement = true
         ownerStack.layoutMargins = UIEdgeInsets(top: spacing/2, left: spacing, bottom: spacing/2, right: spacing)
         
@@ -135,7 +135,7 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         label.text = NSLocalizedString("from company:", comment: "Repos page (from *company name*)")
         Designer.subTitleLabel(label)
         ownerSubstack.addArrangedSubview(label)
-        Designer.mainTitleLabel(ownerNameLabel)
+        Designer.mainTitleLabel(ownerCompanyLabel)
         ownerSubstack.addArrangedSubview(ownerCompanyLabel)
         
         ownerStack.addArrangedSubview(ownerSubstack)

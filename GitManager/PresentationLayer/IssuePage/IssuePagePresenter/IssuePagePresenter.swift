@@ -24,5 +24,12 @@ class IssuePagePresenter: IssuePagePresenterProtocol {
         view?.showIssue(issue)
     }
     
+    func addComment(text: String) {
+        interactor?.addComment(text: text)
+    }
     
+    func showAddedComment(comment: IssueComment){
+        view?.showAddedComment(comment: comment)
+    }
+
 }

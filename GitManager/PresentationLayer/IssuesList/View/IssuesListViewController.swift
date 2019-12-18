@@ -39,6 +39,8 @@ class IssuesListViewController: UIViewController, IssuesListViewProtocol, UITabl
     }
     
     internal func setupView(){
+        self.hideKeyboardWhenTappedAround()
+
         setupNavigation()
         setupTableView()
         setupSearchController()

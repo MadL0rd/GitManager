@@ -30,6 +30,15 @@ class IssuePageInteractor: IssuePageInteractorProtocol {
         apiService?.getIssuesComments(issue: issue, itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: setComments(_:))
     }
     
+    func addComment(text: String) {
+        guard let issue = issueBuff else { return }
+        apiService?.addCommentToIssue(issue: issue, comment: text, callback: pushAddedComment(comment:))
+    }
+    
+    func pushAddedComment(comment: IssueComment) {
+        presenter?.showAddedComment(comment: comment)
+    }
+    
     private func setComments(_ comments: [IssueComment]){
         presenter?.showComments(comments)
     }
