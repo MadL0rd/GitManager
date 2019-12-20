@@ -56,7 +56,7 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         navigationItem.rightBarButtonItem = button
         
         profileImageView.downloadFromUrl(url: repository.owner?.avatarUrl ?? "")
-        ownerNameLabel.text = repository.owner?.name ?? ""
+        ownerNameLabel.text = repository.owner?.name == "" ? NSLocalizedString("*not stated*", comment: "Repos page") : repository.owner?.name
         ownerLoginLabel.text = repository.owner?.login ?? ""
         ownerCompanyLabel.text = repository.owner?.company == "" ? NSLocalizedString("*not stated*", comment: "Repos page") : repository.owner?.company
         
@@ -102,7 +102,7 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         ownerStack.axis = .horizontal
         ownerStack.distribution = .fill
         ownerStack.spacing = spacing
-        ownerStack.setBorderLine(color: Colors.ownerInfoBackground, borderWidth: 3, cornerRadius: 20)
+        //ownerStack.setBorderLine(color: Colors.ownerInfoBackground, borderWidth: 3, cornerRadius: 20)
         ownerStack.isLayoutMarginsRelativeArrangement = true
         ownerStack.layoutMargins = UIEdgeInsets(top: spacing/2, left: spacing, bottom: spacing/2, right: spacing)
         

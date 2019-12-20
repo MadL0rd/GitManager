@@ -33,6 +33,7 @@ public class Designer{
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.darkText
         label.font = label.font.withSize(18)
+        label.minimumScaleFactor = 1
     }
     
     public static func subTitleLabel(_ label : UILabel){

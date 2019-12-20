@@ -72,7 +72,7 @@ class IssueTableViewCell: UITableViewCell {
         
         if let number = issue.number, let login = issue.user?.login{
             
-            let opend = NSLocalizedString("opend on", comment: "issues info")
+            let opened = NSLocalizedString("opened on", comment: "issues info")
             let closed = NSLocalizedString("was closed on", comment: "issues info")
             let by = NSLocalizedString("by", comment: "issues info")
             
@@ -80,7 +80,7 @@ class IssueTableViewCell: UITableViewCell {
             formatter.dateFormat = "dd-MMM-yyyy"
             
             if issue.open {
-                infoLabel.text = "#\(number) \(opend) \(formatter.string(from: issue.createdAt)) \(by) \(login)"
+                infoLabel.text = "#\(number) \(opened) \(formatter.string(from: issue.createdAt)) \(by) \(login)"
             } else {
                 infoLabel.text = "#\(number) \(by) \(login) \(closed) \(formatter.string(from: issue.closedAt))"
             }

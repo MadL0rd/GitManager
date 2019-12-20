@@ -13,8 +13,8 @@ extension UIView {
         if let sup = superview{
             leftAnchor.constraint(equalTo: sup.leftAnchor, constant: left).isActive = true
             topAnchor.constraint(equalTo: sup.topAnchor, constant: top).isActive = true
-            rightAnchor.constraint(equalTo: sup.rightAnchor, constant: right).isActive = true
-            bottomAnchor.constraint(equalTo: sup.bottomAnchor, constant: bottom).isActive = true
+            rightAnchor.constraint(equalTo: sup.rightAnchor, constant: -right).isActive = true
+            bottomAnchor.constraint(equalTo: sup.bottomAnchor, constant: -bottom).isActive = true
         }
     }
     
