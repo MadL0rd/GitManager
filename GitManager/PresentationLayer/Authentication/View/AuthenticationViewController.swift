@@ -34,9 +34,12 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
         view.backgroundColor = Colors.mainBackground
         setupView()
         presenter?.viewDidLoad()
+        
     }
     
     func setupView(){
+        self.hideKeyboardWhenTappedAround()
+
         setupForm()
         setupLoading()
     }
@@ -55,12 +58,7 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
     
     private func setupLoading(){
         view.addSubview(loading)
-        
-        loading.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        loading.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        loading.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        loading.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
+        loading.setMargin(0)
         loading.show(animation: false)
     }
 

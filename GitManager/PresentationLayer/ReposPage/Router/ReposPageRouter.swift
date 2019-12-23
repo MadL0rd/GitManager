@@ -18,7 +18,7 @@ class ReposPageRouter: ReposPageRouterProtocol, DependentRouterProtocol {
     var mainRouter: ScreensRouterProtocol
     
     static func createModule(screensRouter: ScreensRouterProtocol, content: AnyObject?) -> UIViewController {
-        let view = ReposPageView()
+        let view = ReposPageViewController()
         let presenter = ReposPagePresenter()
         let interactor = ReposPageInteractor()
         let router = ReposPageRouter(screensRouter)
@@ -33,11 +33,17 @@ class ReposPageRouter: ReposPageRouterProtocol, DependentRouterProtocol {
         interactor.presenter = presenter
         interactor.apiService = AppConfig.GitService
         interactor.starredService = AppConfig.StarredService
+        
+        router.presenter = presenter
 
         return view
     }
     
     func showIssues(_ repository: Repository) {
+        mainRouter.pushNewScreenToCurrentNavigationController(IssuesListRouter.self, content: repository as AnyObject)
+    }
+    
+    func showBranches(_ repository: Repository) {
         
     }
 }

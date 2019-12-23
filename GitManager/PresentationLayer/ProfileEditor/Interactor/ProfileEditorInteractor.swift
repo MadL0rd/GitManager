@@ -11,14 +11,19 @@ import Foundation
 class ProfileEditorInteractor: ProfileEditorInteractorProtocol {
     
     var presenter: ProfileEditorPresenterProtocol?
-    var apiService: GitHubApiServiceProtocol?
+    var apiService: GitHubApiServiceProtocol?{
+        didSet {
+            getUserProfile()
+        }
+    }
     var keychain:   KeychainServiceProtocol?
     var multiRequestBlocker = true
     
     func getUserProfile() {
+        guard let api = apiService else { return }
         if multiRequestBlocker {
             multiRequestBlocker = false
-            apiService?.getAuthenticatedUser(callback: sendUserProfile(user:))
+            api.getAuthenticatedUser(callback: sendUserProfile(user:))
         }
     }
     

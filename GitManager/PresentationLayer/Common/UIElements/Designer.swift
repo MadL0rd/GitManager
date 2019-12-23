@@ -21,10 +21,19 @@ public class Designer{
         tf.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    public static func defaultTextViewStyle(_ tv : UITextView){
+        tv.textColor = Colors.darkText
+        tv.backgroundColor = Colors.mainBackground
+        tv.layer.borderColor = Colors.darkText.cgColor
+        tv.autocorrectionType = .yes
+        tv.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     public static func mainTitleLabel(_ label : UILabel){
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.darkText
         label.font = label.font.withSize(18)
+        label.minimumScaleFactor = 1
     }
     
     public static func subTitleLabel(_ label : UILabel){

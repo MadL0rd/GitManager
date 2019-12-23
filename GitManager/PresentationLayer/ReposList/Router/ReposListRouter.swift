@@ -31,7 +31,6 @@ class ReposListRouter: ReposListRouterProtocol , DependentRouterProtocol {
         interactor.presenter = presenter
         interactor.apiService = AppConfig.GitService
         interactor.starredService = AppConfig.StarredService
-        interactor.getReposList()
         
         return view
     }

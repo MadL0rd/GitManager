@@ -120,20 +120,15 @@ class FiltersView: UIView, FiltersViewProtocol {
     private func setupScrollView(){
         addSubview(scroll)
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true;
-        scroll.topAnchor.constraint(equalTo: topAnchor).isActive = true;
-        scroll.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true;
-        scroll.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true;
+        scroll.setMargin(0)
+        scroll.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
     
     private func setupStackView(){
         scroll.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.leadingAnchor.constraint(equalTo: scroll.leadingAnchor).isActive = true;
-        stack.topAnchor.constraint(equalTo: scroll.topAnchor, constant: 20).isActive = true;
-        stack.trailingAnchor.constraint(equalTo: scroll.trailingAnchor).isActive = true;
-        stack.bottomAnchor.constraint(equalTo: scroll.bottomAnchor).isActive = true;
-        stack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
+        stack.setMargin(baseView: scroll, left: 0, top: 20, right: 0, bottom: 0)
+        stack.widthAnchor.constraint(equalTo: scroll.widthAnchor, multiplier: 0.8).isActive = true
         stack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         stack.axis = .vertical
         stack.spacing = 20

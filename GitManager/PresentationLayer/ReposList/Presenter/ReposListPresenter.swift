@@ -6,7 +6,7 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol, ReposSearchControllerOwnerProtocol {
+class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProtocol, SearchControllerOwnerProtocol {
     
     var router: ReposListRouterProtocol?
     var view: ReposListViewProtocol?
@@ -73,11 +73,13 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     func setReposCache(repositories: [Repository]) {
         repositoriesCache = repositories
     }
+    
     func scrollContentEnds() {
         if interactor?.getMoreContentDawnloadPossibility() ?? false{
             view?.showFooterButton()
         }
     }
+    
     func scrollContentNotEnds() {
         if interactor?.getMoreContentDawnloadPossibility() ?? false{
             view?.hideFooterButton()
@@ -107,5 +109,9 @@ class ReposListPresenter: ReposListPresenterProtocol, ReposTableViewerOwnerProto
     
     func hideLoadingView() {
         view?.hideLoadingView()
+    }
+    
+    func searchBarStartMoving() {
+        view?.layoutRefresh()
     }
 }

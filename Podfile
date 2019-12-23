@@ -2,6 +2,9 @@
 # platform :ios, '9.0'
 
 target 'GitManager' do
+
 	pod 'Alamofire'
-  pod 'KeychainSwift'
+	pod 'KeychainSwift'
+	pod "MarkdownView"
+
 end
