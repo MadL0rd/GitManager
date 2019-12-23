@@ -11,50 +11,62 @@ import UIKit
 class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
     
     var presenter: ProfileEditorPresenterProtocol?
-    let form: ProfileEditorStackView = ProfileEditorStackView()
+    private let form: ProfileEditorStackView = ProfileEditorStackView()
+    private let loading: LoadingViewProtocol = LoadingView()
     private let scroll = UIScrollView()
     private var spacing : CGFloat = 20
+    private var dataLoaded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-
-        navigationItem.title = NSLocalizedString("Profile editing", comment: "Title on profile editor screen")
-        let logOutString = NSLocalizedString("LogOut", comment: "on profile editor screen")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: logOutString, style: .plain, target: self, action: #selector(logOut))
-
         setupView()
-        
         presenter?.viewDidLoad()
     }
     
     func setupView(){
+        self.hideKeyboardWhenTappedAround()
+        navigationItem.title = NSLocalizedString("Profile editing", comment: "Title on profile editor screen")
+        let logOutString = NSLocalizedString("LogOut", comment: "on profile editor screen")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: logOutString, style: .plain, target: self, action: #selector(logOut))
         view.backgroundColor = Colors.mainBackground
         
         setupScrollView()
         setupForm()
+        setupLoading()
     }
     
     private func setupScrollView(){
         view.addSubview(scroll)
         scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.setMargin(baseView: view.safeAreaLayoutGuide, 0)
+        scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scroll.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        scroll.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        scroll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     private func setupForm(){
         scroll.addSubview(form)
         form.translatesAutoresizingMaskIntoConstraints = false
-        form.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.65).isActive = true
+        form.axis = .vertical
+        form.spacing = spacing
+        form.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        form.setMargin(horizontal: 0, vertical: spacing * 2)
+        form.widthAnchor.constraint(equalTo: scroll.widthAnchor, multiplier: 0.65).isActive = true
+        
         form.nameTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
         form.companyTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
         form.bioTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
         form.blogTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
         form.locationTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
         form.saveButton.addTarget(self, action: #selector(updateUserProfile), for: .touchUpInside)
-        form.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        form.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        form.axis = .vertical
-        form.spacing = spacing
+    }
+    
+    private func setupLoading(){
+        view.addSubview(loading)
+        loading.setMargin(0)
+        if !dataLoaded {
+            loading.show(animation: false)
+        }
     }
     
     func showUserProfile(user : GitUser) {
@@ -65,6 +77,8 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
         form.blogTextField.text = user.blog
         form.locationTextField.text = user.location
         form.saveButton.setBlocked()
+        dataLoaded = true
+        loading.hide()
     }
     
     @objc func updateUserProfile(){

@@ -13,7 +13,7 @@ struct Colors{
     static let backgroundDark : UIColor = .darkGray
     static let mainColor = UIColor("#4C16C0")
     
-    static let error : UIColor = UIColor("#BE1E27")
+    static let error = UIColor("#BE1E27")
     static let disable = UIColor("#9D9B9C")
     static let active = mainColor
     static let greenButton = UIColor("#51C627")

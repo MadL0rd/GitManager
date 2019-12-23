@@ -26,7 +26,7 @@ class IssuesListViewController: UIViewController, IssuesListViewProtocol, UITabl
     private var loading: LoadingViewProtocol = LoadingView()
     private var tableViewIssues = UITableView()
     private let refreshControl = UIRefreshControl()
-    private let noContentView = NoContentView()
+    private let noContentView: NoContentViewProtocol = NoContentView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +106,7 @@ class IssuesListViewController: UIViewController, IssuesListViewProtocol, UITabl
         
         view.addSubview(noContentView)
         noContentView.setMargin(baseView: view.safeAreaLayoutGuide, 0)
+        noContentView.setReloadAction(refresh)
     }
     
     @objc private func refresh(){

@@ -12,6 +12,8 @@ protocol IssuePageViewProtocol {
     func showIssue(_ issue: Issue)
     func showComments(_ comments: [IssueComment])
     func showAddedComment(comment: IssueComment)
+    func hideNextPageButton()
+    func showNextPageButton()
 }
 
 protocol IssuePagePresenterProtocol {
@@ -24,6 +26,7 @@ protocol IssuePagePresenterProtocol {
     func showIssue(_ issue: Issue)
     func addComment(text: String)
     func showAddedComment(comment: IssueComment)
+    func loadNextPage()
 }
 
 protocol IssuePageInteractorProtocol {
@@ -33,6 +36,7 @@ protocol IssuePageInteractorProtocol {
     
     func getComments()
     func addComment(text: String)
+    func getMoreContentDawnloadPossibility() -> Bool
 }
 
 protocol IssuePageRouterProtocol {

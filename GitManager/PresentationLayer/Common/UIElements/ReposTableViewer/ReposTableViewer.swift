@@ -14,7 +14,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     private var addictionalContentMode = AddictionalInfoContentMode.Default
     private var owner: ReposTableViewerOwnerProtocol?
     private let refreshControl = UIRefreshControl()
-    private let noContentView = NoContentView()
+    private let noContentView: NoContentViewProtocol = NoContentView()
     
     override init (frame : CGRect) {
         super.init(frame : frame)

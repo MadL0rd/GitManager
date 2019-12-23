@@ -15,7 +15,7 @@ class ProfileEditorPresenter: ProfileEditorPresenterProtocol {
     var router: ProfileEditorRouterProtocol?
     
     func viewDidLoad() {
-        interactor?.getUserProfile()
+        
     }
     
     func userProfileDidFetch(user: GitUser) {

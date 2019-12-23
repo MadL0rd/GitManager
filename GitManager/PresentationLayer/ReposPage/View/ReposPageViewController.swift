@@ -22,12 +22,13 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
     private let ownerLoginLabel = UILabel()
     private let ownerCompanyLabel = UILabel()
     private let reposNameLabel = UILabel()
+    private let readmeTitleLabel = UILabel()
     private let starredButton = TwoStateButton()
     private let addictionalInfo = AddictionalInformationStack()
     private let descriptionText = UILabel()
     private var webView = WKWebView()
     private var webViewFirstLoadingComplete = false
-    private var loading: LoadingViewProtocol = LoadingView()
+    private let loading: LoadingViewProtocol = LoadingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,7 +177,7 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         buttonsStack.distribution = .fillEqually
         stack.addArrangedSubview(buttonsStack)
         
-        var label = UILabel()
+        let label = UILabel()
         label.text = NSLocalizedString("Description:", comment: "Repos page")
         Designer.mainTitleLabel(label)
         stack.addArrangedSubview(label)
@@ -187,10 +188,9 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         descriptionText.widthAnchor.constraint(equalToConstant: width*0.8).isActive = true
         stack.addArrangedSubview(descriptionText)
         
-        label = UILabel()
-        label.text = NSLocalizedString("Readme:", comment: "Repos page")
-        Designer.mainTitleLabel(label)
-        stack.addArrangedSubview(label)
+        readmeTitleLabel.text = NSLocalizedString("Readme:", comment: "Repos page")
+        Designer.mainTitleLabel(readmeTitleLabel)
+        stack.addArrangedSubview(readmeTitleLabel)
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.navigationDelegate = self
@@ -212,7 +212,11 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
     }
     
     func setReadme(base: String) {
-        webView.loadHTMLString(base, baseURL: nil)
+        if base == "" {
+            readmeTitleLabel.text = ""
+        } else {
+            webView.loadHTMLString(base, baseURL: nil)
+        }
         loading.hide()
     }
     

@@ -206,7 +206,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
             print("!!! WARNING !!! Incorrect issue url!")
             return
         }
-        Alamofire.request(url + "/comments",
+        Alamofire.request(url + "/comments?page=\(pageNumber)&per_page=\(itemsPerPage)&state=all",
             headers: GitHubApiService.headers)
             .responseJSON{ response in
                 var comments = [IssueComment]()

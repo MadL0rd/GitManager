@@ -17,6 +17,9 @@ class IssuePagePresenter: IssuePagePresenterProtocol {
     }
     
     func showComments(_ comments: [IssueComment]) {
+        if interactor?.getMoreContentDawnloadPossibility() == true {
+            view?.showNextPageButton()
+        }
         view?.showComments(comments)
     }
     
@@ -32,4 +35,8 @@ class IssuePagePresenter: IssuePagePresenterProtocol {
         view?.showAddedComment(comment: comment)
     }
 
+    func loadNextPage() {
+        view?.hideNextPageButton()
+        interactor?.getComments()
+    }
 }

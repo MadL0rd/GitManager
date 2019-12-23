@@ -23,6 +23,7 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
     private let stateLabel = UILabel()
     private let titleLabel = UILabel()
     private let infoLabel = UILabel()
+    private let footer = SearchFooterButton()
     private let newCommentPlaceholderView = UIView()
     private let commentTextField = UITextField()
     private var mdViewRenderCount = 0
@@ -45,7 +46,7 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
         
         setupTextInput()
         setupScrollView()
-        setupStackView()
+        setupStackViewAndFooter()
         setupLoading()
     }
     
@@ -355,14 +356,28 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
         scroll.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
     
-    private func setupStackView(){
+    private func setupStackViewAndFooter(){
         scroll.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.setMargin(baseView: scroll, left: 0, top: 20, right: 0, bottom: 0)
         stack.widthAnchor.constraint(equalTo: scroll.widthAnchor, multiplier: 0.9).isActive = true
         stack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stack.axis = .vertical
-        stack.spacing = 20
+        stack.spacing = spacing
+        
+        scroll.addSubview(footer)
+        footer.translatesAutoresizingMaskIntoConstraints = false
+        stack.bottomAnchor.constraint(equalTo: footer.topAnchor, constant: -spacing).isActive = true
+        footer.bottomAnchor.constraint(equalTo: scroll.bottomAnchor, constant: -spacing).isActive = true
+        footer.heightAnchor.constraint(equalToConstant: view.frame.height/20).isActive = true
+        footer.leftAnchor.constraint(equalTo: view.leftAnchor, constant: view.frame.width/16).isActive = true
+        footer.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -view.frame.width/16).isActive = true
+        footer.addTarget(self, action: #selector(loadNextPage), for: .touchUpInside)
+        footer.setTitle(NSLocalizedString("Load next page", comment: "footer button"), for: .normal)
+    }
+    
+    @objc func loadNextPage(){
+        presenter?.loadNextPage()
     }
     
     @objc private func sendComment(){
@@ -381,5 +396,13 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
             textField.text = nil
         }
         return true
+    }
+    
+    func hideNextPageButton() {
+        footer.hideFooter()
+    }
+    
+    func showNextPageButton() {
+        footer.showFooter()
     }
 }

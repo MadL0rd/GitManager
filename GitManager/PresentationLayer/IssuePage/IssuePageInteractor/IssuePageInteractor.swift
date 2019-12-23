@@ -23,11 +23,14 @@ class IssuePageInteractor: IssuePageInteractorProtocol {
     }
     private var lastDownloadedPage = 1
     private var itemsPerPage = 15
+    private var canDownloadMoreContent = false
+    private var allCommentsWasDownloaded = false
     
     func getComments() {
         guard let issue = issueBuff, apiService != nil else { return }
-        lastDownloadedPage = 1
+        canDownloadMoreContent = false
         apiService?.getIssuesComments(issue: issue, itemsPerPage: itemsPerPage, pageNumber: lastDownloadedPage, callback: setComments(_:))
+        lastDownloadedPage += 1
     }
     
     func addComment(text: String) {
@@ -36,10 +39,22 @@ class IssuePageInteractor: IssuePageInteractorProtocol {
     }
     
     func pushAddedComment(comment: IssueComment) {
-        presenter?.showAddedComment(comment: comment)
+        if allCommentsWasDownloaded {
+            presenter?.showAddedComment(comment: comment)
+        }
     }
     
     private func setComments(_ comments: [IssueComment]){
+        if comments.count < itemsPerPage{
+            canDownloadMoreContent = false
+            allCommentsWasDownloaded = true
+        }else{
+            canDownloadMoreContent = true
+        }
         presenter?.showComments(comments)
+    }
+    
+    func getMoreContentDawnloadPossibility() -> Bool {
+        return canDownloadMoreContent
     }
 }

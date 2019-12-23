@@ -35,7 +35,6 @@ class ReposPageInteractor: ReposPageInteractorProtocol {
     }
     
     private func setReadme(base: String?){
-        guard let readme = base else { return }
-        presenter?.setReadme(base: readme)
+        presenter?.setReadme(base: base ?? "")
     }
 }
