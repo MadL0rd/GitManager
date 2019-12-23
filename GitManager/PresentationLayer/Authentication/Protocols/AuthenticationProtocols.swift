@@ -10,6 +10,7 @@ protocol AuthenticationViewProtocol: class {
     
     var presenter:  AuthenticationPresenterProtocol?    { get set }
     
+    func hideLoading()
     func showErrorMessage()
 }
 
@@ -23,6 +24,7 @@ protocol AuthenticationPresenterProtocol: class {
     func tryToAuthenticate(login: String, password: String)
     func showNextScreen()
     func showErrorMessage()
+    func hideLoading()
 }
 
 protocol AuthenticationInteractorProtocol: class {

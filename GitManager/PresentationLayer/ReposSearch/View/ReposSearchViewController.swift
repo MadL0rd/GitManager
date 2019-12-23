@@ -21,7 +21,7 @@ class ReposSearchViewController: ReposListViewController, ReposSearchViewProtoco
     }
     
     override func setupInheritor(){
-
+        searchController?.searchBar.placeholder = NSLocalizedString("Serch repositories", comment: "search controller on search page")
     }
     
     override func setFiltersText(filters: [String]){

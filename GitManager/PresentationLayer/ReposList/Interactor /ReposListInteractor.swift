@@ -12,7 +12,11 @@ class ReposListInteractor: ReposListInteractorProtocol {
     
     var starredService: StarredRepositoryServiceProtocol?
     var presenter: ReposListPresenterProtocol?
-    var apiService: GitHubApiServiceProtocol?
+    var apiService: GitHubApiServiceProtocol? {
+        didSet{
+            getReposList()
+        }
+    }
     var repositoryList: [Repository]?
     
     internal var repositoriesDownloaded = false
@@ -121,7 +125,7 @@ class ReposListInteractor: ReposListInteractorProtocol {
     
     internal func sendReposList() {
         if !haveSubscribtion {
-            starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
+            starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:), loadingCompleted: starredDownloadComplete)
             haveSubscribtion = true
         }else{
             if let reposList = repositoryList{
@@ -152,5 +156,9 @@ class ReposListInteractor: ReposListInteractorProtocol {
                 presenter?.refreshRepositoryStar(repository: repos)
             }
         }
+    }
+    
+    internal func starredDownloadComplete(){
+        presenter?.hideLoadingView()
     }
 }

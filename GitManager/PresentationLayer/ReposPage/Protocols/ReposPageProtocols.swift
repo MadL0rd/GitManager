@@ -26,6 +26,8 @@ protocol ReposPagePresenterProtocol {
     func changeViewStarredStatus()
     func starRepository()
     func setReadme(base: String)
+    func showIssues()
+    func showBranches()
 }
 
 protocol ReposPageInteractorProtocol {
@@ -41,4 +43,5 @@ protocol ReposPageRouterProtocol {
     var presenter:  ReposPagePresenterProtocol?     { get set }
     
     func showIssues(_ repository: Repository)
+    func showBranches(_ repository: Repository)
 }

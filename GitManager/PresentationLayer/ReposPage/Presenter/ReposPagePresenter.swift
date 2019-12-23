@@ -40,4 +40,14 @@ class ReposPagePresenter: ReposPagePresenterProtocol {
     func setReadme(base: String) {
         view?.setReadme(base: base)
     }
+    
+    func showIssues() {
+        guard let repo = repository else { return }
+        router?.showIssues(repo)
+    }
+    
+    func showBranches() {
+        guard let repo = repository else { return }
+        router?.showBranches(repo)
+    }
 }

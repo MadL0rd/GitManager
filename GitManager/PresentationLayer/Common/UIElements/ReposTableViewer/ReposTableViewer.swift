@@ -14,6 +14,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     private var addictionalContentMode = AddictionalInfoContentMode.Default
     private var owner: ReposTableViewerOwnerProtocol?
     private let refreshControl = UIRefreshControl()
+    private let noContentView: NoContentViewProtocol = NoContentView()
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -31,11 +32,17 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count = owner?.getItemsCount() ?? 0
+        if count == 0 {
+            noContentView.show()
+        } else {
+            noContentView.hide()
+        }
         return owner?.getItemsCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.cellHeight
+        return RepositoryTableViewCell.cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,6 +72,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         owner?.showRepositoryPage(index: indexPath.row)
     }
     
@@ -93,14 +101,14 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         
         addSubview(tableViewRepositories)
         tableViewRepositories.translatesAutoresizingMaskIntoConstraints = false
-        tableViewRepositories.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        tableViewRepositories.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        tableViewRepositories.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        tableViewRepositories.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        tableViewRepositories.setMargin(0)
         tableViewRepositories.dataSource = self
         tableViewRepositories.delegate = self
         tableViewRepositories.register(RepositoryTableViewCell.self, forCellReuseIdentifier: "repositoryCell")
         tableViewRepositories.backgroundColor = Colors.mainBackground
+        
+        addSubview(noContentView)
+        noContentView.setMargin(baseView: safeAreaLayoutGuide, 0)
     }
     
     @objc private func refresh(){

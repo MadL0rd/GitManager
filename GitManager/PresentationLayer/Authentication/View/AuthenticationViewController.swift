@@ -10,6 +10,7 @@ import UIKit
 class AuthenticationViewController: UIViewController, AuthenticationViewProtocol {
     
     var presenter: AuthenticationPresenterProtocol?
+    private var loading: LoadingViewProtocol = LoadingView()
     let form: AuthenticationForm = {
         let view = AuthenticationForm()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +22,11 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
         UIView.animate(withDuration: 0.5) {
             self.form.errorLabel.alpha = 1
         }
+        loading.hide()
+    }
+    
+    func hideLoading() {
+        loading.hide()
     }
     
     override func viewDidLoad() {
@@ -28,9 +34,17 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
         view.backgroundColor = Colors.mainBackground
         setupView()
         presenter?.viewDidLoad()
+        
     }
     
     func setupView(){
+        self.hideKeyboardWhenTappedAround()
+
+        setupForm()
+        setupLoading()
+    }
+    
+    private func setupForm(){
         view.addSubview(form)
         
         form.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.65).isActive = true
@@ -41,6 +55,13 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
         form.passwordTextField.addTarget(self, action: #selector(textConteinsCheck), for: .editingChanged)
         form.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
     }
+    
+    private func setupLoading(){
+        view.addSubview(loading)
+        loading.setMargin(0)
+        loading.show(animation: false)
+    }
+
     
     @objc func textConteinsCheck(){
         if form.textFieldsIsNotEmpty(){

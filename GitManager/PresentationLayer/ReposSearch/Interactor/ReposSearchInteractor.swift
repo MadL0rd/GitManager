@@ -60,7 +60,7 @@ class ReposSearchInteractor: ReposListInteractor, ReposSearchInteractorProtocol 
     
     override func sendReposList() {
         if !haveSubscribtion {
-            starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:))
+            starredService?.subscribeOnUpdate(refreshReposFunc: starredCallback(starredRepos:), loadingCompleted: starredDownloadComplete)
             haveSubscribtion = true
         }else{
             if let reposList = repositoryList{

@@ -9,7 +9,7 @@
 protocol StarredRepositoryServiceProtocol : class {
     init(gitService : GitHubApiServiceProtocol) 
     func getAllStarredRepositories()-> [Repository]?
-    func subscribeOnUpdate(refreshReposFunc : @escaping(_ repos : Repository) -> Void)
+    func subscribeOnUpdate(refreshReposFunc : @escaping(_ repos : Repository) -> Void, loadingCompleted : @escaping() -> Void)
     func oneTimeUpdate(repositoriesToRefresh: [Repository])->[Repository]
     func starRepository(_ repository : Repository)
 }
