@@ -308,11 +308,8 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
                         IssuePageViewController.keyboardHeight = keyboardSize.height
                     }
                     guard let height = IssuePageViewController.keyboardHeight else { return }
-                    self.newCommentPlaceholderBottomConstraint?.isActive = false
-                    print(keyboardSize)
-                    self.newCommentPlaceholderBottomConstraint = self.newCommentPlaceholderView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -height)
-                    self.newCommentPlaceholderBottomConstraint?.isActive = true
-                    self.view.layoutIfNeeded()
+                    self.newCommentPlaceholderBottomConstraint?.constant = -height + view.safeAreaInsets.bottom
+                    view.layoutIfNeeded()
                 }
             })
         }
@@ -321,10 +318,8 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
     @objc func keyboardWillHide(notification: NSNotification) {
         UIView.animate(withDuration: 0.07, animations: { () -> Void in
             if let view = self.view {
-                self.newCommentPlaceholderBottomConstraint?.isActive = false
-                self.newCommentPlaceholderBottomConstraint = self.newCommentPlaceholderView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-                self.newCommentPlaceholderBottomConstraint?.isActive = true
-                self.view.layoutIfNeeded()
+                self.newCommentPlaceholderBottomConstraint?.constant = 0
+                view.layoutIfNeeded()
             }
         })
         

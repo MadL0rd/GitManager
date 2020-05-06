@@ -54,4 +54,13 @@ public class Designer{
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = Colors.mainColor
     }
+    
+    public static func borderedClearButton(_ button : UIButton, color: UIColor){
+        button.layer.cornerRadius = 9
+        button.setTitleColor(color, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.layer.borderColor = color.cgColor
+        button.layer.borderWidth = 2
+    }
 }

@@ -8,11 +8,17 @@
 
 import UIKit
 
-struct Colors{
+struct Colors {
     static let mainBackground : UIColor = .white
     static let backgroundDark : UIColor = .darkGray
     static let mainColor = UIColor("#4C16C0")
+    static let mainColorWithAlpha = mainColor.withAlphaComponent(0.6)
     
+    static let folder = #colorLiteral(red: 1, green: 0.7117738161, blue: 0, alpha: 1)
+    static let file = mainColor.withAlphaComponent(0.5)
+    
+    static let lightGray = UIColor.lightGray
+
     static let error = UIColor("#BE1E27")
     static let disable = UIColor("#9D9B9C")
     static let active = mainColor

@@ -6,5 +6,5 @@ target 'GitManager' do
 	pod 'Alamofire'
 	pod 'KeychainSwift'
 	pod "MarkdownView"
-
+  
 end

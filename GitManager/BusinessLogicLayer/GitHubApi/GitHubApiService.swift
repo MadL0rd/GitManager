@@ -150,7 +150,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
-    func getReadme(repository: Repository, callback : @escaping(_ htmlSource : String?)-> Void){
+    func getReadme(repository: Repository, callback : @escaping(_ htmlSource : String?)-> Void) {
         guard let url = repository.url else { return }
         Alamofire.request(url + "/readme")
             .responseJSON{ response in
@@ -166,6 +166,93 @@ class GitHubApiService: GitHubApiServiceProtocol {
                     }
                 } else {
                     callback("")
+                }
+        }
+    }
+    
+    func getFileContent(repository: Repository, path: String, callback : @escaping(_ htmlSource : String?)-> Void) {
+        guard let url = repository.url else { return }
+        Alamofire.request(url + "/blob/" + path)
+            .responseJSON{ response in
+                if  let data = response.data,
+                    let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                    let readmeUrl = dataJson["html_url"] as? String{
+                    Alamofire.request(readmeUrl)
+                        .responseJSON{ response in
+                            if let data = response.data{
+                                guard let html = String(data: data, encoding: String.Encoding.utf8) else { return }
+                                callback(self.parser.parsePageAsCodeFile(htmlSource: html))
+                            }
+                    }
+                } else {
+                    callback("")
+                }
+        }
+    }
+
+    
+    func getBrancesList(repository: Repository, callback : @escaping(_ branches : [String])-> Void) {
+        guard let url = repository.url else { return }
+        var branches = [String]()
+        Alamofire.request(url + "/branches", headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if  let data = response.data,
+                    let dataJson = self._parseJsonResponse(data: data) as? NSArray {
+                    for item in dataJson {
+                        if 	let branch = item as? NSDictionary,
+                            let branchName = branch["name"] as? String {
+                            branches.append(branchName)
+                        }
+                    }
+                } 
+                callback(branches)
+        }
+    }
+    
+    func getBranchRootDirectory(repo: Repository, branch: String, callback: @escaping (Directory) -> Void) {
+        guard let url = repo.url else { return }
+        Alamofire.request(url + "/branches/\(branch)", headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if  let data = response.data,
+                    let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                    let commit = (dataJson["commit"] as? NSDictionary)?["commit"] as? NSDictionary,
+                    let tree = commit["tree"] as? NSDictionary,
+                    let treeUrl = tree["url"] as? String {
+                    let rootDir = Directory(type: .branch, name: branch, url: treeUrl)
+                    callback(rootDir)
+                } 
+        }
+    }
+    
+    func getDirectoryContentByUrl(url: String, callback: @escaping ([Directory]) -> Void) {
+        Alamofire.request(url, headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if  let data = response.data,
+                    let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                	let tree = dataJson["tree"] as? NSArray {
+                    var directories = [Directory]()
+                    for item in tree {
+                        if	let dir = item as? NSDictionary,
+                            let dirName = dir["path"] as? String,
+                            let dirUrl = dir["url"] as? String,
+                        	let dirTypeName = dir["type"] as? String {
+                            var dirType = DirectoryType.file
+                            switch dirTypeName {
+                            case "blob":
+                                dirType = .file
+                            case "tree":
+                                dirType = .folder
+                            default:
+                                dirType = .file
+                            }
+                            
+                            let directory = Directory(type: dirType,
+                                                      name: dirName, 
+                                                      url: dirUrl)
+                            directories.append(directory)
+                        }
+                    }
+                    callback(directories)
                 }
         }
     }

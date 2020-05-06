@@ -1,0 +1,30 @@
+{
+  "images" : [
+    {
+      "filename" : "blank_file_page_empty_document_icon_124196.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "blank_file_page_empty_document_icon_124196-1.pdf",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "blank_file_page_empty_document_icon_124196-2.pdf",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "blank_file_page_empty_document_icon_124196-3.pdf",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}
