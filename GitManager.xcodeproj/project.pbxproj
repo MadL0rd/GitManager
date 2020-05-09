@@ -84,6 +84,12 @@
 		84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457ED72361E8B2005C2549 /* ScreensRouter.swift */; };
 		84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */; };
 		84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */; };
+		8445FC992462BF4200FA30F4 /* FileViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445FC8F2462BF4200FA30F4 /* FileViewerPresenter.swift */; };
+		8445FC9A2462BF4200FA30F4 /* FileViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445FC912462BF4200FA30F4 /* FileViewerView.swift */; };
+		8445FC9B2462BF4200FA30F4 /* FileViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445FC922462BF4200FA30F4 /* FileViewerViewController.swift */; };
+		8445FC9C2462BF4200FA30F4 /* FileViewerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445FC942462BF4200FA30F4 /* FileViewerProtocols.swift */; };
+		8445FC9D2462BF4200FA30F4 /* FileViewerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445FC962462BF4200FA30F4 /* FileViewerInteractor.swift */; };
+		8445FC9E2462BF4200FA30F4 /* FileViewerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445FC982462BF4200FA30F4 /* FileViewerRouter.swift */; };
 		84476759239A6B6500EE93B1 /* ReposListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476758239A6B6500EE93B1 /* ReposListViewController.swift */; };
 		8447675B239A747F00EE93B1 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447675A239A747F00EE93B1 /* Issue.swift */; };
 		84476765239A95AC00EE93B1 /* IssuesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */; };
@@ -91,7 +97,21 @@
 		84476769239AA15000EE93B1 /* IssuesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84476768239AA15000EE93B1 /* IssuesListPresenter.swift */; };
 		8447676D239AA17100EE93B1 /* IssuesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447676C239AA17100EE93B1 /* IssuesListRouter.swift */; };
 		84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */; };
+		844C22FE245E49CB0003B3B3 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C22FD245E49CB0003B3B3 /* Directory.swift */; };
+		844D51FD2461CD57002CADB7 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D51FC2461CD56002CADB7 /* UIViewController+alert.swift */; };
+		844D52032461E71A002CADB7 /* UIViewController+setTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D52022461E71A002CADB7 /* UIViewController+setTitle.swift */; };
+		844D52052461E9FB002CADB7 /* FileSystemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D52042461E9FB002CADB7 /* FileSystemCollectionView.swift */; };
+		844D52072461EB71002CADB7 /* DirectoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D52062461EB70002CADB7 /* DirectoryCollectionViewCell.swift */; };
 		8451E09923A12B4700DF8F51 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451E09823A12B4700DF8F51 /* IssueTableViewCell.swift */; };
+		845598D3243A3190000416FF /* FileSystemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598C9243A3190000416FF /* FileSystemPresenter.swift */; };
+		845598D4243A3190000416FF /* FileSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598CB243A3190000416FF /* FileSystemView.swift */; };
+		845598D5243A3190000416FF /* FileSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598CC243A3190000416FF /* FileSystemViewController.swift */; };
+		845598D6243A3190000416FF /* FileSystemProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598CE243A3190000416FF /* FileSystemProtocols.swift */; };
+		845598D7243A3190000416FF /* FileSystemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598D0243A3190000416FF /* FileSystemInteractor.swift */; };
+		845598D8243A3190000416FF /* FileSystemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598D2243A3190000416FF /* FileSystemRouter.swift */; };
+		84588EB924644FDB00805231 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84588EB824644FDB00805231 /* PaddingLabel.swift */; };
+		84588EBD2464604B00805231 /* ButtonWithStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84588EBC2464604B00805231 /* ButtonWithStack.swift */; };
+		84588EBF2464656A00805231 /* TouchClearUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84588EBE2464656A00805231 /* TouchClearUIComponents.swift */; };
 		845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */; };
 		845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2055235B56B6003B3F10 /* TwoStateButton.swift */; };
 		845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2059235B654E003B3F10 /* AuthenticationForm.swift */; };
@@ -211,6 +231,12 @@
 		84457ED72361E8B2005C2549 /* ScreensRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouter.swift; sourceTree = "<group>"; };
 		84457EDB2361EE8F005C2549 /* DependentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependentRouterProtocol.swift; sourceTree = "<group>"; };
 		84457EDD2361F3BD005C2549 /* ScreensRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensRouterProtocol.swift; sourceTree = "<group>"; };
+		8445FC8F2462BF4200FA30F4 /* FileViewerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerPresenter.swift; sourceTree = "<group>"; };
+		8445FC912462BF4200FA30F4 /* FileViewerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerView.swift; sourceTree = "<group>"; };
+		8445FC922462BF4200FA30F4 /* FileViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerViewController.swift; sourceTree = "<group>"; };
+		8445FC942462BF4200FA30F4 /* FileViewerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerProtocols.swift; sourceTree = "<group>"; };
+		8445FC962462BF4200FA30F4 /* FileViewerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerInteractor.swift; sourceTree = "<group>"; };
+		8445FC982462BF4200FA30F4 /* FileViewerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerRouter.swift; sourceTree = "<group>"; };
 		84476758239A6B6500EE93B1 /* ReposListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposListViewController.swift; sourceTree = "<group>"; };
 		8447675A239A747F00EE93B1 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListProtocols.swift; sourceTree = "<group>"; };
@@ -218,7 +244,21 @@
 		84476768239AA15000EE93B1 /* IssuesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListPresenter.swift; sourceTree = "<group>"; };
 		8447676C239AA17100EE93B1 /* IssuesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesListRouter.swift; sourceTree = "<group>"; };
 		84481AFD238EB42A00DFE6AD /* UIStackViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewBackground.swift; sourceTree = "<group>"; };
+		844C22FD245E49CB0003B3B3 /* Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
+		844D51FC2461CD56002CADB7 /* UIViewController+alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
+		844D52022461E71A002CADB7 /* UIViewController+setTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+setTitle.swift"; sourceTree = "<group>"; };
+		844D52042461E9FB002CADB7 /* FileSystemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemCollectionView.swift; sourceTree = "<group>"; };
+		844D52062461EB70002CADB7 /* DirectoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8451E09823A12B4700DF8F51 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
+		845598C9243A3190000416FF /* FileSystemPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemPresenter.swift; sourceTree = "<group>"; };
+		845598CB243A3190000416FF /* FileSystemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemView.swift; sourceTree = "<group>"; };
+		845598CC243A3190000416FF /* FileSystemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemViewController.swift; sourceTree = "<group>"; };
+		845598CE243A3190000416FF /* FileSystemProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemProtocols.swift; sourceTree = "<group>"; };
+		845598D0243A3190000416FF /* FileSystemInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemInteractor.swift; sourceTree = "<group>"; };
+		845598D2243A3190000416FF /* FileSystemRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemRouter.swift; sourceTree = "<group>"; };
+		84588EB824644FDB00805231 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		84588EBC2464604B00805231 /* ButtonWithStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithStack.swift; sourceTree = "<group>"; };
+		84588EBE2464656A00805231 /* TouchClearUIComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchClearUIComponents.swift; sourceTree = "<group>"; };
 		845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromStringARGB.swift; sourceTree = "<group>"; };
 		845D2055235B56B6003B3F10 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
 		845D2059235B654E003B3F10 /* AuthenticationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationForm.swift; sourceTree = "<group>"; };
@@ -301,10 +341,10 @@
 			isa = PBXGroup;
 			children = (
 				843C1AA7236B0F7C00F2D4DD /* ApplicationLayer */,
-				843D16E62359E0E200AEB3F9 /* PresentationLayer */,
 				843D16E72359E0F800AEB3F9 /* BusinessLogicLayer */,
-				84476757239A687000EE93B1 /* Constants */,
 				843C1AA4236AFF7100F2D4DD /* Extensions */,
+				843D16E62359E0E200AEB3F9 /* PresentationLayer */,
+				84476757239A687000EE93B1 /* Constants */,
 				843D16E52359E0C000AEB3F9 /* CoreLayer */,
 				8419EAD423561BF50033B5B2 /* ModelsLayer */,
 				8419EAA92356163D0033B5B2 /* Assets.xcassets */,
@@ -362,6 +402,7 @@
 				843D16E82359FF7200AEB3F9 /* GitUser.swift */,
 				8447675A239A747F00EE93B1 /* Issue.swift */,
 				84D8D34523A3E69900B5DC13 /* IssueComment.swift */,
+				844C22FD245E49CB0003B3B3 /* Directory.swift */,
 			);
 			path = ModelsLayer;
 			sourceTree = "<group>";
@@ -378,6 +419,7 @@
 		843C1AA4236AFF7100F2D4DD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				844D51FC2461CD56002CADB7 /* UIViewController+alert.swift */,
 				845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */,
 				843F329B2367423300AFB40F /* UrlImageGetter.swift */,
 				843C1AA5236AFFCF00F2D4DD /* StringToBase64.swift */,
@@ -388,6 +430,7 @@
 				84D8D33B23A3B49E00B5DC13 /* InputDialog.swift */,
 				84FC0ABD23AA8F70002783F5 /* KeyboardHiding.swift */,
 				84FC0ABF23AA9EA7002783F5 /* ScrollToEnd.swift */,
+				844D52022461E71A002CADB7 /* UIViewController+setTitle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,6 +475,9 @@
 				843F3B6923732DC200F74B8D /* Designer.swift */,
 				843E2A292375CA0700379F0A /* TabBarCreator.swift */,
 				843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */,
+				84588EB824644FDB00805231 /* PaddingLabel.swift */,
+				84588EBC2464604B00805231 /* ButtonWithStack.swift */,
+				84588EBE2464656A00805231 /* TouchClearUIComponents.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -484,6 +530,8 @@
 				843E2A2E2375D0C800379F0A /* ReposListStarred */,
 				843DE60D237DA89200CC75A5 /* ReposSearch */,
 				843F329723672A6A00AFB40F /* ReposPage */,
+				845598C7243A3190000416FF /* FileSystem */,
+				8445FC8D2462BF4200FA30F4 /* FileViewer */,
 				8447675C239A94BD00EE93B1 /* IssuesList */,
 				84D8D33D23A3E16A00B5DC13 /* IssuePage */,
 				843F32852366F21100AFB40F /* ProfileEditor */,
@@ -854,6 +902,59 @@
 			path = ScreensRouter;
 			sourceTree = "<group>";
 		};
+		8445FC8D2462BF4200FA30F4 /* FileViewer */ = {
+			isa = PBXGroup;
+			children = (
+				8445FC932462BF4200FA30F4 /* Protocols */,
+				8445FC972462BF4200FA30F4 /* Router */,
+				8445FC952462BF4200FA30F4 /* Interactor */,
+				8445FC8E2462BF4200FA30F4 /* Presenter */,
+				8445FC902462BF4200FA30F4 /* View */,
+			);
+			path = FileViewer;
+			sourceTree = "<group>";
+		};
+		8445FC8E2462BF4200FA30F4 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8445FC8F2462BF4200FA30F4 /* FileViewerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8445FC902462BF4200FA30F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8445FC912462BF4200FA30F4 /* FileViewerView.swift */,
+				8445FC922462BF4200FA30F4 /* FileViewerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8445FC932462BF4200FA30F4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8445FC942462BF4200FA30F4 /* FileViewerProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8445FC952462BF4200FA30F4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8445FC962462BF4200FA30F4 /* FileViewerInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8445FC972462BF4200FA30F4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8445FC982462BF4200FA30F4 /* FileViewerRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		84476757239A687000EE93B1 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +1013,61 @@
 				84476764239A95AC00EE93B1 /* IssuesListProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		845598C7243A3190000416FF /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				845598CD243A3190000416FF /* Protocols */,
+				845598D1243A3190000416FF /* Router */,
+				845598CF243A3190000416FF /* Interactor */,
+				845598C8243A3190000416FF /* Presenter */,
+				845598CA243A3190000416FF /* View */,
+			);
+			path = FileSystem;
+			sourceTree = "<group>";
+		};
+		845598C8243A3190000416FF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				845598C9243A3190000416FF /* FileSystemPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		845598CA243A3190000416FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				845598CB243A3190000416FF /* FileSystemView.swift */,
+				845598CC243A3190000416FF /* FileSystemViewController.swift */,
+				844D52042461E9FB002CADB7 /* FileSystemCollectionView.swift */,
+				844D52062461EB70002CADB7 /* DirectoryCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		845598CD243A3190000416FF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				845598CE243A3190000416FF /* FileSystemProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		845598CF243A3190000416FF /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				845598D0243A3190000416FF /* FileSystemInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		845598D1243A3190000416FF /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				845598D2243A3190000416FF /* FileSystemRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		845D204B235B3FD4003B3F10 /* View */ = {
@@ -1175,12 +1331,16 @@
 				843C82692363037200469428 /* KeychainService.swift in Sources */,
 				843C0A2C2368771900774F91 /* ReposPageInteractor.swift in Sources */,
 				8447675B239A747F00EE93B1 /* Issue.swift in Sources */,
+				845598D8243A3190000416FF /* FileSystemRouter.swift in Sources */,
+				84588EBF2464656A00805231 /* TouchClearUIComponents.swift in Sources */,
 				84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */,
 				843F32882366F28800AFB40F /* ProfileEditorProtocols.swift in Sources */,
 				843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */,
 				843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */,
+				84588EBD2464604B00805231 /* ButtonWithStack.swift in Sources */,
 				84D9ABBF23A3934A0055AC1B /* IssuesListInteractor.swift in Sources */,
 				84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */,
+				8445FC9A2462BF4200FA30F4 /* FileViewerView.swift in Sources */,
 				843E2A372375D1DE00379F0A /* ReposListStarredRouter.swift in Sources */,
 				843CDA0D237ECD0200B61E3F /* SearchFooterButton.swift in Sources */,
 				843ECB1123AFC2BC00BB6C54 /* NoContentViewProtocol.swift in Sources */,
@@ -1188,9 +1348,11 @@
 				84476769239AA15000EE93B1 /* IssuesListPresenter.swift in Sources */,
 				84430A2623952AF6007217D6 /* FileParserProtocol.swift in Sources */,
 				8451E09923A12B4700DF8F51 /* IssueTableViewCell.swift in Sources */,
+				8445FC9D2462BF4200FA30F4 /* FileViewerInteractor.swift in Sources */,
 				84481AFE238EB42A00DFE6AD /* UIStackViewBackground.swift in Sources */,
 				843F32922366FC0F00AFB40F /* ProfileEditorPresenter.swift in Sources */,
 				843E2A2A2375CA0700379F0A /* TabBarCreator.swift in Sources */,
+				844D52072461EB71002CADB7 /* DirectoryCollectionViewCell.swift in Sources */,
 				843C0A302368780D00774F91 /* ReposPageViewController.swift in Sources */,
 				845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */,
 				84D8D34C23A3EE1900B5DC13 /* IssuePageInteractor.swift in Sources */,
@@ -1202,29 +1364,39 @@
 				84476767239AA13600EE93B1 /* IssuesListViewController.swift in Sources */,
 				84476759239A6B6500EE93B1 /* ReposListViewController.swift in Sources */,
 				843D05E3235F53A000E88B58 /* AuthenticationPresenter.swift in Sources */,
+				8445FC9E2462BF4200FA30F4 /* FileViewerRouter.swift in Sources */,
 				8444A1D72390258400D5037B /* GitHubApiService.swift in Sources */,
 				843FFC4D238BFD2900AE04B1 /* FiltrationManager.swift in Sources */,
 				843DDF422397F23C00603AF8 /* LoadingCheckManagerProtocol.swift in Sources */,
 				8440BC452379398900EACA51 /* StarredRepositoryServiceProtocol.swift in Sources */,
 				84430A2823952B99007217D6 /* GitHubFileParser.swift in Sources */,
+				844C22FE245E49CB0003B3B3 /* Directory.swift in Sources */,
 				843DE618237DA9E400CC75A5 /* ReposSearchPresenter.swift in Sources */,
 				843F32902366FB3C00AFB40F /* ProfileEditorInteractor.swift in Sources */,
+				845598D5243A3190000416FF /* FileSystemViewController.swift in Sources */,
 				84D8D33C23A3B49E00B5DC13 /* InputDialog.swift in Sources */,
 				843F3294236701A900AFB40F /* ProfileEditorViewController.swift in Sources */,
 				84D8D34A23A3ECF000B5DC13 /* IssuePagePresenter.swift in Sources */,
 				8440BC4923793E1200EACA51 /* StarredRepositoryService.swift in Sources */,
+				844D52032461E71A002CADB7 /* UIViewController+setTitle.swift in Sources */,
 				843DE61C237DAA5D00CC75A5 /* ReposSearchRouter.swift in Sources */,
+				845598D6243A3190000416FF /* FileSystemProtocols.swift in Sources */,
 				84FC0ABE23AA8F70002783F5 /* KeyboardHiding.swift in Sources */,
 				843D05DB235F43BB00E88B58 /* RepositoryTableViewCell.swift in Sources */,
 				843EA15323575D5B008A3E0E /* ReposListRouter.swift in Sources */,
 				843D05E6235F54D600E88B58 /* AuthenticationInteractor.swift in Sources */,
 				843D66B2236196BE00AC8694 /* AuthenticationProtocols.swift in Sources */,
 				843FFC51238BFEAB00AE04B1 /* FiltersView.swift in Sources */,
+				845598D4243A3190000416FF /* FileSystemView.swift in Sources */,
+				8445FC992462BF4200FA30F4 /* FileViewerPresenter.swift in Sources */,
+				845598D7243A3190000416FF /* FileSystemInteractor.swift in Sources */,
 				84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
+				84588EB924644FDB00805231 /* PaddingLabel.swift in Sources */,
 				843EE002237AFA78003E0C5B /* SearchController.swift in Sources */,
 				843DDF442397F4F200603AF8 /* LoadingCheckManager.swift in Sources */,
 				843F3B682373286600F74B8D /* Colors.swift in Sources */,
+				8445FC9C2462BF4200FA30F4 /* FileViewerProtocols.swift in Sources */,
 				843F329C2367423300AFB40F /* UrlImageGetter.swift in Sources */,
 				843E2A352375D14B00379F0A /* ReposListStarredProtocols.swift in Sources */,
 				843E2A3B2375D29C00379F0A /* ReposListStarredPresenter.swift in Sources */,
@@ -1243,10 +1415,13 @@
 				843D05E0235F531800E88B58 /* AuthenticationViewController.swift in Sources */,
 				843E2A3D2375D2EF00379F0A /* ReposListStarredViewController.swift in Sources */,
 				845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */,
+				845598D3243A3190000416FF /* FileSystemPresenter.swift in Sources */,
 				843FFC4F238BFDD100AE04B1 /* FiltrationManagerProtocol.swift in Sources */,
 				8419EAA12356163B0033B5B2 /* AppDelegate.swift in Sources */,
+				844D52052461E9FB002CADB7 /* FileSystemCollectionView.swift in Sources */,
 				843F3B65237304B900F74B8D /* ClearUIStackViewArrangedSubviews.swift in Sources */,
 				843EA14F235750D1008A3E0E /* ReposListProtocols.swift in Sources */,
+				844D51FD2461CD57002CADB7 /* UIViewController+alert.swift in Sources */,
 				843DDF472397FAE900603AF8 /* LoadingViewProtocol.swift in Sources */,
 				843DDF492397FD8900603AF8 /* LoadingView.swift in Sources */,
 				84D8D34623A3E69900B5DC13 /* IssueComment.swift in Sources */,
@@ -1259,6 +1434,7 @@
 				843F329A23672ADF00AFB40F /* ReposPageProtocols.swift in Sources */,
 				843E2A392375D24B00379F0A /* ReposListStarredInteractor.swift in Sources */,
 				8440BC4B2379872000EACA51 /* AppConfig.swift in Sources */,
+				8445FC9B2462BF4200FA30F4 /* FileViewerViewController.swift in Sources */,
 				84457ED82361E8B2005C2549 /* ScreensRouter.swift in Sources */,
 				843F3B6A23732DC200F74B8D /* Designer.swift in Sources */,
 			);
@@ -1366,7 +1542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1421,7 +1597,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1439,11 +1615,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = GitManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ino.GitManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AntonTekutov.GitManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1458,11 +1635,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = GitManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ino.GitManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AntonTekutov.GitManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

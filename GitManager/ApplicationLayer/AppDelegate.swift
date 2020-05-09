@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import OAuthSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    static var urlHandlers = [(_ : URL) -> Void]()
 
     var window: UIWindow?
 
@@ -20,4 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey  : Any] = [:]) -> Bool {
+        for handler in AppDelegate.urlHandlers {
+            handler(url)
+        }
+        return true
+    }
+    
 }

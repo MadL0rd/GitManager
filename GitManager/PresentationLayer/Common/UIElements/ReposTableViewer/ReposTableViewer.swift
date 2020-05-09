@@ -106,6 +106,7 @@ class ReposTableViewer: UIView, UITableViewDataSource, UITableViewDelegate, Repo
         tableViewRepositories.delegate = self
         tableViewRepositories.register(RepositoryTableViewCell.self, forCellReuseIdentifier: "repositoryCell")
         tableViewRepositories.backgroundColor = Colors.mainBackground
+        tableViewRepositories.tableFooterView = UIView()
         
         addSubview(noContentView)
         noContentView.setMargin(baseView: safeAreaLayoutGuide, 0)

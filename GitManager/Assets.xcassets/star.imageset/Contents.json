@@ -1,30 +1,31 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "star_favourite_fav_icon_124192-1.pdf"
+      "filename" : "star_favourite_fav_icon_124192-1.pdf",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
       "filename" : "star_favourite_fav_icon_124192.pdf",
+      "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "filename" : "star_favourite_fav_icon_124192-2.pdf",
+      "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "idiom" : "universal",
       "filename" : "star_favourite_fav_icon_124192-3.pdf",
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
-    "auto-scaling" : "auto"
+    "auto-scaling" : "auto",
+    "preserves-vector-representation" : true
   }
 }

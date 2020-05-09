@@ -47,6 +47,7 @@ class TabBarCreator {
         
         let tabBar = UITabBarController()
         tabBar.setViewControllers(tabBarBuff, animated: true)
+        UITabBar.appearance().tintColor = Colors.mainColor
         return tabBar
     }
 }

@@ -29,23 +29,30 @@ public class Designer{
         tv.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    public static func mainTitleLabel(_ label : UILabel){
+    public static func mainTitleLabel(_ label : UILabel, textColor: UIColor? = nil){
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.darkText
-        label.font = label.font.withSize(18)
+        label.textColor = textColor ?? Colors.darkText
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.minimumScaleFactor = 1
     }
     
-    public static func subTitleLabel(_ label : UILabel){
+    public static func mainTitleLabelNormal(_ label : UILabel, textColor: UIColor? = nil){
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.darkText
+        label.textColor = textColor ?? Colors.darkText
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.minimumScaleFactor = 1
+    }
+    
+    public static func subTitleLabel(_ label : UILabel, textColor: UIColor? = nil){
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = textColor ?? Colors.darkText
         label.font = label.font.withSize(14)
     }
     
-    public static func bigTitleLabel(_ label : UILabel){
+    public static func bigTitleLabel(_ label : UILabel, textColor: UIColor? = nil){
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.darkText
-        label.font = label.font.withSize(28)
+        label.textColor = textColor ?? Colors.darkText
+        label.font = UIFont.boldSystemFont(ofSize: 28)
     }
     
     public static func smallButton(_ button : UIButton){
@@ -53,5 +60,14 @@ public class Designer{
         button.setTitleColor(Colors.lightText, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = Colors.mainColor
+    }
+    
+    public static func borderedClearButton(_ button : UIButton, color: UIColor){
+        button.layer.cornerRadius = 9
+        button.setTitleColor(color, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.layer.borderColor = color.cgColor
+        button.layer.borderWidth = 2
     }
 }

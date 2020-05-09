@@ -44,6 +44,6 @@ class ReposPageRouter: ReposPageRouterProtocol, DependentRouterProtocol {
     }
     
     func showBranches(_ repository: Repository) {
-        
+        mainRouter.pushNewScreenToCurrentNavigationController(FileSystemRouter.self, content: repository as AnyObject)
     }
 }

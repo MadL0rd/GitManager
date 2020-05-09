@@ -6,6 +6,7 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 import UIKit
+import OAuthSwift
 
 class AuthenticationViewController: UIViewController, AuthenticationViewProtocol {
     
@@ -33,8 +34,8 @@ class AuthenticationViewController: UIViewController, AuthenticationViewProtocol
         super.viewDidLoad()
         view.backgroundColor = Colors.mainBackground
         setupView()
-        presenter?.viewDidLoad()
         
+        presenter?.viewDidLoad()
     }
     
     func setupView(){

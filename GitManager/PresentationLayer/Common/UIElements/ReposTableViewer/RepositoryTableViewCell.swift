@@ -10,12 +10,7 @@ import UIKit
 
 class RepositoryTableViewCell: UITableViewCell {
     
-    let nameLabel : UILabel = {
-        let label = UILabel()
-        Designer.mainTitleLabel(label)
-        label.textAlignment = .center
-        return label
-    }()
+    let nameLabel = UILabel()
     let profileImageView = UIImageView()
     let addictionalInfo = AddictionalInformationStack()
     let starButton = TwoStateButton()
@@ -26,6 +21,7 @@ class RepositoryTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         backgroundColor = Colors.mainBackground
+        heightAnchor.constraint(equalToConstant: RepositoryTableViewCell.cellHeight).isActive = true
         
         self.contentView.addSubview(profileImageView)
         self.contentView.addSubview(addictionalInfo)
@@ -36,6 +32,11 @@ class RepositoryTableViewCell: UITableViewCell {
         configureNameLabel()
         configureAddictionalInfo()
         configureStarButton()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
     }
     
     private func configureProfileImage(){
@@ -51,7 +52,7 @@ class RepositoryTableViewCell: UITableViewCell {
     }
     
     private func configureNameLabel() {
-        Designer.mainTitleLabel(nameLabel)
+        Designer.mainTitleLabelNormal(nameLabel)
         nameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: -RepositoryTableViewCell.cellHeight/6).isActive = true
         nameLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: RepositoryTableViewCell.cellHeight).isActive = true
         nameLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -RepositoryTableViewCell.cellHeight/2).isActive = true
