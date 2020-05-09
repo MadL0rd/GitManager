@@ -109,6 +109,9 @@
 		845598D6243A3190000416FF /* FileSystemProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598CE243A3190000416FF /* FileSystemProtocols.swift */; };
 		845598D7243A3190000416FF /* FileSystemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598D0243A3190000416FF /* FileSystemInteractor.swift */; };
 		845598D8243A3190000416FF /* FileSystemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845598D2243A3190000416FF /* FileSystemRouter.swift */; };
+		84588EB924644FDB00805231 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84588EB824644FDB00805231 /* PaddingLabel.swift */; };
+		84588EBD2464604B00805231 /* ButtonWithStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84588EBC2464604B00805231 /* ButtonWithStack.swift */; };
+		84588EBF2464656A00805231 /* TouchClearUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84588EBE2464656A00805231 /* TouchClearUIComponents.swift */; };
 		845D2051235B4AC4003B3F10 /* ColorFromStringARGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */; };
 		845D2056235B56B6003B3F10 /* TwoStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2055235B56B6003B3F10 /* TwoStateButton.swift */; };
 		845D205A235B654E003B3F10 /* AuthenticationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D2059235B654E003B3F10 /* AuthenticationForm.swift */; };
@@ -253,6 +256,9 @@
 		845598CE243A3190000416FF /* FileSystemProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemProtocols.swift; sourceTree = "<group>"; };
 		845598D0243A3190000416FF /* FileSystemInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemInteractor.swift; sourceTree = "<group>"; };
 		845598D2243A3190000416FF /* FileSystemRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemRouter.swift; sourceTree = "<group>"; };
+		84588EB824644FDB00805231 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		84588EBC2464604B00805231 /* ButtonWithStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithStack.swift; sourceTree = "<group>"; };
+		84588EBE2464656A00805231 /* TouchClearUIComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchClearUIComponents.swift; sourceTree = "<group>"; };
 		845D2050235B4AC4003B3F10 /* ColorFromStringARGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFromStringARGB.swift; sourceTree = "<group>"; };
 		845D2055235B56B6003B3F10 /* TwoStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoStateButton.swift; sourceTree = "<group>"; };
 		845D2059235B654E003B3F10 /* AuthenticationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationForm.swift; sourceTree = "<group>"; };
@@ -469,6 +475,9 @@
 				843F3B6923732DC200F74B8D /* Designer.swift */,
 				843E2A292375CA0700379F0A /* TabBarCreator.swift */,
 				843CDA0C237ECD0200B61E3F /* SearchFooterButton.swift */,
+				84588EB824644FDB00805231 /* PaddingLabel.swift */,
+				84588EBC2464604B00805231 /* ButtonWithStack.swift */,
+				84588EBE2464656A00805231 /* TouchClearUIComponents.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -896,11 +905,11 @@
 		8445FC8D2462BF4200FA30F4 /* FileViewer */ = {
 			isa = PBXGroup;
 			children = (
+				8445FC932462BF4200FA30F4 /* Protocols */,
+				8445FC972462BF4200FA30F4 /* Router */,
+				8445FC952462BF4200FA30F4 /* Interactor */,
 				8445FC8E2462BF4200FA30F4 /* Presenter */,
 				8445FC902462BF4200FA30F4 /* View */,
-				8445FC932462BF4200FA30F4 /* Protocols */,
-				8445FC952462BF4200FA30F4 /* Interactor */,
-				8445FC972462BF4200FA30F4 /* Router */,
 			);
 			path = FileViewer;
 			sourceTree = "<group>";
@@ -1323,10 +1332,12 @@
 				843C0A2C2368771900774F91 /* ReposPageInteractor.swift in Sources */,
 				8447675B239A747F00EE93B1 /* Issue.swift in Sources */,
 				845598D8243A3190000416FF /* FileSystemRouter.swift in Sources */,
+				84588EBF2464656A00805231 /* TouchClearUIComponents.swift in Sources */,
 				84457EDC2361EE8F005C2549 /* DependentRouterProtocol.swift in Sources */,
 				843F32882366F28800AFB40F /* ProfileEditorProtocols.swift in Sources */,
 				843D66B023618C6300AC8694 /* GitHubApiServiceProtocol.swift in Sources */,
 				843D66B42361ADC400AC8694 /* AuthenticationRouter.swift in Sources */,
+				84588EBD2464604B00805231 /* ButtonWithStack.swift in Sources */,
 				84D9ABBF23A3934A0055AC1B /* IssuesListInteractor.swift in Sources */,
 				84457EDE2361F3BD005C2549 /* ScreensRouterProtocol.swift in Sources */,
 				8445FC9A2462BF4200FA30F4 /* FileViewerView.swift in Sources */,
@@ -1381,6 +1392,7 @@
 				845598D7243A3190000416FF /* FileSystemInteractor.swift in Sources */,
 				84430A2323950F78007217D6 /* SubstringSearching.swift in Sources */,
 				8419EAD8235620050033B5B2 /* Repository.swift in Sources */,
+				84588EB924644FDB00805231 /* PaddingLabel.swift in Sources */,
 				843EE002237AFA78003E0C5B /* SearchController.swift in Sources */,
 				843DDF442397F4F200603AF8 /* LoadingCheckManager.swift in Sources */,
 				843F3B682373286600F74B8D /* Colors.swift in Sources */,
@@ -1608,7 +1620,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ino.GitManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AntonTekutov.GitManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1628,7 +1640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ino.GitManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AntonTekutov.GitManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

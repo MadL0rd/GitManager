@@ -6,7 +6,7 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-import Foundation
+import OAuthSwift
 import Alamofire
 
 class GitHubApiService: GitHubApiServiceProtocol {
@@ -16,6 +16,9 @@ class GitHubApiService: GitHubApiServiceProtocol {
     static private var headers : HTTPHeaders = [:]
     private var searchRequest : Request?
     private var searchRequestCount = 0
+    
+    private let clientID: String = "0a73c3a488f79a02b4b4"
+    private let clientSecret: String = "fc0496b8b87a616926bc3923de1f53e9656d9905"
     
     private func _parseJsonResponse(data: Data) -> Any?
     {
@@ -66,7 +69,10 @@ class GitHubApiService: GitHubApiServiceProtocol {
         searchRequestCount += 1
         let requestId = searchRequestCount
         var repositories = [Repository]()
-        searchRequest = Alamofire.request(apiUrl + "search/repositories?q=\(name)+language:\(language)&page=\(pageNumber)&per_page=\(itemsPerPage)&sort=stars&order=desc",
+        
+        var urlRequest = apiUrl + "search/repositories?q=\(name)+language:\(language)&page=\(pageNumber)&per_page=\(itemsPerPage)&sort=stars&order=desc"
+        urlRequest = urlRequest.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? urlRequest
+        searchRequest = Alamofire.request(urlRequest,
             headers: GitHubApiService.headers)
             .responseJSON{ response in
                 if self.searchRequestCount == requestId{
@@ -84,17 +90,60 @@ class GitHubApiService: GitHubApiServiceProtocol {
     }
     
     func authenticate(login: String, password: String, callback: @escaping(_ success : Bool) -> Void) {
-        let base64 = (login + ":" + password).toBase64()
-        GitHubApiService.headers = ["Authorization": "Basic \(base64)"]
-        Alamofire.request(apiUrl + "user",
-                          headers: GitHubApiService.headers)
-            .responseJSON{ response in
-                guard let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary
-                    else {callback(false); return}
-                guard dataJson["login"] as? String != nil
-                    else {callback(false); return}
+        
+        let clientID: String = "0a73c3a488f79a02b4b4"
+        let clientSecret: String = "fc0496b8b87a616926bc3923de1f53e9656d9905"
+        let authorizeUrl = URL(string: "https://github.com/login/oauth/authorize")!
+        let accessTokenUrl = "https://github.com/login/oauth/access_token"
+        let callbackURL = "GitManager://callback/"
+        
+        // Добавляем к строке запроса необходимые параметры
+        let clientIDQuery             = URLQueryItem(name: "client_id", value: clientID)
+        let redirectURLQuery          = URLQueryItem(name: "redirect_uri", value: callbackURL)
+        let scopeQuery: URLQueryItem  = URLQueryItem(name: "scope", value: "user repo gist")
+        
+        
+        var components          = URLComponents(url: authorizeUrl, resolvingAgainstBaseURL: true)
+        components?.queryItems  = [clientIDQuery, redirectURLQuery, scopeQuery]
+        
+        AppDelegate.urlHandlers.append({ url in
+            
+            var accessCodeOptional: String?
+            if let components = URLComponents(url: url, resolvingAgainstBaseURL: true) {
+                for queryItem in components.queryItems! {
+                    if queryItem.name == "code" {
+                        accessCodeOptional = queryItem.value
+                    }
+                }
+            }
+            
+            guard let accessCode = accessCodeOptional 
+                else { return }
+            
+            // Запускаем процесс обмена данными
+            let url = accessTokenUrl
+            let params = [
+                "client_id": clientID,
+                "client_secret": clientSecret,
+                "code": accessCode,
+                "redirect_uri": callbackURL
+                ] as Parameters?
+            
+            let headers: HTTPHeaders = [
+                "Accept": "application/json"
+            ]
+            
+            
+            Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+                let responseJSON = response.result.value as! [String:Any]
+                let token = responseJSON["access_token"] as! String
+                GitHubApiService.headers = ["Authorization": "token \(token)"]
                 callback(true)
-        }
+            }
+        })
+        
+        UIApplication.shared.open(components!.url!, options: [:], completionHandler: nil)
+        
     }
     
     func editUserProfile(newUserData: GitUser, callback: @escaping (_ user : GitUser) -> Void) {
@@ -171,21 +220,14 @@ class GitHubApiService: GitHubApiServiceProtocol {
     }
     
     func getFileContent(repository: Repository, path: String, callback : @escaping(_ htmlSource : String?)-> Void) {
-        guard let url = repository.url else { return }
-        Alamofire.request(url + "/blob/" + path)
+        let escapedPath = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? path
+        let urlRequest = "https://github.com/\(repository.fullName)/blob\(escapedPath)"
+        Alamofire.request(urlRequest,
+            headers: GitHubApiService.headers)
             .responseJSON{ response in
-                if  let data = response.data,
-                    let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
-                    let readmeUrl = dataJson["html_url"] as? String{
-                    Alamofire.request(readmeUrl)
-                        .responseJSON{ response in
-                            if let data = response.data{
-                                guard let html = String(data: data, encoding: String.Encoding.utf8) else { return }
-                                callback(self.parser.parsePageAsCodeFile(htmlSource: html))
-                            }
-                    }
-                } else {
-                    callback("")
+                if let data = response.data{
+                    guard let html = String(data: data, encoding: String.Encoding.utf8) else { return }
+                    callback(self.parser.parsePage(htmlSource: html))
                 }
         }
     }

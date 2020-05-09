@@ -15,11 +15,11 @@ struct Colors {
     static let mainColorWithAlpha = mainColor.withAlphaComponent(0.6)
     
     static let folder = #colorLiteral(red: 1, green: 0.7117738161, blue: 0, alpha: 1)
-    static let file = mainColor.withAlphaComponent(0.5)
+    static let file = #colorLiteral(red: 0.5764705882, green: 0.3529411765, blue: 1, alpha: 1)
     
     static let lightGray = UIColor.lightGray
 
-    static let error = UIColor("#BE1E27")
+    static let error = #colorLiteral(red: 0.9033069349, green: 0.08879107483, blue: 0.127208709, alpha: 1)
     static let disable = UIColor("#9D9B9C")
     static let active = mainColor
     static let greenButton = UIColor("#51C627")

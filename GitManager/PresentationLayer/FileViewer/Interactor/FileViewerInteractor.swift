@@ -11,4 +11,10 @@ import Foundation
 class FileViewerInteractor: FileViewerInteractorProtocol {
     
     var presenter:  FileViewerPresenterProtocol!
+    
+    var gitApi: GitHubApiServiceProtocol!
+    
+    func getFileContent(repo: Repository, path: String, callback: @escaping (String?) -> Void) {
+        gitApi.getFileContent(repository: repo, path: path, callback: callback)
+    }
 }

@@ -30,6 +30,12 @@ class FileViewerRouter: FileViewerRouterProtocol, DependentRouterProtocol {
         presenter.router = router
 
         interactor.presenter = presenter
+        interactor.gitApi = GitHubApiService()
+        
+        if let content = content as? (repo: Repository, path: String) {
+            presenter.path = content.path
+            presenter.repository = content.repo
+        }
         
         return view
     }

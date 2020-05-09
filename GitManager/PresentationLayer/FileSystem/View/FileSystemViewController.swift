@@ -31,11 +31,24 @@ class FileSystemViewController: UIViewController, FileSystemViewProtocol {
         
         _view.branch.addTarget(self, action: #selector(selectBranch), for: .touchUpInside)
         _view.filesCollection.delegate = self
+        
+        let image = #imageLiteral(resourceName: "sharing")
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(shareRepository))
+        navigationItem.rightBarButtonItem = button
 
         presenter.viewDidLoad()
     }
     
     // MARK: - UI elements actions
+    
+    @objc private func shareRepository(){
+        let message = NSLocalizedString("You can get the folder from this link:\n", comment: "")
+        let textToShare = [ message + presenter.getFolderLink() ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     
     @objc private func selectBranch() {
         let choices = presenter.getBranches()

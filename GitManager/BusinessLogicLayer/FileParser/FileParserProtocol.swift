@@ -9,4 +9,5 @@
 protocol FileParserProtocol: class {
     func parsePageAsReadMe(htmlSource : String) -> String?
     func parsePageAsCodeFile(htmlSource : String) -> String?
+    func parsePage(htmlSource: String) -> String?
 }

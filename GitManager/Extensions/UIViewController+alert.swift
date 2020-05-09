@@ -19,6 +19,19 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func showAlertWithContinueQuestion(title: String, message: String, resultHandler: @escaping (_ continue: Bool) -> Void) {
+        let alert = UIAlertController(title: title, 
+                                      message: message, 
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), 
+                                      style: .cancel, 
+                                      handler: { (_) in resultHandler(false) }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Submit", comment: ""), 
+                                      style: UIAlertAction.Style.default, 
+                                      handler: { (_) in resultHandler(true) }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func showAlertWithTextField(title: String, message: String, stringReturnHandler: @escaping (_ enteredText: String) -> Void) {
         let alert = UIAlertController(title: title, 
                                       message: message, 

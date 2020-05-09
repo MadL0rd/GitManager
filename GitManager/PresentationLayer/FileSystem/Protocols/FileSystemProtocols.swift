@@ -26,6 +26,7 @@ protocol FileSystemPresenterProtocol {
     func selectBranch(_ branch: String)
     func getBranches() -> [String]
     func cellDidTapped(_ index: Int)
+    func getFolderLink() -> String
 }
 
 protocol FileSystemInteractorProtocol {
@@ -39,5 +40,5 @@ protocol FileSystemInteractorProtocol {
 
 protocol FileSystemRouterProtocol {
     
-    func showFile(_ file: Directory)
+    func showFile(repo: Repository, path: String)
 }

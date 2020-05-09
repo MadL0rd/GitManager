@@ -103,7 +103,8 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         ownerStack.axis = .horizontal
         ownerStack.distribution = .fill
         ownerStack.spacing = spacing
-        //ownerStack.setBorderLine(color: Colors.ownerInfoBackground, borderWidth: 3, cornerRadius: 20)
+        ownerStack.setBorderLine(color: Colors.mainColor, borderWidth: 3, cornerRadius: 30)
+        ownerStack.setBackground(color: Colors.mainColorWithAlpha, cornerRadius: 30)
         ownerStack.isLayoutMarginsRelativeArrangement = true
         ownerStack.layoutMargins = UIEdgeInsets(top: spacing/2, left: spacing, bottom: spacing/2, right: spacing)
         
@@ -120,27 +121,46 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         ownerSubstack.distribution = .equalCentering
         var label = UILabel()
         label.text = NSLocalizedString("Owner:", comment: "Repos page")
-        Designer.subTitleLabel(label)
+        Designer.subTitleLabel(label, textColor: Colors.lightText)
         ownerSubstack.addArrangedSubview(label)
-        Designer.mainTitleLabel(ownerNameLabel)
+        Designer.mainTitleLabel(ownerNameLabel, textColor: Colors.lightText)
         ownerSubstack.addArrangedSubview(ownerNameLabel)
         
         label = UILabel()
         label.text = NSLocalizedString("with login:", comment: "Repos page")
-        Designer.subTitleLabel(label)
+        Designer.subTitleLabel(label, textColor: Colors.lightText)
         ownerSubstack.addArrangedSubview(label)
-        Designer.mainTitleLabel(ownerLoginLabel)
+        Designer.mainTitleLabel(ownerLoginLabel, textColor: Colors.lightText)
         ownerSubstack.addArrangedSubview(ownerLoginLabel)
         
         label = UILabel()
         label.text = NSLocalizedString("from company:", comment: "Repos page (from *company name*)")
-        Designer.subTitleLabel(label)
+        Designer.subTitleLabel(label, textColor: Colors.lightText)
         ownerSubstack.addArrangedSubview(label)
-        Designer.mainTitleLabel(ownerCompanyLabel)
+        Designer.mainTitleLabel(ownerCompanyLabel, textColor: Colors.lightText)
         ownerSubstack.addArrangedSubview(ownerCompanyLabel)
         
         ownerStack.addArrangedSubview(ownerSubstack)
         stack.addArrangedSubview(ownerStack)
+    }
+    
+    private func generateButtonWithImageAndLabel(topView: UIView, text: String) -> ButtonWithStack {
+        
+        let button = ButtonWithStack()
+        Designer.smallButton(button)
+        button.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        button.stack.addArrangedSubview(topView)
+        button.backgroundColor = Colors.mainColorWithAlpha
+        button.layer.borderColor = Colors.mainColor.cgColor
+        button.layer.borderWidth = 3
+        
+        let label = UILabel()
+        Designer.mainTitleLabelNormal(label, textColor: Colors.lightText)
+        label.text = text
+        label.textAlignment = .center
+        button.stack.addArrangedSubview(label)
+        
+        return button
     }
     
     private func setupReposInfo(){
@@ -160,29 +180,44 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         addictionalInfo.heightAnchor.constraint(equalToConstant: width/10).isActive = true
         addictionalInfo.distribution = .fillProportionally
         stack.addArrangedSubview(addictionalInfo)
+        stack.setCustomSpacing(10, after: addictionalInfo) 
         
         let buttonsStack = UIStackView()
-        var button = UIButton()
-        button.setTitle(NSLocalizedString("Issues", comment: "Repos page button"), for: .normal)
-        Designer.smallButton(button)
-        button.addTarget(self, action: #selector(showIssues), for: .touchUpInside)
-        buttonsStack.addArrangedSubview(button)
-        button = UIButton()
-        button.setTitle(NSLocalizedString("Branches", comment: "Repos page button"), for: .normal)
-        Designer.smallButton(button)
-        button.addTarget(self, action: #selector(showBranches), for: .touchUpInside)
-        buttonsStack.addArrangedSubview(button)
         buttonsStack.axis = .horizontal
-        buttonsStack.spacing = spacing
+        buttonsStack.spacing = 10
         buttonsStack.distribution = .fillEqually
         stack.addArrangedSubview(buttonsStack)
+        
+        let issueLabel = UILabel()
+        Designer.mainTitleLabelNormal(issueLabel, textColor: Colors.lightText)
+        issueLabel.textAlignment = .center
+        issueLabel.layer.cornerRadius = 14
+        issueLabel.layer.borderWidth = 2
+        issueLabel.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        issueLabel.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        issueLabel.layer.borderColor = Colors.lightText.cgColor
+        issueLabel.text = "!"
+        var button = generateButtonWithImageAndLabel(topView: issueLabel, 
+                                                     text: NSLocalizedString("Watch issues", comment: "Repos page button"))
+        button.stack.spacing = 3
+        button.addTarget(self, action: #selector(showIssues), for: .touchUpInside)
+        buttonsStack.addArrangedSubview(button)
+        
+        let icon = UIImageView()
+        icon.image = #imageLiteral(resourceName: "folder").withRenderingMode(.alwaysTemplate)
+        icon.tintColor = Colors.lightText
+        button = generateButtonWithImageAndLabel(topView: icon, 
+                                                          text: NSLocalizedString("Watch files", comment: "Repos page button"))
+        button.addTarget(self, action: #selector(showBranches), for: .touchUpInside)
+        buttonsStack.addArrangedSubview(button)
         
         let label = UILabel()
         label.text = NSLocalizedString("Description:", comment: "Repos page")
         Designer.mainTitleLabel(label)
         stack.addArrangedSubview(label)
+        stack.setCustomSpacing(5, after: label) 
         
-        Designer.mainTitleLabel(descriptionText)
+        Designer.mainTitleLabelNormal(descriptionText)
         descriptionText.lineBreakMode = .byWordWrapping
         descriptionText.numberOfLines = 0
         descriptionText.widthAnchor.constraint(equalToConstant: width*0.8).isActive = true
@@ -191,6 +226,8 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         readmeTitleLabel.text = NSLocalizedString("Readme:", comment: "Repos page")
         Designer.mainTitleLabel(readmeTitleLabel)
         stack.addArrangedSubview(readmeTitleLabel)
+        stack.setCustomSpacing(5, after: label) 
+
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.navigationDelegate = self

@@ -21,6 +21,7 @@ class FileSystemPresenter: FileSystemPresenterProtocol {
     
     private var branches = [String]()
     private var selectedBranch = ""
+    private var pathText = ""
     
     // MARK: - input
     
@@ -45,7 +46,7 @@ class FileSystemPresenter: FileSystemPresenterProtocol {
         if index >= 0 && index < currentCatalog.count {
             let dir = currentCatalog[index]
             if dir.type == .file {
-                router.showFile(dir)
+                router.showFile(repo: repository, path: pathText + "/" + dir.name)
             } else {
                 if let directory = currentDirectory {
                     if path.last == dir {
@@ -66,6 +67,12 @@ class FileSystemPresenter: FileSystemPresenterProtocol {
     
     func getBranches() -> [String] {
         return branches
+    }
+    
+    func getFolderLink() -> String {
+        let escapedPath =  pathText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? pathText
+        let urlRequest = "https://github.com/\(repository.fullName)/tree\(escapedPath)"
+        return urlRequest
     }
     
     // MARK: - Private methods
@@ -90,7 +97,7 @@ class FileSystemPresenter: FileSystemPresenterProtocol {
     }
     
     private func refreshPathView() {
-        var pathText = ""
+        pathText = ""
         for node in path {
             pathText += "/" + node.name
         }

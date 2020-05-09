@@ -38,8 +38,9 @@ class FileSystemRouter: FileSystemRouterProtocol, DependentRouterProtocol {
         return view
     }
     
-    func showFile(_ file: Directory) {
-        mainRouter.pushNewScreenToCurrentNavigationController(FileViewerRouter.self, content: file as AnyObject)
+    func showFile(repo: Repository, path: String) {
+        let content = (repo: repo, path: path)
+        mainRouter.pushNewScreenToCurrentNavigationController(FileViewerRouter.self, content: content as AnyObject)
     }
 }
 
