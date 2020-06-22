@@ -78,7 +78,7 @@ class AuthenticationView: UIView {
         label.textAlignment = .center
         signInButton.stack.addArrangedSubview(label)
         
-        let image = UIImageView(image: #imageLiteral(resourceName: "gitHub").withRenderingMode(.alwaysTemplate))
+        let image = UIImageView(image: #imageLiteral(resourceName: "GitHub").withRenderingMode(.alwaysTemplate))
         image.tintColor = Colors.mainColor
         signInButton.stack.addArrangedSubview(image)
     }
