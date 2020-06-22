@@ -10,7 +10,7 @@ protocol FileViewerViewProtocol {
     
     var presenter: FileViewerPresenterProtocol! { get set }
     
-    func showFileContent(_ htmlSource : String)
+    func showFileContent(_ content : String?, fileExtension: String)
     func setTitle(_ title: String)
 }
 
@@ -34,7 +34,7 @@ protocol FileViewerInteractorProtocol {
     
     var presenter: FileViewerPresenterProtocol! { get set }
     
-    func getFileContent(repo: Repository, path: String, callback : @escaping(_ htmlSource : String?)-> Void)
+    func getFileContent(dir: Directory, callback : @escaping(_ content : String?)-> Void)
 }
 
 protocol FileViewerRouterProtocol {

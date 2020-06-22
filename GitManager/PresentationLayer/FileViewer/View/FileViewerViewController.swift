@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import WebKit
+import SafariServices
+import MarkdownView
 
 class FileViewerViewController: UIViewController {
     
@@ -25,7 +26,20 @@ class FileViewerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _view.webView.navigationDelegate = self
+        _view.mdView.onRendered = mdRendered(_:)
+        _view.mdView.onTouchLink = { [weak self] request in
+            guard let url = request.url else { return false }
+            
+            if url.scheme == "file" {
+                return true
+            } else if url.scheme == "https" {
+                let safari = SFSafariViewController(url: url)
+                self?.present(safari, animated: true, completion: nil)
+                return false
+            } else {
+                return false
+            }
+        }
         
         let image = #imageLiteral(resourceName: "sharing")
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(shareRepository))
@@ -35,12 +49,15 @@ class FileViewerViewController: UIViewController {
     }
     
     @objc private func shareRepository(){
-        let message = NSLocalizedString("You can get the file from this link:\n", comment: "")
-        let textToShare = [ message + presenter.getFileLink() ]
+        let textToShare = [ URL(string: presenter.getFileLink()) ]
         let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
         self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    private func mdRendered(_ value: CGFloat){
+        _view.loading.hide()
     }
 }
 
@@ -48,31 +65,16 @@ class FileViewerViewController: UIViewController {
 
 extension FileViewerViewController: FileViewerViewProtocol {
     
-    func showFileContent(_ htmlSource: String) {
-        _view.webView.loadHTMLString(htmlSource, baseURL: nil)
-        if htmlSource == "" {
+    func showFileContent(_ content : String?, fileExtension: String) {
+        if let content = content {
+            _view.mdView.loadWithCodeSyntax(content: content, fileExtension: fileExtension)
+        } else {
+            _view.loading.hide()
             _view.errorLabel.isHidden = false
             _view.errorLabel.alpha = 0
             UIView.animate(withDuration: 0.3, delay: 0.3, animations: {
                 self._view.errorLabel.alpha = 1
             })
-            
         }
-    }
-}
-
-extension FileViewerViewController: WKNavigationDelegate {
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if webViewFirstLoadingComplete {
-            if let url = navigationAction.request.url{
-                UIApplication.shared.open(url)
-            }
-            decisionHandler(.cancel)
-        } else {
-            decisionHandler(.allow)
-            webViewFirstLoadingComplete.toggle()
-        }
-        _view.loading.hide()
     }
 }

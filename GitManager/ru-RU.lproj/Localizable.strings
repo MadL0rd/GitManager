@@ -1,0 +1,159 @@
+/* Repos page */
+"*not stated*" = "*не указано*";
+
+/* No comment provided by engineer. */
+"Account management" = "Управление аккаунтом";
+
+/* Input dialog button */
+"Add" = "Добавить";
+
+/* input dialog */
+"Add issue" = "Добавить сообщение об ошибке";
+
+/* filter group title */
+"Additional query parameters" = "Дополнительные параметры запроса";
+
+/* Filtration */
+"Apply" = "Применить";
+
+/* Title on profile editor screen */
+"Biography" = "Биография";
+
+/* Title on profile editor screen */
+"Blog" = "Блог";
+
+/* No comment provided by engineer. */
+"Branch" = "Ветка";
+
+/* Input dialog button */
+"Cancel" = "Отмена";
+
+/* No comment provided by engineer. */
+"Chose branch you want to open" = "Выберите ветку";
+
+/* Issues filter */
+"Closed" = "Закрыто";
+
+/* Title on profile editor screen */
+"Company" = "Компания";
+
+/* Repos page */
+"Description:" = "Описание:";
+
+/* Filtration */
+"Drop" = "Сбросить";
+
+/* No comment provided by engineer. */
+"Edit pofile" = "Редактировать профиль";
+
+/* Title on authentication form */
+"Email is not valid!" = "Адрес электронной почты неверен!";
+
+/* search controller */
+"Filter issues" = "Фильтровать";
+
+/* search controller */
+"Filter repositories" = "Фильтровать";
+
+/* Repos page (from *company name*) */
+"from company:" = "из компании:";
+
+/* navigation title */
+"Issue" = "Сообщение об ошибке";
+
+/* navigation title */
+"Issues" = "Сообщения об ошибках";
+
+/* addictional parameter 2 query */
+"Language" = "Язык программирования";
+
+/* filters title */
+"Languages" = "Языки программирования";
+
+/* Title on profile editor screen */
+"Location" = "Локация";
+
+/* No comment provided by engineer. */
+"LogOut" = "Выйти";
+
+/* Title on repositories screen */
+"My repositories" = "Мои репозитории";
+
+/* Title on profile editor screen */
+"Name" = "Имя";
+
+/* footer button */
+"NEXT PAGE" = "Следующая страница";
+
+/* No comment provided by engineer. */
+"OK" = "ОК";
+
+/* Issues filter */
+"Open" = "Открыто";
+
+/* issues info */
+"opened on" = "создано:";
+
+/* Repos page */
+"Owner:" = "Владелец:";
+
+/* Title on profile editor screen */
+"Profile editing" = "Редактирование профиля";
+
+/* profile editor screen */
+"Save" = "Сохранить";
+
+/* Title on repositories screen */
+"Search" = "Поиск";
+
+/* No comment provided by engineer. */
+"Select" = "Выбрать";
+
+/* search controller on search page */
+"Serch repositories" = "Поиск репозиотриев";
+
+/* Filtration */
+"Set" = "Выбрать";
+
+/* No comment provided by engineer. */
+"Settings" = "Настройки";
+
+/* No comment provided by engineer. */
+"Sorry\nWe can`t represent this file" = "Извините\nНе удается показать содержимое";
+
+/* Title on repositories screen */
+"Starred repositories" = "Избранные репозитории";
+
+/* Issues filters title */
+"State" = "Состояние";
+
+/* No comment provided by engineer. */
+"Submit" = "Отправить";
+
+/* profile editor screen */
+"There is no changes" = "Нет изменений";
+
+/* No content label */
+"There is no content" = "Контент отсутствует";
+
+/* input dialog */
+"Title for issue" = "Заголовок";
+
+/* Issue page */
+"Type new comment here" = "Напишите новый комментарий";
+
+/* input dialog */
+"Type title for new issue" = "Введите текст заголовка";
+
+/* issues info */
+"was closed on" = "было закрыто";
+
+/* Repos page button */
+"Watch files" = "Просмотр файлов";
+
+/* Repos page button */
+"Watch issues" = "Просмтор сообщений об ошибках";
+
+/* Repos page */
+"with login:" = "с логином";
+

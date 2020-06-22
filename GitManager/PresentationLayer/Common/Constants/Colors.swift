@@ -14,6 +14,8 @@ struct Colors {
     static let mainColor = UIColor("#4C16C0")
     static let mainColorWithAlpha = mainColor.withAlphaComponent(0.6)
     
+    static let shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    
     static let folder = #colorLiteral(red: 1, green: 0.7117738161, blue: 0, alpha: 1)
     static let file = #colorLiteral(red: 0.5764705882, green: 0.3529411765, blue: 1, alpha: 1)
     

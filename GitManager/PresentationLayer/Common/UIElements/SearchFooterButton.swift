@@ -37,10 +37,18 @@ class SearchFooterButton: UIButton {
     }
     
     func configureView() {
-        backgroundColor = Colors.mainColor
-        layer.cornerRadius = 10
-        layer.borderWidth = 2
-        layer.borderColor = Colors.lightText.cgColor
         self.alpha = 0.0
+        layer.cornerRadius = 10
+        //backgroundColor = Colors.mainColorWithAlpha
+        Designer.mainColorWithBorder(self)
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UntouchableUIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.layer.cornerRadius = 10
+        blurEffectView.clipsToBounds = true
+        blurEffectView.alpha = 0.9
+        addSubview(blurEffectView)
     }
 }

@@ -42,8 +42,7 @@ class FileSystemViewController: UIViewController, FileSystemViewProtocol {
     // MARK: - UI elements actions
     
     @objc private func shareRepository(){
-        let message = NSLocalizedString("You can get the folder from this link:\n", comment: "")
-        let textToShare = [ message + presenter.getFolderLink() ]
+        let textToShare = [ URL(string: presenter.getFolderLink()) ]
         let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]

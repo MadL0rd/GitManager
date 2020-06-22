@@ -26,13 +26,20 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
     func setupView(){
         self.hideKeyboardWhenTappedAround()
         navigationItem.title = NSLocalizedString("Profile editing", comment: "Title on profile editor screen")
-        let logOutString = NSLocalizedString("LogOut", comment: "on profile editor screen")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: logOutString, style: .plain, target: self, action: #selector(logOut))
         view.backgroundColor = Colors.mainBackground
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil);
         
         setupScrollView()
         setupForm()
         setupLoading()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if  KeyboardConstants.height == nil {
+                KeyboardConstants.height = keyboardSize.height
+            }
+        }
     }
     
     private func setupScrollView(){
@@ -50,15 +57,17 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
         form.axis = .vertical
         form.spacing = spacing
         form.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        form.setMargin(left: 0, top: spacing * 2, right: 0, bottom: spacing * 6)
         form.setMargin(horizontal: 0, vertical: spacing * 2)
         form.widthAnchor.constraint(equalTo: scroll.widthAnchor, multiplier: 0.65).isActive = true
         
-        form.nameTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
-        form.companyTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
-        form.bioTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
-        form.blogTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
-        form.locationTextField.addTarget(self, action: #selector(dataCheck), for: .editingChanged)
+        form.nameTextField.addTarget(self, action: #selector(dataCheck), for: .editingDidEnd)
+        form.companyTextField.addTarget(self, action: #selector(dataCheck), for: .editingDidEnd)
+        form.bioTextField.addTarget(self, action: #selector(dataCheck), for: .editingDidEnd)
+        form.blogTextField.addTarget(self, action: #selector(dataCheck), for: .editingDidEnd)
+        form.locationTextField.addTarget(self, action: #selector(dataCheck), for: .editingDidEnd)
         form.saveButton.addTarget(self, action: #selector(updateUserProfile), for: .touchUpInside)
+        form.saveButton.isHidden = true
     }
     
     private func setupLoading(){
@@ -81,7 +90,7 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
         loading.hide()
     }
     
-    @objc func updateUserProfile(){
+    @objc func updateUserProfile() {
         var user = GitUser()
         user.name = form.nameTextField.text ?? ""
         user.company = form.companyTextField.text ?? ""
@@ -98,9 +107,7 @@ class ProfileEditorView: UIViewController, ProfileEditorViewProtocol {
             }
         }
         if form.textFieldsNeedsToSave(){
-            form.saveButton.setActive()
-        }else{
-            form.saveButton.setBlocked()
+            updateUserProfile()
         }
     }
     

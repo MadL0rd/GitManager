@@ -8,7 +8,8 @@
 
 protocol GitHubApiServiceProtocol {
     
-    func authenticate(login: String, password: String, callback : @escaping(_ success : Bool)-> Void)
+    func authenticate(callback : @escaping(_ success : Bool)-> Void)
+    func createTokenAndAuthenticate(callback : @escaping(_ success : Bool)-> Void)
     func getAuthenticatedUser(callback : @escaping(_ user : GitUser)-> Void)
     func editUserProfile(newUserData: GitUser, callback : @escaping(_ user : GitUser)-> Void)
     func getPublicUserInfo(login: String, callback : @escaping(_ user : GitUser)-> Void)
@@ -24,7 +25,7 @@ protocol GitHubApiServiceProtocol {
     func addCommentToIssue(issue: Issue, comment: String, callback : @escaping(_ comment: IssueComment)-> Void)
     
     func getReadme(repository: Repository, callback : @escaping(_ htmlSource : String?)-> Void)
-    func getFileContent(repository: Repository, path: String, callback : @escaping(_ htmlSource : String?)-> Void)
+    func getFileContent(dir: Directory, callback: @escaping(_ content : String?) -> Void )
     
     func getBrancesList(repository: Repository, callback : @escaping(_ branches : [String])-> Void)
 	func getBranchRootDirectory(repo: Repository, branch: String, callback: @escaping (Directory) -> Void)

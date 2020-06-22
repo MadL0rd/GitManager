@@ -8,29 +8,24 @@
 
 import KeychainSwift
 
-class KeychainService: KeychainServiceProtocol {    
+class KeychainService: KeychainServiceProtocol {
     
     private let keychain = KeychainSwift(keyPrefix: Keys.prefix)
     
-    func getPrivateUserData() -> (login: String, password: String) {
-        let login : String = keychain.get(Keys.loginKey) ?? ""
-        let password : String = keychain.get(Keys.passwordKey) ?? ""
-        return (login, password)
+    func getUserToken() -> String? {
+        return keychain.get(Keys.tokenKey)
     }
     
-    func setPrivateUserData(login: String, password: String) {
-        keychain.set(login, forKey: Keys.loginKey, withAccess: .accessibleAlways)
-        keychain.set(password, forKey: Keys.passwordKey, withAccess: .accessibleAlways)
+    func setUserToken(_ token: String) {
+        keychain.set(token, forKey: Keys.tokenKey, withAccess: .accessibleAlways)
     }
     
     func clearPrivateUserData() {
-        keychain.delete(Keys.loginKey)
-        keychain.delete(Keys.passwordKey)
+        keychain.delete(Keys.tokenKey)
     }
 }
 
 private struct Keys{
-    static let prefix       = "my_prefix"
-    static let loginKey     = "logogogin"
-    static let passwordKey  = "passassasword"
+    static let prefix       = "Fe9f6yYUVJg3AynP"
+    static let tokenKey     = "9AM78HPKp7V9kERE"
 }

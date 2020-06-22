@@ -14,7 +14,7 @@ class FileViewerInteractor: FileViewerInteractorProtocol {
     
     var gitApi: GitHubApiServiceProtocol!
     
-    func getFileContent(repo: Repository, path: String, callback: @escaping (String?) -> Void) {
-        gitApi.getFileContent(repository: repo, path: path, callback: callback)
+    func getFileContent(dir: Directory, callback : @escaping(_ content : String?)-> Void) {
+        gitApi.getFileContent(dir: dir, callback: callback)
     }
 }

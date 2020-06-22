@@ -22,20 +22,21 @@ class AuthenticationPresenter: AuthenticationPresenterProtocol{
         }
     }
     
-    func tryToAuthenticate(login: String, password: String) {
-        interactor?.sendAuthenticationRequest(login: login, password: password)
+    func tryToAuthenticate() {
+        interactor?.sendAuthenticationRequest()
     }
     
     func showNextScreen() {
         router?.pushMainScreen()
     }
     
-    func showErrorMessage() {
-        view?.showErrorMessage()
+    func showSignIn() {
+        needToHideLoading = true
+        view?.showSignIn()
     }
     
     func hideLoading() {
-        if viewLoaded{
+        if viewLoaded {
             view?.hideLoading()
             needToHideLoading = false
         } else {

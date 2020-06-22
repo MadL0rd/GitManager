@@ -16,14 +16,11 @@ class FileViewerPresenter: FileViewerPresenterProtocol {
     
     var repository: Repository!
     var path: String!
+    var directory: Directory!
     
     func viewDidLoad() {
-        interactor.getFileContent(repo: repository, 
-                                  path: path, 
-                                  callback: { [ weak self ] content in
-                                    guard let self = self 
-                                        else { return }
-                                    self.view?.showFileContent(content ?? "")})
+        interactor.getFileContent(dir: directory, 
+                                  callback: representFileContent(_:))
         let pathParts = path.split(separator: "/")
         if let fileName = pathParts.last {
             view?.setTitle(String(fileName))
@@ -34,5 +31,12 @@ class FileViewerPresenter: FileViewerPresenterProtocol {
         let escapedPath = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
         let urlRequest = "https://github.com/\(repository.fullName)/blob\(escapedPath)"
         return urlRequest
+    }
+    
+    private func representFileContent(_ content: String?) {
+        let pathParts = path.split(separator: "/")
+        let fileName = pathParts.last
+        let fileExtension = String(fileName?.split(separator: ".").last ?? "")
+        view?.showFileContent(content, fileExtension: fileExtension)
     }
 }

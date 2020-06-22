@@ -32,9 +32,10 @@ class FileViewerRouter: FileViewerRouterProtocol, DependentRouterProtocol {
         interactor.presenter = presenter
         interactor.gitApi = GitHubApiService()
         
-        if let content = content as? (repo: Repository, path: String) {
+        if let content = content as? (repo: Repository, path: String, dir: Directory) {
             presenter.path = content.path
             presenter.repository = content.repo
+            presenter.directory = content.dir
         }
         
         return view

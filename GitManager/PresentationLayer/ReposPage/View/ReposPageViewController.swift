@@ -76,11 +76,17 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
     }
     
     @objc private func shareRepository(){
-        let textToShare = [ repositoryBuff?.url ]
-        let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-        self.present(activityViewController, animated: true, completion: nil)
+        if	var url = repositoryBuff?.url {
+            url.removeSubrange(url.startIndex ... url.index(url.startIndex, offsetBy : 28))
+            url = "https://github.com/\(url)"
+            let textToShare = [ URL(string: url) ]
+            let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        
+        
     }
     
     private func setupScrollView(){
@@ -150,9 +156,7 @@ class ReposPageViewController: UIViewController, ReposPageViewProtocol, WKNaviga
         Designer.smallButton(button)
         button.heightAnchor.constraint(equalToConstant: 70).isActive = true
         button.stack.addArrangedSubview(topView)
-        button.backgroundColor = Colors.mainColorWithAlpha
-        button.layer.borderColor = Colors.mainColor.cgColor
-        button.layer.borderWidth = 3
+        Designer.mainColorWithBorder(button)
         
         let label = UILabel()
         Designer.mainTitleLabelNormal(label, textColor: Colors.lightText)

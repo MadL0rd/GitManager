@@ -199,7 +199,7 @@ class IssuesListViewController: UIViewController, IssuesListViewProtocol, UITabl
     func showFooterButton() {
         if footerHiden{
             footerHiden.toggle()
-            footer.setTextAndShow(text: "next page")
+            footer.setTextAndShow(text: NSLocalizedString("NEXT PAGE", comment: ""))
             footerHidenBottomConstraint?.isActive = false
             footerVisibleBottomConstraint?.isActive = true
             UIView.animate(withDuration: 0.7, animations: {

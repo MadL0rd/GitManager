@@ -16,32 +16,27 @@ class AuthenticationInteractor: AuthenticationInteractorProtocol {
     private var loginBuff: String = ""
     private var passwordBuff: String = ""
     
-    func sendAuthenticationRequest(login: String, password: String) {
+    func sendAuthenticationRequest() {
         if multiRequestBlocker {
             multiRequestBlocker = false
-            loginBuff = login
-            passwordBuff = password
-            apiService?.authenticate(login: login, password: password, callback: self.authenticationRequestResult)
+            apiService?.createTokenAndAuthenticate(callback: authenticationRequestResult(success:))
         }
     }
     
     func authenticationRequestResult(success: Bool) {
         multiRequestBlocker = true
         if success {
-            keychain?.setPrivateUserData(login: loginBuff, password: passwordBuff)
             presenter?.showNextScreen()
-        }else{
-            presenter?.showErrorMessage()
+        } else {
+            presenter?.showSignIn()
         }
     }
     
     func tryAuthenticationWithSavedUserData() {
-        if let data = keychain?.getPrivateUserData(){
-            if data.login != "" && data.password != "" {
-                sendAuthenticationRequest(login: data.login, password: data.password)
-            }else{
-                presenter?.hideLoading()
-            }
+        if let _ = keychain?.getUserToken() {
+            apiService?.authenticate(callback: authenticationRequestResult)
+        } else {
+            presenter?.showSignIn()
         }
     }
     

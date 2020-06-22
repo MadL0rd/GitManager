@@ -11,7 +11,7 @@ protocol AuthenticationViewProtocol: class {
     var presenter:  AuthenticationPresenterProtocol?    { get set }
     
     func hideLoading()
-    func showErrorMessage()
+    func showSignIn()
 }
 
 protocol AuthenticationPresenterProtocol: class {
@@ -21,9 +21,9 @@ protocol AuthenticationPresenterProtocol: class {
     var router:     AuthenticationRouterProtocol?       { get set }
     
     func viewDidLoad()
-    func tryToAuthenticate(login: String, password: String)
+    func tryToAuthenticate()
     func showNextScreen()
-    func showErrorMessage()
+    func showSignIn()
     func hideLoading()
 }
 
@@ -33,7 +33,7 @@ protocol AuthenticationInteractorProtocol: class {
     var keychain:   KeychainServiceProtocol?            { get set }
     var apiService: GitHubApiServiceProtocol?           { get set }
     
-    func sendAuthenticationRequest(login: String, password: String)
+    func sendAuthenticationRequest()
     func authenticationRequestResult(success: Bool)
     func tryAuthenticationWithSavedUserData()
 }

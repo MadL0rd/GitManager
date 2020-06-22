@@ -10,6 +10,12 @@ import UIKit
 
 public class Designer{
     
+    public static func mainColorWithBorder(_ view: UIView) {
+        view.backgroundColor = Colors.mainColorWithAlpha
+        view.layer.borderColor = Colors.mainColor.cgColor
+        view.layer.borderWidth = 3
+    }
+    
     public static func defaultTextFieldStyle(_ tf : UITextField){
         tf.textColor = Colors.darkText
         tf.backgroundColor = Colors.mainBackground

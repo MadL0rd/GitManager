@@ -46,7 +46,7 @@ class FileSystemPresenter: FileSystemPresenterProtocol {
         if index >= 0 && index < currentCatalog.count {
             let dir = currentCatalog[index]
             if dir.type == .file {
-                router.showFile(repo: repository, path: pathText + "/" + dir.name)
+                router.showFile(repo: repository, path: pathText + "/" + dir.name, dir: dir)
             } else {
                 if let directory = currentDirectory {
                     if path.last == dir {
@@ -82,7 +82,9 @@ class FileSystemPresenter: FileSystemPresenterProtocol {
         if branches.contains("master") {
             selectedBranch = "master"
         } else {
-            selectedBranch = branches[0]
+            if !branches.isEmpty {
+                selectedBranch = branches[0]
+            }
         }
         selectBranch(selectedBranch)
     }

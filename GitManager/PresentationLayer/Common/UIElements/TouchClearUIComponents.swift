@@ -14,6 +14,13 @@ class UntouchableStackView: UIStackView {
     }
 }
 
+class UntouchableUIVisualEffectView: UIVisualEffectView {
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        return false
+    }
+}
+
 class TouchClearUIStackView: UIStackView {
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {

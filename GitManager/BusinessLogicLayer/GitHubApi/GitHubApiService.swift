@@ -6,11 +6,11 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 
-import OAuthSwift
 import Alamofire
 
 class GitHubApiService: GitHubApiServiceProtocol {
     
+    private let keyStorage: KeychainServiceProtocol = KeychainService()
     private let parser : FileParserProtocol = GitHubFileParser()
     private let apiUrl = "https://api.github.com/"
     static private var headers : HTTPHeaders = [:]
@@ -73,7 +73,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
         var urlRequest = apiUrl + "search/repositories?q=\(name)+language:\(language)&page=\(pageNumber)&per_page=\(itemsPerPage)&sort=stars&order=desc"
         urlRequest = urlRequest.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? urlRequest
         searchRequest = Alamofire.request(urlRequest,
-            headers: GitHubApiService.headers)
+                                          headers: GitHubApiService.headers)
             .responseJSON{ response in
                 if self.searchRequestCount == requestId{
                     if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
@@ -89,7 +89,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
         }
     }
     
-    func authenticate(login: String, password: String, callback: @escaping(_ success : Bool) -> Void) {
+    func createTokenAndAuthenticate(callback: @escaping(_ success : Bool) -> Void) {
         
         let clientID: String = "0a73c3a488f79a02b4b4"
         let clientSecret: String = "fc0496b8b87a616926bc3923de1f53e9656d9905"
@@ -100,7 +100,7 @@ class GitHubApiService: GitHubApiServiceProtocol {
         // Добавляем к строке запроса необходимые параметры
         let clientIDQuery             = URLQueryItem(name: "client_id", value: clientID)
         let redirectURLQuery          = URLQueryItem(name: "redirect_uri", value: callbackURL)
-        let scopeQuery: URLQueryItem  = URLQueryItem(name: "scope", value: "user repo gist")
+        let scopeQuery: URLQueryItem  = URLQueryItem(name: "scope", value: "user repo")
         
         
         var components          = URLComponents(url: authorizeUrl, resolvingAgainstBaseURL: true)
@@ -135,16 +135,38 @@ class GitHubApiService: GitHubApiServiceProtocol {
             
             
             Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-                let responseJSON = response.result.value as! [String:Any]
-                let token = responseJSON["access_token"] as! String
-                GitHubApiService.headers = ["Authorization": "token \(token)"]
-                callback(true)
+                if	let responseJSON = response.result.value as? [String:Any],
+                	let token = responseJSON["access_token"] as? String {
+                    self.keyStorage.setUserToken(token)
+                    self.authenticate(callback: callback)
+                }
             }
         })
         
         UIApplication.shared.open(components!.url!, options: [:], completionHandler: nil)
-        
     }
+    
+    func authenticate(callback : @escaping(_ success : Bool)-> Void) {
+        guard let token = keyStorage.getUserToken() 
+            else { 
+                callback(false)
+                return
+        }
+        
+        GitHubApiService.headers = ["Authorization": "token \(token)"]
+        Alamofire.request(apiUrl + "user",
+                          headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if	let data = response.data, 
+                    let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                    let _ = dataJson["login"] as? String {
+                    callback(true)
+                } else { 
+                    callback(false)
+                }
+        }
+    }
+    
     
     func editUserProfile(newUserData: GitUser, callback: @escaping (_ user : GitUser) -> Void) {
         let parameters = [  "name"    : newUserData.name,
@@ -223,15 +245,39 @@ class GitHubApiService: GitHubApiServiceProtocol {
         let escapedPath = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? path
         let urlRequest = "https://github.com/\(repository.fullName)/blob\(escapedPath)"
         Alamofire.request(urlRequest,
-            headers: GitHubApiService.headers)
+                          headers: GitHubApiService.headers)
             .responseJSON{ response in
-                if let data = response.data{
+                if let data = response.data {
                     guard let html = String(data: data, encoding: String.Encoding.utf8) else { return }
                     callback(self.parser.parsePage(htmlSource: html))
                 }
         }
     }
-
+    
+    func getFileContent(dir: Directory, callback: @escaping(_ content : String?) -> Void ) {
+        guard dir.type == .file 
+            else { return }
+        Alamofire.request(dir.url,
+                          headers: GitHubApiService.headers)
+            .responseJSON{ response in
+                if 	let data = response.data,
+                    let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
+                    let contentBase64 =  dataJson["content"] as? String {
+                    let lines = contentBase64.split(separator: "\n")
+                    var content  = ""
+                    for line in lines {
+                        content += line
+                    }
+                    if let contentResult = content.fromBase64() {
+                        callback(contentResult)
+                        return
+                    }
+                }
+                callback(nil)
+                return
+        }
+    }
+    
     
     func getBrancesList(repository: Repository, callback : @escaping(_ branches : [String])-> Void) {
         guard let url = repository.url else { return }
@@ -271,13 +317,13 @@ class GitHubApiService: GitHubApiServiceProtocol {
             .responseJSON{ response in
                 if  let data = response.data,
                     let dataJson = self._parseJsonResponse(data: data) as? NSDictionary,
-                	let tree = dataJson["tree"] as? NSArray {
+                    let tree = dataJson["tree"] as? NSArray {
                     var directories = [Directory]()
                     for item in tree {
                         if	let dir = item as? NSDictionary,
                             let dirName = dir["path"] as? String,
                             let dirUrl = dir["url"] as? String,
-                        	let dirTypeName = dir["type"] as? String {
+                            let dirTypeName = dir["type"] as? String {
                             var dirType = DirectoryType.file
                             switch dirTypeName {
                             case "blob":
@@ -323,11 +369,11 @@ class GitHubApiService: GitHubApiServiceProtocol {
             encoding: Alamofire.JSONEncoding.default,
             headers: GitHubApiService.headers)
             .responseJSON{ response in
-                    if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary {
-                        let issue = Issue(dataJson)
-                        callback(issue)
-                    }
-            }
+                if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary {
+                    let issue = Issue(dataJson)
+                    callback(issue)
+                }
+        }
     }
     
     func getIssuesComments(issue: Issue, itemsPerPage: Int, pageNumber : Int, callback : @escaping(_ issues: [IssueComment])-> Void){
@@ -357,10 +403,10 @@ class GitHubApiService: GitHubApiServiceProtocol {
         
         let parameters = [  "body": comment ]
         Alamofire.request(url + "/comments",
-            method: .post,
-            parameters: parameters as Parameters,
-            encoding: Alamofire.JSONEncoding.default,
-            headers: GitHubApiService.headers)
+                          method: .post,
+                          parameters: parameters as Parameters,
+                          encoding: Alamofire.JSONEncoding.default,
+                          headers: GitHubApiService.headers)
             .responseJSON{ response in
                 if let data = response.data, let dataJson = self._parseJsonResponse(data: data) as? NSDictionary {
                     let comment = IssueComment(dataJson)
@@ -368,6 +414,6 @@ class GitHubApiService: GitHubApiServiceProtocol {
                 }
         }
     }
-
+    
 }
 

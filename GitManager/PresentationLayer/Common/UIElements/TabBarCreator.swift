@@ -40,7 +40,7 @@ class TabBarCreator {
         let iconSettings = UITabBarItem()
         iconSettings.selectedImage = UIImage(named: "settings")
         iconSettings.image = UIImage(named: "settings")
-        view = ProfileEditorRouter.createModule(screensRouter: mainRouter, content: nil) as UIViewController
+        view = SettingsRouter.createModule(screensRouter: mainRouter, content: nil) as UIViewController
         navController = UINavigationController(rootViewController: view)
         navController.tabBarItem = iconSettings
         tabBarBuff.append(navController)

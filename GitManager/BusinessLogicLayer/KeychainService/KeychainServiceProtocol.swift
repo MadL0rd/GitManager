@@ -10,7 +10,7 @@ import KeychainSwift
 
 protocol KeychainServiceProtocol: class {
     
-    func getPrivateUserData() -> (login: String, password: String)
-    func setPrivateUserData(login: String, password: String)
+    func getUserToken() -> String?
+    func setUserToken(_ token: String)
     func clearPrivateUserData()
 }

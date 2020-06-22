@@ -6,86 +6,56 @@
 //  Copyright © 2019 Антон Текутов. All rights reserved.
 //
 import UIKit
-import OAuthSwift
 
 class AuthenticationViewController: UIViewController, AuthenticationViewProtocol {
     
     var presenter: AuthenticationPresenterProtocol?
     private var loading: LoadingViewProtocol = LoadingView()
-    let form: AuthenticationForm = {
-        let view = AuthenticationForm()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     
-    func showErrorMessage() {
-        form.loginButton.setBlocked()
-        UIView.animate(withDuration: 0.5) {
-            self.form.errorLabel.alpha = 1
-        }
-        loading.hide()
+    private var _view: AuthenticationView {
+        return view as! AuthenticationView
+    }
+
+    override func loadView() {
+        self.view = AuthenticationView()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+        
+        _view.signInButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        
+        presenter?.viewDidLoad()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+       }
+    
+    func setupView(){
+        self.hideKeyboardWhenTappedAround()
+
+        setupLoading()
+    }
+    
+    private func setupLoading(){
+        _view.addSubview(loading)
+        loading.setMargin(0)
+        //loading.show(animation: false)
+    }
+    
+    func showSignIn() {
+        _view.showSignInButton()
     }
     
     func hideLoading() {
         loading.hide()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Colors.mainBackground
-        setupView()
-        
-        presenter?.viewDidLoad()
-    }
-    
-    func setupView(){
-        self.hideKeyboardWhenTappedAround()
-
-        setupForm()
-        setupLoading()
-    }
-    
-    private func setupForm(){
-        view.addSubview(form)
-        
-        form.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.65).isActive = true
-        form.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        form.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        form.loginTextField.addTarget(self, action: #selector(textConteinsCheck), for: .editingChanged)
-        form.passwordTextField.addTarget(self, action: #selector(textConteinsCheck), for: .editingChanged)
-        form.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-    }
-    
-    private func setupLoading(){
-        view.addSubview(loading)
-        loading.setMargin(0)
-        loading.show(animation: false)
-    }
-
-    
-    @objc func textConteinsCheck(){
-        if form.textFieldsIsNotEmpty(){
-            form.loginButton.setActive()
-            if form.errorLabel.alpha != 0{
-                UIView.animate(withDuration: 0.5) {
-                    self.form.errorLabel.alpha = 0
-                }
-            }
-        }else{
-            form.loginButton.setBlocked()
-        }
-    }
-    
     @objc func loginButtonPressed(){
-        presenter?.tryToAuthenticate(login: form.loginTextField.text ?? "", password: form.passwordTextField.text ?? "")
+        presenter?.tryToAuthenticate()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        if #available(iOS 13.0, *) {
-            return .darkContent
-        } else {
-            return .default
-        }
-    }
+    
 }

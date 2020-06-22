@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import WebKit
+import MarkdownView
 
 class FileViewerView: UIView {
     
-    var webView = WKWebView()
+    let mdView = MarkdownView()
 	let loading: LoadingViewProtocol = LoadingView()
     let errorLabel = UILabel()
     
@@ -35,15 +35,10 @@ class FileViewerView: UIView {
         
         backgroundColor = Colors.mainBackground
         
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        addSubview(webView)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.setMargin(0)
-        webView.scrollView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        webView.scrollView.minimumZoomScale = 0.4
-        webView.scrollView.maximumZoomScale = 10.0
-        webView.scrollView.zoomScale = 2
+        addSubview(mdView)
+        mdView.translatesAutoresizingMaskIntoConstraints = false
+        mdView.isScrollEnabled = true
+        mdView.setMargin(baseView: safeAreaLayoutGuide, 0)
         
         addSubview(loading)
         loading.setMargin(0)

@@ -14,7 +14,14 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
     
     var presenter: IssuePagePresenterProtocol?
     
-    private static var keyboardHeight: CGFloat?
+    private var keyboardHeight: CGFloat? {
+        get {
+            KeyboardConstants.height
+        }
+        set {
+            KeyboardConstants.height = newValue
+        }
+    }
     private var width : CGFloat = 300
     private var spacing : CGFloat = 20
     private var loading: LoadingViewProtocol = LoadingView()
@@ -304,11 +311,12 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             UIView.animate(withDuration: 0.07, animations: { () -> Void in
                 if let view = self.view {
-                    if IssuePageViewController.keyboardHeight == nil {
-                        IssuePageViewController.keyboardHeight = keyboardSize.height
+                    if self.keyboardHeight == nil {
+                        self.keyboardHeight = keyboardSize.height
                     }
-                    guard let height = IssuePageViewController.keyboardHeight else { return }
-                    self.newCommentPlaceholderBottomConstraint?.constant = -height + view.safeAreaInsets.bottom
+                    guard let height = self.keyboardHeight else { return }
+                    let bottomPadding = view.safeAreaInsets.bottom
+                    self.newCommentPlaceholderBottomConstraint?.constant = -height + bottomPadding
                     view.layoutIfNeeded()
                 }
             })
@@ -368,7 +376,7 @@ class IssuePageViewController: UIViewController, IssuePageViewProtocol, UITextFi
         footer.leftAnchor.constraint(equalTo: view.leftAnchor, constant: view.frame.width/16).isActive = true
         footer.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -view.frame.width/16).isActive = true
         footer.addTarget(self, action: #selector(loadNextPage), for: .touchUpInside)
-        footer.setTitle(NSLocalizedString("Load next page", comment: "footer button"), for: .normal)
+        footer.setTitle(NSLocalizedString("NEXT PAGE", comment: "footer button"), for: .normal)
     }
     
     @objc func loadNextPage(){

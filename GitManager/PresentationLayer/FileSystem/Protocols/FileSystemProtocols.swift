@@ -40,5 +40,5 @@ protocol FileSystemInteractorProtocol {
 
 protocol FileSystemRouterProtocol {
     
-    func showFile(repo: Repository, path: String)
+    func showFile(repo: Repository, path: String, dir: Directory)
 }
